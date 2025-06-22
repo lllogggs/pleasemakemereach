@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/wkeoo93/Downloads/index_with_verified_metatags_only.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="tripdotdot" name="author"><meta content="트립닷닷, 트립닷컴 가격비교, Trip.com 최저가, 국가별 링크, 호텔 최저가, 항공권 비교, tripdotdot" name="keywords"><meta content="트립닷닷은 Trip.com 국가별 가격 비교 도구입니다. 같은 호텔, 항공권이라도 국가에 따라 가격이 다릅니다. 최저가로 예약하세요!" name="description"><meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>트립닷닷 | Trip.com 국가별 최저가 링크 생성기</title>
+<style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .description {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      text-align: center;
+      background: #e7f3ff;
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #0078ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .link-list {
+      display: none;
+      flex-direction: column;
+    }
+    .link-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px;
+      margin-bottom: 10px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+    .link-list a:hover {
+      background: #f0f8ff;
+    }
+    .link-list a.clicked {
+      background: #cce5ff;
+    }
+    .flag {
+      width: 24px;
+      height: 16px;
+      object-fit: cover;
+    }
+  </style>
+<meta content="0BzhAaMapguH_MeU7EZbSDla0DlHq7RNCMnAcujXNzM" name="google-site-verification"><meta content="6d36eb0cb19fc826bcba409428fa0d6fddc9c33d" name="naver-site-verification"></head>
+<body>
+<div class="container" style="width: 100%; max-width: 600px;"><h1 style="font-size: 32px; margin-bottom: 12px;">🌐 트립닷닷 국가별 링크</h1><div style="font-size: 32px; font-weight: bold; text-align: center; margin: 30px 0 10px;">🌍 <span style="background: yellow; padding: 0 4px;">최저가 국가</span>를 찾아보세요</div><div style="font-size: 17px; color: #444; text-align: center; line-height: 1.6; margin: 12px 0 20px;">
+        트립닷컴에서는 같은 상품도 <strong>국가별로 가격이 다릅니다.</strong><br>
+        호텔/숙소/항공권/액티비티 모두 <strong>가장 저렴한 나라</strong>에서 예약하세요!
+        </div>
+<div class="usage" style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">✅ 사용방법</div>
+<ul style="width: 100%;font-size: 17px; color: #444; margin-bottom: 20px; padding-left: 20px; line-height: 1.7;">
+<li>1️⃣ 트립닷컴에서 원하는 호텔/날짜 검색한 후 링크를 복사! (항공권도 동일)</li>
+<li>2️⃣ 빈칸에 붙여넣고 [링크 생성] 클릭</li>
+<li>3️⃣ 아래 국가별 가격을 하나씩 눌러 비교!</li>
+<li>👉 크롬 우측 상단 번역 아이콘을 눌러 한국어로 보기</li>
+</ul>
+<input id="inputUrl" placeholder="트립닷컴 링크를 붙여넣으세요" style="
+    width: 575px;
+" type="text">
+<button onclick="generateLinks()" style="width: 100%;">링크 생성</button>
+<div class="link-list" id="results"></div>
+</div>
+<script>
+    const domains = [
+      { label: '한국', code: 'kr', flag: 'kr' },
+      { label: '미국', code: 'us', flag: 'us' },
+      { label: '일본', code: 'jp', flag: 'jp' },
+      { label: '스페인', code: 'es', flag: 'es' },
+      { label: '프랑스', code: 'fr', flag: 'fr' },
+      { label: '베트남', code: 'vn', flag: 'vn' },
+      { label: '독일', code: 'de', flag: 'de' },
+      { label: '캐나다', code: 'ca', flag: 'ca' },
+      { label: '호주', code: 'au', flag: 'au' },
+      { label: '네덜란드', code: 'nl', flag: 'nl' },
+      { label: '싱가포르', code: 'sg', flag: 'sg' },
+      { label: '인도네시아', code: 'id', flag: 'id' },
+      { label: '말레이시아', code: 'my', flag: 'my' },
+      { label: '대만', code: 'tw', flag: 'tw' },
+      { label: '인도', code: 'in', flag: 'in' },
+      { label: '멕시코', code: 'mx', flag: 'mx' },
+      { label: '영국', code: 'uk', flag: 'gb' },
+      { label: '러시아', code: 'ru', flag: 'ru' },
+      { label: '아르헨티나', code: 'ar', flag: 'ar' },
+      { label: '포르투갈', code: 'pt', flag: 'pt' },
+      { label: '사우디아라비아', code: 'sa', flag: 'sa' }
+    ];
+
+    function generateLinks() {
+      const input = document.getElementById('inputUrl').value.trim();
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+      if (!input.includes('trip.com')) {
+        resultsDiv.innerHTML = '<p>유효한 트립닷컴 링크를 입력해주세요.</p>';
+        return;
+      }
+
+      
+      const cleanURL = input.replace(/([&?])(utm_\w+|campaign|google|subChannel|barcurr|display|locale|curr|subStamp|link|travelpurpose|hoteluniquekey|masterhotelid_tracelogid|detailFilters|NewTaxDescForAmountshowtype0|crn|ages|finalPriceView)(=[^&]*)?/gi, '')
+                              .replace(/([&?])+$/, '');
+      const path = cleanURL.split('.trip.com')[1];
+            
+      const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4129323';
+      resultsDiv.style.display = 'flex';
+
+      domains.forEach(dom => {
+        const hasQuery = path.includes('?');
+        const fullUrl = `https://${dom.code}.trip.com${path}${hasQuery ? '&' : '?'}${affix}`;
+        const a = document.createElement('a');
+        a.href = fullUrl;
+        a.target = '_blank';
+        a.onclick = () => {
+          a.classList.toggle('clicked');
+        };
+        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom.label}"> ${dom.label}`;
+        resultsDiv.appendChild(a);
+      });
+    }
+  </script>
+</body></html>
