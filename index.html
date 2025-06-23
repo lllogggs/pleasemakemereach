@@ -1,107 +1,250 @@
 <!DOCTYPE html>
-<!-- saved from url=(0073)file:///C:/Users/wkeoo93/Downloads/index_with_verified_metatags_only.html -->
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="tripdotdot" name="author"><meta content="트립닷닷, 트립닷컴 가격비교, Trip.com 최저가, 국가별 링크, 호텔 최저가, 항공권 비교, tripdotdot" name="keywords"><meta content="트립닷닷은 Trip.com 국가별 가격 비교 도구입니다. 같은 호텔, 항공권이라도 국가에 따라 가격이 다릅니다. 최저가로 예약하세요!" name="description"><meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>트립닷닷 | Trip.com 최저가링크</title>
-<style>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>트립닷닷 | Trip.com 최저가 링크 찾기</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta content="tripdotdot" name="author">
+  <meta content="트립닷닷, 트립닷컴 가격비교, Trip.com 최저가, 국가별 링크, 호텔 최저가, 항공권 비교, tripdotdot" name="keywords">
+  <meta name="description" content="트립닷닷은 Trip.com 국가별 가격 비교 도구입니다. 같은 호텔, 항공권이라도 국가에 따라 가격이 다릅니다. 최저가로 예약하세요!">
+  
+  <meta content="0BzhAaMapguH_MeU7EZbSDla0DlHq7RNCMnAcujXNzM" name="google-site-verification">
+  <meta content="6d36eb0cb19fc826bcba409428fa0d6fddc9c33d" name="naver-site-verification">
+  
+  <meta property="og:title" content="트립닷닷 | Trip.com 최저가 링크 찾기">
+  <meta property="og:description" content="같은 호텔, 항공권도 접속 국가에 따라 가격이 다릅니다. 트립닷닷으로 최저가를 찾아보세요!">
+  <meta property="og:image" content="https://storage.googleapis.com/gemini-prod/images/2024/6/23/f91c95b4f6204c3e.png">
+  <meta property="og:url" content="https://tripdotdot.com/">
+  <meta property="og:type" content="website">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+    :root {
+      --primary-blue: #3264ff;
+      --light-blue: #eaf0ff;
+      --background-color: #f5f7fa;
+      --card-background: #ffffff;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --border-color: #e5e7eb;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #f9f9f9;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background-color: var(--background-color);
       margin: 0;
       padding: 40px 20px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
     }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-    .description {
-      font-size: 15px;
-      color: #444;
-      margin-bottom: 25px;
-      line-height: 1.5;
-      text-align: center;
-      background: #e7f3ff;
-      padding: 12px 18px;
-      border-radius: 10px;
-    }
+
     .container {
       width: 100%;
       max-width: 600px;
     }
-    input {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
+
+    .header {
+      text-align: center;
+      margin-bottom: 12px; 
     }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 0 0 0px 0; 
+    }
+
+    .header p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .input-section {
+      background: var(--card-background);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
+    }
+
+    #inputUrl {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    #inputUrl:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px var(--light-blue);
+    }
+
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       font-size: 16px;
-      background-color: #0078ff;
+      font-weight: 500;
+      background-color: var(--primary-blue);
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-bottom: 20px;
+      transition: background-color 0.2s;
     }
+
+    button:hover {
+      background-color: #254edc;
+    }
+
+    .info-card {
+      background: var(--card-background);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
+    }
+
+    .info-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .info-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .info-card ul li {
+        margin-bottom: 8px;
+    }
+    
+    .info-card ul li strong,
+    .info-card p strong {
+        color: var(--primary-blue);
+    }
+
+    .info-card p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
     .link-list {
       display: none;
-      flex-direction: column;
+      flex-flow: row wrap;
+      gap: 10px;
+      background: var(--card-background);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
     }
+
     .link-list a {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px;
-      margin-bottom: 10px;
-      background: white;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      border: 1px solid #eee;
       text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      transition: background 0.2s;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-weight: 500;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+      flex-basis: calc(33.333% - 10px);
+      justify-content: center;
+      box-sizing: border-box;
     }
+
     .link-list a:hover {
-      background: #f0f8ff;
+      background-color: var(--light-blue);
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
     }
+
     .link-list a.clicked {
-      background: #cce5ff;
+      background-color: var(--light-blue);
+      border-color: var(--primary-blue);
+      font-weight: 700;
     }
+
     .flag {
       width: 24px;
       height: 16px;
       object-fit: cover;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 600px) {
+        .link-list a {
+            flex-basis: calc(50% - 5px);
+        }
+    }
+    @media (max-width: 400px) {
+        .link-list a {
+            flex-basis: 100%;
+        }
     }
   </style>
-<meta content="0BzhAaMapguH_MeU7EZbSDla0DlHq7RNCMnAcujXNzM" name="google-site-verification"><meta content="6d36eb0cb19fc826bcba409428fa0d6fddc9c33d" name="naver-site-verification"></head>
+</head>
 <body>
-<div class="container" style="width: 100%; max-width: 600px;"><h1 style="font-size: 32px; text-align: center; margin-bottom: 12px;">🌐 트립닷닷 국가별 링크</h1><div style="font-size: 25px; font-weight: bold; text-align: center; margin: 30px 0 10px;">🌍 <span style="background: yellow; padding: 0 4px;">최저가 국가</span>를 찾아보세요</div><div style="font-size: 17px; color: #444; text-align: center; line-height: 1.6; margin: 12px 0 20px;">
-        트립닷컴에서는 같은 상품도 <strong>국가별로 가격이 다를 수 있습니다.</strong><br>
-        호텔/숙소/항공권/액티비티 모두 <strong>가장 저렴한 나라</strong>에서 예약하세요!
-        </div>
-<div class="usage" style="font-size: 25px; font-weight: bold; text-align: center; margin-bottom: 10px;">✅ 사용방법</div>
-<ul style="width: 100%;font-size: 17px; color: #444; margin-bottom: 20px; padding-left: 20px; line-height: 1.7;">
-<li>1️⃣ <strong>트립닷컴</strong>에서 원하는 호텔/날짜 검색 후 <strong>링크 복사!</strong></li>
-<li>&nbsp;&nbsp;✈️ <strong>항공권</strong>도 동일하게 검색 후 <strong>링크 복사!</strong></li>
-<li>2️⃣ 빈칸에 붙여넣고 <strong>[링크 생성]</strong> 클릭</li>
-<li>3️⃣ 아래 국가별 가격을 하나씩 눌러 비교!</li>
-<li>👉 크롬 우측 상단 <strong>번역</strong> 아이콘을 눌러 <strong>한국어</strong>로 보기</li>
-<li>⚠️ <strong>특정호텔</strong>은 모든 국가에서 가격 <strong>동일</strong>할수도 있음</li>
-</ul>
-<input id="inputUrl" placeholder="https://kr.trip.com/~~" style="
-    width: 575px;
-" type="text">
-<button onclick="generateLinks()" style="width: 100%;">링크 생성</button>
-<div class="link-list" id="results"></div>
-</div>
-<script>
+  <div class="container">
+    <header class="header">
+      <h1>🌐 트립닷닷</h1>
+      <p>&nbsp;트립닷컴 최저가 링크 찾기</p>
+    </header>
+
+    <section class="input-section">
+      <input id="inputUrl" placeholder="https://kr.trip.com/~~ 호텔, 항공권 링크를 붙여넣으세요" type="text">
+      <button onclick="generateLinks()">최저가 링크 찾기</button>
+    </section>
+
+    <div class="link-list" id="results"></div>
+
+    <section class="info-card">
+        <h2>🌍 최저가 국가를 찾아보세요</h2>
+        <p><strong>트립닷컴</strong>에서는 같은 호텔, 항공권이라도 접속 <strong>국가에 따라 가격</strong>이 다를 수 있습니다. <strong>트립닷닷</strong>으로 모든 국가의 가격을 비교하고 <strong>가장 저렴하게</strong> 예약하세요!</p>
+    </section>
+    
+    <section class="info-card">
+      <h2>✅ 사용 방법</h2>
+      <ul>
+        <li>1️⃣ 트립닷컴에서 원하는 <strong>호텔 또는 항공권</strong> 검색 후 링크 복사</li>
+        <li>2️⃣ 위 입력창에 붙여넣고 <strong>[링크 생성하기]</strong> 클릭</li>
+        <li>3️⃣ 생성된 국가별 링크를 하나씩 눌러 <strong>최저가 확인!</strong></li>
+      </ul>
+    </section>
+
+    <section class="info-card">
+      <h2>💡 알아두면 좋은 팁</h2>
+      <p>
+        👉 외국어로 표시될 경우, 크롬의 '번역' 기능을 사용해 한국어로 보세요.<br>
+        ⚠️ 일부 상품은 모든 국가에서 <strong>가격이 동일</strong>할 수 있습니다.<br>
+        💰 세금/수수료가 포함된 <strong>최종 금액</strong>으로 비교해야 가장 정확해요.
+      </p>
+    </section>
+
+  </div>
+
+  <script>
     const domains = [
       { label: '한국', code: 'kr', flag: 'kr' },
       { label: '미국', code: 'us', flag: 'us' },
@@ -130,31 +273,57 @@
       const input = document.getElementById('inputUrl').value.trim();
       const resultsDiv = document.getElementById('results');
       resultsDiv.innerHTML = '';
+
       if (!input.includes('trip.com')) {
-        resultsDiv.innerHTML = '<p>유효한 트립닷컴 링크를 입력해주세요.</p>';
+        resultsDiv.style.display = 'block';
+        resultsDiv.innerHTML = '<p style="color: red; text-align: center;">유효한 트립닷컴 링크를 입력해주세요.</p>';
         return;
       }
-
       
-      const cleanURL = input.replace(/([&?])(utm_\w+|campaign|google|subChannel|barcurr|display|locale|curr|subStamp|link|travelpurpose|hoteluniquekey|masterhotelid_tracelogid|detailFilters|NewTaxDescForAmountshowtype0|crn|ages|finalPriceView)(=[^&]*)?/gi, '')
-                              .replace(/([&?])+$/, '');
-      const path = cleanURL.split('.trip.com')[1];
-            
-      const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
-      resultsDiv.style.display = 'flex';
+      const url = new URL(input);
+      const pathname = url.pathname;
+      const params = new URLSearchParams(url.search);
 
+      let allowedParams = [];
+      
+      if (pathname.includes('/flights')) {
+          allowedParams = ["flighttype", "dcity", "acity", "ddate", "rdate", "quantity", "childqty", "babyqty", "class", "curr"];
+      } else if (pathname.includes('/hotels/')) {
+          allowedParams = ["hotelid", "hotelId", "city", "cityId", "checkin", "checkIn", "checkout", "checkOut", "adult", "children", "crn", "ages", "travelpurpose", "curr"];
+      } else {
+          allowedParams = [];
+      }
+
+      let newParams = new URLSearchParams();
+      for (const key of allowedParams) {
+          if (params.has(key)) {
+              params.getAll(key).forEach(value => {
+                  newParams.append(key, value);
+              });
+          }
+      }
+      
+      const paramString = newParams.toString();
+      const cleanPath = pathname + (paramString ? '?' + paramString : '');
+      
+      const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+      
+      resultsDiv.style.display = 'flex';
+      
       domains.forEach(dom => {
-        const hasQuery = path.includes('?');
-        const fullUrl = `https://${dom.code}.trip.com${path}${hasQuery ? '&' : '?'}${affix}`;
+        const finalAffix = (cleanPath.includes('?') ? '&' : '?') + affix;
+        const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
+        
         const a = document.createElement('a');
         a.href = fullUrl;
         a.target = '_blank';
         a.onclick = () => {
           a.classList.toggle('clicked');
         };
-        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom.label}"> ${dom.label}`;
+        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom.label} 국기"> ${dom.label}`;
         resultsDiv.appendChild(a);
       });
     }
   </script>
-</body></html>
+</body>
+</html>
