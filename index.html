@@ -147,7 +147,7 @@
 
     .link-list {
       display: none;
-      flex-flow: row wrap;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 10px;
       background: var(--card-background);
       padding: 24px;
@@ -159,6 +159,7 @@
     .link-list a {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 10px 14px;
       background: #fff;
@@ -169,9 +170,8 @@
       font-size: 15px;
       font-weight: 500;
       transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-      flex-basis: calc(33.333% - 10px);
-      justify-content: center;
       box-sizing: border-box;
+      word-break: keep-all; 
     }
 
     .link-list a:hover {
@@ -191,18 +191,16 @@
       height: 16px;
       object-fit: cover;
       border-radius: 3px;
+      flex-shrink: 0; 
     }
 
-    @media (max-width: 600px) {
-        .link-list a {
-            flex-basis: calc(50% - 5px);
-        }
+    .highlight {
+      background-color: rgba(255, 247, 0, 0.6); /* 60% 투명도의 노란색 */
+      font-weight: 700;
+      padding: 2px 0 2px 4px; /* 오른쪽 여백 제거 */
+      border-radius: 3px;
     }
-    @media (max-width: 400px) {
-        .link-list a {
-            flex-basis: 100%;
-        }
-    }
+    
   </style>
 </head>
 <body>
@@ -213,7 +211,7 @@
     </header>
 
     <section class="input-section">
-      <input id="inputUrl" placeholder="https://kr.trip.com/~~ 호텔, 항공권 링크를 붙여넣으세요" type="text">
+      <input id="inputUrl" placeholder="https://kr.trip.com/~~ 호텔, 항공권 링크 복붙!" type="text">
       <button onclick="generateLinks()">최저가 링크 찾기</button>
     </section>
 
@@ -221,24 +219,24 @@
 
     <section class="info-card">
         <h2>🌍 최저가 국가를 찾아보세요</h2>
-        <p><strong>트립닷컴</strong>에서는 같은 호텔, 항공권이라도 접속 <strong>국가에 따라 가격</strong>이 다를 수 있습니다. <strong>트립닷닷</strong>으로 모든 국가의 가격을 비교하고 <strong>가장 저렴하게</strong> 예약하세요!</p>
+        <p>트립닷컴 상품은 <strong>국가별로 가격이 다를 수 있습니다.</strong><br><strong>트립닷닷</strong>으로 <span class="highlight">가장 저렴하게 예약</span>하세요!</p>
     </section>
     
     <section class="info-card">
       <h2>✅ 사용 방법</h2>
       <ul>
-        <li>1️⃣ 트립닷컴에서 원하는 <strong>호텔 또는 항공권</strong> 검색 후 링크 복사</li>
-        <li>2️⃣ 위 입력창에 붙여넣고 <strong>[링크 생성하기]</strong> 클릭</li>
-        <li>3️⃣ 생성된 국가별 링크를 하나씩 눌러 <strong>최저가 확인!</strong></li>
+        <li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong>하세요.</li>
+        <li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong> 버튼을 클릭!</li>
+        <li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>
       </ul>
     </section>
 
     <section class="info-card">
       <h2>💡 알아두면 좋은 팁</h2>
       <p>
-        👉 외국어로 표시될 경우, 크롬의 '번역' 기능을 사용해 한국어로 보세요.<br>
-        ⚠️ 일부 상품은 모든 국가에서 <strong>가격이 동일</strong>할 수 있습니다.<br>
-        💰 세금/수수료가 포함된 <strong>최종 금액</strong>으로 비교해야 가장 정확해요.
+        👉 외국어 페이지는 크롬 <strong>'번역'</strong> 기능을 사용하세요.<br>
+        ⚠️ 일부 상품은 국가별 가격이 <strong>동일</strong>할 수도 있습니다.<br>
+        💰 세금/수수료 포함 <strong>'최종 금액'</strong>으로 비교하세요.
       </p>
     </section>
 
@@ -275,54 +273,60 @@
       resultsDiv.innerHTML = '';
 
       if (!input.includes('trip.com')) {
-        resultsDiv.style.display = 'block';
-        resultsDiv.innerHTML = '<p style="color: red; text-align: center;">유효한 트립닷컴 링크를 입력해주세요.</p>';
+        resultsDiv.style.display = 'grid'; 
+        resultsDiv.innerHTML = '<p style="color: red; text-align: center; grid-column: 1 / -1;">유효한 트립닷컴 링크를 입력해주세요.</p>';
         return;
       }
       
-      const url = new URL(input);
-      const pathname = url.pathname;
-      const params = new URLSearchParams(url.search);
+      try {
+        const url = new URL(input);
+        const pathname = url.pathname;
+        const params = new URLSearchParams(url.search);
 
-      let allowedParams = [];
-      
-      if (pathname.includes('/flights')) {
-          allowedParams = ["flighttype", "dcity", "acity", "ddate", "rdate", "quantity", "childqty", "babyqty", "class", "curr"];
-      } else if (pathname.includes('/hotels/')) {
-          allowedParams = ["hotelid", "hotelId", "city", "cityId", "checkin", "checkIn", "checkout", "checkOut", "adult", "children", "crn", "ages", "travelpurpose", "curr"];
-      } else {
-          allowedParams = [];
-      }
-
-      let newParams = new URLSearchParams();
-      for (const key of allowedParams) {
-          if (params.has(key)) {
-              params.getAll(key).forEach(value => {
-                  newParams.append(key, value);
-              });
-          }
-      }
-      
-      const paramString = newParams.toString();
-      const cleanPath = pathname + (paramString ? '?' + paramString : '');
-      
-      const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
-      
-      resultsDiv.style.display = 'flex';
-      
-      domains.forEach(dom => {
-        const finalAffix = (cleanPath.includes('?') ? '&' : '?') + affix;
-        const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
+        let allowedParams = [];
         
-        const a = document.createElement('a');
-        a.href = fullUrl;
-        a.target = '_blank';
-        a.onclick = () => {
-          a.classList.toggle('clicked');
-        };
-        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom.label} 국기"> ${dom.label}`;
-        resultsDiv.appendChild(a);
-      });
+        if (pathname.includes('/flights')) {
+            allowedParams = ["flighttype", "dcity", "acity", "ddate", "rdate", "quantity", "childqty", "babyqty", "class", "curr"];
+        } else if (pathname.includes('/hotels/')) {
+            allowedParams = ["hotelid", "hotelId", "city", "cityId", "checkin", "checkIn", "checkout", "checkOut", "adult", "children", "crn", "ages", "travelpurpose", "curr"];
+        } else {
+            allowedParams = [];
+        }
+
+        let newParams = new URLSearchParams();
+        for (const key of allowedParams) {
+            if (params.has(key)) {
+                params.getAll(key).forEach(value => {
+                    newParams.append(key, value);
+                });
+            }
+        }
+        
+        const paramString = newParams.toString();
+        const cleanPath = pathname + (paramString ? '?' + paramString : '');
+        
+        const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+        
+        resultsDiv.style.display = 'grid'; 
+        
+        domains.forEach(dom => {
+          const finalAffix = (cleanPath.includes('?') ? '&' : '?') + affix;
+          const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
+          
+          const a = document.createElement('a');
+          a.href = fullUrl;
+          a.target = '_blank';
+          a.onclick = () => {
+            a.classList.toggle('clicked');
+          };
+          a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom.label} 국기"> ${dom.label}`;
+          resultsDiv.appendChild(a);
+        });
+      } catch (error) {
+        resultsDiv.style.display = 'grid'; 
+        resultsDiv.innerHTML = '<p style="color: red; text-align: center; grid-column: 1 / -1;">입력한 링크의 형식이 올바르지 않습니다.</p>';
+        console.error("URL Parsing Error:", error);
+      }
     }
   </script>
 </body>
