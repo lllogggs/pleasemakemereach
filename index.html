@@ -2,14 +2,13 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>트립닷닷 | Trip.com 최저가 링크 찾기</title>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
+  <title>트립닷닷 | Trip.com 최저가 링크 찾기</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta content="tripdotdot" name="author">
   <meta content="트립닷닷, 트립닷컴 가격비교, Trip.com 최저가, 국가별 링크, 호텔 최저가, 항공권 비교, tripdotdot" name="keywords">
-  
   <meta name="description" content="10초만에 N만원 절약하고 여행가자 | 최대 22개국에서 최저가 검색 가능">
   
   <meta content="0BzhAaMapguH_MeU7EZbSDla0DlHq7RNCMnAcujXNzM" name="google-site-verification">
@@ -131,11 +130,15 @@
         padding: 0;
         margin: 0;
         font-size: 16px;
-        line-height: 1.8;
+        line-height: 1.7; /* 다른 문단과 통일 */
     }
 
     .info-card ul li {
-        margin-bottom: 8px;
+        margin-bottom: 4px; /* 간격 축소 */
+    }
+
+    .info-card ul li:last-child {
+        margin-bottom: 0; /* 마지막 항목은 간격 제거 */
     }
     
     .info-card ul li strong,
@@ -197,14 +200,13 @@
       border-radius: 3px;
       flex-shrink: 0; 
     }
-
+    
     .highlight {
-      background-color: rgba(255, 247, 0, 0.6); /* 60% 투명도의 노란색 */
+      background-color: rgba(255, 247, 0, 0.6);
       font-weight: 700;
-      padding: 2px 0 2px 4px; /* 오른쪽 여백 제거 */
+      padding: 2px 0 2px 4px;
       border-radius: 3px;
     }
-    
   </style>
 </head>
 <body>
@@ -239,7 +241,7 @@
       <h2>💡 알아두면 좋은 팁</h2>
       <p>
         👉 외국어 페이지는 크롬 <strong>'번역'</strong> 기능을 사용하세요.<br>
-        ⚠️ 일부 상품은 국가별 가격이 <strong>동일</strong>할 수 있어요.<br>
+        ⚠️ 일부 상품은 국가별 가격이 <strong>동일</strong>할 수도 있습니다.<br>
         💰 세금/수수료 포함 <strong>'최종 금액'</strong>으로 비교하세요.
       </p>
     </section>
