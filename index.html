@@ -207,6 +207,57 @@
       padding: 2px 0 2px 4px;
       border-radius: 3px;
     }
+    
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 24px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    .modal-content .main-text {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    .modal-content .sub-text {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    .modal-content .sub-text strong {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+    .modal-close-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background-color: var(--primary-blue);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -241,11 +292,18 @@
       <h2>💡 알아두면 좋은 팁</h2>
       <p>
         👉 외국어 페이지는 크롬 <strong>'번역'</strong> 기능을 사용하세요.<br>
-        ⚠️ 일부 상품은 국가별 가격이 <strong>동일</strong>할 수 있어요.<br>
+        ⚠️ 일부 상품은 국가별 가격이 <strong>동일</strong>할 수도 있습니다.<br>
         💰 세금/수수료 포함 <strong>'최종 금액'</strong>으로 비교하세요.
       </p>
     </section>
+  </div>
 
+  <div id="mobile-modal" class="modal-overlay">
+    <div class="modal-content">
+        <p class="main-text">PC로 접속해야 가격이 더 저렴해요!</p>
+        <p class="sub-text" id="browser-guide-text"></p>
+        <button id="modal-close-btn">확인했습니다</button>
+    </div>
   </div>
 
   <script>
@@ -289,7 +347,6 @@
         let pathname = url.pathname;
         const params = new URLSearchParams(url.search);
 
-        // ▼▼▼ 모바일 경로(/m/)를 PC 경로(/)로 변경하는 로직 수정 ▼▼▼
         if (pathname.startsWith('/m/')) {
             pathname = pathname.replace('/m/', '/');
         }
@@ -323,6 +380,44 @@
         console.error("URL Parsing Error:", error);
       }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const modalOverlay = document.getElementById('mobile-modal');
+        const closeBtn = document.getElementById('modal-close-btn');
+        const guideTextElement = document.getElementById('browser-guide-text');
+
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            const userAgent = navigator.userAgent;
+            let guideHTML = "";
+
+            if (/SamsungBrowser/.test(userAgent)) {
+                guideHTML = "<strong>PC로 접속</strong>하시거나, 우측 하단(☰)을 눌러 '<strong>데스크톱 사이트</strong>' 클릭하세요";
+            } else if (/iPhone|iPad|iPod/.test(userAgent) && !/CriOS/.test(userAgent)) {
+                guideHTML = "<strong>PC로 접속</strong>하시거나, 메뉴에서 '<strong>데스크톱 웹 사이트 요청</strong>' 클릭하세요";
+            } else {
+                guideHTML = "<strong>PC로 접속</strong>하시거나, '<strong>데스크톱 모드</strong>'로 전환해주세요";
+            }
+            
+            guideTextElement.innerHTML = guideHTML;
+
+            setTimeout(() => {
+                modalOverlay.style.display = 'flex';
+            }, 500);
+        }
+
+        function closeModal() {
+            modalOverlay.style.display = 'none';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', function(event) {
+            if (event.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    });
   </script>
 </body>
 </html>
