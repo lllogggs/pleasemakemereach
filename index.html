@@ -407,12 +407,12 @@
             const userAgent = navigator.userAgent;
             let guideHTML = "";
 
-            if (/SamsungBrowser/.test(userAgent)) {
-                guideHTML = "<strong>PC로 접속</strong>하시거나, 우측 하단(☰)을 눌러 '<strong>데스크톱 사이트</strong>' 클릭하세요";
+           if (/SamsungBrowser/.test(userAgent)) {
+                guideHTML = "<strong>PC로 접속</strong>하시거나,<br>우측 하단(☰)을 눌러 '<strong>데스크톱 사이트</strong>' 클릭하세요";
             } else if (/iPhone|iPad|iPod/.test(userAgent) && !/CriOS/.test(userAgent)) {
-                guideHTML = "<strong>PC로 접속</strong>하시거나, 메뉴에서 '<strong>데스크톱 웹 사이트 요청</strong>' 클릭하세요";
+                guideHTML = "<strong>PC로 접속</strong>하시거나,<br>메뉴에서 '<strong>데스크톱 웹 사이트 요청</strong>' 클릭하세요";
             } else {
-                guideHTML = "<strong>PC로 접속</strong>하시거나, '<strong>데스크톱 모드</strong>'로 전환해주세요";
+                guideHTML = "<strong>PC로 접속</strong>하시거나,<br>'<strong>데스크톱 모드</strong>'로 전환해주세요";
             }
             
             guideTextElement.innerHTML = guideHTML;
