@@ -58,7 +58,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        background-color: var(--text-primary); /* 수정된 부분: 남색으로 변경 */
+        background-color: var(--text-primary);
         border: none;
         border-radius: 8px;
         padding: 6px 12px;
@@ -128,8 +128,8 @@
         border-color: var(--primary-blue);
         box-shadow: 0 0 0 3px var(--light-blue);
     }
-
-    button:not(.language-button) {
+    
+    .main-button {
       width: 100%;
       padding: 14px;
       font-size: 16px;
@@ -142,10 +142,28 @@
       transition: background-color 0.2s;
     }
 
-    button:not(.language-button):hover {
+    .main-button:hover {
       background-color: #254edc;
     }
 
+    .secondary-button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 12px;
+        font-size: 15px;
+        font-weight: 500;
+        background-color: transparent;
+        color: var(--primary-blue);
+        border: 2px solid var(--primary-blue);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .secondary-button:hover {
+        background-color: var(--light-blue);
+    }
+    
     .info-card {
       background: var(--card-background);
       padding: 24px;
@@ -248,21 +266,105 @@
       padding: 2px 0 2px 4px;
       border-radius: 3px;
     }
-    
-    .kakao-chat-btn {
+
+    /* === 추가된 부분 START: 모달 스타일 === */
+    .modal-overlay {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        background-color: #FAE100;
-        color: #3C1E1E;
-        text-align: center;
-        padding: 14px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 16px;
-        margin-top: 20px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .modal-content {
+        position: relative;
+        background-color: var(--background-color);
+        padding: 20px;
+        border-radius: 14px;
+        width: 550px;
+        height: auto;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         box-sizing: border-box;
     }
+
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        color: var(--text-secondary);
+        cursor: pointer;
+    }
+    
+    .tab-nav {
+        display: flex;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab-button {
+        flex: 1;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-button.active {
+        color: var(--primary-blue);
+        border-bottom: 3px solid var(--primary-blue);
+    }
+    
+    .tab-content-container {
+        padding-top: 20px;
+    }
+
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+
+    .tab-content iframe {
+        width: 500px;
+        height: 500px;
+        border: none !important;
+    }
+
+    @media (max-width: 600px) {
+        .modal-content {
+            width: 95%;
+            height: auto;
+            max-height: 85vh;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .tab-button {
+            padding: 12px;
+            font-size: 15px;
+        }
+        .tab-content-container {
+            padding-top: 15px;
+        }
+        .tab-content iframe {
+            width: 100%;
+            height: 450px;
+        }
+    }
+    /* === 추가된 부분 END === */
+
   </style>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -286,7 +388,8 @@
 
     <section class="input-section">
       <input id="inputUrl" data-lang="placeholder" placeholder="https://kr.trip.com/~ 호텔/항공권 링크 복붙!" type="text">
-      <button onclick="generateLinks()" data-lang="findButton">최저가 링크 찾기</button>
+      <button class="main-button" onclick="generateLinks()" data-lang="findButton">최저가 링크 찾기</button>
+      <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">링크가 없다면? 트립닷컴에서 검색하기</button>
     </section>
 
     <div class="link-list" id="results"></div>
@@ -320,6 +423,24 @@
     </footer>
   </div>
 
+  <div id="search-modal" class="modal-overlay">
+      <div class="modal-content">
+          <span id="modal-close" class="modal-close">&times;</span>
+          <div class="tab-nav">
+              <button class="tab-button active" data-tab="hotel" data-lang="hotelTabTitle"></button>
+              <button class="tab-button" data-tab="flight" data-lang="flightTabTitle"></button>
+          </div>
+          <div class="tab-content-container">
+              <div id="hotel-tab-content" class="tab-content active">
+                  <iframe id="hotel-widget-modal" src="" frameborder="0" scrolling="no"></iframe>
+              </div>
+              <div id="flight-tab-content" class="tab-content">
+                  <iframe id="flight-widget-modal" src="" frameborder="0" scrolling="no"></iframe>
+              </div>
+          </div>
+      </div>
+  </div>
+
   <script>
     const translations = {
         en: {
@@ -327,6 +448,9 @@
             subtitle: "Trip.com Lowest Price Link Finder",
             placeholder: "Paste Hotel/Flight link from trip.com!",
             findButton: "Find Lowest Price Links",
+            searchPrompt: "No link yet? Search on Trip.com",
+            hotelTabTitle: "🏨 Hotel Booking",
+            flightTabTitle: "✈️ Flight Booking",
             card1Title: "🌍 Find the Cheapest Country",
             card1Desc: "Trip.com prices can <strong>differ by country.</strong><br>Use <strong>Tripdotdot</strong> to book at the <span class=\"highlight\">absolute lowest price!</span>",
             card2Title: "✅ How to Use",
@@ -348,6 +472,9 @@
             subtitle: "트립닷컴 최저가 링크 찾기",
             placeholder: "https://kr.trip.com/~ 호텔/항공권 링크 복붙!",
             findButton: "최저가 링크 찾기",
+            searchPrompt: "링크가 없다면? 트립닷컴에서 검색하기",
+            hotelTabTitle: "🏨 호텔 예약",
+            flightTabTitle: "✈️ 항공권 예약",
             card1Title: "🌍 최저가 국가를 찾아보세요",
             card1Desc: "트립닷컴 상품은 <strong>국가별로 가격이 다를 수 있습니다.</strong><br><strong>트립닷닷</strong>으로 <span class=\"highlight\">가장 저렴하게 예약</span>하세요!",
             card2Title: "✅ 사용 방법",
@@ -363,7 +490,17 @@
             privacy: "개인정보처리방침",
             invalidLink: "유효한 트립닷컴 링크를 입력해주세요.",
             parseError: "입력한 링크의 형식이 올바르지 않습니다.",
-            kakaoTalk: "🙋‍♀️🙋‍♂️ 트립닷닷 카톡 문의하기"
+        }
+    };
+
+    const widgetSrcModal = {
+        ko: {
+            hotel: "https://kr.trip.com/partners/ad/S4477545?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
+            flight: "https://kr.trip.com/partners/ad/S4477048?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b"
+        },
+        en: {
+            hotel: "https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
+            flight: "https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b"
         }
     };
 
@@ -376,33 +513,34 @@
         document.querySelectorAll('[data-lang]').forEach(el => {
             const key = el.getAttribute('data-lang');
             if (translations[lang][key]) {
-                if (el.tagName === 'INPUT') {
-                    el.placeholder = translations[lang][key];
-                } else {
-                    el.innerHTML = translations[lang][key];
-                }
+                el.innerHTML = translations[lang][key];
             }
         });
         
+        const inputEl = document.getElementById('inputUrl');
+        if(inputEl) inputEl.placeholder = translations[lang].placeholder;
+
         const langFlag = document.getElementById('lang-flag');
         const langText = document.getElementById('lang-text');
         const privacyLink = document.getElementById('privacy-link');
         
+        const hotelWidget = document.getElementById('hotel-widget-modal');
+        const flightWidget = document.getElementById('flight-widget-modal');
+
         if (lang === 'ko') {
             langFlag.src = 'https://flagcdn.com/w40/us.png';
             langFlag.alt = 'USA Flag';
             langText.textContent = 'EN';
             privacyLink.href = 'privacy_ko.html';
+            hotelWidget.src = widgetSrcModal.ko.hotel;
+            flightWidget.src = widgetSrcModal.ko.flight;
         } else {
             langFlag.src = 'https://flagcdn.com/w40/kr.png';
             langFlag.alt = 'South Korea Flag';
             langText.textContent = 'KR';
             privacyLink.href = 'privacy_en.html';
-        }
-
-        const kakaoBtn = document.querySelector('.kakao-chat-btn');
-        if (kakaoBtn) {
-            kakaoBtn.style.display = lang === 'ko' ? 'block' : 'none';
+            hotelWidget.src = widgetSrcModal.en.hotel;
+            flightWidget.src = widgetSrcModal.en.flight;
         }
     }
 
@@ -417,6 +555,38 @@
         setLanguage(initialLang);
         
         document.getElementById('language-button').addEventListener('click', toggleLanguage);
+
+        const showWidgetButton = document.getElementById('show-widget-button');
+        const modal = document.getElementById('search-modal');
+        const modalClose = document.getElementById('modal-close');
+        
+        showWidgetButton.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                tabContents.forEach(content => content.classList.remove('active'));
+                const activeTabContent = document.getElementById(button.dataset.tab + '-tab-content');
+                if(activeTabContent) activeTabContent.classList.add('active');
+            });
+        });
     });
 
     const domains = [
@@ -449,19 +619,8 @@
       resultsDiv.innerHTML = '';
       resultsDiv.style.display = 'block';
 
-      function createKakaoButton() {
-          const kakaoBtn = document.createElement('a');
-          kakaoBtn.href = 'https://open.kakao.com/o/sKGmxMDh';
-          kakaoBtn.target = '_blank';
-          kakaoBtn.className = 'kakao-chat-btn';
-          kakaoBtn.textContent = translations.ko.kakaoTalk; 
-          kakaoBtn.style.display = currentLang === 'ko' ? 'block' : 'none';
-          return kakaoBtn;
-      }
-
       if (!input.includes('trip.com')) {
         resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].invalidLink}</p>`;
-        resultsDiv.appendChild(createKakaoButton());
         return;
       }
       
@@ -499,11 +658,9 @@
         });
 
         resultsDiv.appendChild(gridContainer);
-        resultsDiv.appendChild(createKakaoButton());
 
       } catch (error) {
         resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
-        resultsDiv.appendChild(createKakaoButton());
         console.error("URL Parsing Error:", error);
       }
     }
