@@ -93,6 +93,7 @@
         height: 24px;
         border-radius: 50%;
         object-fit: cover;
+        flex-shrink: 0;
     }
 
     #lang-text {
@@ -619,10 +620,21 @@
     let currentLang = 'ko';
     
     const langDetails = {
-        ko: { flag: 'kr.png', text: '한국어', privacy: 'privacy_ko.html'},
-        en: { flag: 'us.png', text: 'English', privacy: 'privacy_en.html'},
-        ja: { flag: 'jp.png', text: '日本語', privacy: 'privacy_ja.html'}
+        ko: { flag: 'kr.png', text: '한국어', privacy: 'privacy_ko.html', code: 'KR' },
+        en: { flag: 'us.png', text: 'English', privacy: 'privacy_en.html', code: 'EN' },
+        ja: { flag: 'jp.png', text: '日本語', privacy: 'privacy_ja.html', code: 'JP' }
     };
+
+    function updateLanguageButtonDisplay() {
+        const langText = document.getElementById('lang-text');
+        if (!langText) return;
+
+        if (window.innerWidth <= 600) {
+            langText.textContent = langDetails[currentLang].code;
+        } else {
+            langText.textContent = langDetails[currentLang].text;
+        }
+    }
 
     function setLanguage(lang) {
         currentLang = lang;
@@ -639,13 +651,13 @@
         if(inputEl) inputEl.placeholder = translations[lang].placeholder;
 
         const langFlag = document.getElementById('lang-flag');
-        const langText = document.getElementById('lang-text');
         const privacyLink = document.getElementById('privacy-link');
         
         langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag.replace('.png', '')}.png`;
         langFlag.alt = `${langDetails[lang].text} Flag`;
-        langText.textContent = langDetails[lang].text;
         privacyLink.href = langDetails[lang].privacy;
+
+        updateLanguageButtonDisplay();
 
         const hotelWidget = document.getElementById('hotel-widget-modal');
         const flightWidget = document.getElementById('flight-widget-modal');
@@ -685,6 +697,13 @@
                 setLanguage(newLang);
                 langDropdown.classList.remove('show');
             });
+        });
+
+        // --- Resize Logic ---
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateLanguageButtonDisplay, 150);
         });
 
         // --- Modal Logic ---
