@@ -625,6 +625,12 @@
         ja: { flag: 'jp.png', text: '日本語', privacy: 'privacy_ja.html', code: 'JP' }
     };
 
+    const languageToCurrencyMap = {
+        ko: 'KRW', ja: 'JPY', en: 'USD', es: 'EUR', fr: 'EUR', de: 'EUR',
+        nl: 'EUR', pt: 'EUR', vi: 'VND', id: 'IDR', ms: 'MYR',
+        zh: 'TWD', hi: 'INR', ru: 'RUB', ar: 'SAR'
+    };
+
     function updateLanguageButtonDisplay() {
         const langText = document.getElementById('lang-text');
         if (!langText) return;
@@ -794,14 +800,17 @@
         let pathname = url.pathname;
         const originalParams = new URLSearchParams(url.search);
 
+        let currency;
+        if (originalParams.has('curr')) {
+            currency = originalParams.get('curr').toUpperCase();
+        } else {
+            currency = languageToCurrencyMap[currentLang] || 'USD';
+        }
+
         const essentialParams = new URLSearchParams();
         const whitelist = [
-            // Hotel Params
             'hotelId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights',
-            // Flight Params
             'flighttype', 'dcity', 'acity', 'ddate', 'rdate', 'quantity', 'childqty', 'babyqty', 'class',
-            // Common Param
-            'curr'
         ];
 
         whitelist.forEach(paramName => {
@@ -809,10 +818,8 @@
                 essentialParams.set(paramName, originalParams.get(paramName));
             }
         });
-
-        if (!essentialParams.has('curr')) {
-            essentialParams.set('curr', (originalParams.get('curr') || 'KRW').toUpperCase());
-        }
+        
+        essentialParams.set('curr', currency);
 
         if (pathname.startsWith('/m/')) {
             pathname = pathname.replace('/m/', '/');
