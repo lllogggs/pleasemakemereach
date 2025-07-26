@@ -428,7 +428,7 @@
         font-size: 16px;
         font-weight: 500;
         color: var(--text-secondary);
-        margin: 0 0_ 12px 0;
+        margin: 0 0 12px 0;
     }
     .other-sites-buttons {
         display: flex;
@@ -468,7 +468,6 @@
     .dot.c2 { background-color: #f6b800; } /* Yellow */
     .dot.c3 { background-color: #00a79d; } /* Teal */
     .dot.c4 { background-color: #006ce4; } /* Blue */
-
 
     @media (max-width: 600px) {
         .language-selector {
@@ -839,9 +838,38 @@
           return kakaoBtn;
       }
 
+      function createOtherSitesSection() {
+        const section = document.createElement('div');
+        section.className = 'other-sites-section';
+
+        const title = document.createElement('p');
+        title.className = 'other-sites-title';
+        title.innerHTML = '🔍 다른 호텔 예약 사이트도 둘러보기';
+        
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.className = 'other-sites-buttons';
+
+        const agodaBtn = document.createElement('a');
+        agodaBtn.href = 'https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1941957';
+        agodaBtn.target = '_blank';
+        agodaBtn.className = 'other-site-btn agoda';
+        agodaBtn.innerHTML = `
+            <div class="agoda-dots">
+                <span class="dot c1"></span><span class="dot c2"></span><span class="dot c3"></span><span class="dot c4"></span>
+            </div>
+            <span>아고다에서 검색</span>
+        `;
+        
+        buttonsContainer.appendChild(agodaBtn);
+        section.appendChild(title);
+        section.appendChild(buttonsContainer);
+        return section;
+      }
+
       if (!input.includes('trip.com')) {
         resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].invalidLink}</p>`;
         if (currentLang === 'ko') {
+            resultsDiv.appendChild(createOtherSitesSection());
             resultsDiv.appendChild(createKakaoButton());
         }
         return;
@@ -906,13 +934,16 @@
         });
 
         resultsDiv.appendChild(gridContainer);
+        
         if (currentLang === 'ko') {
+            resultsDiv.appendChild(createOtherSitesSection());
             resultsDiv.appendChild(createKakaoButton());
         }
 
       } catch (error) {
         resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
         if (currentLang === 'ko') {
+            resultsDiv.appendChild(createOtherSitesSection());
             resultsDiv.appendChild(createKakaoButton());
         }
         console.error("URL Parsing Error:", error);
