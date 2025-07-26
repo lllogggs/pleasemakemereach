@@ -417,6 +417,58 @@
         margin-top: 20px;
         box-sizing: border-box;
     }
+    
+    .other-sites-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+    }
+    .other-sites-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin: 0 0_ 12px 0;
+    }
+    .other-sites-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .other-site-btn {
+        padding: 10px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+        transition: background-color 0.2s, box-shadow 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .other-site-btn.agoda {
+        background-color: white;
+        color: #1f2937;
+        border: 1px solid var(--border-color);
+    }
+    .other-site-btn.agoda:hover {
+        background-color: #f9fafb;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .agoda-dots {
+        display: flex;
+        gap: 3px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+    .dot.c1 { background-color: #f28c0f; } /* Orange */
+    .dot.c2 { background-color: #f6b800; } /* Yellow */
+    .dot.c3 { background-color: #00a79d; } /* Teal */
+    .dot.c4 { background-color: #006ce4; } /* Blue */
+
 
     @media (max-width: 600px) {
         .language-selector {
