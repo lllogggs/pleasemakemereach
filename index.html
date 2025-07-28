@@ -22,8 +22,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta content="tripdotdot" name="author">
-  <meta content="트립닷닷, 트립닷컴 할인, 트립닷컴 싸게 예약하는법, 트립닷컴 할인코드, 트립닷컴 7월 할인코드, 트립닷컴 8월 할인코드, 트립닷컴 쿠키, 트립닷컴 할인코드 8월, 트립닷컴 가격비교, Trip.com 최저가, 국가별 링크, 호텔 최저가, 항공권 비교, tripdotdot, trip.com price comparison" name="keywords">
-  <meta name="description" content="트립닷컴 국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능">
+  <meta content="트립닷닷, 트립닷컴 할인, 트립닷컴 싸게 예약하는법, 트립닷컴 할인코드, 트립닷컴 7월 할인코드, 트립닷컴 8월 할인코드, 트립닷컴 쿠키, 트립닷컴 가격비교, Trip.com 최저가, 국가별 링크, 호텔 최저가, 항공권 비교, tripdotdot, trip.com price comparison" name="keywords">
+  <meta name="description" content="10초만에 N만원 절약하고 여행가자 | 최대 21개국에서 최저가 검색 가능">
   
   <meta content="0BzhAaMapguH_MeU7EZbSDla0DlHq7RNCMnAcujXNzM" name="google-site-verification">
   <meta content="6d36eb0cb19fc826bcba409428fa0d6fddc9c33d" name="naver-site-verification">
@@ -66,7 +66,7 @@
     
     .language-selector {
         position: absolute;
-        top: 25px;
+        top: 0px; /* 수정된 부분 */
         right: 0;
         z-index: 10;
     }
@@ -148,7 +148,7 @@
     .header {
       text-align: center;
       margin-bottom: 24px;
-      position: relative;
+      margin-top: 50px; /* 수정된 부분 */
     }
 
     .header h1 {
@@ -156,7 +156,6 @@
       font-weight: 700;
       color: var(--primary-blue);
       margin: 0;
-      padding-top: 10px;
     }
 
     .header p {
@@ -519,20 +518,21 @@
 </head>
 <body>
   <div class="container">
-    <header class="header">
-        <div class="language-selector">
-            <button id="language-button" class="language-button">
-                <img id="lang-flag" src="" alt="Language flag">
-                <span id="lang-text"></span>
-                <span class="dropdown-arrow">▼</span>
-            </button>
-            <div id="language-dropdown" class="language-dropdown">
-                <a href="#" class="lang-option" data-lang-code="ko"><img src="https://flagcdn.com/w40/kr.png" alt="KR Flag"> 한국어</a>
-                <a href="#" class="lang-option" data-lang-code="en"><img src="https://flagcdn.com/w40/us.png" alt="US Flag"> English</a>
-                <a href="#" class="lang-option" data-lang-code="ja"><img src="https://flagcdn.com/w40/jp.png" alt="JP Flag"> 日本語</a>
-            </div>
+    
+    <div class="language-selector">
+        <button id="language-button" class="language-button">
+            <img id="lang-flag" src="" alt="Language flag">
+            <span id="lang-text"></span>
+            <span class="dropdown-arrow">▼</span>
+        </button>
+        <div id="language-dropdown" class="language-dropdown">
+            <a href="#" class="lang-option" data-lang-code="ko"><img src="https://flagcdn.com/w40/kr.png" alt="KR Flag"> 한국어</a>
+            <a href="#" class="lang-option" data-lang-code="en"><img src="https://flagcdn.com/w40/us.png" alt="US Flag"> English</a>
+            <a href="#" class="lang-option" data-lang-code="ja"><img src="https://flagcdn.com/w40/jp.png" alt="JP Flag"> 日本語</a>
         </div>
+    </div>
 
+    <header class="header">
       <h1 data-lang="mainTitle">🌐 트립닷닷</h1>
       <p data-lang="subtitle">&nbsp;트립닷컴 최저가 링크 찾기</p>
     </header>
@@ -546,11 +546,6 @@
     <div class="link-list" id="results"></div>
 
     <section class="info-card">
-        <h2 data-lang="card1Title">🌍 최저가 국가를 찾아보세요</h2>
-        <p data-lang="card1Desc">트립닷컴 상품은 <strong>국가별로 가격이 다를 수 있습니다.</strong><br><strong>트립닷닷</strong>으로 <span class="highlight" data-lang="card1Highlight">가장 저렴하게 예약</span>하세요!</p>
-    </section>
-    
-    <section class="info-card">
       <h2 data-lang="card2Title">✅ 사용 방법</h2>
       <ul data-lang="card2List">
         <li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong>하세요.</li>
@@ -559,6 +554,10 @@
       </ul>
     </section>
 
+    <section class="info-card">
+        <h2 data-lang="card1Title">🌍 최저가 국가를 찾아보세요</h2>
+        <p data-lang="card1Desc">트립닷컴 상품은 <strong>국가별로 가격이 다를 수 있습니다.</strong><br><strong>트립닷닷</strong>으로 <span class="highlight" data-lang="card1Highlight">가장 저렴하게 예약</span>하세요!</p>
+    </section>
     <section class="info-card">
       <h2 data-lang="card3Title">💡 알아두면 좋은 팁</h2>
       <p data-lang="card3List">
