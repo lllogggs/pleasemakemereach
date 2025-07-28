@@ -66,7 +66,7 @@
     
     .language-selector {
         position: absolute;
-        top: 5px; /* 수정된 부분 */
+        top: 25px; /* 수정된 부분 */
         right: 0;
         z-index: 10;
     }
@@ -148,7 +148,7 @@
     .header {
       text-align: center;
       margin-bottom: 24px;
-      margin-top: 50px;
+      position: relative; /* 수정된 부분 */
     }
 
     .header h1 {
@@ -156,6 +156,7 @@
       font-weight: 700;
       color: var(--primary-blue);
       margin: 0;
+      padding-top: 10px; /* 수정된 부분 */
     }
 
     .header p {
@@ -470,8 +471,11 @@
 
     @media (max-width: 600px) {
         .language-selector {
-            top: 15px;
+            top: -20px; /* 수정된 부분 */
             right: -5px;
+        }
+        .header {
+            margin-top: 24px; /* 수정된 부분 */
         }
         .language-button {
             padding: 4px 8px;
@@ -519,20 +523,20 @@
 <body>
   <div class="container">
     
-    <div class="language-selector">
-        <button id="language-button" class="language-button">
-            <img id="lang-flag" src="" alt="Language flag">
-            <span id="lang-text"></span>
-            <span class="dropdown-arrow">▼</span>
-        </button>
-        <div id="language-dropdown" class="language-dropdown">
-            <a href="#" class="lang-option" data-lang-code="ko"><img src="https://flagcdn.com/w40/kr.png" alt="KR Flag"> 한국어</a>
-            <a href="#" class="lang-option" data-lang-code="en"><img src="https://flagcdn.com/w40/us.png" alt="US Flag"> English</a>
-            <a href="#" class="lang-option" data-lang-code="ja"><img src="https://flagcdn.com/w40/jp.png" alt="JP Flag"> 日本語</a>
-        </div>
-    </div>
-
     <header class="header">
+        <div class="language-selector">
+            <button id="language-button" class="language-button">
+                <img id="lang-flag" src="" alt="Language flag">
+                <span id="lang-text"></span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div id="language-dropdown" class="language-dropdown">
+                <a href="#" class="lang-option" data-lang-code="ko"><img src="https://flagcdn.com/w40/kr.png" alt="KR Flag"> 한국어</a>
+                <a href="#" class="lang-option" data-lang-code="en"><img src="https://flagcdn.com/w40/us.png" alt="US Flag"> English</a>
+                <a href="#" class="lang-option" data-lang-code="ja"><img src="https://flagcdn.com/w40/jp.png" alt="JP Flag"> 日本語</a>
+            </div>
+        </div>
+
       <h1 data-lang="mainTitle">🌐 트립닷닷</h1>
       <p data-lang="subtitle">&nbsp;트립닷컴 최저가 링크 찾기</p>
     </header>
