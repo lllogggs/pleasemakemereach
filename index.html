@@ -241,7 +241,6 @@
         padding-bottom: 12px;
         border-bottom: 1px solid var(--border-color);
     }
-    /* ▼▼▼ CSS 수정된 부분 ▼▼▼ */
     .info-card h2 {
         font-size: 20px;
         font-weight: 700;
@@ -254,7 +253,6 @@
         padding-bottom: 0;
         border-bottom: none;
     }
-    /* ▲▲▲ CSS 수정된 부분 ▲▲▲ */
     .external-links {
         display: flex;
         gap: 8px;
@@ -579,7 +577,7 @@
       </div>
 
       <h1 data-lang="mainTitle">🌐 트립닷닷</h1>
-      <p data-lang="subtitle"> 트립닷컴 최저가 링크 찾기</p>
+      <p data-lang="subtitle"> 트립닷컴 최저가 링크 찾기</p>
     </header>
 
     <section class="input-section">
@@ -595,7 +593,7 @@
             <h2 data-lang="card2Title">✅ 사용 방법</h2>
             <div class="external-links">
                 <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14px" height="14px"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14px" height="14px"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25.9.83-1.48 1.73-1.73.47-.13 1.33.22 2.65.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path></svg>
                     <span>유튜브</span>
                 </a>
                 <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver">
@@ -668,7 +666,9 @@
             privacy: "Privacy Policy",
             invalidLink: "Please enter a valid Trip.com link.",
             parseError: "The format of the entered link is incorrect.",
-            kakaoTalk: "Contact Us (KakaoTalk)"
+            kakaoTalk: "Contact Us (KakaoTalk)",
+            otherSitesTitle: "🔍 Explore other hotel booking sites",
+            agodaSearch: "Search on Agoda"
         },
         ko: {
             mainTitle: "🌐 트립닷닷",
@@ -687,7 +687,9 @@
             privacy: "개인정보처리방침",
             invalidLink: "유효한 트립닷컴 링크를 입력해주세요.",
             parseError: "입력한 링크의 형식이 올바르지 않습니다.",
-            kakaoTalk: "🙋‍♀️🙋‍♂️ 트립닷닷 카톡 문의하기 (익명)"
+            kakaoTalk: "🙋‍♀️🙋‍♂️ 트립닷닷 카톡 문의하기 (익명)",
+            otherSitesTitle: "🔍 다른 호텔 예약 사이트도 둘러보기",
+            agodaSearch: "아고다에서 검색"
         },
         ja: {
             mainTitle: "🌐 Tripdotdot",
@@ -706,7 +708,9 @@
             privacy: "プライバシーポリシー",
             invalidLink: "有効なTrip.comのリンクを入力してください。",
             parseError: "入力されたリンクの形式が正しくありません。",
-            kakaoTalk: "お問い合わせ (カカオトーク)"
+            kakaoTalk: "お問い合わせ (カカオトーク)",
+            otherSitesTitle: "🔍 他のホテル予約サイトも見る",
+            agodaSearch: "Agodaで検索"
         }
     };
 
@@ -901,7 +905,7 @@
 
         const title = document.createElement('p');
         title.className = 'other-sites-title';
-        title.innerHTML = '🔍 다른 호텔 예약 사이트도 둘러보기';
+        title.innerHTML = translations[currentLang].otherSitesTitle;
         
         const buttonsContainer = document.createElement('div');
         buttonsContainer.className = 'other-sites-buttons';
@@ -914,7 +918,7 @@
             <div class="agoda-dots">
                 <span class="dot c1"></span><span class="dot c2"></span><span class="dot c3"></span><span class="dot c4"></span>
             </div>
-            <span>아고다에서 검색</span>
+            <span>${translations[currentLang].agodaSearch}</span>
         `;
         
         buttonsContainer.appendChild(agodaBtn);
@@ -925,8 +929,8 @@
 
       if (!input.includes('trip.com')) {
         resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].invalidLink}</p>`;
+        resultsDiv.appendChild(createOtherSitesSection());
         if (currentLang === 'ko') {
-            resultsDiv.appendChild(createOtherSitesSection());
             resultsDiv.appendChild(createKakaoButton());
         }
         return;
@@ -992,15 +996,15 @@
 
         resultsDiv.appendChild(gridContainer);
         
+        resultsDiv.appendChild(createOtherSitesSection());
         if (currentLang === 'ko') {
-            resultsDiv.appendChild(createOtherSitesSection());
             resultsDiv.appendChild(createKakaoButton());
         }
 
       } catch (error) {
         resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
+        resultsDiv.appendChild(createOtherSitesSection());
         if (currentLang === 'ko') {
-            resultsDiv.appendChild(createOtherSitesSection());
             resultsDiv.appendChild(createKakaoButton());
         }
         console.error("URL Parsing Error:", error);
