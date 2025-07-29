@@ -859,12 +859,15 @@
             });
         });
 
-        // ▼▼▼ [수정 제안 1] URL 자동 입력 기능 ▼▼▼
+        // ▼▼▼ URL 자동 입력 및 주소창 정리 기능 ▼▼▼
         const params = new URLSearchParams(window.location.search);
         const urlToProcess = params.get('url');
         if (urlToProcess) {
             const inputEl = document.getElementById('inputUrl');
             inputEl.value = urlToProcess;
+            
+            const newUrl = window.location.pathname;
+            history.replaceState({}, '', newUrl);
         }
     });
 
@@ -956,7 +959,7 @@
             currency = languageToCurrencyMap[currentLang] || 'USD';
         }
 
-        // ▼▼▼ [수정 제안 2] 링크 분석 로직 강화 ▼▼▼
+        // ▼▼▼ 강화된 링크 분석 로직 ▼▼▼
         const essentialParams = new URLSearchParams();
         let allowedParams;
 
@@ -975,7 +978,7 @@
         });
         
         essentialParams.set('curr', currency);
-        // ▲▲▲ 링크 분석 로직 강화 끝 ▲▲▲
+        // ▲▲▲ 로직 강화 끝 ▲▲▲
 
         if (pathname.startsWith('/m/')) {
             pathname = pathname.replace('/m/', '/');
