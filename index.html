@@ -310,7 +310,7 @@
     .link-list {
       display: none;
       background: var(--card-background);
-      padding: 16px 24px 24px; /* ▼▼▼ 수정된 부분 ▼▼▼ */
+      padding: 8px 24px 24px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       margin-bottom: 24px;
@@ -320,8 +320,12 @@
       text-align: center;
       font-size: 16px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--text-primary);
       margin-bottom: 16px;
+    }
+    .results-title strong {
+        color: var(--primary-blue);
+        font-weight: 500;
     }
 
     .link-list-grid {
@@ -466,8 +470,8 @@
     }
     
     .other-sites-section {
-        margin-top: 24px;
-        padding-top: 24px;
+        margin-top: 12px;
+        padding-top: 12px;
         border-top: 1px solid var(--border-color);
         text-align: center;
     }
@@ -677,7 +681,7 @@
             kakaoTalk: "Contact Us (KakaoTalk)",
             otherSitesTitle: "🔍 Explore other hotel booking sites",
             agodaSearch: "Search on Agoda",
-            resultsTitle: "🔍 Click the country buttons to check prices"
+            resultsTitle: "🔍 Click the <strong>country buttons</strong> to check prices"
         },
         ko: {
             mainTitle: "🌐 트립닷닷",
@@ -699,7 +703,7 @@
             kakaoTalk: "🙋‍♀️🙋‍♂️ 트립닷닷 카톡 문의하기 (익명)",
             otherSitesTitle: "🔍 다른 호텔 예약 사이트도 둘러보기",
             agodaSearch: "아고다에서 검색",
-            resultsTitle: "🔍 국가 버튼을 눌러 가격을 확인해보세요"
+            resultsTitle: "🔍 <strong>국가 버튼</strong>을 눌러 가격을 확인해보세요"
         },
         ja: {
             mainTitle: "🌐 Tripdotdot",
@@ -721,7 +725,7 @@
             kakaoTalk: "お問い合わせ (カカオトーク)",
             otherSitesTitle: "🔍 他のホテル予約サイトも見る",
             agodaSearch: "Agodaで検索",
-            resultsTitle: "🔍 国のボタンを押して価格を確認してください"
+            resultsTitle: "🔍 <strong>国のボタン</strong>を押して価格を確認してください"
         }
     };
 
