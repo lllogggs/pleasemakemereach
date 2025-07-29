@@ -316,6 +316,14 @@
       margin-bottom: 24px;
     }
     
+    .results-title {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
     .link-list-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -668,7 +676,8 @@
             parseError: "The format of the entered link is incorrect.",
             kakaoTalk: "Contact Us (KakaoTalk)",
             otherSitesTitle: "🔍 Explore other hotel booking sites",
-            agodaSearch: "Search on Agoda"
+            agodaSearch: "Search on Agoda",
+            resultsTitle: "🔍 Click the country buttons to check prices"
         },
         ko: {
             mainTitle: "🌐 트립닷닷",
@@ -689,7 +698,8 @@
             parseError: "입력한 링크의 형식이 올바르지 않습니다.",
             kakaoTalk: "🙋‍♀️🙋‍♂️ 트립닷닷 카톡 문의하기 (익명)",
             otherSitesTitle: "🔍 다른 호텔 예약 사이트도 둘러보기",
-            agodaSearch: "아고다에서 검색"
+            agodaSearch: "아고다에서 검색",
+            resultsTitle: "🔍 국가 버튼을 눌러 가격을 확인해보세요"
         },
         ja: {
             mainTitle: "🌐 Tripdotdot",
@@ -710,7 +720,8 @@
             parseError: "入力されたリンクの形式が正しくありません。",
             kakaoTalk: "お問い合わせ (カカオトーク)",
             otherSitesTitle: "🔍 他のホテル予約サイトも見る",
-            agodaSearch: "Agodaで検索"
+            agodaSearch: "Agodaで検索",
+            resultsTitle: "🔍 国のボタンを押して価格を確認してください"
         }
     };
 
@@ -859,7 +870,7 @@
             });
         });
 
-        // ▼▼▼ URL 자동 입력 및 주소창 정리 기능 ▼▼▼
+        // URL 자동 입력 및 주소창 정리 기능
         const params = new URLSearchParams(window.location.search);
         const urlToProcess = params.get('url');
         if (urlToProcess) {
@@ -959,15 +970,12 @@
             currency = languageToCurrencyMap[currentLang] || 'USD';
         }
 
-        // ▼▼▼ 강화된 링크 분석 로직 ▼▼▼
         const essentialParams = new URLSearchParams();
         let allowedParams;
 
         if (pathname.includes('/flights')) {
-            // 항공권 링크에 필요한 파라미터 목록
             allowedParams = ['flighttype', 'dcity', 'acity', 'ddate', 'rdate', 'quantity', 'childqty', 'babyqty', 'class', 'triptype'];
         } else {
-            // 호텔 링크에 필요한 파라미터 목록 (기본값)
             allowedParams = ['hotelId', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult'];
         }
 
@@ -978,7 +986,6 @@
         });
         
         essentialParams.set('curr', currency);
-        // ▲▲▲ 로직 강화 끝 ▲▲▲
 
         if (pathname.startsWith('/m/')) {
             pathname = pathname.replace('/m/', '/');
@@ -988,6 +995,11 @@
         const cleanPath = pathname + (paramString ? '?' + paramString : '');
         
         const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+        
+        const resultsTitle = document.createElement('p');
+        resultsTitle.className = 'results-title';
+        resultsTitle.innerHTML = translations[currentLang].resultsTitle;
+        resultsDiv.appendChild(resultsTitle);
         
         const gridContainer = document.createElement('div');
         gridContainer.className = 'link-list-grid';
