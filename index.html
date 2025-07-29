@@ -66,7 +66,7 @@
     
     .language-selector {
         position: absolute;
-        top: 25px; /* 수정된 부분 */
+        top: 25px;
         right: 0;
         z-index: 10;
     }
@@ -148,7 +148,7 @@
     .header {
       text-align: center;
       margin-bottom: 24px;
-      position: relative; /* 수정된 부분 */
+      position: relative;
     }
 
     .header h1 {
@@ -156,7 +156,7 @@
       font-weight: 700;
       color: var(--primary-blue);
       margin: 0;
-      padding-top: 10px; /* 수정된 부분 */
+      padding-top: 10px;
     }
 
     .header p {
@@ -233,13 +233,47 @@
       margin-bottom: 24px;
     }
 
-    .info-card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 0 0 16px 0;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-color);
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-color);
     }
+    .info-card h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    .external-links {
+        display: flex;
+        gap: 8px;
+    }
+    .external-link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 10px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: white;
+        transition: opacity 0.2s;
+    }
+    .external-link-btn:hover {
+        opacity: 0.85;
+    }
+    .external-link-btn svg {
+        width: 14px;
+        height: 14px;
+        fill: white;
+    }
+    .external-link-btn.youtube { background-color: #FF0000; }
+    .external-link-btn.naver { background-color: #03C75A; }
     
     .info-card ul {
         list-style: none;
@@ -471,11 +505,11 @@
 
     @media (max-width: 600px) {
         .language-selector {
-            top: -20px; /* 수정된 부분 */
+            top: -20px;
             right: -5px;
         }
         .header {
-            margin-top: 24px; /* 수정된 부분 */
+            margin-top: 24px;
         }
         .language-button {
             padding: 4px 8px;
@@ -524,18 +558,18 @@
   <div class="container">
     
     <header class="header">
-        <div class="language-selector">
-            <button id="language-button" class="language-button">
-                <img id="lang-flag" src="" alt="Language flag">
-                <span id="lang-text"></span>
-                <span class="dropdown-arrow">▼</span>
-            </button>
-            <div id="language-dropdown" class="language-dropdown">
-                <a href="#" class="lang-option" data-lang-code="ko"><img src="https://flagcdn.com/w40/kr.png" alt="KR Flag"> 한국어</a>
-                <a href="#" class="lang-option" data-lang-code="en"><img src="https://flagcdn.com/w40/us.png" alt="US Flag"> English</a>
-                <a href="#" class="lang-option" data-lang-code="ja"><img src="https://flagcdn.com/w40/jp.png" alt="JP Flag"> 日本語</a>
-            </div>
-        </div>
+      <div class="language-selector">
+          <button id="language-button" class="language-button">
+              <img id="lang-flag" src="" alt="Language flag">
+              <span id="lang-text"></span>
+              <span class="dropdown-arrow">▼</span>
+          </button>
+          <div id="language-dropdown" class="language-dropdown">
+              <a href="#" class="lang-option" data-lang-code="ko"><img src="https://flagcdn.com/w40/kr.png" alt="KR Flag"> 한국어</a>
+              <a href="#" class="lang-option" data-lang-code="en"><img src="https://flagcdn.com/w40/us.png" alt="US Flag"> English</a>
+              <a href="#" class="lang-option" data-lang-code="ja"><img src="https://flagcdn.com/w40/jp.png" alt="JP Flag"> 日本語</a>
+          </div>
+      </div>
 
       <h1 data-lang="mainTitle">🌐 트립닷닷</h1>
       <p data-lang="subtitle">&nbsp;트립닷컴 최저가 링크 찾기</p>
@@ -550,7 +584,19 @@
     <div class="link-list" id="results"></div>
 
     <section class="info-card">
-        <h2 data-lang="card2Title">✅ 사용 방법</h2>
+        <div class="card-header">
+            <h2 data-lang="card2Title">✅ 사용 방법</h2>
+            <div class="external-links">
+                <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,15 L10,9 L15,12 L10,15 Z M21.5,12 C21.5,12 21.3,13.7 20.6,15.3 C20.3,16.2 19.6,16.8 18.7,17.2 C17.2,17.7 12,17.7 12,17.7 C12,17.7 6.8,17.7 5.3,17.2 C4.4,16.8 3.7,16.2 3.4,15.3 C2.7,13.7 2.5,12 2.5,12 C2.5,12 2.7,10.3 3.4,8.7 C3.7,7.8 4.4,7.2 5.3,6.8 C6.8,6.3 12,6.3 12,6.3 C12,6.3 17.2,6.3 18.7,6.8 C19.6,7.2 20.3,7.8 20.6,8.7 C21.3,10.3 21.5,12 21.5,12 Z"></path></svg>
+                    <span>유튜브</span>
+                </a>
+                <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.273,12.845v-1.742h-3.447v3.49h3.447v-1.748Z M18.02,7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
+                    <span>블로그</span>
+                </a>
+            </div>
+        </div>
         <ul data-lang="card2List">
             <li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong>하세요.</li>
             <li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong> 버튼을 클릭!</li>
