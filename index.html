@@ -520,6 +520,27 @@
     .dot.c3 { background-color: #00a79d; } /* Teal */
     .dot.c4 { background-color: #006ce4; } /* Blue */
 
+    .notice-modal-content {
+        width: 90%;
+        max-width: 320px;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .notice-icon {
+        font-size: 32px;
+        margin: 0 0 16px 0;
+    }
+    .notice-text {
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0 0 8px 0;
+    }
+    .notice-text small {
+        font-size: 13px;
+        color: var(--text-secondary);
+    }
+
     @media (max-width: 600px) {
         .language-selector {
             top: -20px;
@@ -660,6 +681,20 @@
       </div>
   </div>
 
+  <div id="mobile-notice-modal" class="modal-overlay">
+    <div class="modal-content notice-modal-content">
+      <span class="modal-close">×</span>
+      <div class="notice-modal-body" data-lang="mobileNotice">
+        <p class="notice-icon">✨</p>
+        <p class="notice-text">
+          <strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong>
+          <br>
+          <small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
   <script>
     const translations = {
         en: {
@@ -683,7 +718,8 @@
             otherSitesTitle: "🔍 Explore other hotel booking sites",
             agodaSearch: "Search on Agoda",
             resultsTitle: "🔍 Click the <strong>country buttons</strong> to check prices",
-            disclosure: "This site contains affiliate links and may receive a commission for bookings made through these links."
+            disclosure: "This site contains affiliate links and may receive a commission for bookings made through these links.",
+            mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>For more accurate price comparison,<br>use the PC (Desktop site) version!</strong><br><small>(Some prices may be the same on mobile)</small></p>`
         },
         ko: {
             mainTitle: "🌐 트립닷닷",
@@ -706,7 +742,8 @@
             otherSitesTitle: "🔍 다른 호텔 예약 사이트도 둘러보기",
             agodaSearch: "아고다에서 검색",
             resultsTitle: "🔍 <strong>국가 버튼</strong>을 눌러 가격을 확인해보세요",
-            disclosure: "이 사이트는 제휴 링크를 포함하며, 링크를 통해 발생한 예약에 대해 소정의 수수료를 받을 수 있습니다."
+            disclosure: "이 사이트는 제휴 링크를 포함하며, 링크를 통해 발생한 예약에 대해 소정의 수수료를 받을 수 있습니다.",
+            mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong><br><small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small></p>`
         },
         ja: {
             mainTitle: "🌐 Tripdotdot",
@@ -729,7 +766,8 @@
             otherSitesTitle: "🔍 他のホテル予約サイトも見る",
             agodaSearch: "Agodaで検索",
             resultsTitle: "🔍 <strong>国のボタン</strong>を押して価格を確認してください",
-            disclosure: "このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。"
+            disclosure: "このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。",
+            mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>より正確な価格比較は<br>PC（デスクトップサイト）で可能です！</strong><br><small>（一部の商品はモバイルで各国の価格が同じです）</small></p>`
         }
     };
 
@@ -843,7 +881,7 @@
             resizeTimeout = setTimeout(updateLanguageButtonDisplay, 150);
         });
 
-        // --- Modal Logic ---
+        // --- Modal Logic (Search Widget) ---
         const showWidgetButton = document.getElementById('show-widget-button');
         const modal = document.getElementById('search-modal');
         const modalClose = document.getElementById('modal-close');
@@ -887,6 +925,27 @@
             
             const newUrl = window.location.pathname;
             history.replaceState({}, '', newUrl);
+        }
+
+        // --- 모바일 안내 팝업 기능 ---
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            const mobileModal = document.getElementById('mobile-notice-modal');
+            const mobileModalClose = mobileModal.querySelector('.modal-close');
+            
+            setTimeout(() => {
+                mobileModal.style.display = 'flex';
+            }, 500);
+
+            mobileModalClose.addEventListener('click', () => {
+                mobileModal.style.display = 'none';
+            });
+
+            mobileModal.addEventListener('click', (event) => {
+                if (event.target === mobileModal) {
+                    mobileModal.style.display = 'none';
+                }
+            });
         }
     });
 
@@ -970,30 +1029,55 @@
         const url = new URL(input);
         let pathname = url.pathname;
         const originalParams = new URLSearchParams(url.search);
+        let essentialParams = new URLSearchParams();
 
-        let currency;
-        if (originalParams.has('curr')) {
-            currency = originalParams.get('curr').toUpperCase();
+        if (pathname.includes('/flights')) {
+            if (pathname.startsWith('/m/')) {
+                pathname = '/flights/showfarefirst';
+                
+                if (originalParams.has('dcitycode')) essentialParams.set('dcity', originalParams.get('dcitycode'));
+                if (originalParams.has('acitycode')) essentialParams.set('acity', originalParams.get('acitycode'));
+                if (originalParams.has('ddate')) essentialParams.set('ddate', originalParams.get('ddate'));
+                if (originalParams.has('adate')) essentialParams.set('rdate', originalParams.get('adate'));
+                if (originalParams.has('adult')) essentialParams.set('quantity', originalParams.get('adult'));
+                
+                const triptype = originalParams.get('triptype');
+                essentialParams.set('triptype', (triptype === '1' || triptype === 'rt') ? 'rt' : 'ow');
+
+                const classtype = originalParams.get('classtype');
+                if (classtype === '1' || classtype === 'c') essentialParams.set('class', 'c');
+                else if (classtype === '2' || classtype === 'f') essentialParams.set('class', 'f');
+                else essentialParams.set('class', 'y');
+
+                essentialParams.set('lowpricesource', 'searchform');
+                essentialParams.set('searchboxarg', 't');
+                essentialParams.set('nonstoponly', 'off');
+
+            } else {
+                const blacklist = ['gclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'Allianceid', 'SID', 'trip_sub1', 'trip_sub3'];
+                essentialParams = new URLSearchParams(originalParams);
+                blacklist.forEach(param => essentialParams.delete(param));
+            }
         } else {
-            currency = languageToCurrencyMap[currentLang] || 'USD';
+            const whitelist = ['hotelId', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult', 'curr'];
+            whitelist.forEach(paramName => {
+                if (originalParams.has(paramName)) {
+                    originalParams.getAll(paramName).forEach(value => {
+                        essentialParams.append(paramName, value);
+                    });
+                }
+            });
+            if (pathname.startsWith('/m/')) {
+                pathname = pathname.replace('/m/', '/');
+            }
         }
 
-        const essentialParams = new URLSearchParams();
-        const allowedParams = [
-            'hotelId', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult',
-            'flighttype', 'dcity', 'acity', 'dcitycode', 'acitycode', 'ddate', 'rdate', 'adate', 'quantity', 'child', 'infant', 'childqty', 'babyqty', 'class', 'triptype'
-        ];
-
-        allowedParams.forEach(paramName => {
-            if (originalParams.has(paramName)) {
-                essentialParams.set(paramName, originalParams.get(paramName));
+        if (!essentialParams.has('curr')) {
+            let currency = languageToCurrencyMap[currentLang] || 'USD';
+            if (originalParams.has('curr')) {
+                currency = originalParams.get('curr').toUpperCase();
             }
-        });
-        
-        essentialParams.set('curr', currency);
-
-        if (pathname.startsWith('/m/')) {
-            pathname = pathname.replace('/m/', '/');
+            essentialParams.set('curr', currency);
         }
 
         const paramString = essentialParams.toString();
