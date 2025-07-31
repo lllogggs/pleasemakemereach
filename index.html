@@ -979,13 +979,10 @@
         }
 
         const essentialParams = new URLSearchParams();
-        let allowedParams;
-
-        if (pathname.includes('/flights')) {
-            allowedParams = ['flighttype', 'dcity', 'acity', 'ddate', 'rdate', 'quantity', 'childqty', 'babyqty', 'class', 'triptype'];
-        } else {
-            allowedParams = ['hotelId', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult'];
-        }
+        const allowedParams = [
+            'hotelId', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult',
+            'flighttype', 'dcity', 'acity', 'dcitycode', 'acitycode', 'ddate', 'rdate', 'adate', 'quantity', 'child', 'infant', 'childqty', 'babyqty', 'class', 'triptype'
+        ];
 
         allowedParams.forEach(paramName => {
             if (originalParams.has(paramName)) {
