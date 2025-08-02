@@ -536,7 +536,12 @@
         line-height: 1.6;
         margin: 0 0 8px 0;
     }
+    .notice-text strong {
+        color: var(--primary-blue);
+    }
     .notice-text small {
+        display: inline-block;
+        margin-top: 10px;
         font-size: 13px;
         color: var(--text-secondary);
     }
@@ -658,7 +663,7 @@
     
     <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #aaa;">
       <p><a id="privacy-link" href="privacy_ko.html" target="_blank" style="color: #aaa;" data-lang="privacy">개인정보처리방침</a></p>
-      <p data-lang="disclosure" style="font-size: 12px; padding: 0 10px;"></p>
+      <p data-lang="disclosure" style="font-size: 12px; padding: 0 10px; line-height: 1.6;"></p>
       <p>© 2025 tripdotdot. All rights reserved.</p>
     </footer>
   </div>
@@ -685,13 +690,7 @@
     <div class="modal-content notice-modal-content">
       <span class="modal-close">×</span>
       <div class="notice-modal-body" data-lang="mobileNotice">
-        <p class="notice-icon">✨</p>
-        <p class="notice-text">
-          <strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong>
-          <br>
-          <small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small>
-        </p>
-      </div>
+        </div>
     </div>
   </div>
 
@@ -718,8 +717,8 @@
             otherSitesTitle: "🔍 Explore other hotel booking sites",
             agodaSearch: "Search on Agoda",
             resultsTitle: "🔍 Click the <strong>country buttons</strong> to check prices",
-            disclosure: "This site contains affiliate links and may receive a commission for bookings made through these links.",
-            mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>For more accurate price comparison,<br>use the PC (Desktop site) version!</strong><br><small>(Some prices may be the same on mobile)</small></p>`
+            disclosure: "This site contains affiliate links and may receive a commission for bookings made through these links. Entered links may be collected anonymously for service improvement.",
+            mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text">For more accurate price comparison,<br><strong>use the PC (Desktop site) version!</strong><br><small>(Some prices may be the same across countries on mobile)</small></p>`
         },
         ko: {
             mainTitle: "🌐 트립닷닷",
@@ -742,7 +741,7 @@
             otherSitesTitle: "🔍 다른 호텔 예약 사이트도 둘러보기",
             agodaSearch: "아고다에서 검색",
             resultsTitle: "🔍 <strong>국가 버튼</strong>을 눌러 가격을 확인해보세요",
-            disclosure: "이 사이트는 제휴 링크를 포함하며, 링크를 통해 발생한 예약에 대해 소정의 수수료를 받을 수 있습니다.",
+            disclosure: "이 사이트는 제휴 링크를 포함하며, 링크를 통해 발생한 예약에 대해 수수료를 받을 수 있습니다. 입력된 링크는 서비스 개선을 위해 익명으로 수집될 수 있습니다.",
             mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong><br><small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small></p>`
         },
         ja: {
@@ -766,7 +765,7 @@
             otherSitesTitle: "🔍 他のホテル予約サイトも見る",
             agodaSearch: "Agodaで検索",
             resultsTitle: "🔍 <strong>国のボタン</strong>を押して価格を確認してください",
-            disclosure: "このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。",
+            disclosure: "このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。入力されたリンクは、サービス改善のために匿名で収集される場合があります。",
             mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>より正確な価格比較は<br>PC（デスクトップサイト）で可能です！</strong><br><small>（一部の商品はモバイルで各国の価格が同じです）</small></p>`
         }
     };
@@ -884,7 +883,7 @@
         // --- Modal Logic (Search Widget) ---
         const showWidgetButton = document.getElementById('show-widget-button');
         const modal = document.getElementById('search-modal');
-        const modalClose = document.getElementById('modal-close');
+        const modalClose = modal.querySelector('.modal-close');
         
         showWidgetButton.addEventListener('click', () => {
             modal.style.display = 'flex';
@@ -974,160 +973,165 @@
     ];
 
     function generateLinks() {
-      const input = document.getElementById('inputUrl').value.trim();
-      const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = '';
-      resultsDiv.style.display = 'block';
+        const input = document.getElementById('inputUrl').value.trim();
 
-      function createKakaoButton() {
-          const kakaoBtn = document.createElement('a');
-          kakaoBtn.href = 'https://open.kakao.com/o/sKGmxMDh';
-          kakaoBtn.target = '_blank';
-          kakaoBtn.className = 'kakao-chat-btn';
-          kakaoBtn.textContent = translations[currentLang].kakaoTalk; 
-          return kakaoBtn;
-      }
-
-      function createOtherSitesSection() {
-        const section = document.createElement('div');
-        section.className = 'other-sites-section';
-
-        const title = document.createElement('p');
-        title.className = 'other-sites-title';
-        title.innerHTML = translations[currentLang].otherSitesTitle;
-        
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.className = 'other-sites-buttons';
-
-        const agodaBtn = document.createElement('a');
-        agodaBtn.href = 'https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1941957';
-        agodaBtn.target = '_blank';
-        agodaBtn.className = 'other-site-btn agoda';
-        agodaBtn.innerHTML = `
-            <div class="agoda-dots">
-                <span class="dot c1"></span><span class="dot c2"></span><span class="dot c3"></span><span class="dot c4"></span>
-            </div>
-            <span>${translations[currentLang].agodaSearch}</span>
-        `;
-        
-        buttonsContainer.appendChild(agodaBtn);
-        section.appendChild(title);
-        section.appendChild(buttonsContainer);
-        return section;
-      }
-
-      if (!input.includes('trip.com')) {
-        resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].invalidLink}</p>`;
-        resultsDiv.appendChild(createOtherSitesSection());
-        if (currentLang === 'ko') {
-            resultsDiv.appendChild(createKakaoButton());
-        }
-        return;
-      }
-      
-      try {
-        const url = new URL(input);
-        let pathname = url.pathname;
-        const originalParams = new URLSearchParams(url.search);
-        let essentialParams = new URLSearchParams();
-
-        if (pathname.includes('/flights')) {
-            if (pathname.startsWith('/m/')) {
-                pathname = '/flights/showfarefirst';
-                
-                if (originalParams.has('dcitycode')) essentialParams.set('dcity', originalParams.get('dcitycode'));
-                if (originalParams.has('acitycode')) essentialParams.set('acity', originalParams.get('acitycode'));
-                if (originalParams.has('ddate')) essentialParams.set('ddate', originalParams.get('ddate'));
-                if (originalParams.has('adate')) essentialParams.set('rdate', originalParams.get('adate'));
-                if (originalParams.has('adult')) essentialParams.set('quantity', originalParams.get('adult'));
-                
-                const triptype = originalParams.get('triptype');
-                essentialParams.set('triptype', (triptype === '1' || triptype === 'rt') ? 'rt' : 'ow');
-
-                const classtype = originalParams.get('classtype');
-                if (classtype === '1' || classtype === 'c') essentialParams.set('class', 'c');
-                else if (classtype === '2' || classtype === 'f') essentialParams.set('class', 'f');
-                else essentialParams.set('class', 'y');
-
-                essentialParams.set('lowpricesource', 'searchform');
-                essentialParams.set('searchboxarg', 't');
-                essentialParams.set('nonstoponly', 'off');
-
-            } else {
-                const blacklist = ['gclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'Allianceid', 'SID', 'trip_sub1', 'trip_sub3'];
-                essentialParams = new URLSearchParams(originalParams);
-                blacklist.forEach(param => essentialParams.delete(param));
-            }
-        } else {
-            const whitelist = ['hotelId', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult', 'curr'];
-            whitelist.forEach(paramName => {
-                if (originalParams.has(paramName)) {
-                    originalParams.getAll(paramName).forEach(value => {
-                        essentialParams.append(paramName, value);
-                    });
-                }
+        if (input && typeof gtag === 'function') {
+            gtag('event', 'submit_url', {
+                'submitted_link': input
             });
-            if (pathname.startsWith('/m/')) {
-                pathname = pathname.replace('/m/', '/');
+        }
+
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '';
+        resultsDiv.style.display = 'block';
+
+        function createKakaoButton() {
+            const kakaoBtn = document.createElement('a');
+            kakaoBtn.href = 'https://open.kakao.com/o/sKGmxMDh';
+            kakaoBtn.target = '_blank';
+            kakaoBtn.className = 'kakao-chat-btn';
+            kakaoBtn.textContent = translations[currentLang].kakaoTalk; 
+            return kakaoBtn;
+        }
+
+        function createOtherSitesSection() {
+            const section = document.createElement('div');
+            section.className = 'other-sites-section';
+
+            const title = document.createElement('p');
+            title.className = 'other-sites-title';
+            title.innerHTML = translations[currentLang].otherSitesTitle;
+            
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.className = 'other-sites-buttons';
+
+            const agodaBtn = document.createElement('a');
+            agodaBtn.href = 'https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1941957';
+            agodaBtn.target = '_blank';
+            agodaBtn.className = 'other-site-btn agoda';
+            agodaBtn.innerHTML = `
+                <div class="agoda-dots">
+                    <span class="dot c1"></span><span class="dot c2"></span><span class="dot c3"></span><span class="dot c4"></span>
+                </div>
+                <span>${translations[currentLang].agodaSearch}</span>
+            `;
+            
+            buttonsContainer.appendChild(agodaBtn);
+            section.appendChild(title);
+            section.appendChild(buttonsContainer);
+            return section;
+        }
+
+        if (!input.includes('trip.com')) {
+            resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].invalidLink}</p>`;
+            resultsDiv.appendChild(createOtherSitesSection());
+            if (currentLang === 'ko') {
+                resultsDiv.appendChild(createKakaoButton());
             }
+            return;
         }
+      
+        try {
+            const url = new URL(input);
+            let pathname = url.pathname;
+            const originalParams = new URLSearchParams(url.search);
+            let essentialParams = new URLSearchParams();
 
-        if (!essentialParams.has('curr')) {
-            let currency = languageToCurrencyMap[currentLang] || 'USD';
-            if (originalParams.has('curr')) {
-                currency = originalParams.get('curr').toUpperCase();
+            if (pathname.includes('/flights')) {
+                // 항공권 링크 처리
+                if (pathname.startsWith('/m/')) {
+                    pathname = '/flights/showfarefirst';
+                    if (originalParams.has('dcitycode')) essentialParams.set('dcity', originalParams.get('dcitycode'));
+                    if (originalParams.has('acitycode')) essentialParams.set('acity', originalParams.get('acitycode'));
+                    if (originalParams.has('ddate')) essentialParams.set('ddate', originalParams.get('ddate'));
+                    if (originalParams.has('adate')) essentialParams.set('rdate', originalParams.get('adate'));
+                    if (originalParams.has('adult')) essentialParams.set('quantity', originalParams.get('adult'));
+                    const triptype = originalParams.get('triptype');
+                    essentialParams.set('triptype', (triptype === '1' || triptype === 'rt') ? 'rt' : 'ow');
+                    if (essentialParams.get('triptype') === 'ow') essentialParams.delete('rdate');
+                    const classtype = originalParams.get('classtype');
+                    if (classtype === '1' || classtype === 'c') essentialParams.set('class', 'c');
+                    else if (classtype === '2' || classtype === 'f') essentialParams.set('class', 'f');
+                    else essentialParams.set('class', 'y');
+                    essentialParams.set('lowpricesource', 'searchform');
+                    essentialParams.set('searchboxarg', 't');
+                    essentialParams.set('nonstoponly', 'off');
+                } else {
+                    const blacklist = ['gclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'Allianceid', 'SID', 'trip_sub1', 'trip_sub3'];
+                    essentialParams = new URLSearchParams(originalParams);
+                    blacklist.forEach(param => essentialParams.delete(param));
+                }
+            } else {
+                // 호텔 링크 처리
+                const whitelist = ['hotelId', 'hotelid', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult', 'curr'];
+                whitelist.forEach(paramName => {
+                    if (originalParams.has(paramName)) {
+                        originalParams.getAll(paramName).forEach(value => {
+                            essentialParams.append(paramName, value);
+                        });
+                    }
+                });
+                if (pathname.startsWith('/m/')) {
+                    pathname = pathname.replace('/m/', '/');
+                }
             }
-            essentialParams.set('curr', currency);
-        }
 
-        const paramString = essentialParams.toString();
-        const cleanPath = pathname + (paramString ? '?' + paramString : '');
-        
-        const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
-        
-        const resultsTitle = document.createElement('p');
-        resultsTitle.className = 'results-title';
-        resultsTitle.innerHTML = translations[currentLang].resultsTitle;
-        resultsDiv.appendChild(resultsTitle);
-        
-        const gridContainer = document.createElement('div');
-        gridContainer.className = 'link-list-grid';
-        
-        let sortedDomains = [...domains];
-        if (currentLang === 'ja') {
-            const japan = sortedDomains.find(d => d.code === 'jp');
-            if (japan) {
-                sortedDomains = [japan, ...sortedDomains.filter(d => d.code !== 'jp')];
+            if (!essentialParams.has('curr')) {
+                let currency = languageToCurrencyMap[currentLang] || 'USD';
+                if (originalParams.has('curr')) {
+                    currency = originalParams.get('curr').toUpperCase();
+                }
+                essentialParams.set('curr', currency);
             }
-        }
-        
-        sortedDomains.forEach(dom => {
-          const finalAffix = (cleanPath.includes('?') ? '&' : '?') + affix;
-          const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
-          
-          const a = document.createElement('a');
-          a.href = fullUrl;
-          a.target = '_blank';
-          a.onclick = () => { a.classList.toggle('clicked'); };
-          a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom[currentLang]} flag"> ${dom[currentLang]}`;
-          gridContainer.appendChild(a);
-        });
 
-        resultsDiv.appendChild(gridContainer);
-        
-        resultsDiv.appendChild(createOtherSitesSection());
-        if (currentLang === 'ko') {
-            resultsDiv.appendChild(createKakaoButton());
-        }
+            const paramString = essentialParams.toString();
+            const cleanPath = pathname + (paramString ? '?' + paramString : '');
+            
+            const affix = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+            
+            const resultsTitle = document.createElement('p');
+            resultsTitle.className = 'results-title';
+            resultsTitle.innerHTML = translations[currentLang].resultsTitle;
+            resultsDiv.appendChild(resultsTitle);
+            
+            const gridContainer = document.createElement('div');
+            gridContainer.className = 'link-list-grid';
+            
+            let sortedDomains = [...domains];
+            if (currentLang === 'ja') {
+                const japan = sortedDomains.find(d => d.code === 'jp');
+                if (japan) {
+                    sortedDomains = [japan, ...sortedDomains.filter(d => d.code !== 'jp')];
+                }
+            }
+            
+            sortedDomains.forEach(dom => {
+              const finalAffix = (cleanPath.includes('?') ? '&' : '?') + affix;
+              const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
+              
+              const a = document.createElement('a');
+              a.href = fullUrl;
+              a.target = '_blank';
+              a.onclick = () => { a.classList.toggle('clicked'); };
+              a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${dom[currentLang]} flag"> ${dom[currentLang]}`;
+              gridContainer.appendChild(a);
+            });
 
-      } catch (error) {
-        resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
-        resultsDiv.appendChild(createOtherSitesSection());
-        if (currentLang === 'ko') {
-            resultsDiv.appendChild(createKakaoButton());
+            resultsDiv.appendChild(gridContainer);
+            
+            resultsDiv.appendChild(createOtherSitesSection());
+            if (currentLang === 'ko') {
+                resultsDiv.appendChild(createKakaoButton());
+            }
+
+        } catch (error) {
+            resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
+            resultsDiv.appendChild(createOtherSitesSection());
+            if (currentLang === 'ko') {
+                resultsDiv.appendChild(createKakaoButton());
+            }
+            console.error("URL Parsing Error:", error);
         }
-        console.error("URL Parsing Error:", error);
-      }
     }
   </script>
 </body>
