@@ -664,8 +664,8 @@
     <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #aaa;">
       <p><a id="privacy-link" href="privacy_ko.html" target="_blank" style="color: #aaa;" data-lang="privacy">개인정보처리방침</a></p>
       <p data-lang="disclosure" style="font-size: 12px; padding: 0 10px; line-height: 1.6;"></p>
-      <p>© 2025 tripdotdot. All rights reserved.</p>
-    </footer>
+      <p id="copyright"></p>
+      </footer>
   </div>
 
   <div id="search-modal" class="modal-overlay">
@@ -718,6 +718,7 @@
             agodaSearch: "Search on Agoda",
             resultsTitle: "🔍 Click the <strong>country buttons</strong> to check prices",
             disclosure: "This site contains affiliate links and may receive a commission for bookings made through these links. Entered links may be collected anonymously for service improvement.",
+            copyright: `© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
             mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text">For more accurate price comparison,<br><strong>use the PC (Desktop site) version!</strong><br><small>(Some prices may be the same across countries on mobile)</small></p>`
         },
         ko: {
@@ -742,6 +743,7 @@
             agodaSearch: "아고다에서 검색",
             resultsTitle: "🔍 <strong>국가 버튼</strong>을 눌러 가격을 확인해보세요",
             disclosure: "이 사이트는 제휴 링크를 포함하며, 링크를 통해 발생한 예약에 대해 수수료를 받을 수 있습니다. 입력된 링크는 서비스 개선을 위해 익명으로 수집될 수 있습니다.",
+            copyright: `© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
             mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong><br><small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small></p>`
         },
         ja: {
@@ -766,6 +768,7 @@
             agodaSearch: "Agodaで検索",
             resultsTitle: "🔍 <strong>国のボタン</strong>を押して価格を確認してください",
             disclosure: "このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。入力されたリンクは、サービス改善のために匿名で収集される場合があります。",
+            copyright: `© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
             mobileNotice: `<p class="notice-icon">✨</p><p class="notice-text"><strong>より正確な価格比較は<br>PC（デスクトップサイト）で可能です！</strong><br><small>（一部の商品はモバイルで各国の価格が同じです）</small></p>`
         }
     };
@@ -1038,31 +1041,38 @@
             let essentialParams = new URLSearchParams();
 
             if (pathname.includes('/flights')) {
-                // 항공권 링크 처리
                 if (pathname.startsWith('/m/')) {
                     pathname = '/flights/showfarefirst';
+                    
                     if (originalParams.has('dcitycode')) essentialParams.set('dcity', originalParams.get('dcitycode'));
                     if (originalParams.has('acitycode')) essentialParams.set('acity', originalParams.get('acitycode'));
                     if (originalParams.has('ddate')) essentialParams.set('ddate', originalParams.get('ddate'));
                     if (originalParams.has('adate')) essentialParams.set('rdate', originalParams.get('adate'));
                     if (originalParams.has('adult')) essentialParams.set('quantity', originalParams.get('adult'));
+                    
                     const triptype = originalParams.get('triptype');
-                    essentialParams.set('triptype', (triptype === '1' || triptype === 'rt') ? 'rt' : 'ow');
-                    if (essentialParams.get('triptype') === 'ow') essentialParams.delete('rdate');
+                    if (triptype === '1' || triptype === 'rt') {
+                      essentialParams.set('triptype', 'rt');
+                    } else {
+                      essentialParams.set('triptype', 'ow');
+                      essentialParams.delete('rdate');
+                    }
+
                     const classtype = originalParams.get('classtype');
                     if (classtype === '1' || classtype === 'c') essentialParams.set('class', 'c');
                     else if (classtype === '2' || classtype === 'f') essentialParams.set('class', 'f');
                     else essentialParams.set('class', 'y');
+
                     essentialParams.set('lowpricesource', 'searchform');
                     essentialParams.set('searchboxarg', 't');
                     essentialParams.set('nonstoponly', 'off');
+
                 } else {
                     const blacklist = ['gclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'Allianceid', 'SID', 'trip_sub1', 'trip_sub3'];
                     essentialParams = new URLSearchParams(originalParams);
                     blacklist.forEach(param => essentialParams.delete(param));
                 }
             } else {
-                // 호텔 링크 처리
                 const whitelist = ['hotelId', 'hotelid', 'cityId', 'checkIn', 'checkOut', 'adults', 'children', 'rooms', 'nights', 'crn', 'ages', 'travelpurpose', 'adult', 'curr'];
                 whitelist.forEach(paramName => {
                     if (originalParams.has(paramName)) {
