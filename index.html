@@ -668,7 +668,8 @@
             privacy: "Privacy Policy",
             invalidLink: "Please enter a valid Trip.com link.",
             parseError: "The format of the entered link is incorrect.",
-            kakaoTalk: "Contact Us (KakaoTalk)",
+            kakaoTalk: "🙋‍♀️🙋‍♂️ Get a coffee for booking confirmation!",
+            kakaoTalkError: "🤔 Report an Error",
             resultsTitle: "🔍 Click the <strong>country buttons</strong> to check prices",
             disclosureAffiliate: "This site contains affiliate links and may receive a commission for bookings made through these links.",
             disclosureCollection: "Entered links may be collected anonymously for service improvement.",
@@ -693,6 +694,7 @@
             invalidLink: "유효한 트립닷컴 링크를 입력해주세요.",
             parseError: "입력한 링크의 형식이 올바르지 않습니다.",
             kakaoTalk: "🙋‍♀️🙋‍♂️ 트립닷닷 예약 인증하고 커피 받아가세요",
+            kakaoTalkError: "🤔 오류 문의하기",
             resultsTitle: "🔍 <strong>국가 버튼</strong>을 눌러 가격을 확인해보세요",
             disclosureAffiliate: "이 사이트는 제휴 링크를 포함하며, 링크를 통해 발생한 예약에 대해 수수료를 받을 수 있습니다.",
             disclosureCollection: "입력된 링크는 서비스 개선을 위해 익명으로 수집될 수 있습니다.",
@@ -716,7 +718,8 @@
             privacy: "プライバシーポリシー",
             invalidLink: "有効なTrip.comのリンクを入力してください。",
             parseError: "入力されたリンクの形式が正しくありません。",
-            kakaoTalk: "お問い合わせ (カカオトーク)",
+            kakaoTalk: "予約認証でコーヒーをゲット！",
+            kakaoTalkError: "🤔 エラーを報告",
             resultsTitle: "🔍 <strong>国のボタン</strong>を押して価格を確認してください",
             disclosureAffiliate: "このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。",
             disclosureCollection: "入力されたリンクは、サービス改善のために匿名で収集される場合があります。",
@@ -946,19 +949,19 @@
         linkClickCount = 0;
         mobilePopupShown = false;
 
-        function createKakaoButton() {
+        function createKakaoButton(isError = false) {
             const kakaoBtn = document.createElement('a');
             kakaoBtn.href = 'https://open.kakao.com/o/sKGmxMDh';
             kakaoBtn.target = '_blank';
             kakaoBtn.className = 'kakao-chat-btn';
-            kakaoBtn.textContent = translations[currentLang].kakaoTalk; 
+            kakaoBtn.textContent = isError ? translations[currentLang].kakaoTalkError : translations[currentLang].kakaoTalk; 
             return kakaoBtn;
         }
 
         if (!input.includes('trip.com')) {
             resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].invalidLink}</p>`;
             if (currentLang === 'ko') {
-                resultsDiv.appendChild(createKakaoButton());
+                resultsDiv.appendChild(createKakaoButton(true));
             }
             return;
         }
@@ -1072,7 +1075,7 @@
         } catch (error) {
             resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
             if (currentLang === 'ko') {
-                resultsDiv.appendChild(createKakaoButton());
+                resultsDiv.appendChild(createKakaoButton(true));
             }
             console.error("URL Parsing Error:", error);
         }
