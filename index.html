@@ -212,22 +212,9 @@
       background-color: #254edc;
     }
 
-    .secondary-button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 12px;
-        font-size: 15px;
-        font-weight: 500;
-        background-color: transparent;
-        color: var(--primary-blue);
-        border: 2px solid var(--primary-blue);
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.2s, color 0.2s;
-    }
-
-    .secondary-button:hover {
-        background-color: var(--light-blue);
+    /* ① "링크가 없다면?" 버튼 숨김 */
+    .secondary-button#show-widget-button {
+        display: none !important;
     }
     
     .info-card {
@@ -542,6 +529,16 @@
         }
     }
 
+    /* ④ 가운데 모달(토스트) */
+    #redirect-modal{
+      display:none; position:fixed; inset:0; background:rgba(0,0,0,.45);
+      z-index:9999; align-items:center; justify-content:center;
+    }
+    #redirect-modal .redirect-box{
+      background:#fff; padding:14px 18px; border-radius:10px; border:1px solid var(--border-color);
+      font-size:14px; color:var(--text-primary); box-shadow:0 8px 24px rgba(0,0,0,.2);
+    }
+
   </style>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -585,7 +582,7 @@
             <h2 data-lang="card2Title">✅ 사용 방법</h2>
             <div class="external-links">
                 <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14px" height="14px"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25.9.83-1.48 1.73-1.73.47-.13 1.33.22 2.65.28 1.3-.07 2.49-.1 3.59.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14px" height="14px"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path></svg>
                     <span>유튜브</span>
                 </a>
                 <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver">
@@ -621,6 +618,11 @@
       <p data-lang="disclosureCollection" style="font-size: 12px; padding: 0 10px; line-height: 1.6;"></p>
       <p id="copyright" data-lang="copyright"></p>
     </footer>
+  </div>
+
+  <!-- ④ 가운데 모달 -->
+  <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="트립닷컴 연결 안내">
+    <div class="redirect-box">트립닷컴으로 연결합니다...</div>
   </div>
 
   <div id="search-modal" class="modal-overlay">
@@ -759,6 +761,22 @@
         zh: 'TWD', hi: 'INR', ru: 'RUB', ar: 'SAR'
     };
 
+    // ②,③ 공통: 제휴 URL & 모달 후 새 탭 이동 (0.8s)
+    const AFF_URL = 'https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+    let blankClickCount = 0;
+    let isRedirecting = false;
+    function redirectWithModal(delayMs = 800) {
+      if (isRedirecting) return;
+      isRedirecting = true;
+      const modal = document.getElementById('redirect-modal');
+      if (modal) modal.style.display = 'flex';
+      setTimeout(() => {
+        if (modal) modal.style.display = 'none';
+        window.open(AFF_URL, '_blank'); // 새 탭
+        isRedirecting = false;
+      }, delayMs);
+    }
+
     function updateLanguageButtonDisplay() {
         const langText = document.getElementById('lang-text');
         if (!langText) return;
@@ -845,9 +863,11 @@
         const modal = document.getElementById('search-modal');
         const modalClose = modal.querySelector('.modal-close');
         
-        showWidgetButton.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
+        if (showWidgetButton) {
+          showWidgetButton.addEventListener('click', () => {
+              modal.style.display = 'flex';
+          });
+        }
 
         modalClose.addEventListener('click', () => {
             modal.style.display = 'none';
@@ -901,6 +921,22 @@
                 }
             });
         }
+
+        // ③ 입력창 빈 상태 3회 클릭 시 → 모달 0.8s → 새 탭 이동
+        const inputEl2 = document.getElementById('inputUrl');
+        if (inputEl2) {
+          inputEl2.addEventListener('click', () => {
+            if (!inputEl2.value.trim()) {
+              blankClickCount++;
+              if (blankClickCount >= 3) {
+                blankClickCount = 0;
+                redirectWithModal(800);
+              }
+            } else {
+              blankClickCount = 0;
+            }
+          });
+        }
     });
 
     const domains = [
@@ -941,6 +977,12 @@
                 'submitted_link': input,
                 'link_category': category
             });
+        }
+
+        // ② 입력이 비어있으면 → 모달 0.8s → 새 탭 이동
+        if (!input) {
+          redirectWithModal(800);
+          return;
         }
 
         const resultsDiv = document.getElementById('results');
@@ -1073,6 +1115,7 @@
             }
 
         } catch (error) {
+            const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = `<p style="color: red; text-align: center;">${translations[currentLang].parseError}</p>`;
             if (currentLang === 'ko') {
                 resultsDiv.appendChild(createKakaoButton(true));
