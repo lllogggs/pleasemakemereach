@@ -265,10 +265,12 @@
         opacity: 0.85;
     }
     .external-link-btn svg {
-        width: 14px;
-        height: 14px;
-        fill: white;
-    }
+          width: 16px;   /* 14 -> 16으로 상향 */
+          height: 16px;
+          fill: white;
+          display: block;     /* 베이스라인 여백 제거 */
+          flex-shrink: 0;     /* 아이콘 찌그러짐 방지 */
+        }
     .external-link-btn.youtube { background-color: #FF0000; }
     .external-link-btn.naver { background-color: #03C75A; }
     
@@ -581,9 +583,9 @@
         <div class="card-header">
             <h2 data-lang="card2Title">✅ 사용 방법</h2>
             <div class="external-links">
-                <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14px" height="14px"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path></svg>
-                    <span>유튜브</span>
+                <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="유튜브">
+                  <span aria-hidden="true" style="font-size:16px; line-height:1; display:inline-block;">▷</span>
+                  <span>유튜브</span>
                 </a>
                 <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14px" height="14px"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
