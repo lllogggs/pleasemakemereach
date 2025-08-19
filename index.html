@@ -17,10 +17,14 @@
   <link rel="apple-touch-icon" href="/apple-icon.png">
   <title>트립닷닷 | Trip.com 최저가 링크 찾기</title>
 
+  <!-- ① canonical + hreflang 정리 -->
+  <link rel="canonical" href="https://tripdotdot.com/">
   <link rel="alternate" hreflang="ko" href="https://tripdotdot.com/">
-  <link rel="alternate" hreflang="en" href="https://tripdotdot.com/">
-  <link rel="alternate" hreflang="ja" href="https://tripdotdot.com/">
   <link rel="alternate" hreflang="x-default" href="https://tripdotdot.com/">
+
+  <!-- ③ robots 메타 -->
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="googlebot" content="index,follow">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -268,11 +272,11 @@
         opacity: 0.85;
     }
     .external-link-btn svg {
-          width: 16px;   /* 14 -> 16으로 상향 */
+          width: 16px;
           height: 16px;
           fill: white;
-          display: block;     /* 베이스라인 여백 제거 */
-          flex-shrink: 0;     /* 아이콘 찌그러짐 방지 */
+          display: block;
+          flex-shrink: 0;
         }
     .external-link-btn.youtube { background-color: #FF0000; }
     .external-link-btn.naver { background-color: #03C75A; }
@@ -551,6 +555,37 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "sd3i2hqjuv");
+  </script>
+
+  <!-- ④ 구조화 데이터 (WebSite + Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "트립닷닷",
+    "alternateName": "Tripdotdot",
+    "url": "https://tripdotdot.com/",
+    "inLanguage": ["ko","en","ja"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://tripdotdot.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "트립닷닷",
+    "alternateName": "Tripdotdot",
+    "url": "https://tripdotdot.com/",
+    "logo": "https://tripdotdot.com/favicon-48x48.png",
+    "sameAs": [
+      "https://blog.naver.com/tripdotdot",
+      "https://youtube.com/shorts/reQWEWc72Yw?feature=share"
+    ]
+  }
   </script>
 </head>
 <body>
