@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <rect width="512" height="512" fill="#3370FF"/>
-  <!-- dots -->
-  <circle cx="256" cy="256" r="58" fill="#FFFFFF" transform="translate(-84,0)"/>
-  <circle cx="256" cy="256" r="58" fill="#FFB000" transform="translate(84,0)"/>
+  <circle cx="256-0" cy="256" r="56" fill="#FFFFFF" transform="translate(-61,0)"/>
+  <circle cx="256+0" cy="256" r="56" fill="#FFA800" transform="translate(61,0)"/>
 </svg>
