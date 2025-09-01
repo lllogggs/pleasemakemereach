@@ -2,7 +2,27 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 
-  // === 설정 ===
+  // ===== 라우트(드롭다운에 쓰임) =====
+  const LANG_ROUTES = [
+    { code: 'ko', label: '한국어', path: '/',    flag: 'kr' },
+    { code: 'en', label: 'English', path: '/en/', flag: 'us' },
+    { code: 'ja', label: '日本語',  path: '/ja/', flag: 'jp' }
+  ];
+  function pathForLang(code){
+    const r = LANG_ROUTES.find(x => x.code === code);
+    return r ? r.path : '/';
+  }
+  function renderLangDropdown() {
+    const dropdown = $('#language-dropdown');
+    if (!dropdown) return;
+    dropdown.innerHTML = LANG_ROUTES.map(l => `
+      <a href="${l.path}" class="lang-option" data-lang-code="${l.code}">
+        <img src="https://flagcdn.com/w40/${l.flag}.png" alt="${l.code.toUpperCase()} Flag"> ${l.label}
+      </a>
+    `).join('');
+  }
+
+  // ===== 설정 상수 =====
   const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
 
   const widgetSrcModal = {
@@ -50,7 +70,7 @@
     { ko:'사우디', en:'Saudi Arabia', ja:'サウジアラビア', code:'sa', flag:'sa' }
   ];
 
-  // === 언어 & i18n ===
+  // ===== 언어 판별 & 적용 =====
   let currentLang = window.PAGE_LANG || detectLangByPath();
 
   function detectLangByPath(){
@@ -69,14 +89,11 @@
     const input = $('#inputUrl');
     if (input && T.placeholder) input.placeholder = T.placeholder;
 
-    // footer privacy link
     const pl = $('#privacy-link');
     if (pl && langDetails[lang]) pl.href = langDetails[lang].privacy;
 
-    // language button label
     updateLanguageButtonDisplay();
 
-    // widget src
     const hotelWidget = $('#hotel-widget-modal');
     const flightWidget = $('#flight-widget-modal');
     if (hotelWidget && flightWidget){
@@ -84,7 +101,6 @@
       flightWidget.src = widgetSrcModal[lang].flight;
     }
 
-    // flag
     const langFlag = $('#lang-flag');
     if (langFlag) {
       langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag}.png`;
@@ -94,8 +110,7 @@
 
   function goLang(newLang){
     const qs = window.location.search || '';
-    const target = (newLang === 'ko') ? '/' : `/${newLang}/`;
-    window.location.href = target + qs;
+    window.location.href = pathForLang(newLang) + qs;
   }
 
   function updateLanguageButtonDisplay(){
@@ -105,7 +120,7 @@
     el.textContent = codeOrText;
   }
 
-  // === 리디렉트 토스트 ===
+  // ===== 리디렉트 토스트 =====
   let isRedirecting = false;
   function redirectWithModal(affUrl, delayMs=800){
     if (isRedirecting) return;
@@ -119,7 +134,7 @@
     }, delayMs);
   }
 
-  // === 메인 기능 ===
+  // ===== 메인 기능 =====
   let linkClickCount = 0;
   let mobilePopupShown = false;
   let blankClickCount = 0;
@@ -127,7 +142,6 @@
   window.generateLinks = function(){
     const input = ($('#inputUrl')?.value || '').trim();
 
-    // GA 이벤트(있을 때만)
     if (input && typeof gtag === 'function') {
       let category = 'Other';
       if (input.includes('/hotels/')) category = 'Hotel';
@@ -138,7 +152,6 @@
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
     }
 
-    // 빈 입력 → 제휴 홈으로
     if (!input) {
       const defaultAff = (currentLang === 'ko')
         ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX
@@ -191,7 +204,6 @@
 
       } else if (pathname.includes('/flights')) {
         if (pathname.startsWith('/m/')) {
-          // 모바일 링크 → 표준 검색 링크로 변환
           pathname = '/flights/showfarefirst';
           if (originalParams.has('dcitycode')) essentialParams.set('dcity', originalParams.get('dcitycode'));
           if (originalParams.has('acitycode')) essentialParams.set('acity', originalParams.get('acitycode'));
@@ -215,7 +227,6 @@
         }
 
       } else {
-        // 호텔/액티비티 등
         const whitelist = ['hotelId','hotelid','cityId','checkIn','checkOut','adults','children','rooms','nights','crn','ages','travelpurpose','adult','curr'];
         whitelist.forEach(p => {
           if (originalParams.has(p)) originalParams.getAll(p).forEach(v => essentialParams.append(p, v));
@@ -223,7 +234,6 @@
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
       }
 
-      // 통화 보정
       if (!essentialParams.has('curr')) {
         let currency = languageToCurrencyMap[currentLang] || 'USD';
         if (originalParams.has('curr')) currency = (originalParams.get('curr') || '').toUpperCase();
@@ -233,7 +243,6 @@
       const paramString = essentialParams.toString();
       const cleanPath = pathname + (paramString ? '?' + paramString : '');
 
-      // 결과 타이틀
       const title = document.createElement('p');
       title.className = 'results-title';
       title.innerHTML = T.resultsTitle || 'Results';
@@ -282,8 +291,11 @@
     }
   };
 
-  // === 초기화 ===
+  // ===== 초기화 =====
   document.addEventListener('DOMContentLoaded', () => {
+    // 드롭다운 항목을 먼저 동적 생성
+    renderLangDropdown();
+
     // 언어 적용
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
@@ -292,8 +304,6 @@
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
     const langDropdown = $('#language-dropdown');
-    const langOptions = $$('.lang-option');
-
     if (langButton && langDropdown){
       langButton.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -308,8 +318,8 @@
       });
     }
 
-    // 언어 전환 (페이지 이동)
-    langOptions.forEach(option => {
+    // 드롭다운 항목 전환 이벤트
+    $$('.lang-option').forEach(option => {
       option.addEventListener('click', (e) => {
         e.preventDefault();
         const newLang = option.getAttribute('data-lang-code');
@@ -344,7 +354,7 @@
       });
     });
 
-    // ?url= 사전입력 (URL바 정리)
+    // ?url= 사전입력
     const params = new URLSearchParams(window.location.search);
     const urlToProcess = params.get('url');
     if (urlToProcess) {
