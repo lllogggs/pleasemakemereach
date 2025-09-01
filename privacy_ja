@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プライバシーポリシー - Tripdotdot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 検索結果に表示しない -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 24px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-top: 30px;
+    }
+    p, li {
+      font-size: 15px;
+      color: #555;
+    }
+    strong {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>プライバシーポリシー</h1>
+    <p>Tripdotdot（以下「本サービス」）は、ユーザーの個人情報を大切にし、適用される法令（個人情報保護法等）を遵守します。本ポリシーでは、本サービスが収集する情報、その利用目的、および保護方法についてご案内します。</p>
+
+    <h2>第1条（収集する個人情報の項目および収集方法）</h2>
+    <p>本サービスは会員登録なしで全コンテンツをご利用いただけます。サービスの利用中に、以下の情報が自動的に生成・収集される場合がありますが、いずれも個人を特定できない匿名化された情報です。</p>
+    <ul>
+      <li>クッキー、アクセスログ、アクセスIP情報、デバイス情報</li>
+      <li><strong>ユーザーが入力した Trip.com のURL</strong></li>
+    </ul>
+
+    <h2>第2条（個人情報の利用目的）</h2>
+    <p>収集した情報は、次の目的で利用します。</p>
+    <ul>
+      <li><strong>サービス改善・統計分析：</strong>アクセス頻度の把握や利用状況の統計分析（例：Google Analytics）。</li>
+      <li><strong>ユーザー体験分析：</strong>サービス内でのクリック・スクロール等の行動分析によるUI/UX改善（例：Microsoft Clarity）。</li>
+      <li><strong>エラー解消・機能改善：</strong>ユーザーが入力したURLを匿名で収集し、リンク変換エラーの解消や主に利用されるリンクの傾向分析に活用。</li>
+    </ul>
+
+    <h2>第3条（保有・利用期間）</h2>
+    <p>収集した匿名情報は、関連法令に基づく保存理由の範囲で一定期間保管した後、適切な方法で削除・破棄します。</p>
+
+    <h2>第4条（プライバシーポリシーの変更）</h2>
+    <p>法令や運用方針の変更等により本ポリシーの内容を追加・削除・修正する場合は、本サイトのお知らせ等で告知します。</p>
+
+    <p><strong>施行日：</strong>2025年8月3日</p>
+  </div>
+</body>
+</html>
