@@ -2,11 +2,12 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 
-  // ===== 라우트(드롭다운에 쓰임) =====
+  // ===== 라우트(언어 드롭다운 동적 생성) =====
   const LANG_ROUTES = [
-    { code: 'ko', label: '한국어', path: '/',    flag: 'kr' },
-    { code: 'en', label: 'English', path: '/en/', flag: 'us' },
-    { code: 'ja', label: '日本語',  path: '/ja/', flag: 'jp' }
+    { code: 'ko', label: '한국어',  path: '/',     flag: 'kr' },
+    { code: 'en', label: 'English', path: '/en/',  flag: 'us' },
+    { code: 'ja', label: '日本語',   path: '/ja/',  flag: 'jp' },
+    { code: 'th', label: 'ภาษาไทย', path: '/th/',  flag: 'th' } // NEW
   ];
   function pathForLang(code){
     const r = LANG_ROUTES.find(x => x.code === code);
@@ -31,43 +32,48 @@
     en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
          flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
     ja:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
+         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
+    th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
+         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" } // NEW (en과 동일 사용)
   };
 
   const langDetails = {
-    ko:{ flag:'kr', text:'한국어', privacy:'/privacy_ko.html', code:'KR' },
+    ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
     en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
-    ja:{ flag:'jp', text:'日本語', privacy:'/privacy_ja.html', code:'JP' }
+    ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
+    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // NEW (태국어 정책 페이지 없으니 EN로 연결)
   };
 
   const languageToCurrencyMap = {
-    ko:'KRW', ja:'JPY', en:'USD', es:'EUR', fr:'EUR', de:'EUR',
-    nl:'EUR', pt:'EUR', vi:'VND', id:'IDR', ms:'MYR',
-    zh:'TWD', hi:'INR', ru:'RUB', ar:'SAR'
+    ko:'KRW', ja:'JPY', en:'USD', th:'THB', // NEW
+    es:'EUR', fr:'EUR', de:'EUR', nl:'EUR', pt:'EUR',
+    vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR', ru:'RUB', ar:'SAR'
   };
 
+  // Trip.com 국가 도메인 리스트
   const domains = [
-    { ko:'한국', en:'Korea', ja:'韓国', code:'kr', flag:'kr' },
-    { ko:'미국', en:'USA',   ja:'アメリカ', code:'us', flag:'us' },
-    { ko:'일본', en:'Japan', ja:'日本',     code:'jp', flag:'jp' },
-    { ko:'스페인', en:'Spain', ja:'スペイン', code:'es', flag:'es' },
-    { ko:'프랑스', en:'France', ja:'フランス', code:'fr', flag:'fr' },
-    { ko:'베트남', en:'Vietnam', ja:'ベトナム', code:'vn', flag:'vn' },
-    { ko:'독일', en:'Germany', ja:'ドイツ', code:'de', flag:'de' },
-    { ko:'캐나다', en:'Canada', ja:'カナダ', code:'ca', flag:'ca' },
-    { ko:'호주', en:'Australia', ja:'オーストラリア', code:'au', flag:'au' },
-    { ko:'네덜란드', en:'Netherlands', ja:'オランダ', code:'nl', flag:'nl' },
-    { ko:'싱가포르', en:'Singapore', ja:'シンガポール', code:'sg', flag:'sg' },
-    { ko:'인도네시아', en:'Indonesia', ja:'インドネシア', code:'id', flag:'id' },
-    { ko:'말레이시아', en:'Malaysia', ja:'マレーシア', code:'my', flag:'my' },
-    { ko:'대만', en:'Taiwan', ja:'台湾', code:'tw', flag:'tw' },
-    { ko:'인도', en:'India', ja:'インド', code:'in', flag:'in' },
-    { ko:'멕시코', en:'Mexico', ja:'メキシコ', code:'mx', flag:'mx' },
-    { ko:'영국', en:'U.K.', ja:'イギリス', code:'uk', flag:'gb' },
-    { ko:'러시아', en:'Russia', ja:'ロシア', code:'ru', flag:'ru' },
-    { ko:'아르헨티나', en:'Argentina', ja:'アルゼンチン', code:'ar', flag:'ar' },
-    { ko:'포르투갈', en:'Portugal', ja:'ポルトガル', code:'pt', flag:'pt' },
-    { ko:'사우디', en:'Saudi Arabia', ja:'サウジアラビア', code:'sa', flag:'sa' }
+    { ko:'한국',     en:'Korea',        ja:'韓国',      th:'เกาหลี',        code:'kr', flag:'kr' },
+    { ko:'미국',     en:'USA',          ja:'アメリカ',  th:'สหรัฐฯ',        code:'us', flag:'us' },
+    { ko:'일본',     en:'Japan',        ja:'日本',      th:'ญี่ปุ่น',        code:'jp', flag:'jp' },
+    { ko:'스페인',   en:'Spain',        ja:'スペイン',  th:'สเปน',          code:'es', flag:'es' },
+    { ko:'프랑스',   en:'France',       ja:'フランス',  th:'ฝรั่งเศส',       code:'fr', flag:'fr' },
+    { ko:'베트남',   en:'Vietnam',      ja:'ベトナム',  th:'เวียดนาม',      code:'vn', flag:'vn' },
+    { ko:'독일',     en:'Germany',      ja:'ドイツ',    th:'เยอรมนี',       code:'de', flag:'de' },
+    { ko:'캐나다',   en:'Canada',       ja:'カナダ',    th:'แคนาดา',        code:'ca', flag:'ca' },
+    { ko:'호주',     en:'Australia',    ja:'オーストラリア', th:'ออสเตรเลีย', code:'au', flag:'au' },
+    { ko:'네덜란드', en:'Netherlands',  ja:'オランダ',  th:'เนเธอร์แลนด์',  code:'nl', flag:'nl' },
+    { ko:'싱가포르', en:'Singapore',    ja:'シンガポール', th:'สิงคโปร์',   code:'sg', flag:'sg' },
+    { ko:'인도네시아',en:'Indonesia',   ja:'インドネシア', th:'อินโดนีเซีย', code:'id', flag:'id' },
+    { ko:'말레이시아',en:'Malaysia',    ja:'マレーシア', th:'มาเลเซีย',     code:'my', flag:'my' },
+    { ko:'대만',     en:'Taiwan',       ja:'台湾',      th:'ไต้หวัน',       code:'tw', flag:'tw' },
+    { ko:'인도',     en:'India',        ja:'インド',    th:'อินเดีย',       code:'in', flag:'in' },
+    { ko:'멕시코',   en:'Mexico',       ja:'メキシコ',  th:'เม็กซิโก',       code:'mx', flag:'mx' },
+    { ko:'영국',     en:'U.K.',         ja:'イギリス',  th:'สหราชอาณาจักร', code:'uk', flag:'gb' },
+    { ko:'러시아',   en:'Russia',       ja:'ロシア',    th:'รัสเซีย',       code:'ru', flag:'ru' },
+    { ko:'아르헨티나',en:'Argentina',   ja:'アルゼンチン', th:'อาร์เจนตินา', code:'ar', flag:'ar' },
+    { ko:'포르투갈', en:'Portugal',     ja:'ポルトガル', th:'โปรตุเกส',    code:'pt', flag:'pt' },
+    { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
+    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' } // NEW
   ];
 
   // ===== 언어 판별 & 적용 =====
@@ -77,6 +83,7 @@
     const seg = (location.pathname.split('/')[1] || '').toLowerCase();
     if (seg === 'en') return 'en';
     if (seg === 'ja') return 'ja';
+    if (seg === 'th') return 'th'; // NEW
     return 'ko';
   }
 
@@ -142,6 +149,7 @@
   window.generateLinks = function(){
     const input = ($('#inputUrl')?.value || '').trim();
 
+    // GA 이벤트
     if (input && typeof gtag === 'function') {
       let category = 'Other';
       if (input.includes('/hotels/')) category = 'Hotel';
@@ -152,12 +160,13 @@
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
     }
 
+    // 빈 입력 → 제휴 홈으로 (언어별 통화)
     if (!input) {
-      const defaultAff = (currentLang === 'ko')
-        ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX
-        : (currentLang === 'ja')
-          ? 'https://www.trip.com/?curr=JPY&' + AFF_AFFIX
-          : 'https://www.trip.com/?curr=USD&' + AFF_AFFIX;
+      const defaultAff =
+        (currentLang === 'ko') ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX :
+        (currentLang === 'ja') ? 'https://www.trip.com/?curr=JPY&' + AFF_AFFIX :
+        (currentLang === 'th') ? 'https://www.trip.com/?curr=THB&' + AFF_AFFIX :
+                                 'https://www.trip.com/?curr=USD&' + AFF_AFFIX;
       redirectWithModal(defaultAff, 800);
       return;
     }
@@ -204,19 +213,20 @@
 
       } else if (pathname.includes('/flights')) {
         if (pathname.startsWith('/m/')) {
+          // 모바일 → 표준 검색 링크로 변환
           pathname = '/flights/showfarefirst';
-          if (originalParams.has('dcitycode')) essentialParams.set('dcity', originalParams.get('dcitycode'));
-          if (originalParams.has('acitycode')) essentialParams.set('acity', originalParams.get('acitycode'));
-          if (originalParams.has('ddate')) essentialParams.set('ddate', originalParams.get('ddate'));
-          if (originalParams.has('adate')) essentialParams.set('rdate', originalParams.get('adate'));
-          if (originalParams.has('adult')) essentialParams.set('quantity', originalParams.get('adult'));
+          if (originalParams.has('dcitycode')) essentialParams.set('dcity',   originalParams.get('dcitycode'));
+          if (originalParams.has('acitycode')) essentialParams.set('acity',   originalParams.get('acitycode'));
+          if (originalParams.has('ddate'))     essentialParams.set('ddate',   originalParams.get('ddate'));
+          if (originalParams.has('adate'))     essentialParams.set('rdate',   originalParams.get('adate'));
+          if (originalParams.has('adult'))     essentialParams.set('quantity',originalParams.get('adult'));
           const triptype = originalParams.get('triptype');
           if (triptype === '1' || triptype === 'rt') essentialParams.set('triptype','rt');
           else { essentialParams.set('triptype','ow'); essentialParams.delete('rdate'); }
           const classtype = originalParams.get('classtype');
-          if (classtype === '1' || classtype === 'c') essentialParams.set('class','c');
+          if      (classtype === '1' || classtype === 'c') essentialParams.set('class','c');
           else if (classtype === '2' || classtype === 'f') essentialParams.set('class','f');
-          else essentialParams.set('class','y');
+          else                                             essentialParams.set('class','y');
           essentialParams.set('lowpricesource','searchform');
           essentialParams.set('searchboxarg','t');
           essentialParams.set('nonstoponly','off');
@@ -227,6 +237,7 @@
         }
 
       } else {
+        // 호텔/액티비티 등
         const whitelist = ['hotelId','hotelid','cityId','checkIn','checkOut','adults','children','rooms','nights','crn','ages','travelpurpose','adult','curr'];
         whitelist.forEach(p => {
           if (originalParams.has(p)) originalParams.getAll(p).forEach(v => essentialParams.append(p, v));
@@ -234,6 +245,7 @@
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
       }
 
+      // 통화 보정 (링크에 curr 있으면 그대로, 없으면 언어 기본 통화)
       if (!essentialParams.has('curr')) {
         let currency = languageToCurrencyMap[currentLang] || 'USD';
         if (originalParams.has('curr')) currency = (originalParams.get('curr') || '').toUpperCase();
@@ -243,6 +255,7 @@
       const paramString = essentialParams.toString();
       const cleanPath = pathname + (paramString ? '?' + paramString : '');
 
+      // 결과 타이틀
       const title = document.createElement('p');
       title.className = 'results-title';
       title.innerHTML = T.resultsTitle || 'Results';
@@ -251,6 +264,7 @@
       const grid = document.createElement('div');
       grid.className = 'link-list-grid';
 
+      // 언어별 국가 도메인 우선 정렬
       let sortedDomains = [...domains];
       if (currentLang === 'ja') {
         const jp = sortedDomains.find(d => d.code === 'jp');
@@ -258,8 +272,12 @@
       } else if (currentLang === 'en') {
         const us = sortedDomains.find(d => d.code === 'us');
         if (us) sortedDomains = [us, ...sortedDomains.filter(d => d.code !== 'us')];
+      } else if (currentLang === 'th') { // NEW: 태국어면 th 먼저
+        const th = sortedDomains.find(d => d.code === 'th');
+        if (th) sortedDomains = [th, ...sortedDomains.filter(d => d.code !== 'th')];
       }
 
+      // 버튼 렌더
       sortedDomains.forEach(dom => {
         const finalAffix = (cleanPath.includes('?') ? '&' : '?') + AFF_AFFIX;
         const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
@@ -293,14 +311,14 @@
 
   // ===== 초기화 =====
   document.addEventListener('DOMContentLoaded', () => {
-    // 드롭다운 항목을 먼저 동적 생성
+    // A: 드롭다운 동적 생성
     renderLangDropdown();
 
-    // 언어 적용
+    // B: 언어 적용
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
 
-    // 드롭다운 열고닫기
+    // C: 드롭다운 열고닫기
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
     const langDropdown = $('#language-dropdown');
@@ -318,7 +336,7 @@
       });
     }
 
-    // 드롭다운 항목 전환 이벤트
+    // D: 드롭다운 항목 전환 이벤트
     $$('.lang-option').forEach(option => {
       option.addEventListener('click', (e) => {
         e.preventDefault();
@@ -327,7 +345,7 @@
       });
     });
 
-    // 리사이즈: 버튼 텍스트 코드/텍스트 전환
+    // 버튼 텍스트(코드/텍스트) 반응형
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
@@ -339,8 +357,8 @@
     const modal = $('#search-modal');
     const modalClose = modal?.querySelector('.modal-close');
     if (showWidgetButton) showWidgetButton.addEventListener('click', () => { modal.style.display = 'flex'; });
-    if (modalClose) modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
-    if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    if (modalClose)      modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
+    if (modal)           modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
     // 탭
     const tabButtons = $$('.tab-button');
@@ -379,11 +397,11 @@
           blankClickCount++;
           if (blankClickCount >= 3) {
             blankClickCount = 0;
-            const defaultAff = (currentLang === 'ko')
-              ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX
-              : (currentLang === 'ja')
-                ? 'https://www.trip.com/?curr=JPY&' + AFF_AFFIX
-                : 'https://www.trip.com/?curr=USD&' + AFF_AFFIX;
+            const defaultAff =
+              (currentLang === 'ko') ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX :
+              (currentLang === 'ja') ? 'https://www.trip.com/?curr=JPY&' + AFF_AFFIX :
+              (currentLang === 'th') ? 'https://www.trip.com/?curr=THB&' + AFF_AFFIX :
+                                       'https://www.trip.com/?curr=USD&' + AFF_AFFIX;
             redirectWithModal(defaultAff, 800);
           }
         } else {
