@@ -131,29 +131,48 @@
   }
 
   // ===== URL 로깅 함수 =====
-  function logSubmittedUrl(rawUrl, category){
-    const payload = {
-      url: rawUrl,
-      pageLang: currentLang,
-      category,
-      referrer: document.referrer || '',
-      userAgent: navigator.userAgent || ''
-    };
-    try {
-      if (navigator.sendBeacon) {
-        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-        navigator.sendBeacon(LOG_ENDPOINT, blob);
-      } else {
-        fetch(LOG_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      }
-    } catch (_) { /* 무시 */ }
-  }
+  // ===== URL 로깅 함수 (POST + GET 픽셀 동시 발사) =====
+function logSubmittedUrl(rawUrl, category){
+  const payload = {
+    url: rawUrl,
+    pageLang: currentLang,
+    category,
+    referrer: document.referrer || '',
+    userAgent: navigator.userAgent || ''
+  };
 
+  // 1) POST (되면 좋고, 안 돼도 넘어감)
+  try {
+    if (navigator.sendBeacon) {
+      const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+      navigator.sendBeacon(LOG_ENDPOINT, blob);
+    } else {
+      fetch(LOG_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+  } catch (_) { /* 무시 */ }
+
+  // 2) GET 픽셀(확실히 찍히도록)
+  try {
+    const qs = new URLSearchParams({
+      url: payload.url,
+      pageLang: payload.pageLang,
+      category: payload.category,
+      referrer: payload.referrer,
+      userAgent: payload.userAgent,
+      t: String(Date.now())           // 캐시 방지
+    }).toString();
+
+    const img = new Image(1, 1);
+    img.src = `${LOG_ENDPOINT}?${qs}`;
+    // 가비지 컬렉션 방지용 참조 유지
+    (window.__logPixels = window.__logPixels || []).push(img);
+  } catch (_) { /* 무시 */ }
+}
   // ===== 리디렉트 토스트 =====
   let isRedirecting = false;
   function redirectWithModal(affUrl, delayMs=800){
