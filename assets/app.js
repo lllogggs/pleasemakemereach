@@ -7,7 +7,7 @@
     { code: 'ko', label: '한국어',  path: '/',     flag: 'kr' },
     { code: 'en', label: 'English', path: '/en/',  flag: 'us' },
     { code: 'ja', label: '日本語',   path: '/ja/',  flag: 'jp' },
-    { code: 'th', label: 'ภาษาไทย', path: '/th/',  flag: 'th' } // NEW
+    { code: 'th', label: 'ภาษาไทย', path: '/th/',  flag: 'th' }
   ];
   function pathForLang(code){
     const r = LANG_ROUTES.find(x => x.code === code);
@@ -24,6 +24,9 @@
   }
 
   // ===== 설정 상수 =====
+  // (1) URL 로깅 엔드포인트: 네 Apps Script 웹앱 URL
+  const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbznvhLbnqpbJQ0dMuaNix6BtZDtslylMi61RTUfBdM8IMKeE5vxFmlzP7HEseY5Lm61/exec';
+
   const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
 
   const widgetSrcModal = {
@@ -34,18 +37,18 @@
     ja:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
          flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
     th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" } // NEW (en과 동일 사용)
+         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
   };
 
   const langDetails = {
     ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
     en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
     ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
-    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // NEW (태국어 정책 페이지 없으니 EN로 연결)
+    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 지금은 EN 정책으로 연결
   };
 
   const languageToCurrencyMap = {
-    ko:'KRW', ja:'JPY', en:'USD', th:'THB', // NEW
+    ko:'KRW', ja:'JPY', en:'USD', th:'THB',
     es:'EUR', fr:'EUR', de:'EUR', nl:'EUR', pt:'EUR',
     vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR', ru:'RUB', ar:'SAR'
   };
@@ -73,7 +76,7 @@
     { ko:'아르헨티나',en:'Argentina',   ja:'アルゼンチン', th:'อาร์เจนตินา', code:'ar', flag:'ar' },
     { ko:'포르투갈', en:'Portugal',     ja:'ポルトガル', th:'โปรตุเกส',    code:'pt', flag:'pt' },
     { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
-    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' } // NEW
+    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' }
   ];
 
   // ===== 언어 판별 & 적용 =====
@@ -83,7 +86,7 @@
     const seg = (location.pathname.split('/')[1] || '').toLowerCase();
     if (seg === 'en') return 'en';
     if (seg === 'ja') return 'ja';
-    if (seg === 'th') return 'th'; // NEW
+    if (seg === 'th') return 'th';
     return 'ko';
   }
 
@@ -127,6 +130,30 @@
     el.textContent = codeOrText;
   }
 
+  // ===== URL 로깅 함수 =====
+  function logSubmittedUrl(rawUrl, category){
+    const payload = {
+      url: rawUrl,
+      pageLang: currentLang,
+      category,
+      referrer: document.referrer || '',
+      userAgent: navigator.userAgent || ''
+    };
+    try {
+      if (navigator.sendBeacon) {
+        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+        navigator.sendBeacon(LOG_ENDPOINT, blob);
+      } else {
+        fetch(LOG_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+    } catch (_) { /* 무시 */ }
+  }
+
   // ===== 리디렉트 토스트 =====
   let isRedirecting = false;
   function redirectWithModal(affUrl, delayMs=800){
@@ -149,16 +176,20 @@
   window.generateLinks = function(){
     const input = ($('#inputUrl')?.value || '').trim();
 
-    // GA 이벤트
+    // 카테고리 판별(공통)
+    let category = 'Other';
+    if (input.includes('/hotels/')) category = 'Hotel';
+    else if (input.includes('/flights/')) category = 'Flight';
+    else if (input.includes('/packages/')) category = 'Package';
+    else if (input.includes('/things-to-do/')) category = 'Activity';
+    else if (input.includes('/airport-transfers/')) category = 'Airport Pickup';
+
+    // GA 이벤트(있을 때만)
     if (input && typeof gtag === 'function') {
-      let category = 'Other';
-      if (input.includes('/hotels/')) category = 'Hotel';
-      else if (input.includes('/flights/')) category = 'Flight';
-      else if (input.includes('/packages/')) category = 'Package';
-      else if (input.includes('/things-to-do/')) category = 'Activity';
-      else if (input.includes('/airport-transfers/')) category = 'Airport Pickup';
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
     }
+    // URL 로깅(Apps Script)
+    if (input) logSubmittedUrl(input, category);
 
     // 빈 입력 → 제휴 홈으로 (언어별 통화)
     if (!input) {
@@ -272,7 +303,7 @@
       } else if (currentLang === 'en') {
         const us = sortedDomains.find(d => d.code === 'us');
         if (us) sortedDomains = [us, ...sortedDomains.filter(d => d.code !== 'us')];
-      } else if (currentLang === 'th') { // NEW: 태국어면 th 먼저
+      } else if (currentLang === 'th') {
         const th = sortedDomains.find(d => d.code === 'th');
         if (th) sortedDomains = [th, ...sortedDomains.filter(d => d.code !== 'th')];
       }
