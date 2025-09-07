@@ -18,7 +18,7 @@
     if (!dropdown) return;
     dropdown.innerHTML = LANG_ROUTES.map(l => `
       <a href="${l.path}" class="lang-option" data-lang-code="${l.code}">
-        <img src="https://flagcdn.com/w40/${l.flag}.png" alt="${l.code.toUpperCase()} Flag"> ${l.label}
+        <img src="https://flagcdn.com/w40/${l.flag}.png" alt="${l.code.toUpperCase()} Flag" width="24" height="16"> ${l.label}
       </a>
     `).join('');
   }
@@ -44,7 +44,7 @@
     ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
     en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
     ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
-    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' }
+    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
   };
 
   const languageToCurrencyMap = {
@@ -107,6 +107,9 @@
     const hotelWidget = $('#hotel-widget-modal');
     const flightWidget = $('#flight-widget-modal');
     if (hotelWidget && flightWidget){
+      // 성능: iframe도 lazy
+      hotelWidget.setAttribute('loading','lazy');
+      flightWidget.setAttribute('loading','lazy');
       hotelWidget.src = widgetSrcModal[lang].hotel;
       flightWidget.src = widgetSrcModal[lang].flight;
     }
@@ -115,6 +118,8 @@
     if (langFlag) {
       langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag}.png`;
       langFlag.alt = `${langDetails[lang].text} Flag`;
+      langFlag.width = 24; langFlag.height = 24;
+      // header flag는 above-the-fold이라 lazy 미적용
     }
   }
 
@@ -128,6 +133,33 @@
     if (!el) return;
     const codeOrText = (window.innerWidth <= 600) ? langDetails[currentLang].code : langDetails[currentLang].text;
     el.textContent = codeOrText;
+  }
+
+  // ===== 리소스 힌트(Preconnect / DNS-Prefetch) =====
+  function addResourceHints(){
+    const head = document.head;
+    const origins = [
+      'https://flagcdn.com',
+      'https://www.trip.com',
+      'https://kr.trip.com',
+      'https://www.googletagmanager.com',
+      'https://www.clarity.ms'
+    ];
+    origins.forEach(o => {
+      try{
+        const u = new URL(o);
+        const pre = document.createElement('link');
+        pre.rel = 'preconnect';
+        pre.href = o;
+        pre.crossOrigin = 'anonymous';
+        head.appendChild(pre);
+
+        const dns = document.createElement('link');
+        dns.rel = 'dns-prefetch';
+        dns.href = '//' + u.host;
+        head.appendChild(dns);
+      }catch(_){}
+    });
   }
 
   // ===== URL 로깅 (POST + GET 픽셀) =====
@@ -225,7 +257,8 @@
     if (modal) modal.style.display = 'flex';
     setTimeout(() => {
       if (modal) modal.style.display = 'none';
-      window.open(affUrl, '_blank');
+      // 새 탭 보안
+      window.open(affUrl, '_blank', 'noopener');
       isRedirecting = false;
     }, delayMs);
   }
@@ -277,6 +310,7 @@
       const a = document.createElement('a');
       a.href = 'https://open.kakao.com/o/sKGmxMDh';
       a.target = '_blank';
+      a.rel = 'noopener noreferrer';
       a.className = 'kakao-chat-btn';
       a.textContent = isError ? (T.kakaoTalkError || 'Report an Error') : (T.kakaoTalk || 'KakaoTalk');
       return a;
@@ -380,6 +414,8 @@
         const a = document.createElement('a');
         a.href = fullUrl;
         a.target = '_blank';
+        // 제휴 링크 성격 명시 + 보안
+        a.rel = 'noopener nofollow sponsored';
         a.onclick = () => {
           a.classList.toggle('clicked');
           linkClickCount++;
@@ -390,12 +426,15 @@
           }
         };
         const label = (dom[currentLang] || dom.en);
-        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${label} flag"> ${label}`;
+        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${label} flag" width="24" height="16" loading="lazy" decoding="async"> ${label}`;
         grid.appendChild(a);
       });
 
       resultsDiv.appendChild(grid);
       if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton());
+
+      // 만들어진 새탭 링크들에 대한 안전 속성 재점검(중복 적용 OK)
+      hardenExternalLinks();
 
     } catch (e){
       resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.parseError || 'Parse error.'}</p>`;
@@ -404,7 +443,7 @@
     }
   };
 
-  // ===== [NEW] 구글 스니펫 억제: UI에는 영향 없음 =====
+  // ===== 스니펫 억제: UI에는 영향 없음 =====
   function applyNoSnippet(){
     const selectors = [
       '.header',
@@ -425,14 +464,60 @@
     });
   }
 
+  // ===== 검색 전용 ‘상단 한 줄 소개’ 삽입(보이지 않음) =====
+  function injectMetaIntro(){
+    const INTRO = {
+      ko: '트립닷컴 국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능',
+      en: 'Trip.com country-specific discount links | Save more and travel now | Compare the lowest prices across up to 21 country sites',
+      ja: 'Trip.com 国別割引コード適用リンク｜お得に旅へ｜最大21か国サイトで最安値を比較',
+      th: 'ลิงก์ส่วนลด Trip.com แยกตามประเทศ | ประหยัดทันที | เปรียบเทียบราคาถูกสุดได้สูงสุด 21 ประเทศ'
+    };
+    const txt = INTRO[currentLang];
+    if (!txt) return;
+
+    const container = $('.container') || document.body;
+    const header = $('.header');
+    const p = document.createElement('p');
+    p.className = 'meta-intro';
+    p.textContent = txt;
+    // 화면에는 숨김(크롤러는 읽음)
+    p.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;';
+    // header 내부는 nosnippet 처리되어 있으니 그 "앞"에 삽입
+    if (header && header.parentNode) header.parentNode.insertBefore(p, header);
+    else container.insertBefore(p, container.firstChild);
+  }
+
+  // ===== 외부 링크 보안 속성 일괄 보강 =====
+  function hardenExternalLinks(){
+    $$('a[target="_blank"]').forEach(a => {
+      try{
+        const u = new URL(a.href, location.href);
+        const isExternal = u.hostname && u.hostname !== location.hostname;
+        if (!isExternal) return;
+        const relSet = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+        relSet.add('noopener'); relSet.add('noreferrer');
+        // trip.com 계열은 제휴 성격 표시 + 크롤링 영향 최소화
+        if (u.hostname === 'trip.com' || /\.trip\.com$/.test(u.hostname)) {
+          relSet.add('sponsored');
+          relSet.add('nofollow');
+          // 제휴 추적을 고려해 noreferrer는 제거(필요 시 복구)
+          relSet.delete('noreferrer');
+        }
+        a.setAttribute('rel', Array.from(relSet).join(' '));
+      }catch(_){}
+    });
+  }
+
   // ===== 초기화 =====
   document.addEventListener('DOMContentLoaded', () => {
+    addResourceHints();          // 리소스 힌트
     renderLangDropdown();
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
 
-    // [NEW]
-    applyNoSnippet();
+    injectMetaIntro();           // 검색용 한줄 소개
+    applyNoSnippet();            // 스니펫 억제
+    hardenExternalLinks();       // 외부 링크 보강
 
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
@@ -477,8 +562,7 @@
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.addEventListener
-        const target = $('#' + button.dataset.tab + '-tab-content');
+        const target = $('#' + button.dataset.tab + '-tab-content'); // 오타 수정
         tabContents.forEach(c => c.classList.toggle('active', c === target));
       });
     });
