@@ -24,8 +24,9 @@
   }
 
   // ===== 설정 상수 =====
-  // (1) URL 로깅 엔드포인트: 네 Apps Script 웹앱 URL
-  const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx6DFzRpynRDKjo8NMR0De0yOOgA19CIvumlVc-TiMXwBNoQqY7A2fm1o95QWACQs7i/exec';
+  // (넣어줄 것) Apps Script 웹앱 URL
+  const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec'; // 축약링크 확장용 (?expand=1&url=...)
+  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec'; // URL 로깅용(GET/POST)
 
   const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
 
@@ -59,7 +60,7 @@
     { ko:'미국',     en:'USA',          ja:'アメリカ',  th:'สหรัฐฯ',        code:'us', flag:'us' },
     { ko:'일본',     en:'Japan',        ja:'日本',      th:'ญี่ปุ่น',        code:'jp', flag:'jp' },
     { ko:'스페인',   en:'Spain',        ja:'スペイン',  th:'สเปน',          code:'es', flag:'es' },
-    { ko:'프랑스',   en:'France',       ja:'フラン스',  th:'ฝรั่งเศส',       code:'fr', flag:'fr' },
+    { ko:'프랑스',   en:'France',       ja:'フランス',  th:'ฝรั่งเศส',       code:'fr', flag:'fr' },
     { ko:'베트남',   en:'Vietnam',      ja:'ベトナム',  th:'เวียดนาม',      code:'vn', flag:'vn' },
     { ko:'독일',     en:'Germany',      ja:'ドイツ',    th:'เยอรมนี',       code:'de', flag:'de' },
     { ko:'캐나다',   en:'Canada',       ja:'カナダ',    th:'แคนาดา',        code:'ca', flag:'ca' },
@@ -130,49 +131,93 @@
     el.textContent = codeOrText;
   }
 
-  // ===== URL 로깅 함수 =====
-  // ===== URL 로깅 함수 (POST + GET 픽셀 동시 발사) =====
-function logSubmittedUrl(rawUrl, category){
-  const payload = {
-    url: rawUrl,
-    pageLang: currentLang,
-    category,
-    referrer: document.referrer || '',
-    userAgent: navigator.userAgent || ''
-  };
+  // ===== URL 로깅 (POST + GET 픽셀) =====
+  function logSubmittedUrl(rawUrl, category){
+    const payload = {
+      url: rawUrl,
+      pageLang: currentLang,
+      category,
+      referrer: document.referrer || '',
+      userAgent: navigator.userAgent || ''
+    };
 
-  // 1) POST (되면 좋고, 안 돼도 넘어감)
-  try {
-    if (navigator.sendBeacon) {
-      const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-      navigator.sendBeacon(LOG_ENDPOINT, blob);
-    } else {
-      fetch(LOG_ENDPOINT, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+    try {
+      if (navigator.sendBeacon) {
+        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+        navigator.sendBeacon(LOG_ENDPOINT, blob);
+      } else {
+        fetch(LOG_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+    } catch (_) {}
+
+    try {
+      const qs = new URLSearchParams({
+        url: payload.url,
+        pageLang: payload.pageLang,
+        category: payload.category,
+        referrer: payload.referrer,
+        userAgent: payload.userAgent,
+        t: String(Date.now())
+      }).toString();
+      const img = new Image(1, 1);
+      img.src = `${LOG_ENDPOINT}?${qs}`;
+      (window.__logPixels = window.__logPixels || []).push(img);
+    } catch (_) {}
+  }
+
+  // ===== 축약링크 감지 & 확장(JSONP) =====
+  function isTripShortLink(raw){
+    try {
+      const u = new URL(raw);
+      const host = u.hostname.replace(/^www\./,'');
+      // 대표 케이스: trip.com/w/<token>
+      return (host === 'trip.com' || host.endsWith('.trip.com')) && /^\/w\/[^/]+/.test(u.pathname);
+    } catch { return false; }
+  }
+
+  function expandShortUrlJSONP(rawUrl, timeoutMs=3000){
+    return new Promise((resolve) => {
+      const cb = 'cb_expand_' + Date.now() + '_' + Math.floor(Math.random()*1e6);
+      const s = document.createElement('script');
+      const url = `${EXPAND_ENDPOINT}?expand=1&url=${encodeURIComponent(rawUrl)}&callback=${cb}`;
+
+      let done = false;
+      const cleanup = () => {
+        if (done) return;
+        done = true;
+        delete window[cb];
+        s.remove();
+      };
+
+      window[cb] = (data) => {
+        cleanup();
+        if (data && data.ok && data.finalUrl) resolve(data.finalUrl);
+        else resolve(rawUrl);
+      };
+
+      s.onerror = () => { cleanup(); resolve(rawUrl); };
+      s.src = url;
+      document.body.appendChild(s);
+
+      setTimeout(() => { cleanup(); resolve(rawUrl); }, timeoutMs);
+    });
+  }
+
+  async function ensureExpandedUrl(raw){
+    if (isTripShortLink(raw)) {
+      try {
+        const expanded = await expandShortUrlJSONP(raw);
+        return expanded || raw;
+      } catch { return raw; }
     }
-  } catch (_) { /* 무시 */ }
+    return raw;
+  }
 
-  // 2) GET 픽셀(확실히 찍히도록)
-  try {
-    const qs = new URLSearchParams({
-      url: payload.url,
-      pageLang: payload.pageLang,
-      category: payload.category,
-      referrer: payload.referrer,
-      userAgent: payload.userAgent,
-      t: String(Date.now())           // 캐시 방지
-    }).toString();
-
-    const img = new Image(1, 1);
-    img.src = `${LOG_ENDPOINT}?${qs}`;
-    // 가비지 컬렉션 방지용 참조 유지
-    (window.__logPixels = window.__logPixels || []).push(img);
-  } catch (_) { /* 무시 */ }
-}
   // ===== 리디렉트 토스트 =====
   let isRedirecting = false;
   function redirectWithModal(affUrl, delayMs=800){
@@ -192,10 +237,10 @@ function logSubmittedUrl(rawUrl, category){
   let mobilePopupShown = false;
   let blankClickCount = 0;
 
-  window.generateLinks = function(){
+  window.generateLinks = async function(){
     const input = ($('#inputUrl')?.value || '').trim();
 
-    // 카테고리 판별(공통)
+    // 카테고리 판별(대략)
     let category = 'Other';
     if (input.includes('/hotels/')) category = 'Hotel';
     else if (input.includes('/flights/')) category = 'Flight';
@@ -203,14 +248,14 @@ function logSubmittedUrl(rawUrl, category){
     else if (input.includes('/things-to-do/')) category = 'Activity';
     else if (input.includes('/airport-transfers/')) category = 'Airport Pickup';
 
-    // GA 이벤트(있을 때만)
+    // GA 이벤트
     if (input && typeof gtag === 'function') {
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
     }
-    // URL 로깅(Apps Script)
+    // 원본 입력 URL 로깅
     if (input) logSubmittedUrl(input, category);
 
-    // 빈 입력 → 제휴 홈으로 (언어별 통화)
+    // 빈 입력 → 각 언어 기본 홈
     if (!input) {
       const defaultAff =
         (currentLang === 'ko') ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX :
@@ -246,7 +291,11 @@ function logSubmittedUrl(rawUrl, category){
     }
 
     try{
-      const url = new URL(input);
+      // 1) 축약링크면 먼저 확장
+      const sourceUrl = await ensureExpandedUrl(input);
+
+      // 2) 이후 기존 로직으로 파싱/정제
+      const url = new URL(sourceUrl);
       let pathname = url.pathname;
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
@@ -263,7 +312,6 @@ function logSubmittedUrl(rawUrl, category){
 
       } else if (pathname.includes('/flights')) {
         if (pathname.startsWith('/m/')) {
-          // 모바일 → 표준 검색 링크로 변환
           pathname = '/flights/showfarefirst';
           if (originalParams.has('dcitycode')) essentialParams.set('dcity',   originalParams.get('dcitycode'));
           if (originalParams.has('acitycode')) essentialParams.set('acity',   originalParams.get('acitycode'));
@@ -287,7 +335,6 @@ function logSubmittedUrl(rawUrl, category){
         }
 
       } else {
-        // 호텔/액티비티 등
         const whitelist = ['hotelId','hotelid','cityId','checkIn','checkOut','adults','children','rooms','nights','crn','ages','travelpurpose','adult','curr'];
         whitelist.forEach(p => {
           if (originalParams.has(p)) originalParams.getAll(p).forEach(v => essentialParams.append(p, v));
@@ -295,7 +342,7 @@ function logSubmittedUrl(rawUrl, category){
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
       }
 
-      // 통화 보정 (링크에 curr 있으면 그대로, 없으면 언어 기본 통화)
+      // 통화 보정
       if (!essentialParams.has('curr')) {
         let currency = languageToCurrencyMap[currentLang] || 'USD';
         if (originalParams.has('curr')) currency = (originalParams.get('curr') || '').toUpperCase();
@@ -314,7 +361,7 @@ function logSubmittedUrl(rawUrl, category){
       const grid = document.createElement('div');
       grid.className = 'link-list-grid';
 
-      // 언어별 국가 도메인 우선 정렬
+      // 언어별 우선도
       let sortedDomains = [...domains];
       if (currentLang === 'ja') {
         const jp = sortedDomains.find(d => d.code === 'jp');
@@ -361,14 +408,10 @@ function logSubmittedUrl(rawUrl, category){
 
   // ===== 초기화 =====
   document.addEventListener('DOMContentLoaded', () => {
-    // A: 드롭다운 동적 생성
     renderLangDropdown();
-
-    // B: 언어 적용
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
 
-    // C: 드롭다운 열고닫기
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
     const langDropdown = $('#language-dropdown');
@@ -386,7 +429,6 @@ function logSubmittedUrl(rawUrl, category){
       });
     }
 
-    // D: 드롭다운 항목 전환 이벤트
     $$('.lang-option').forEach(option => {
       option.addEventListener('click', (e) => {
         e.preventDefault();
@@ -395,14 +437,12 @@ function logSubmittedUrl(rawUrl, category){
       });
     });
 
-    // 버튼 텍스트(코드/텍스트) 반응형
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(updateLanguageButtonDisplay, 150);
     });
 
-    // 모달(검색 위젯)
     const showWidgetButton = $('#show-widget-button');
     const modal = $('#search-modal');
     const modalClose = modal?.querySelector('.modal-close');
@@ -410,7 +450,6 @@ function logSubmittedUrl(rawUrl, category){
     if (modalClose)      modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
     if (modal)           modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-    // 탭
     const tabButtons = $$('.tab-button');
     const tabContents = $$('.tab-content');
     tabButtons.forEach(button => {
@@ -422,7 +461,6 @@ function logSubmittedUrl(rawUrl, category){
       });
     });
 
-    // ?url= 사전입력
     const params = new URLSearchParams(window.location.search);
     const urlToProcess = params.get('url');
     if (urlToProcess) {
@@ -431,7 +469,6 @@ function logSubmittedUrl(rawUrl, category){
       history.replaceState({}, '', window.location.pathname);
     }
 
-    // 모바일 안내 팝업 닫기
     const mobileModal = $('#mobile-notice-modal');
     if (mobileModal) {
       const mobileClose = mobileModal.querySelector('.modal-close');
@@ -439,7 +476,6 @@ function logSubmittedUrl(rawUrl, category){
       mobileModal.addEventListener('click', (e) => { if (e.target === mobileModal) mobileModal.style.display = 'none'; });
     }
 
-    // 입력창 빈 상태 3회 클릭 → 토스트 → 제휴 홈
     const inputEl2 = $('#inputUrl');
     if (inputEl2) {
       inputEl2.addEventListener('click', () => {
