@@ -24,9 +24,8 @@
   }
 
   // ===== 설정 상수 =====
-  // (넣어줄 것) Apps Script 웹앱 URL
-  const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec'; // 축약링크 확장용 (?expand=1&url=...)
-  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec'; // URL 로깅용(GET/POST)
+  const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec';
+  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec';
 
   const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
 
@@ -45,7 +44,7 @@
     ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
     en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
     ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
-    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 지금은 EN 정책으로 연결
+    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' }
   };
 
   const languageToCurrencyMap = {
@@ -175,7 +174,6 @@
     try {
       const u = new URL(raw);
       const host = u.hostname.replace(/^www\./,'');
-      // 대표 케이스: trip.com/w/<token>
       return (host === 'trip.com' || host.endsWith('.trip.com')) && /^\/w\/[^/]+/.test(u.pathname);
     } catch { return false; }
   }
@@ -406,11 +404,35 @@
     }
   };
 
+  // ===== [NEW] 구글 스니펫 억제: UI에는 영향 없음 =====
+  function applyNoSnippet(){
+    const selectors = [
+      '.header',
+      '.input-section',
+      '#results',
+      '.info-card',
+      'footer',
+      '#redirect-modal',
+      '#search-modal',
+      '#mobile-notice-modal'
+    ];
+    selectors.forEach(sel => {
+      $$(sel).forEach(el => {
+        if (el && !el.hasAttribute('data-nosnippet')) {
+          el.setAttribute('data-nosnippet', '');
+        }
+      });
+    });
+  }
+
   // ===== 초기화 =====
   document.addEventListener('DOMContentLoaded', () => {
     renderLangDropdown();
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
+
+    // [NEW]
+    applyNoSnippet();
 
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
@@ -455,7 +477,7 @@
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+        button.addEventListener
         const target = $('#' + button.dataset.tab + '-tab-content');
         tabContents.forEach(c => c.classList.toggle('active', c === target));
       });
