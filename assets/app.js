@@ -25,7 +25,7 @@
 
   // ===== 설정 상수 =====
   // (1) URL 로깅 엔드포인트: 네 Apps Script 웹앱 URL
-  const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzNNpEIatGAhExlm4mBhjfLqxHQy3e62Fhniw_qhAzv9thzPG5C6-IwtMiWuIpZ6kM/exec';
+  const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx6DFzRpynRDKjo8NMR0De0yOOgA19CIvumlVc-TiMXwBNoQqY7A2fm1o95QWACQs7i/exec';
 
   const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
 
