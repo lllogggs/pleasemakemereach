@@ -47,10 +47,13 @@
     th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
   };
 
+  // 페이지 언어 → 기본 통화 맵(확장)
   const languageToCurrencyMap = {
     ko:'KRW', ja:'JPY', en:'USD', th:'THB',
     es:'EUR', fr:'EUR', de:'EUR', nl:'EUR', pt:'EUR',
-    vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR', ru:'RUB', ar:'SAR'
+    it:'EUR', pl:'EUR', sv:'EUR', fi:'EUR', da:'EUR',
+    vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR',
+    ru:'RUB', ar:'SAR'
   };
 
   // Trip.com 국가 도메인 리스트
@@ -107,7 +110,6 @@
     const hotelWidget = $('#hotel-widget-modal');
     const flightWidget = $('#flight-widget-modal');
     if (hotelWidget && flightWidget){
-      // 성능: iframe도 lazy
       hotelWidget.setAttribute('loading','lazy');
       flightWidget.setAttribute('loading','lazy');
       hotelWidget.src = widgetSrcModal[lang].hotel;
@@ -119,7 +121,6 @@
       langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag}.png`;
       langFlag.alt = `${langDetails[lang].text} Flag`;
       langFlag.width = 24; langFlag.height = 24;
-      // header flag는 above-the-fold이라 lazy 미적용
     }
   }
 
@@ -257,7 +258,6 @@
     if (modal) modal.style.display = 'flex';
     setTimeout(() => {
       if (modal) modal.style.display = 'none';
-      // 새 탭 보안
       window.open(affUrl, '_blank', 'noopener');
       isRedirecting = false;
     }, delayMs);
@@ -332,6 +332,10 @@
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
 
+      // ★ 이번 세션 기준 통화(baseCurr) 결정: 입력 curr > 페이지 언어 기본 > USD
+      const baseCurr = ((originalParams.get('curr') || '').toUpperCase()) ||
+                       (languageToCurrencyMap[currentLang] || 'USD');
+
       if (pathname.includes('/packages/')) {
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
         const whitelist = [
@@ -374,15 +378,8 @@
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
       }
 
-      // 통화 보정
-      if (!essentialParams.has('curr')) {
-        let currency = languageToCurrencyMap[currentLang] || 'USD';
-        if (originalParams.has('curr')) currency = (originalParams.get('curr') || '').toUpperCase();
-        essentialParams.set('curr', currency);
-      }
-
-      const paramString = essentialParams.toString();
-      const cleanPath = pathname + (paramString ? '?' + paramString : '');
+      // ★ 여기서 curr를 고정 설정하지 않음(버튼 렌더 시점에 baseCurr로 강제)
+      const basePath = pathname;
 
       // 결과 타이틀
       const title = document.createElement('p');
@@ -408,13 +405,26 @@
 
       // 버튼 렌더
       sortedDomains.forEach(dom => {
-        const finalAffix = (cleanPath.includes('?') ? '&' : '?') + AFF_AFFIX;
+        // 각 도메인 버튼마다 개별 파라미터 구성
+        const p = new URLSearchParams(essentialParams);
+
+        // ★ 모든 버튼 동일 통화로 강제
+        if (baseCurr) {
+          p.set('curr', baseCurr);
+          if (p.has('crn')) p.set('crn', baseCurr); // 일부 호텔 파라미터 케이스
+        }
+
+        // ★ 로케일 계열 제거(도메인 리다이렉트 방지 목적)
+        ['locale','lang','lc','language'].forEach(k => p.delete(k));
+
+        const param = p.toString();
+        const cleanPath = basePath + (param ? '?' + param : '');
+        const finalAffix = (param ? '&' : '?') + AFF_AFFIX;
         const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
 
         const a = document.createElement('a');
         a.href = fullUrl;
         a.target = '_blank';
-        // 제휴 링크 성격 명시 + 보안
         a.rel = 'noopener nofollow sponsored';
         a.onclick = () => {
           a.classList.toggle('clicked');
@@ -433,7 +443,7 @@
       resultsDiv.appendChild(grid);
       if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton());
 
-      // 만들어진 새탭 링크들에 대한 안전 속성 재점검(중복 적용 OK)
+      // 안전 속성 재점검(중복 적용 OK)
       hardenExternalLinks();
 
     } catch (e){
@@ -515,7 +525,7 @@
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
 
-    injectMetaIntro();           // 검색용 한줄 소개
+    injectMetaIntro();           // 검색용 한줄 소개(시각적 비노출)
     applyNoSnippet();            // 스니펫 억제
     hardenExternalLinks();       // 외부 링크 보강
 
@@ -562,7 +572,7 @@
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         tabButtons.forEach(btn => btn.classList.remove('active'));
-        const target = $('#' + button.dataset.tab + '-tab-content'); // 오타 수정
+        const target = $('#' + button.dataset.tab + '-tab-content');
         tabContents.forEach(c => c.classList.toggle('active', c === target));
       });
     });
