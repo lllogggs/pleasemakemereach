@@ -24,8 +24,8 @@
   }
 
   // ===== 설정 상수 =====
-  const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec';
-  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbzhD4Ye_SW10KHvVO--d1zIqw8cK5GZ6IhbGe8JVReEioWN8Vv2Xxp2jlN7gu4oy6yI/exec';
+  const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzTZxzsNays4DPOparjopGmB6FByrQsCeYyvtwcmHygMLxNsQbVkH_E8Rs9ROjySoHg/exec';
+  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbzTZxzsNays4DPOparjopGmB6FByrQsCeYyvtwcmHygMLxNsQbVkH_E8Rs9ROjySoHg/exec';
 
   const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
 
