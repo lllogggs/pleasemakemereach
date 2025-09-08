@@ -154,7 +154,27 @@ footer p{ margin:3px 0; }
 .link-list-grid a:hover{ background:var(--light-blue); border-color:var(--primary-blue); transform:translateY(-2px); }
 .link-list-grid a.clicked{ background:var(--light-blue); border-color:var(--primary-blue); font-weight:700; }
 .flag{ width:24px; height:16px; object-fit:cover; border-radius:3px; flex-shrink:0; }
+/* 결과 버튼 내 국기 아이콘 살짝 테두리 */
+.link-list-grid a .flag{ box-shadow:0 0 0 1px rgba(0,0,0,.06); }
+
 .highlight{ background:rgba(255,247,0,.6); font-weight:700; padding:2px 0 2px 4px; border-radius:3px; }
+
+/* ===== Shortlink Warning Banner ===== */
+.shortlink-warning{
+  display:flex; align-items:center; gap:10px;
+  padding:12px 14px; margin:12px 0 18px;
+  background:#fff3cd; color:#664d03; border:1px solid #ffecb5;
+  border-radius:10px;
+}
+.shortlink-warning .warn-icon{ font-size:18px; line-height:1; }
+.shortlink-warning .warn-text{ flex:1; font-size:14px; line-height:1.6; }
+.shortlink-warning .actions{ display:flex; gap:8px; }
+.shortlink-warning .btn{
+  font-size:13px; padding:6px 10px; border-radius:8px;
+  border:1px solid currentColor; text-decoration:none; cursor:pointer;
+}
+.shortlink-warning .btn-primary{ background:#0ea5e9; border-color:#0ea5e9; color:#fff; }
+.shortlink-warning .btn-outline{ background:transparent; color:#0ea5e9; }
 
 /* ===== Modals ===== */
 .modal-overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.6);
