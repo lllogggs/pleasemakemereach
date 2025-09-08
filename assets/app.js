@@ -47,35 +47,50 @@
     th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
   };
 
-  // ===== translations fallback (새 키가 없을 때 대비) =====
+  // ===== 언어 판별 & 적용 =====
+  let currentLang = window.PAGE_LANG || detectLangByPath();
+
+  function detectLangByPath(){
+    const seg = (location.pathname.split('/')[1] || '').toLowerCase();
+    if (seg === 'en') return 'en';
+    if (seg === 'ja') return 'ja';
+    if (seg === 'th') return 'th';
+    return 'ko';
+  }
+
+  // ===== translations fallback (이번 이슈 관련 키 3개만) =====
   const FALLBACK_TEXT = {
     ko: {
-      shortLinkNoticeTitle: '단축링크는 그대로 변환할 수 없어요',
-      shortLinkNoticeDesc: '브라우저에서 단축링크를 먼저 열어 전체 주소(예: kr.trip.com/hotels… 또는 www.trip.com/flights… 등)를 복사해 주세요. 그 전체 주소를 붙여넣으면 국가별 최저가 링크를 만들어 드려요.',
-      shortLinkSteps: '<li>1) 단축링크를 새 탭에서 엽니다</li><li>2) 주소창의 전체 URL을 복사합니다</li><li>3) 이곳 입력창에 붙여넣고 “최저가 링크 찾기”를 눌러요</li>',
-      shortLinkOpenBtn: '단축링크 열기',
-      shortLinkPasteBtn: '전체 주소 붙여넣기',
+      shortlinkTitle: "단축링크는 변환되지 않아요",
+      shortlinkBody:
+        "단축링크를 먼저 열어 주세요.<br>" +
+        "주소창의 전체 주소를 복사해 붙여넣으면 국가별 최저가 링크를 만들어 드려요.<br>" +
+        "<span class=\"sl-example\">예: kr.trip.com/hotels… / kr.trip.com/flights…</span>",
+      shortlinkOpenFull: "단축링크 열어서 전체링크 확인하기"
     },
     en: {
-      shortLinkNoticeTitle: 'Short links cannot be converted directly',
-      shortLinkNoticeDesc: 'Please open the short link in your browser first, copy the full URL (e.g., www.trip.com/hotels… or www.trip.com/flights…), then paste it here. We’ll generate country-specific lowest-price links.',
-      shortLinkSteps: '<li>1) Open the short link in a new tab</li><li>2) Copy the full URL from the address bar</li><li>3) Paste it here and click “Find Lowest Price Links”</li>',
-      shortLinkOpenBtn: 'Open short link',
-      shortLinkPasteBtn: 'Paste full URL',
+      shortlinkTitle: "Short links can’t be converted",
+      shortlinkBody:
+        "Please open the short link first.<br>" +
+        "Copy the full URL from the address bar and paste it here to build country-price links.<br>" +
+        "<span class=\"sl-example\">e.g. kr.trip.com/hotels… / kr.trip.com/flights…</span>",
+      shortlinkOpenFull: "Open short link to get full URL"
     },
     ja: {
-      shortLinkNoticeTitle: '短縮リンクはそのまま変換できません',
-      shortLinkNoticeDesc: 'まず短縮リンクをブラウザで開き、フルURL（例：www.trip.com/hotels…／www.trip.com/flights…）をコピーして貼り付けてください。各国向けの最安値リンクを作成します。',
-      shortLinkSteps: '<li>1) 短縮リンクを新しいタブで開く</li><li>2) アドレスバーのフルURLをコピー</li><li>3) ここに貼り付けて「最安値リンクを検索」をクリック</li>',
-      shortLinkOpenBtn: '短縮リンクを開く',
-      shortLinkPasteBtn: 'フルURLを貼り付け',
+      shortlinkTitle: "短縮リンクは変換できません",
+      shortlinkBody:
+        "まず短縮リンクを開いてください。<br>" +
+        "アドレスバーのフルURLをコピーして貼り付けると、国別の最安値リンクを作成できます。<br>" +
+        "<span class=\"sl-example\">例: kr.trip.com/hotels… / kr.trip.com/flights…</span>",
+      shortlinkOpenFull: "短縮リンクを開いてフルURLを確認"
     },
     th: {
-      shortLinkNoticeTitle: 'ไม่สามารถแปลงลิงก์แบบย่อได้โดยตรง',
-      shortLinkNoticeDesc: 'โปรดเปิดลิงก์แบบย่อในเบราว์เซอร์ก่อน คัดลอก URL แบบเต็ม (เช่น www.trip.com/hotels… หรือ www.trip.com/flights…) แล้ววางที่นี่ เราจะสร้างลิงก์ราคาถูกสุดตามประเทศให้',
-      shortLinkSteps: '<li>1) เปิดลิงก์แบบย่อในแท็บใหม่</li><li>2) คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>3) วางที่นี่แล้วกด “ค้นหาลิงก์ราคาถูกสุด”</li>',
-      shortLinkOpenBtn: 'เปิดลิงก์แบบย่อ',
-      shortLinkPasteBtn: 'วาง URL แบบเต็ม',
+      shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
+      shortlinkBody:
+        "โปรดเปิดลิงก์แบบย่อก่อน<br>" +
+        "คัดลอก URL แบบเต็มจากแถบที่อยู่และวางที่นี่ เพื่อสร้างลิงก์เทียบราคาตามประเทศ<br>" +
+        "<span class=\"sl-example\">เช่น kr.trip.com/hotels… / kr.trip.com/flights…</span>",
+      shortlinkOpenFull: "เปิดลิงก์แบบย่อเพื่อดู URL เต็ม"
     }
   };
   const TL = (key) =>
@@ -117,17 +132,6 @@
     { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
     { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' }
   ];
-
-  // ===== 언어 판별 & 적용 =====
-  let currentLang = window.PAGE_LANG || detectLangByPath();
-
-  function detectLangByPath(){
-    const seg = (location.pathname.split('/')[1] || '').toLowerCase();
-    if (seg === 'en') return 'en';
-    if (seg === 'ja') return 'ja';
-    if (seg === 'th') return 'th';
-    return 'ko';
-  }
 
   function applyTranslations(lang){
     const T = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
@@ -261,22 +265,18 @@
     }, delayMs);
   }
 
-  // ===== 메인 기능 =====
-  let linkClickCount = 0;
-  let mobilePopupShown = false;
-  let blankClickCount = 0;
-
-  function renderShortlinkNotice(rawUrl, container, T){
+  // ===== 단축링크 안내 카드 =====
+  function renderShortlinkNotice(rawUrl, container){
     container.innerHTML = '';
+
     const card = document.createElement('div');
     card.className = 'info-card';
-    const h = document.createElement('h2');
-    h.textContent = TL('shortLinkNoticeTitle');
-    const p = document.createElement('p');
-    p.textContent = TL('shortLinkNoticeDesc');
 
-    const ul = document.createElement('ul');
-    ul.innerHTML = TL('shortLinkSteps');
+    const h = document.createElement('h2');
+    h.textContent = TL('shortlinkTitle');
+
+    const p = document.createElement('p');
+    p.innerHTML = TL('shortlinkBody'); // 줄바꿈/작은글씨 span 반영
 
     const btnRow = document.createElement('div');
     btnRow.style.marginTop = '12px';
@@ -287,25 +287,20 @@
     openBtn.className = 'external-link-btn';
     openBtn.target = '_blank';
     openBtn.rel = 'noopener';
-    openBtn.textContent = TL('shortLinkOpenBtn');
+    openBtn.textContent = TL('shortlinkOpenFull');
     try { openBtn.href = rawUrl; } catch { openBtn.href = '#'; }
 
-    const pasteBtn = document.createElement('button');
-    pasteBtn.className = 'secondary-button';
-    pasteBtn.type = 'button';
-    pasteBtn.textContent = TL('shortLinkPasteBtn');
-    pasteBtn.onclick = () => { $('#inputUrl')?.focus(); };
-
     btnRow.appendChild(openBtn);
-    btnRow.appendChild(pasteBtn);
-
     card.appendChild(h);
     card.appendChild(p);
-    card.appendChild(ul);
     card.appendChild(btnRow);
-
     container.appendChild(card);
   }
+
+  // ===== 메인 기능 =====
+  let linkClickCount = 0;
+  let mobilePopupShown = false;
+  let blankClickCount = 0;
 
   window.generateLinks = async function(){
     const input = ($('#inputUrl')?.value || '').trim();
@@ -364,15 +359,14 @@
 
     // ★ /w/ 단축링크면 변환 시도하지 않고 안내만 표시
     if (isTripShortLink(input)) {
-      renderShortlinkNotice(input, resultsDiv, T);
+      renderShortlinkNotice(input, resultsDiv);
       if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
       return;
     }
 
     try{
-      // 1) 단축링크가 아닌 정상 URL만 파싱/정제
-      const sourceUrl = input;
-      const url = new URL(sourceUrl);
+      // 정상 URL만 파싱/정제
+      const url = new URL(input);
       let pathname = url.pathname;
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
