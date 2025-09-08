@@ -47,6 +47,42 @@
     th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
   };
 
+  // ===== translations fallback (새 키가 없을 때 대비) =====
+  const FALLBACK_TEXT = {
+    ko: {
+      shortLinkNoticeTitle: '단축링크는 그대로 변환할 수 없어요',
+      shortLinkNoticeDesc: '브라우저에서 단축링크를 먼저 열어 전체 주소(예: kr.trip.com/hotels… 또는 www.trip.com/flights… 등)를 복사해 주세요. 그 전체 주소를 붙여넣으면 국가별 최저가 링크를 만들어 드려요.',
+      shortLinkSteps: '<li>1) 단축링크를 새 탭에서 엽니다</li><li>2) 주소창의 전체 URL을 복사합니다</li><li>3) 이곳 입력창에 붙여넣고 “최저가 링크 찾기”를 눌러요</li>',
+      shortLinkOpenBtn: '단축링크 열기',
+      shortLinkPasteBtn: '전체 주소 붙여넣기',
+    },
+    en: {
+      shortLinkNoticeTitle: 'Short links cannot be converted directly',
+      shortLinkNoticeDesc: 'Please open the short link in your browser first, copy the full URL (e.g., www.trip.com/hotels… or www.trip.com/flights…), then paste it here. We’ll generate country-specific lowest-price links.',
+      shortLinkSteps: '<li>1) Open the short link in a new tab</li><li>2) Copy the full URL from the address bar</li><li>3) Paste it here and click “Find Lowest Price Links”</li>',
+      shortLinkOpenBtn: 'Open short link',
+      shortLinkPasteBtn: 'Paste full URL',
+    },
+    ja: {
+      shortLinkNoticeTitle: '短縮リンクはそのまま変換できません',
+      shortLinkNoticeDesc: 'まず短縮リンクをブラウザで開き、フルURL（例：www.trip.com/hotels…／www.trip.com/flights…）をコピーして貼り付けてください。各国向けの最安値リンクを作成します。',
+      shortLinkSteps: '<li>1) 短縮リンクを新しいタブで開く</li><li>2) アドレスバーのフルURLをコピー</li><li>3) ここに貼り付けて「最安値リンクを検索」をクリック</li>',
+      shortLinkOpenBtn: '短縮リンクを開く',
+      shortLinkPasteBtn: 'フルURLを貼り付け',
+    },
+    th: {
+      shortLinkNoticeTitle: 'ไม่สามารถแปลงลิงก์แบบย่อได้โดยตรง',
+      shortLinkNoticeDesc: 'โปรดเปิดลิงก์แบบย่อในเบราว์เซอร์ก่อน คัดลอก URL แบบเต็ม (เช่น www.trip.com/hotels… หรือ www.trip.com/flights…) แล้ววางที่นี่ เราจะสร้างลิงก์ราคาถูกสุดตามประเทศให้',
+      shortLinkSteps: '<li>1) เปิดลิงก์แบบย่อในแท็บใหม่</li><li>2) คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>3) วางที่นี่แล้วกด “ค้นหาลิงก์ราคาถูกสุด”</li>',
+      shortLinkOpenBtn: 'เปิดลิงก์แบบย่อ',
+      shortLinkPasteBtn: 'วาง URL แบบเต็ม',
+    }
+  };
+  const TL = (key) =>
+    (window.TRANSLATIONS?.[currentLang]?.[key]) ??
+    (FALLBACK_TEXT[currentLang]?.[key]) ??
+    (FALLBACK_TEXT.en?.[key] ?? key);
+
   // 페이지 언어 → 기본 통화 맵(확장)
   const languageToCurrencyMap = {
     ko:'KRW', ja:'JPY', en:'USD', th:'THB',
@@ -202,51 +238,13 @@
     } catch (_) {}
   }
 
-  // ===== 축약링크 감지 & 확장(JSONP) =====
+  // ===== 축약링크 감지 =====
   function isTripShortLink(raw){
     try {
       const u = new URL(raw);
       const host = u.hostname.replace(/^www\./,'');
-      return (host === 'trip.com' || host.endsWith('.trip.com')) && /^\/w\/[^/]+/.test(u.pathname);
+      return (host === 'trip.com' || host.endsWith('.trip.com')) && /^\/w\/[^/]+/i.test(u.pathname);
     } catch { return false; }
-  }
-
-  function expandShortUrlJSONP(rawUrl, timeoutMs=3000){
-    return new Promise((resolve) => {
-      const cb = 'cb_expand_' + Date.now() + '_' + Math.floor(Math.random()*1e6);
-      const s = document.createElement('script');
-      const url = `${EXPAND_ENDPOINT}?expand=1&url=${encodeURIComponent(rawUrl)}&callback=${cb}`;
-
-      let done = false;
-      const cleanup = () => {
-        if (done) return;
-        done = true;
-        delete window[cb];
-        s.remove();
-      };
-
-      window[cb] = (data) => {
-        cleanup();
-        if (data && data.ok && data.finalUrl) resolve(data.finalUrl);
-        else resolve(rawUrl);
-      };
-
-      s.onerror = () => { cleanup(); resolve(rawUrl); };
-      s.src = url;
-      document.body.appendChild(s);
-
-      setTimeout(() => { cleanup(); resolve(rawUrl); }, timeoutMs);
-    });
-  }
-
-  async function ensureExpandedUrl(raw){
-    if (isTripShortLink(raw)) {
-      try {
-        const expanded = await expandShortUrlJSONP(raw);
-        return expanded || raw;
-      } catch { return raw; }
-    }
-    return raw;
   }
 
   // ===== 리디렉트 토스트 =====
@@ -267,6 +265,47 @@
   let linkClickCount = 0;
   let mobilePopupShown = false;
   let blankClickCount = 0;
+
+  function renderShortlinkNotice(rawUrl, container, T){
+    container.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'info-card';
+    const h = document.createElement('h2');
+    h.textContent = TL('shortLinkNoticeTitle');
+    const p = document.createElement('p');
+    p.textContent = TL('shortLinkNoticeDesc');
+
+    const ul = document.createElement('ul');
+    ul.innerHTML = TL('shortLinkSteps');
+
+    const btnRow = document.createElement('div');
+    btnRow.style.marginTop = '12px';
+    btnRow.style.display = 'flex';
+    btnRow.style.gap = '8px';
+
+    const openBtn = document.createElement('a');
+    openBtn.className = 'external-link-btn';
+    openBtn.target = '_blank';
+    openBtn.rel = 'noopener';
+    openBtn.textContent = TL('shortLinkOpenBtn');
+    try { openBtn.href = rawUrl; } catch { openBtn.href = '#'; }
+
+    const pasteBtn = document.createElement('button');
+    pasteBtn.className = 'secondary-button';
+    pasteBtn.type = 'button';
+    pasteBtn.textContent = TL('shortLinkPasteBtn');
+    pasteBtn.onclick = () => { $('#inputUrl')?.focus(); };
+
+    btnRow.appendChild(openBtn);
+    btnRow.appendChild(pasteBtn);
+
+    card.appendChild(h);
+    card.appendChild(p);
+    card.appendChild(ul);
+    card.appendChild(btnRow);
+
+    container.appendChild(card);
+  }
 
   window.generateLinks = async function(){
     const input = ($('#inputUrl')?.value || '').trim();
@@ -316,17 +355,23 @@
       return a;
     }
 
+    // Trip.com 링크가 아니면 에러
     if (!input.includes('trip.com')) {
       resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.invalidLink || 'Invalid link.'}</p>`;
       if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
       return;
     }
 
-    try{
-      // 1) 축약링크면 먼저 확장
-      const sourceUrl = await ensureExpandedUrl(input);
+    // ★ /w/ 단축링크면 변환 시도하지 않고 안내만 표시
+    if (isTripShortLink(input)) {
+      renderShortlinkNotice(input, resultsDiv, T);
+      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+      return;
+    }
 
-      // 2) 이후 기존 로직으로 파싱/정제
+    try{
+      // 1) 단축링크가 아닌 정상 URL만 파싱/정제
+      const sourceUrl = input;
       const url = new URL(sourceUrl);
       let pathname = url.pathname;
       const originalParams = new URLSearchParams(url.search);
@@ -378,7 +423,6 @@
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
       }
 
-      // ★ 여기서 curr를 고정 설정하지 않음(버튼 렌더 시점에 baseCurr로 강제)
       const basePath = pathname;
 
       // 결과 타이틀
@@ -405,16 +449,15 @@
 
       // 버튼 렌더
       sortedDomains.forEach(dom => {
-        // 각 도메인 버튼마다 개별 파라미터 구성
         const p = new URLSearchParams(essentialParams);
 
-        // ★ 모든 버튼 동일 통화로 강제
+        // 모든 버튼 동일 통화로 강제
         if (baseCurr) {
           p.set('curr', baseCurr);
-          if (p.has('crn')) p.set('crn', baseCurr); // 일부 호텔 파라미터 케이스
+          if (p.has('crn')) p.set('crn', baseCurr); // 일부 호텔 파라미터
         }
 
-        // ★ 로케일 계열 제거(도메인 리다이렉트 방지 목적)
+        // 로케일 계열 제거(도메인 리다이렉트 최소화)
         ['locale','lang','lc','language'].forEach(k => p.delete(k));
 
         const param = p.toString();
@@ -510,7 +553,7 @@
         if (u.hostname === 'trip.com' || /\.trip\.com$/.test(u.hostname)) {
           relSet.add('sponsored');
           relSet.add('nofollow');
-          // 제휴 추적을 고려해 noreferrer는 제거(필요 시 복구)
+          // 제휴 추적 고려해 noreferrer 제거
           relSet.delete('noreferrer');
         }
         a.setAttribute('rel', Array.from(relSet).join(' '));
