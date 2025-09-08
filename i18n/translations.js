@@ -25,8 +25,16 @@ window.TRANSLATIONS = {
     copyright:`© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text">For more accurate price comparison,<br><strong>use the PC (Desktop site) version!</strong><br><small>(Some prices may be the same across countries on mobile)</small></p>`,
     youtube:"YouTube", blog:"Blog",
-    redirecting:"Redirecting to Trip.com..."
+    redirecting:"Redirecting to Trip.com...",
+
+    /* NEW: shortlink (/w/) guidance */
+    shortTitle:"Short /w/ links aren’t supported",
+    shortWhy:"For accuracy and tracking consistency, we need the final full URL after your browser expands the link.",
+    shortHow:`<li>Open the short link in a <strong>new tab</strong>.</li><li>Copy the <strong>full URL</strong> shown in the address bar (e.g. https://us.trip.com/hotels/...)</li><li>Paste it here and click <strong>Find</strong>.</li>`,
+    shortOpen:"Open short link",
+    shortOk:"Got it"
   },
+
   ko: {
     mainTitle:"🌐 트립닷닷",
     subtitle:"트립닷컴 최저가 링크 찾기",
@@ -52,8 +60,16 @@ window.TRANSLATIONS = {
     copyright:`© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text"><strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong><br><small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small></p>`,
     youtube:"YouTube", blog:"Blog",
-    redirecting:"트립닷컴으로 이동합니다..."
+    redirecting:"트립닷컴으로 이동합니다...",
+
+    /* NEW: shortlink (/w/) guidance */
+    shortTitle:"단축링크(/w/)는 변환을 지원하지 않아요",
+    shortWhy:"정확한 비교와 추적을 위해 브라우저에서 <strong>실제 주소로 바뀐 ‘전체 URL’</strong>이 필요합니다.",
+    shortHow:`<li>단축링크를 <strong>새 탭</strong>에서 여세요.</li><li>주소창에 표시된 <strong>전체 URL</strong>(예: https://kr.trip.com/hotels/...)을 복사하세요.</li><li>위 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li>`,
+    shortOpen:"단축링크 열기",
+    shortOk:"알겠어요"
   },
+
   ja: {
     mainTitle:"🌐 Tripdotdot",
     subtitle:"Trip.com 最安値リンク検索",
@@ -76,36 +92,4 @@ window.TRANSLATIONS = {
     resultsTitle:"🔍 <strong>国のボタン</strong>を押して価格を確認してください",
     disclosureAffiliate:"このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。",
     disclosureCollection:"入力されたリンクは、サービス改善のために匿名で収集される場合があります。",
-    copyright:`© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
-    mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text"><strong>より正確な価格比較は<br>PC（デスクトップサイト）で可能です！</strong><br><small>（一部の商品はモバイルで各国の価格が同じです）</small></p>`,
-    youtube:"YouTube", blog:"ブログ",
-    redirecting:"Trip.comに移動します..."
-  },
-  th: {
-    mainTitle:"🌐 Tripdotdot",
-    subtitle:"ตัวค้นหาลิงก์ราคาถูกสุดของ Trip.com",
-    placeholder:"วางลิงก์โรงแรม/ตั๋วเครื่องบินจาก trip.com",
-    findButton:"ค้นหาลิงก์ราคาถูกสุด",
-    searchPrompt:"ยังไม่มีลิงก์? ค้นหาบน Trip.com",
-    hotelTabTitle:"🏨 จองโรงแรม",
-    flightTabTitle:"✈️ จองตั๋วเครื่องบิน",
-    card1Title:"🌍 หา ‘ประเทศ’ ที่ถูกที่สุด",
-    card1Desc:`ราคาบน Trip.com อาจ<strong>แตกต่างตามประเทศ</strong>ได้<br>ใช้ <strong>Tripdotdot</strong> เพื่อจองในราคา <span class="highlight">ถูกที่สุด!</span>`,
-    card2Title:"✅ วิธีใช้งาน",
-    card2List:`<li>1️⃣ หาดีลบน Trip.com แล้ว<strong>คัดลอกลิงก์</strong></li><li>2️⃣ วางลิงก์ด้านบนแล้วคลิก <strong>'ค้นหา'</strong></li><li>3️⃣ คลิกลิงก์ประเทศที่สร้างขึ้นเพื่อ<strong>เช็กราคาถูกสุด</strong></li>`,
-    card3Title:"💡 เกร็ดน่ารู้",
-    card3List:`👉 สำหรับหน้าต่างประเทศ ให้ใช้ฟังก์ชัน <strong>'แปลภาษา'</strong> ของ Chrome<br>⚠️ บางดีลอาจมีราคา<strong>เท่ากัน</strong>ทุกประเทศ<br>💰 เปรียบเทียบจาก<strong>'ราคารวมสุดท้าย'</strong>ที่รวมภาษี/ค่าธรรมเนียมแล้ว`,
-    privacy:"นโยบายความเป็นส่วนตัว",
-    invalidLink:"กรุณากรอกลิงก์ Trip.com ที่ถูกต้อง",
-    parseError:"รูปแบบลิงก์ไม่ถูกต้อง",
-    kakaoTalk:"ยืนยันการจอง รับกาแฟฟรี!",
-    kakaoTalkError:"รายงานข้อผิดพลาด",
-    resultsTitle:"🔍 คลิก<strong>ปุ่มประเทศ</strong>เพื่อเช็กราคา",
-    disclosureAffiliate:"ไซต์นี้มีลิงก์พันธมิตร และอาจได้รับค่าคอมมิชชั่นจากการจองที่ทำผ่านลิงก์ดังกล่าว",
-    disclosureCollection:"ลิงก์ที่ป้อนอาจถูกรวบรวมแบบไม่ระบุตัวตนเพื่อพัฒนาบริการ",
-    copyright:`© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
-    mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text">เพื่อการเปรียบเทียบราคาที่แม่นยำกว่า<br><strong>แนะนำให้ใช้งานบนพีซี (Desktop)</strong><br><small>(บนมือถือ บางรายการอาจมีราคาเท่ากันทุกประเทศ)</small></p>`,
-    youtube:"YouTube", blog:"บล็อก",
-    redirecting:"กำลังพาไปที่ Trip.com..."
-  }
-};
+    copyright:`© ${new Date().getFullYear()}
