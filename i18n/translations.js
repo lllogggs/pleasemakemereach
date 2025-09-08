@@ -92,4 +92,51 @@ window.TRANSLATIONS = {
     resultsTitle:"🔍 <strong>国のボタン</strong>を押して価格を確認してください",
     disclosureAffiliate:"このサイトにはアフィリエイトリンクが含まれており、これらのリンクを通じて行われた予約に対して手数料を受け取ることがあります。",
     disclosureCollection:"入力されたリンクは、サービス改善のために匿名で収集される場合があります。",
-    copyright:`© ${new Date().getFullYear()}
+    copyright:`© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
+    mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text"><strong>より正確な価格比較は<br>PC（デスクトップサイト）で可能です！</strong><br><small>（一部の商品はモバイルで各国の価格が同じです）</small></p>`,
+    youtube:"YouTube", blog:"ブログ",
+    redirecting:"Trip.comに移動します...",
+
+    /* NEW: shortlink (/w/) guidance */
+    shortTitle:"短縮リンク（/w/）には対応していません",
+    shortWhy:"正確な比較と追跡のため、ブラウザで展開された<strong>最終的なフルURL</strong>が必要です。",
+    shortHow:`<li>短縮リンクを<strong>新しいタブ</strong>で開きます。</li><li>アドレスバーに表示された<strong>フルURL</strong>（例： https://jp.trip.com/hotels/...）をコピーします。</li><li>上の入力欄に貼り付けて<strong>「最安値リンクを検索」</strong>をクリックします。</li>`,
+    shortOpen:"短縮リンクを開く",
+    shortOk:"了解"
+  },
+
+  th: {
+    mainTitle:"🌐 Tripdotdot",
+    subtitle:"ตัวค้นหาลิงก์ราคาถูกสุดของ Trip.com",
+    placeholder:"วางลิงก์โรงแรม/ตั๋วเครื่องบินจาก trip.com",
+    findButton:"ค้นหาลิงก์ราคาถูกสุด",
+    searchPrompt:"ยังไม่มีลิงก์? ค้นหาบน Trip.com",
+    hotelTabTitle:"🏨 จองโรงแรม",
+    flightTabTitle:"✈️ จองตั๋วเครื่องบิน",
+    card1Title:"🌍 หา ‘ประเทศ’ ที่ถูกที่สุด",
+    card1Desc:`ราคาบน Trip.com อาจ<strong>แตกต่างตามประเทศ</strong>ได้<br>ใช้ <strong>Tripdotdot</strong> เพื่อจองในราคา <span class="highlight">ถูกที่สุด!</span>`,
+    card2Title:"✅ วิธีใช้งาน",
+    card2List:`<li>1️⃣ หาดีลบน Trip.com แล้ว<strong>คัดลอกลิงก์</strong></li><li>2️⃣ วางลิงก์ด้านบนแล้วคลิก <strong>'ค้นหา'</strong></li><li>3️⃣ คลิกลิงก์ประเทศที่สร้างขึ้นเพื่อ<strong>เช็กราคาถูกสุด</strong></li>`,
+    card3Title:"💡 เกร็ดน่ารู้",
+    card3List:`👉 สำหรับหน้าต่างประเทศ ให้ใช้ฟังก์ชัน <strong>'แปลภาษา'</strong> ของ Chrome<br>⚠️ บางดีลอาจมีราคา<strong>เท่ากัน</strong>ทุกประเทศ<br>💰 เปรียบเทียบจาก<strong>'ราคารวมสุดท้าย'</strong>ที่รวมภาษี/ค่าธรรมเนียมแล้ว`,
+    privacy:"นโยบายความเป็นส่วนตัว",
+    invalidLink:"กรุณากรอกลิงก์ Trip.com ที่ถูกต้อง",
+    parseError:"รูปแบบลิงก์ไม่ถูกต้อง",
+    kakaoTalk:"ยืนยันการจอง รับกาแฟฟรี!",
+    kakaoTalkError:"รายงานข้อผิดพลาด",
+    resultsTitle:"🔍 คลิก<strong>ปุ่มประเทศ</strong>เพื่อเช็กราคา",
+    disclosureAffiliate:"ไซต์นี้มีลิงก์พันธมิตร และอาจได้รับค่าคอมมิชชั่นจากการจองที่ทำผ่านลิงก์ดังกล่าว",
+    disclosureCollection:"ลิงก์ที่ป้อนอาจถูกรวบรวมแบบไม่ระบุตัวตนเพื่อพัฒนาบริการ",
+    copyright:`© ${new Date().getFullYear()} tripdotdot. All rights reserved.`,
+    mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text">เพื่อการเปรียบเทียบราคาที่แม่นยำกว่า<br><strong>แนะนำให้ใช้งานบนพีซี (Desktop)</strong><br><small>(บนมือถือ บางรายการอาจมีราคาเท่ากันทุกประเทศ)</small></p>`,
+    youtube:"YouTube", blog:"บล็อก",
+    redirecting:"กำลังพาไปที่ Trip.com...",
+
+    /* NEW: shortlink (/w/) guidance */
+    shortTitle:"ลิงก์แบบย่อ (/w/) ยังไม่รองรับ",
+    shortWhy:"เพื่อความถูกต้องในการเทียบราคา จำเป็นต้องใช้<strong>URL แบบเต็ม</strong>หลังเบราว์เซอร์ขยายลิงก์แล้ว",
+    shortHow:`<li>เปิดลิงก์แบบย่อใน<strong>แท็บใหม่</strong></li><li>คัดลอก<strong>URL แบบเต็ม</strong>ที่แสดงในแถบที่อยู่ (เช่น https://th.trip.com/hotels/...)</li><li>วางในช่องด้านบน แล้วกด<strong>ค้นหา</strong></li>`,
+    shortOpen:"เปิดลิงก์แบบย่อ",
+    shortOk:"เข้าใจแล้ว"
+  }
+};
