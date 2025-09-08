@@ -27,12 +27,10 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"Blog",
     redirecting:"Redirecting to Trip.com...",
 
-    /* NEW: shortlink (/w/) guidance */
-    shortTitle:"Short /w/ links aren’t supported",
-    shortWhy:"For accuracy and tracking consistency, we need the final full URL after your browser expands the link.",
-    shortHow:`<li>Open the short link in a <strong>new tab</strong>.</li><li>Copy the <strong>full URL</strong> shown in the address bar (e.g. https://us.trip.com/hotels/...)</li><li>Paste it here and click <strong>Find</strong>.</li>`,
-    shortOpen:"Open short link",
-    shortOk:"Got it"
+    /* Shortlink (/w/) guidance */
+    shortlinkTitle: "Short links aren’t supported",
+    shortlinkBody: "Open the short link first.<br>Copy the <strong>full URL</strong> from the address bar and paste it here.<span class=\"sl-example\">(e.g., www.trip.com/hotels… or www.trip.com/flights…)</span>",
+    shortlinkOpenFull: "Open short link to get full URL"
   },
 
   ko: {
@@ -62,12 +60,10 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"Blog",
     redirecting:"트립닷컴으로 이동합니다...",
 
-    /* NEW: shortlink (/w/) guidance */
-    shortTitle:"단축링크(/w/)는 변환을 지원하지 않아요",
-    shortWhy:"정확한 비교와 추적을 위해 브라우저에서 <strong>실제 주소로 바뀐 ‘전체 URL’</strong>이 필요합니다.",
-    shortHow:`<li>단축링크를 <strong>새 탭</strong>에서 여세요.</li><li>주소창에 표시된 <strong>전체 URL</strong>(예: https://kr.trip.com/hotels/...)을 복사하세요.</li><li>위 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li>`,
-    shortOpen:"단축링크 열기",
-    shortOk:"알겠어요"
+    /* Shortlink (/w/) guidance */
+    shortlinkTitle: "단축링크는 변환되지 않아요",
+    shortlinkBody: "먼저 단축링크를 열어 주세요.<br>주소창의 <strong>전체 URL</strong>을 복사해 붙여넣어 주세요.<span class=\"sl-example\">(예: kr.trip.com/hotels… 또는 kr.trip.com/flights…)</span>",
+    shortlinkOpenFull: "단축링크 열어서 전체링크 확인하기"
   },
 
   ja: {
@@ -97,12 +93,10 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"ブログ",
     redirecting:"Trip.comに移動します...",
 
-    /* NEW: shortlink (/w/) guidance */
-    shortTitle:"短縮リンク（/w/）には対応していません",
-    shortWhy:"正確な比較と追跡のため、ブラウザで展開された<strong>最終的なフルURL</strong>が必要です。",
-    shortHow:`<li>短縮リンクを<strong>新しいタブ</strong>で開きます。</li><li>アドレスバーに表示された<strong>フルURL</strong>（例： https://jp.trip.com/hotels/...）をコピーします。</li><li>上の入力欄に貼り付けて<strong>「最安値リンクを検索」</strong>をクリックします。</li>`,
-    shortOpen:"短縮リンクを開く",
-    shortOk:"了解"
+    /* Shortlink (/w/) guidance */
+    shortlinkTitle: "短縮リンクは変換できません",
+    shortlinkBody: "まず短縮リンクを開いてください。<br>アドレスバーの<strong>フルURL</strong>をコピーして貼り付けてください。<span class=\"sl-example\">（例： jp.trip.com/hotels… または jp.trip.com/flights…）</span>",
+    shortlinkOpenFull: "短縮リンクを開いてフルURLを確認"
   },
 
   th: {
@@ -132,11 +126,9 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"บล็อก",
     redirecting:"กำลังพาไปที่ Trip.com...",
 
-    /* NEW: shortlink (/w/) guidance */
-    shortTitle:"ลิงก์แบบย่อ (/w/) ยังไม่รองรับ",
-    shortWhy:"เพื่อความถูกต้องในการเทียบราคา จำเป็นต้องใช้<strong>URL แบบเต็ม</strong>หลังเบราว์เซอร์ขยายลิงก์แล้ว",
-    shortHow:`<li>เปิดลิงก์แบบย่อใน<strong>แท็บใหม่</strong></li><li>คัดลอก<strong>URL แบบเต็ม</strong>ที่แสดงในแถบที่อยู่ (เช่น https://th.trip.com/hotels/...)</li><li>วางในช่องด้านบน แล้วกด<strong>ค้นหา</strong></li>`,
-    shortOpen:"เปิดลิงก์แบบย่อ",
-    shortOk:"เข้าใจแล้ว"
+    /* Shortlink (/w/) guidance */
+    shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
+    shortlinkBody: "เปิดลิงก์แบบย่อก่อน<br>คัดลอก<strong>URL แบบเต็ม</strong>จากแถบที่อยู่แล้ววางที่นี่<span class=\"sl-example\">(เช่น th.trip.com/hotels… หรือ th.trip.com/flights…)</span>",
+    shortlinkOpenFull: "เปิดลิงก์ย่อเพื่อดู URL เต็ม"
   }
 };
