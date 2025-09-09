@@ -27,9 +27,14 @@
  */
 
 const fs = require("node:fs");
+const fsp = require("node:fs/promises");
 const path = require("node:path");
+
 const OUT_PATH = path.join(process.cwd(), "public", "data", "iata-city.json");
 const SRC_URL = "https://ourairports.com/data/airports.csv";
+// If AIRPORTS_CSV_PATH is provided (by GitHub Actions with curl), read that local file.
+// Otherwise fall back to fetching the remote URL.
+const SOURCE = process.env.AIRPORTS_CSV_PATH || SRC_URL;
 
 // ---- Manual preferred-city overrides for airports whose municipality ≠ market city ----
 const CITY_OVERRIDES = {
@@ -103,7 +108,10 @@ const CITY_OVERRIDES = {
 // ---- Minimal CSV parser (handles quotes & escaped quotes) — no external deps ----
 function parseCSV(text) {
   const rows = [];
-  let i = 0, field = "", row = [], inQuotes = false;
+  let i = 0,
+    field = "",
+    row = [],
+    inQuotes = false;
 
   while (i < text.length) {
     const c = text[i];
@@ -235,15 +243,29 @@ function choosePreferredCity(iata, municipality, airportName) {
   return guessed || municipality || airportName || upper;
 }
 
+// ---- CSV loader: local file (preferred) or remote fetch ----
+async function loadCSV(source) {
+  if (/^https?:\/\//i.test(source)) {
+    console.log("↓ Downloading CSV via fetch:", source);
+    const res = await fetch(source, { redirect: "follow" });
+    if (!res.ok) {
+      throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
+    }
+    const csv = await res.text();
+    console.log("✓ Downloaded CSV:", (csv.length / 1024).toFixed(1), "KB");
+    return csv;
+  } else {
+    const abs = path.isAbsolute(source) ? source : path.join(process.cwd(), source);
+    console.log("↓ Reading local CSV:", abs);
+    const csv = await fsp.readFile(abs, "utf8");
+    console.log("✓ Read CSV:", (csv.length / 1024).toFixed(1), "KB");
+    return csv;
+  }
+}
+
 // ---- Main ----
 async function main() {
-  console.log("↓ Downloading:", SRC_URL);
-  const res = await fetch(SRC_URL, { redirect: "follow" });
-  if (!res.ok) {
-    throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
-  }
-  const csv = await res.text();
-  console.log("✓ Downloaded CSV:", (csv.length / 1024).toFixed(1), "KB");
+  const csv = await loadCSV(SOURCE);
 
   const rows = parseCSV(csv);
   const objs = rowsToObjects(rows);
