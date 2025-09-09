@@ -151,31 +151,47 @@
 
   // ===== 날짜 포맷 변환 YYYY-MM-DD → YYYY/MM/DD =====
   function ymdToSlash(ymd){
-    // defensively accept 2025-11-03 or 2025/11/03
     if (!ymd) return '';
     return ymd.replaceAll('-', '/');
   }
 
-  // ===== 항공 → 호텔 CTA 문구 =====
-  function hotelCtaLabel(city){
-    const name = city || '';
-    if (currentLang === 'ko') return `🏨 "${name}" 숙소도 한번에 찾기`;
-    if (currentLang === 'ja') return `🏨 「${name}」のホテルを探す`;
-    if (currentLang === 'th') return `🏨 ค้นหาโรงแรมใน "${name}"`;
-    return `🏨 Find hotels in "${name}"`;
+  // ===== (수정) 항공 → 호텔 CTA 라벨: 도시명 없이 일반 문구 =====
+  function hotelCtaLabel(){
+    if (currentLang === 'ko') return '숙소도 한번에 찾기';
+    if (currentLang === 'ja') return '宿もまとめて検索';
+    if (currentLang === 'th') return 'ค้นหาโรงแรมพร้อมกัน';
+    return 'Find hotels for these dates';
   }
 
-  // ===== 호텔 검색 URL 구성 (ID 없이 searchWord 기반, 일정/통화만 세팅) =====
+  // ===== (추가) 제휴 파라미터 부착 헬퍼 =====
+  function appendAffiliate(urlStr){
+    try{
+      const u = new URL(urlStr, location.origin);
+      const sp = u.searchParams;
+      // 이미 붙어있으면 중복 방지
+      if (!sp.has('Allianceid') && !sp.has('SID')) {
+        AFF_AFFIX.split('&').forEach(kv => {
+          const [k, v=''] = kv.split('=');
+          if (!sp.has(k)) sp.set(k, v);
+        });
+        u.search = sp.toString();
+      }
+      return u.toString();
+    }catch(_){
+      return urlStr + (urlStr.includes('?') ? '&' : '?') + AFF_AFFIX;
+    }
+  }
+
+  // ===== 호텔 검색 URL 구성 (ID 없이 searchWord 기반, 일정/통화만 세팅) + 제휴코드 자동 부착 =====
   function buildHotelSearchUrl(baseHost, cityName, checkin, checkout, curr){
-    // 가능한 최소 파라미터만 사용 (Trip.com이 searchWord로 도시 자동 탐색)
     const params = new URLSearchParams();
     if (cityName) params.set('searchWord', cityName);
     if (checkin)  params.set('checkin', checkin);   // YYYY/MM/DD
     if (checkout) params.set('checkout', checkout); // YYYY/MM/DD
     if (curr)     params.set('curr', curr);
-    // UX 보조
     params.set('searchBoxArg','t');
-    return `https://${baseHost}/hotels/list?${params.toString()}`;
+    const raw = `https://${baseHost}/hotels/list?${params.toString()}`;
+    return appendAffiliate(raw);
   }
 
   function applyTranslations(lang){
@@ -471,10 +487,8 @@
                        (languageToCurrencyMap[currentLang] || 'USD');
 
       // ====== (NEW) 항공 링크면 상단 호텔 CTA ======
-      // ddate / rdate (YYYY-MM-DD) → YYYY/MM/DD
       const isFlight = pathname.includes('/flights');
       if (isFlight) {
-        // m 경로 대비: acitycode / dcitycode 도 고려
         const ac = (originalParams.get('acity') || originalParams.get('acitycode') || '').toUpperCase();
         const ddate = originalParams.get('ddate') || '';
         const rdate = originalParams.get('rdate') || originalParams.get('adate') || '';
@@ -492,11 +506,11 @@
           ctaWrap.style.textAlign = 'center';
           ctaWrap.style.margin = '0 0 12px';
           const cta = document.createElement('a');
-          cta.href = hotelUrl;
+          cta.href = hotelUrl; // 제휴 파라미터 포함됨
           cta.target = '_blank';
           cta.rel = 'noopener nofollow sponsored';
           cta.className = 'external-link-btn';
-          cta.textContent = hotelCtaLabel(cityName);
+          cta.textContent = hotelCtaLabel(); // 일반 라벨
           ctaWrap.appendChild(cta);
           resultsDiv.appendChild(ctaWrap);
         }
