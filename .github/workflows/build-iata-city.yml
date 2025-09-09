@@ -3,7 +3,7 @@ name: Build IATA → City map
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 3 * * 1'  # 매주 월요일 03:17 UTC 자동 갱신
+    - cron: "15 3 * * 1"  # 매주 월요일 03:15 UTC (원하면 삭제)
 
 permissions:
   contents: write
@@ -15,53 +15,47 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Download airports.csv (with fallback)
-        run: |
-          set -euo pipefail
-          CSV="$RUNNER_TEMP/airports.csv"
-
-          echo "→ Try primary (ourairports.com)"
-          curl -LfsS https://ourairports.com/data/airports.csv -o "$CSV" || true
-
-          if [ ! -s "$CSV" ]; then
-            echo "→ Primary failed, try mirror (GitHub)"
-            curl -LfsS https://raw.githubusercontent.com/davidmegginson/ourairports-data/master/airports.csv -o "$CSV" || true
-          fi
-
-          if [ ! -s "$CSV" ]; then
-            echo "✗ All downloads failed" >&2
-            exit 1
-          fi
-
-          echo "✓ CSV size:"; wc -c "$CSV"
 
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
+
+      # 네트워크 TLS 이슈 회피: 러너에서 curl로 CSV를 미리 받아서 파일로 사용
+      - name: Download airports.csv (via curl)
+        run: |
+          set -e
+          curl -fsSL --retry 5 --retry-delay 5 \
+            https://ourairports.com/data/airports.csv \
+            -o airports.csv
+          echo "Downloaded airports.csv (bytes):"
+          wc -c airports.csv
 
       - name: Build iata-city.json
         env:
-          AIRPORTS_CSV_PATH: ${{ runner.temp }}/airports.csv  # ← 스크립트가 이 로컬 파일을 읽습니다
-        run: node scripts/build-iata-city.js
+          CSV_PATH: airports.csv   # 스크립트가 이 파일을 우선 사용
+        run: |
+          node scripts/build-iata-city.js
+          test -f public/data/iata-city.json
 
-      - name: Commit & push changes (if any)
+      # .gitignore에 막혀 있어도 강제로 add 해서 커밋/푸시
+      - name: Commit & push changes (force add)
         run: |
           set -e
-          if git status --porcelain | grep -q "public/data/iata-city.json"; then
-            git config user.name  "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add public/data/iata-city.json
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -f public/data/iata-city.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
             git commit -m "chore: refresh iata-city.json [skip ci]"
             git push
-          else
-            echo "No changes to commit."
           fi
 
-      - name: Upload artifact (optional)
+      # (선택) 결과물 바로 내려받기용 아티팩트
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: iata-city.json
