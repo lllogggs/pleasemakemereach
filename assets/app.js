@@ -133,6 +133,51 @@
     { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th' }
   ];
 
+  // ===== IATA → City 맵 로드 (한 번만) =====
+  let _iataCityMap = null;
+  async function loadIataMapOnce(){
+    if (_iataCityMap) return _iataCityMap;
+    try{
+      // GitHub Pages 루트 기준: /data/iata-city.json
+      const res = await fetch('/data/iata-city.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('iata-city.json fetch failed: ' + res.status);
+      _iataCityMap = await res.json();
+    }catch(e){
+      console.warn('IATA map load failed:', e);
+      _iataCityMap = {}; // 실패 시 빈 객체
+    }
+    return _iataCityMap;
+  }
+
+  // ===== 날짜 포맷 변환 YYYY-MM-DD → YYYY/MM/DD =====
+  function ymdToSlash(ymd){
+    // defensively accept 2025-11-03 or 2025/11/03
+    if (!ymd) return '';
+    return ymd.replaceAll('-', '/');
+  }
+
+  // ===== 항공 → 호텔 CTA 문구 =====
+  function hotelCtaLabel(city){
+    const name = city || '';
+    if (currentLang === 'ko') return `🏨 "${name}" 숙소도 한번에 찾기`;
+    if (currentLang === 'ja') return `🏨 「${name}」のホテルを探す`;
+    if (currentLang === 'th') return `🏨 ค้นหาโรงแรมใน "${name}"`;
+    return `🏨 Find hotels in "${name}"`;
+  }
+
+  // ===== 호텔 검색 URL 구성 (ID 없이 searchWord 기반, 일정/통화만 세팅) =====
+  function buildHotelSearchUrl(baseHost, cityName, checkin, checkout, curr){
+    // 가능한 최소 파라미터만 사용 (Trip.com이 searchWord로 도시 자동 탐색)
+    const params = new URLSearchParams();
+    if (cityName) params.set('searchWord', cityName);
+    if (checkin)  params.set('checkin', checkin);   // YYYY/MM/DD
+    if (checkout) params.set('checkout', checkout); // YYYY/MM/DD
+    if (curr)     params.set('curr', curr);
+    // UX 보조
+    params.set('searchBoxArg','t');
+    return `https://${baseHost}/hotels/list?${params.toString()}`;
+  }
+
   function applyTranslations(lang){
     const T = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
     $$('[data-lang]').forEach(el => {
@@ -276,7 +321,7 @@
     h.textContent = TL('shortlinkTitle');
 
     const p = document.createElement('p');
-    p.innerHTML = TL('shortlinkBody'); // 줄바꿈/작은글씨 span 반영
+    p.innerHTML = TL('shortlinkBody');
 
     const btnRow = document.createElement('div');
     btnRow.style.marginTop = '12px';
@@ -302,27 +347,18 @@
     const input = $('#inputUrl');
     if (!input) return;
 
-    // 이미 붙어있으면 중복 방지
     if (input.parentElement && input.parentElement.classList.contains('input-wrapper') &&
         input.parentElement.querySelector('.clear-btn')) {
       return;
     }
 
-    // 래퍼로 감싸기
     const wrap = document.createElement('div');
     wrap.className = 'input-wrapper';
     input.parentNode.insertBefore(wrap, input);
     wrap.appendChild(input);
 
-    // 접근성 라벨 현지화
-    const a11y = {
-      ko:'입력 지우기',
-      en:'Clear input',
-      ja:'入力をクリア',
-      th:'ล้างข้อความ'
-    };
+    const a11y = { ko:'입력 지우기', en:'Clear input', ja:'入力をクリア', th:'ล้างข้อความ' };
 
-    // 버튼 생성
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'clear-btn';
@@ -331,8 +367,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5"
               stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    `;
+      </svg>`;
     wrap.appendChild(btn);
 
     const toggle = () => {
@@ -340,7 +375,6 @@
       btn.classList.toggle('show', show);
     };
 
-    // 이벤트
     input.addEventListener('input', toggle);
     input.addEventListener('focus', toggle);
     input.addEventListener('blur', () => { if (!input.value.trim()) btn.classList.remove('show'); });
@@ -358,7 +392,6 @@
       input.focus();
     });
 
-    // 초기 표시
     toggle();
   }
 
@@ -378,14 +411,11 @@
     else if (input.includes('/things-to-do/')) category = 'Activity';
     else if (input.includes('/airport-transfers/')) category = 'Airport Pickup';
 
-    // GA 이벤트
     if (input && typeof gtag === 'function') {
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
     }
-    // 원본 입력 URL 로깅
     if (input) logSubmittedUrl(input, category);
 
-    // 빈 입력 → 각 언어 기본 홈
     if (!input) {
       const defaultAff =
         (currentLang === 'ko') ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX :
@@ -439,6 +469,39 @@
       // ★ 이번 세션 기준 통화(baseCurr) 결정: 입력 curr > 페이지 언어 기본 > USD
       const baseCurr = ((originalParams.get('curr') || '').toUpperCase()) ||
                        (languageToCurrencyMap[currentLang] || 'USD');
+
+      // ====== (NEW) 항공 링크면 상단 호텔 CTA ======
+      // ddate / rdate (YYYY-MM-DD) → YYYY/MM/DD
+      const isFlight = pathname.includes('/flights');
+      if (isFlight) {
+        // m 경로 대비: acitycode / dcitycode 도 고려
+        const ac = (originalParams.get('acity') || originalParams.get('acitycode') || '').toUpperCase();
+        const ddate = originalParams.get('ddate') || '';
+        const rdate = originalParams.get('rdate') || originalParams.get('adate') || '';
+
+        if (ac) {
+          const map = await loadIataMapOnce();
+          const entry = map[ac.toLowerCase()];
+          const cityName = (entry && entry.city) ? entry.city : ac; // 실패시 IATA 그대로
+          const checkin  = ymdToSlash(ddate);
+          const checkout = ymdToSlash(rdate);
+          const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
+          const hotelUrl = buildHotelSearchUrl(host, cityName, checkin, checkout, baseCurr);
+
+          const ctaWrap = document.createElement('div');
+          ctaWrap.style.textAlign = 'center';
+          ctaWrap.style.margin = '0 0 12px';
+          const cta = document.createElement('a');
+          cta.href = hotelUrl;
+          cta.target = '_blank';
+          cta.rel = 'noopener nofollow sponsored';
+          cta.className = 'external-link-btn';
+          cta.textContent = hotelCtaLabel(cityName);
+          ctaWrap.appendChild(cta);
+          resultsDiv.appendChild(ctaWrap);
+        }
+      }
+      // ====== (NEW) 끝 ======
 
       if (pathname.includes('/packages/')) {
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
@@ -545,12 +608,23 @@
       resultsDiv.appendChild(grid);
       if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton());
 
-      // 안전 속성 재점검(중복 적용 OK)
       hardenExternalLinks();
 
     } catch (e){
-      resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.parseError || 'Parse error.'}</p>`;
-      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+      const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
+      const resultsDiv = $('#results');
+      if (resultsDiv) {
+        resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.parseError || 'Parse error.'}</p>`;
+        if (currentLang === 'ko') resultsDiv.appendChild((() => {
+          const a = document.createElement('a');
+          a.href = 'https://open.kakao.com/o/sKGmxMDh';
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.className = 'kakao-chat-btn';
+          a.textContent = T.kakaoTalkError || 'Report an Error';
+          return a;
+        })());
+      }
       console.error('URL Parsing Error:', e);
     }
   };
@@ -592,9 +666,7 @@
     const p = document.createElement('p');
     p.className = 'meta-intro';
     p.textContent = txt;
-    // 화면에는 숨김(크롤러는 읽음)
     p.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;';
-    // header 내부는 nosnippet 처리되어 있으니 그 "앞"에 삽입
     if (header && header.parentNode) header.parentNode.insertBefore(p, header);
     else container.insertBefore(p, container.firstChild);
   }
@@ -608,11 +680,9 @@
         if (!isExternal) return;
         const relSet = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
         relSet.add('noopener'); relSet.add('noreferrer');
-        // trip.com 계열은 제휴 성격 표시 + 크롤링 영향 최소화
         if (u.hostname === 'trip.com' || /\.trip\.com$/.test(u.hostname)) {
           relSet.add('sponsored');
           relSet.add('nofollow');
-          // 제휴 추적 고려해 noreferrer 제거
           relSet.delete('noreferrer');
         }
         a.setAttribute('rel', Array.from(relSet).join(' '));
@@ -622,14 +692,14 @@
 
   // ===== 초기화 =====
   document.addEventListener('DOMContentLoaded', () => {
-    addResourceHints();          // 리소스 힌트
+    addResourceHints();
     renderLangDropdown();
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
 
-    injectMetaIntro();           // 검색용 한줄 소개(시각적 비노출)
-    applyNoSnippet();            // 스니펫 억제
-    hardenExternalLinks();       // 외부 링크 보강
+    injectMetaIntro();
+    applyNoSnippet();
+    hardenExternalLinks();
 
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
