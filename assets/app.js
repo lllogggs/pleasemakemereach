@@ -130,7 +130,7 @@
     { ko:'아르헨티나',en:'Argentina',   ja:'アルゼンチン', th:'อาร์เจนตินา', code:'ar', flag:'ar' },
     { ko:'포르투갈', en:'Portugal',     ja:'ポルトガル', th:'โปรตุเกส',    code:'pt', flag:'pt' },
     { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
-    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' }
+    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th' }
   ];
 
   function applyTranslations(lang){
@@ -295,6 +295,71 @@
     card.appendChild(p);
     card.appendChild(btnRow);
     container.appendChild(card);
+  }
+
+  // ===== 입력창 우측 X(지우기) 버튼 부착 =====
+  function attachInputClearButton(){
+    const input = $('#inputUrl');
+    if (!input) return;
+
+    // 이미 붙어있으면 중복 방지
+    if (input.parentElement && input.parentElement.classList.contains('input-wrapper') &&
+        input.parentElement.querySelector('.clear-btn')) {
+      return;
+    }
+
+    // 래퍼로 감싸기
+    const wrap = document.createElement('div');
+    wrap.className = 'input-wrapper';
+    input.parentNode.insertBefore(wrap, input);
+    wrap.appendChild(input);
+
+    // 접근성 라벨 현지화
+    const a11y = {
+      ko:'입력 지우기',
+      en:'Clear input',
+      ja:'入力をクリア',
+      th:'ล้างข้อความ'
+    };
+
+    // 버튼 생성
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'clear-btn';
+    btn.setAttribute('aria-label', a11y[currentLang] || 'Clear');
+    btn.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    `;
+    wrap.appendChild(btn);
+
+    const toggle = () => {
+      const show = (input.value || '').trim().length > 0;
+      btn.classList.toggle('show', show);
+    };
+
+    // 이벤트
+    input.addEventListener('input', toggle);
+    input.addEventListener('focus', toggle);
+    input.addEventListener('blur', () => { if (!input.value.trim()) btn.classList.remove('show'); });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && input.value) {
+        input.value = '';
+        input.dispatchEvent(new Event('input'));
+        e.preventDefault();
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      input.value = '';
+      input.dispatchEvent(new Event('input'));
+      input.focus();
+    });
+
+    // 초기 표시
+    toggle();
   }
 
   // ===== 메인 기능 =====
@@ -621,6 +686,9 @@
       if (inputEl) inputEl.value = urlToProcess;
       history.replaceState({}, '', window.location.pathname);
     }
+
+    // 입력창 X 버튼 부착 (마지막에 한 번만)
+    attachInputClearButton();
 
     const mobileModal = $('#mobile-notice-modal');
     if (mobileModal) {
