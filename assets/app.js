@@ -1,3 +1,5 @@
+<!-- app.js -->
+<script>
 (() => {
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
@@ -58,7 +60,7 @@
     return 'ko';
   }
 
-  // ===== translations fallback (이번 이슈 관련 키 3개만) =====
+  // ===== translations fallback (단축링크 관련 키) =====
   const FALLBACK_TEXT = {
     ko: {
       shortlinkTitle: "단축링크는 변환되지 않아요",
@@ -130,9 +132,40 @@
     { ko:'아르헨티나',en:'Argentina',   ja:'アルゼンチン', th:'อาร์เจนตินา', code:'ar', flag:'ar' },
     { ko:'포르투갈', en:'Portugal',     ja:'ポルトガル', th:'โปรตุเกส',    code:'pt', flag:'pt' },
     { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
-    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th' }
+    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' }
   ];
 
+  // ===== IATA → 도시 맵 (GitHub Actions로 생성된 JSON) =====
+  let IATA_CITY_MAP = null;
+  async function loadIataCityMap(){
+    if (IATA_CITY_MAP) return IATA_CITY_MAP;
+    try{
+      const res = await fetch('/data/iata-city.json', { cache:'force-cache' });
+      if (res.ok) {
+        IATA_CITY_MAP = await res.json();
+      } else {
+        IATA_CITY_MAP = {};
+      }
+    }catch(_){ IATA_CITY_MAP = {}; }
+    return IATA_CITY_MAP;
+  }
+
+  function cityFromIata(iata){
+    if (!iata) return '';
+    const m = IATA_CITY_MAP?.[iata.toLowerCase()];
+    return (m && (m.city || m.municipality)) || '';
+  }
+
+  // ===== 언어별 버튼 텍스트 (호텔 CTA) =====
+  function hotelCtaText(city){
+    if (currentLang === 'ko') return `🏨 "${city}" 숙소도 한번에 찾기`;
+    if (currentLang === 'ja') return `🏨 「${city}」の宿を探す`;
+    if (currentLang === 'th') return `🏨 ค้นหาที่พักใน “${city}”`;
+    // en
+    return `🏨 Find hotels in "${city}"`;
+  }
+
+  // ===== 언어 적용 =====
   function applyTranslations(lang){
     const T = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
     $$('[data-lang]').forEach(el => {
@@ -297,69 +330,43 @@
     container.appendChild(card);
   }
 
-  // ===== 입력창 우측 X(지우기) 버튼 부착 =====
-  function attachInputClearButton(){
-    const input = $('#inputUrl');
-    if (!input) return;
-
-    // 이미 붙어있으면 중복 방지
-    if (input.parentElement && input.parentElement.classList.contains('input-wrapper') &&
-        input.parentElement.querySelector('.clear-btn')) {
-      return;
-    }
-
-    // 래퍼로 감싸기
+  // ===== 항공 → 호텔 CTA 버튼 렌더 (한 줄) =====
+  function renderHotelCTAButton(cityName, hotelUrl, hostEl){
     const wrap = document.createElement('div');
-    wrap.className = 'input-wrapper';
-    input.parentNode.insertBefore(wrap, input);
-    wrap.appendChild(input);
+    wrap.style.display = 'flex';
+    wrap.style.justifyContent = 'center';
+    wrap.style.margin = '8px 0 16px';
 
-    // 접근성 라벨 현지화
-    const a11y = {
-      ko:'입력 지우기',
-      en:'Clear input',
-      ja:'入力をクリア',
-      th:'ล้างข้อความ'
-    };
+    const a = document.createElement('a');
+    a.className = 'external-link-btn';
+    a.href = hotelUrl;
+    a.target = '_blank';
+    a.rel = 'noopener sponsored nofollow';
+    a.textContent = hotelCtaText(cityName);
 
-    // 버튼 생성
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'clear-btn';
-    btn.setAttribute('aria-label', a11y[currentLang] || 'Clear');
-    btn.innerHTML = `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    `;
-    wrap.appendChild(btn);
+    wrap.appendChild(a);
+    hostEl.appendChild(wrap);
+  }
 
-    const toggle = () => {
-      const show = (input.value || '').trim().length > 0;
-      btn.classList.toggle('show', show);
-    };
+  // 항공 검색 링크 → 호텔 리스트 URL 생성(도시명 + 체크인/아웃)
+  function buildHotelUrlFromFlight(searchParams, cityName, baseCurr){
+    const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
+    const ddate = (searchParams.get('ddate') || '').trim();
+    const rdate = (searchParams.get('rdate') || '').trim();
+    const triptype = (searchParams.get('triptype') || 'ow').toLowerCase();
 
-    // 이벤트
-    input.addEventListener('input', toggle);
-    input.addEventListener('focus', toggle);
-    input.addEventListener('blur', () => { if (!input.value.trim()) btn.classList.remove('show'); });
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && input.value) {
-        input.value = '';
-        input.dispatchEvent(new Event('input'));
-        e.preventDefault();
-      }
-    });
+    // Trip.com 호텔 파라미터는 / 로도 잘 동작하는 케이스가 많음
+    const ci = ddate ? ddate.replace(/-/g,'/') : '';
+    const co = (triptype === 'rt' && rdate) ? rdate.replace(/-/g,'/') : ci;
 
-    btn.addEventListener('click', () => {
-      input.value = '';
-      input.dispatchEvent(new Event('input'));
-      input.focus();
-    });
+    const sp = new URLSearchParams();
+    if (cityName) sp.set('cityName', cityName);
+    if (ci)       sp.set('checkin',  ci);
+    if (co)       sp.set('checkout', co);
+    if (baseCurr) sp.set('curr', baseCurr);
+    sp.set('searchBoxArg','t');
 
-    // 초기 표시
-    toggle();
+    return `https://${host}/hotels/list?${sp.toString()}`;
   }
 
   // ===== 메인 기능 =====
@@ -440,6 +447,23 @@
       const baseCurr = ((originalParams.get('curr') || '').toUpperCase()) ||
                        (languageToCurrencyMap[currentLang] || 'USD');
 
+      // ===== 항공 링크면: 상단에 호텔 CTA 버튼 하나만 =====
+      if (pathname.includes('/flights')) {
+        // 모바일 경로 보정
+        if (pathname.startsWith('/m/')) {
+          pathname = '/flights/showfarefirst';
+        }
+        // 도착지 IATA → 도시
+        await loadIataCityMap();
+        const acity = (originalParams.get('acity') || originalParams.get('acitycode') || '').toUpperCase();
+        const cityName = cityFromIata(acity) || acity || 'City';
+        const hotelUrl = buildHotelUrlFromFlight(originalParams, cityName, baseCurr);
+        renderHotelCTAButton(cityName, hotelUrl, resultsDiv);
+
+        // 이어서 결과 그리드는 기존 로직으로 계속 렌더
+      }
+
+      // ===== 아래부터는 국가별 링크 생성 로직 =====
       if (pathname.includes('/packages/')) {
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
         const whitelist = [
@@ -631,6 +655,7 @@
     applyNoSnippet();            // 스니펫 억제
     hardenExternalLinks();       // 외부 링크 보강
 
+    // 언어 드롭다운 동작
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
     const langDropdown = $('#language-dropdown');
@@ -656,12 +681,14 @@
       });
     });
 
+    // 윈도우 리사이즈 시 언어 버튼 텍스트 토글
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(updateLanguageButtonDisplay, 150);
     });
 
+    // 검색 모달(숨김 유지)
     const showWidgetButton = $('#show-widget-button');
     const modal = $('#search-modal');
     const modalClose = modal?.querySelector('.modal-close');
@@ -669,6 +696,7 @@
     if (modalClose)      modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
     if (modal)           modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
+    // 탭 전환
     const tabButtons = $$('.tab-button');
     const tabContents = $$('.tab-content');
     tabButtons.forEach(button => {
@@ -679,6 +707,7 @@
       });
     });
 
+    // url 파라미터로 미리 채우기
     const params = new URLSearchParams(window.location.search);
     const urlToProcess = params.get('url');
     if (urlToProcess) {
@@ -687,9 +716,7 @@
       history.replaceState({}, '', window.location.pathname);
     }
 
-    // 입력창 X 버튼 부착 (마지막에 한 번만)
-    attachInputClearButton();
-
+    // 모바일 안내 모달 닫기
     const mobileModal = $('#mobile-notice-modal');
     if (mobileModal) {
       const mobileClose = mobileModal.querySelector('.modal-close');
@@ -697,6 +724,7 @@
       mobileModal.addEventListener('click', (e) => { if (e.target === mobileModal) mobileModal.style.display = 'none'; });
     }
 
+    // 입력창 비어있을 때 반복 클릭 → 기본 홈 리디렉트 이 Easter egg 유지
     const inputEl2 = $('#inputUrl');
     if (inputEl2) {
       inputEl2.addEventListener('click', () => {
@@ -716,5 +744,23 @@
         }
       });
     }
+
+    // 입력창 X(지우기) 버튼 토글/동작
+    const clearBtn = $('.clear-btn');
+    const inputEl = $('#inputUrl');
+    if (clearBtn && inputEl) {
+      const sync = () => clearBtn.classList.toggle('show', !!inputEl.value.trim());
+      ['input','focus','blur'].forEach(ev => inputEl.addEventListener(ev, sync));
+      clearBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        inputEl.value = '';
+        sync();
+        inputEl.focus();
+        const results = $('#results');
+        if (results) { results.style.display = 'none'; results.innerHTML = ''; }
+      });
+      sync();
+    }
   });
 })();
+</script>
