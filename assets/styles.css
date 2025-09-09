@@ -79,10 +79,10 @@ footer p{ margin:3px 0; }
 }
 
 /* 입력창 + 클리어 버튼 래퍼 */
-.input-wrapper{ position:relative; width:100%; }
+.input-wrapper{ position:relative; width:100%; margin-bottom:12px; } /* ⬅ margin 이동 */
 #inputUrl{
   width:100%; padding:14px 16px; font-size:16px; border:1px solid var(--border-color);
-  border-radius:8px; margin-bottom:12px; transition:.2s;
+  border-radius:8px; margin-bottom:0; transition:.2s; /* ⬅ 0으로 */
 }
 .input-wrapper #inputUrl{ padding-right:48px; } /* X 버튼 공간 확보 */
 #inputUrl:focus{
@@ -95,7 +95,7 @@ footer p{ margin:3px 0; }
   width:28px; height:28px; border-radius:50%;
   display:none; align-items:center; justify-content:center;
   background:#f3f4f6; color:#6b7280; border:1px solid var(--border-color);
-  cursor:pointer;
+  cursor:pointer; line-height:0; /* ⬅ 수직중앙 보정 */
 }
 .clear-btn.show{ display:inline-flex; }
 .clear-btn:hover{ background:#eceff3; }
