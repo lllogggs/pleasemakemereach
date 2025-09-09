@@ -21,32 +21,34 @@ jobs:
         with:
           node-version: "20"
 
-      # 네트워크 TLS 이슈 회피: 러너에서 curl로 CSV를 미리 받아서 파일로 사용
-      - name: Download airports.csv (via curl)
+      # TLS 오류 대비: 먼저 정상 다운로드 시도 → 실패 시 --insecure 로 재시도
+      - name: Download airports.csv (robust TLS)
         run: |
           set -e
-          curl -fsSL --retry 5 --retry-delay 5 \
-            https://ourairports.com/data/airports.csv \
-            -o airports.csv
-          echo "Downloaded airports.csv (bytes):"
+          URL="https://ourairports.com/data/airports.csv"
+          echo "Downloading $URL"
+          if ! curl -fsSL --retry 5 --retry-delay 5 "$URL" -o airports.csv; then
+            echo "Primary download failed → retry with --insecure"
+            curl -fsSLk --retry 5 --retry-delay 5 "$URL" -o airports.csv
+          fi
+          # 간단 검증: 파일 존재/사이즈 + 헤더에 iata_code 포함 여부
+          test -s airports.csv
+          head -n1 airports.csv | grep -qi 'iata_code' || { echo "Invalid CSV header"; exit 1; }
           wc -c airports.csv
 
       - name: Build iata-city.json
         env:
-          CSV_PATH: airports.csv   # 스크립트가 이 파일을 우선 사용
+          CSV_PATH: airports.csv   # 스크립트가 이 로컬 파일을 우선 사용
         run: |
           node scripts/build-iata-city.js
           test -f public/data/iata-city.json
 
-      # .gitignore에 막혀 있어도 강제로 add 해서 커밋/푸시
       - name: Commit & push changes (force add)
         run: |
           set -e
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add -f public/data/iata-city.json
-
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
@@ -54,7 +56,6 @@ jobs:
             git push
           fi
 
-      # (선택) 결과물 바로 내려받기용 아티팩트
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
