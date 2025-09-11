@@ -59,11 +59,13 @@
   }
 
   // ===== translations fallback (단축링크 안내 강화) =====
+  // 이 3개 키는 항상 FALLBACK를 우선 사용(외부 TRANSLATIONS가 있어도 무시)
+  const FORCE_FALLBACK_KEYS = new Set(['shortlinkTitle','shortlinkBody','shortlinkOpenFull']);
   const FALLBACK_TEXT = {
     ko: {
       shortlinkTitle: "단축링크는 변환되지 않아요",
       shortlinkBody:
-        "삼성인터넷/safari/Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
+        "삼성인터넷 / Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
         "<li>1) 단축링크를 <strong>브라우저 주소창</strong>에 붙여넣어 여세요.</li>" +
         "<li>2) 페이지가 열리면 주소창의 <strong>전체 URL</strong>을 복사하세요.</li>" +
         "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
@@ -73,7 +75,7 @@
     en: {
       shortlinkTitle: "Short links can’t be converted",
       shortlinkBody:
-        "Open the short link in a <strong>web browser</strong> (Safari/Samsung Internet/Chrome), then copy the expanded full URL and paste it here.<ul>" +
+        "Open the short link in a <strong>web browser</strong> (Safari / Samsung Internet / Chrome), then copy the expanded full URL and paste it here.<ul>" +
         "<li>1) Paste the short link into the <strong>browser address bar</strong>.</li>" +
         "<li>2) When the page loads, copy the <strong>full URL</strong> in the address bar.</li>" +
         "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
@@ -83,7 +85,7 @@
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
       shortlinkBody:
-        "Safari/Samsung Internet/Chrome などの<strong>Webブラウザ</strong>で短縮リンクを開き、展開されたフルURLをコピーしてこちらに貼り付けてください。<ul>" +
+        "Safari / Samsung Internet / Chrome などの<strong>Webブラウザ</strong>で短縮リンクを開き、展開されたフルURLをコピーしてこちらに貼り付けてください。<ul>" +
         "<li>1) 短縮リンクを<strong>ブラウザのアドレスバー</strong>に貼り付けて開く。</li>" +
         "<li>2) ページが表示されたら、アドレスバーの<strong>フルURL</strong>をコピー。</li>" +
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
@@ -93,7 +95,7 @@
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
       shortlinkBody:
-        "เปิดลิงก์แบบย่อใน<strong>เว็บเบราว์เซอร์</strong> (Safari/Samsung Internet/Chrome) แล้วคัดลอก URL แบบเต็มที่ขยายแล้วมาวางที่นี่<ul>" +
+        "เปิดลิงก์แบบย่อใน<strong>เว็บเบราว์เซอร์</strong> (Safari / Samsung Internet / Chrome) แล้วคัดลอก URL แบบเต็มที่ขยายแล้วมาวางที่นี่<ul>" +
         "<li>1) วางลิงก์แบบย่อใน<strong>แถบที่อยู่ของเบราว์เซอร์</strong></li>" +
         "<li>2) เมื่อหน้าโหลดแล้ว ให้คัดลอก<strong>URL แบบเต็ม</strong>ในแถบที่อยู่</li>" +
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
@@ -101,10 +103,11 @@
       shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์"
     }
   };
-  const TL = (key) =>
-    (window.TRANSLATIONS?.[currentLang]?.[key]) ??
-    (FALLBACK_TEXT[currentLang]?.[key]) ??
-    (FALLBACK_TEXT.en?.[key] ?? key);
+  const TL = (key) => {
+    const fallback = (FALLBACK_TEXT[currentLang]?.[key]) ?? (FALLBACK_TEXT.en?.[key] ?? key);
+    if (FORCE_FALLBACK_KEYS.has(key)) return fallback;
+    return (window.TRANSLATIONS?.[currentLang]?.[key]) ?? fallback;
+  };
 
   // 페이지 언어 → 기본 통화 맵(확장)
   const languageToCurrencyMap = {
@@ -138,7 +141,7 @@
     { ko:'아르헨티나',en:'Argentina',   ja:'アルゼンチン', th:'อาร์เจนตินา', code:'ar', flag:'ar' },
     { ko:'포르투갈', en:'Portugal',     ja:'ポルトガル', th:'โปรตุเกส',    code:'pt', flag:'pt' },
     { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
-    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th' }
+    { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' }
   ];
 
   // ===== IATA → City 맵 로드 (한 번만) =====
@@ -146,13 +149,12 @@
   async function loadIataMapOnce(){
     if (_iataCityMap) return _iataCityMap;
     try{
-      // GitHub Pages 루트 기준: /data/iata-city.json
       const res = await fetch('/data/iata-city.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('iata-city.json fetch failed: ' + res.status);
       _iataCityMap = await res.json();
     }catch(e){
       console.warn('IATA map load failed:', e);
-      _iataCityMap = {}; // 실패 시 빈 객체
+      _iataCityMap = {};
     }
     return _iataCityMap;
   }
@@ -163,7 +165,7 @@
     return ymd.replaceAll('-', '/');
   }
 
-  // ===== (수정) 항공 → 호텔 CTA 라벨: 도시명 없이 일반 문구 =====
+  // ===== 항공 → 호텔 CTA 라벨(일반 문구) =====
   function hotelCtaLabel(){
     if (currentLang === 'ko') return '숙소도 한번에 찾기';
     if (currentLang === 'ja') return '宿もまとめて検索';
@@ -171,12 +173,11 @@
     return 'Find hotels for these dates';
   }
 
-  // ===== (추가) 제휴 파라미터 부착 헬퍼 =====
+  // ===== 제휴 파라미터 부착 =====
   function appendAffiliate(urlStr){
     try{
       const u = new URL(urlStr, location.origin);
       const sp = u.searchParams;
-      // 이미 붙어있으면 중복 방지
       if (!sp.has('Allianceid') && !sp.has('SID')) {
         AFF_AFFIX.split('&').forEach(kv => {
           const [k, v=''] = kv.split('=');
@@ -190,12 +191,12 @@
     }
   }
 
-  // ===== 호텔 검색 URL 구성 (ID 없이 searchWord 기반, 일정/통화만 세팅) + 제휴코드 자동 부착 =====
+  // ===== 호텔 검색 URL(검색어 기반) + 제휴코드 자동 =====
   function buildHotelSearchUrl(baseHost, cityName, checkin, checkout, curr){
     const params = new URLSearchParams();
     if (cityName) params.set('searchWord', cityName);
-    if (checkin)  params.set('checkin', checkin);   // YYYY/MM/DD
-    if (checkout) params.set('checkout', checkout); // YYYY/MM/DD
+    if (checkin)  params.set('checkin', checkin);
+    if (checkout) params.set('checkout', checkout);
     if (curr)     params.set('curr', curr);
     params.set('searchBoxArg','t');
     const raw = `https://${baseHost}/hotels/list?${params.toString()}`;
@@ -206,7 +207,9 @@
     const T = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
     $$('[data-lang]').forEach(el => {
       const key = el.getAttribute('data-lang');
-      if (T[key] != null) el.innerHTML = T[key];
+      // TL() 안에서 강제 fallback 처리됨
+      const val = (key in (T||{})) ? (FORCE_FALLBACK_KEYS.has(key) ? TL(key) : T[key]) : TL(key);
+      if (val != null) el.innerHTML = val;
     });
     const input = $('#inputUrl');
     if (input && T.placeholder) input.placeholder = T.placeholder;
@@ -245,7 +248,7 @@
     el.textContent = codeOrText;
   }
 
-  // ===== 리소스 힌트(Preconnect / DNS-Prefetch) =====
+  // ===== 리소스 힌트 =====
   function addResourceHints(){
     const head = document.head;
     const origins = [
@@ -272,7 +275,7 @@
     });
   }
 
-  // ===== URL 로깅 (POST + GET 픽셀) =====
+  // ===== URL 로깅 =====
   function logSubmittedUrl(rawUrl, category){
     const payload = {
       url: rawUrl,
@@ -366,7 +369,7 @@
     container.appendChild(card);
   }
 
-  // ===== 입력창 우측 X(지우기) 버튼 부착 =====
+  // ===== 입력창 우측 X 버튼 =====
   function attachInputClearButton(){
     const input = $('#inputUrl');
     if (!input) return;
@@ -417,6 +420,23 @@
     });
 
     toggle();
+  }
+
+  // ===== 태국 국기 찌그러짐 방지용 스타일 주입 =====
+  function injectStyleFixes(){
+    const css = `
+      .link-list-grid a img.flag.th-flag{
+        width:24px !important;
+        height:18px !important;
+        object-fit:contain;
+        border-radius:2px;
+        image-rendering:auto;
+      }
+    `;
+    const style = document.createElement('style');
+    style.setAttribute('data-flag-fix','th');
+    style.textContent = css;
+    document.head.appendChild(style);
   }
 
   // ===== 메인 기능 =====
@@ -476,7 +496,7 @@
       return;
     }
 
-    // ★ /w/ 단축링크면 변환 시도하지 않고 안내만 표시
+    // /w/ 단축링크면 안내만 표시
     if (isTripShortLink(input)) {
       renderShortlinkNotice(input, resultsDiv);
       if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
@@ -490,11 +510,11 @@
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
 
-      // ★ 이번 세션 기준 통화(baseCurr) 결정: 입력 curr > 페이지 언어 기본 > USD
+      // 이번 세션 기준 통화
       const baseCurr = ((originalParams.get('curr') || '').toUpperCase()) ||
                        (languageToCurrencyMap[currentLang] || 'USD');
 
-      // ====== (NEW) 항공 링크면 상단 호텔 CTA ======
+      // 항공 링크면 상단 호텔 CTA
       const isFlight = pathname.includes('/flights');
       if (isFlight) {
         const ac = (originalParams.get('acity') || originalParams.get('acitycode') || '').toUpperCase();
@@ -514,16 +534,15 @@
           ctaWrap.style.textAlign = 'center';
           ctaWrap.style.margin = '0 0 12px';
           const cta = document.createElement('a');
-          cta.href = hotelUrl; // 제휴 파라미터 포함됨
+          cta.href = hotelUrl;
           cta.target = '_blank';
           cta.rel = 'noopener nofollow sponsored';
           cta.className = 'external-link-btn';
-          cta.textContent = hotelCtaLabel(); // 일반 라벨
+          cta.textContent = hotelCtaLabel();
           ctaWrap.appendChild(cta);
           resultsDiv.appendChild(ctaWrap);
         }
       }
-      // ====== (NEW) 끝 ======
 
       if (pathname.includes('/packages/')) {
         if (pathname.startsWith('/m/')) pathname = pathname.replace('/m/','/');
@@ -595,13 +614,13 @@
       sortedDomains.forEach(dom => {
         const p = new URLSearchParams(essentialParams);
 
-        // 모든 버튼 동일 통화로 강제
+        // 통화 강제
         if (baseCurr) {
           p.set('curr', baseCurr);
-          if (p.has('crn')) p.set('crn', baseCurr); // 일부 호텔 파라미터
+          if (p.has('crn')) p.set('crn', baseCurr);
         }
 
-        // 로케일 계열 제거(도메인 리다이렉트 최소화)
+        // 로케일 제거
         ['locale','lang','lc','language'].forEach(k => p.delete(k));
 
         const param = p.toString();
@@ -624,12 +643,11 @@
         };
         const label = (dom[currentLang] || dom.en);
 
-        // 🔧 태국 국기만 4:3(24x18) 원본 + 왜곡 방지
+        // 태국만 24x18 고정(왜곡 방지)
         const isThai = dom.code === 'th';
         const imgHtml = isThai
-          ? `<img class="flag" src="https://flagcdn.com/24x18/${dom.flag}.png"
+          ? `<img class="flag th-flag" src="https://flagcdn.com/24x18/${dom.flag}.png"
                    alt="${label} flag"
-                   style="width:24px;height:18px;object-fit:contain;border-radius:2px"
                    loading="lazy" decoding="async">`
           : `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png"
                    alt="${label} flag"
@@ -664,7 +682,7 @@
     }
   };
 
-  // ===== 스니펫 억제: UI에는 영향 없음 =====
+  // ===== 스니펫 억제 =====
   function applyNoSnippet(){
     const selectors = [
       '.header',
@@ -685,7 +703,7 @@
     });
   }
 
-  // ===== 검색 전용 ‘상단 한 줄 소개’ 삽입(보이지 않음) =====
+  // ===== 검색 전용 ‘상단 한 줄 소개’(시각 비노출) =====
   function injectMetaIntro(){
     const INTRO = {
       ko: '트립닷컴 국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능',
@@ -706,7 +724,7 @@
     else container.insertBefore(p, container.firstChild);
   }
 
-  // ===== 외부 링크 보안 속성 일괄 보강 =====
+  // ===== 외부 링크 보안 =====
   function hardenExternalLinks(){
     $$('a[target="_blank"]').forEach(a => {
       try{
@@ -718,7 +736,7 @@
         if (u.hostname === 'trip.com' || /\.trip\.com$/.test(u.hostname)) {
           relSet.add('sponsored');
           relSet.add('nofollow');
-          relSet.delete('noreferrer');
+          relSet.delete('noreferrer'); // 제휴 추적 유지
         }
         a.setAttribute('rel', Array.from(relSet).join(' '));
       }catch(_){}
@@ -732,6 +750,7 @@
     applyTranslations(currentLang);
     document.documentElement.lang = currentLang;
 
+    injectStyleFixes();          // 🔧 태국 국기 픽스
     injectMetaIntro();
     applyNoSnippet();
     hardenExternalLinks();
@@ -792,7 +811,6 @@
       history.replaceState({}, '', window.location.pathname);
     }
 
-    // 입력창 X 버튼 부착 (마지막에 한 번만)
     attachInputClearButton();
 
     const mobileModal = $('#mobile-notice-modal');
