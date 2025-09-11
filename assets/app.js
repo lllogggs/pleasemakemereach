@@ -63,7 +63,7 @@
     ko: {
       shortlinkTitle: "단축링크는 변환되지 않아요",
       shortlinkBody:
-        "Safari / 삼성인터넷 / Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
+        "삼성인터넷 / Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
         "<li>1) 단축링크를 <strong>브라우저 주소창</strong>에 붙여넣어 여세요.</li>" +
         "<li>2) 페이지가 열리면 주소창의 <strong>전체 URL</strong>을 복사하세요.</li>" +
         "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
@@ -623,7 +623,20 @@
           }
         };
         const label = (dom[currentLang] || dom.en);
-        a.innerHTML = `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png" alt="${label} flag" width="24" height="16" loading="lazy" decoding="async"> ${label}`;
+
+        // 🔧 태국 국기만 4:3(24x18) 원본 + 왜곡 방지
+        const isThai = dom.code === 'th';
+        const imgHtml = isThai
+          ? `<img class="flag" src="https://flagcdn.com/24x18/${dom.flag}.png"
+                   alt="${label} flag"
+                   style="width:24px;height:18px;object-fit:contain;border-radius:2px"
+                   loading="lazy" decoding="async">`
+          : `<img class="flag" src="https://flagcdn.com/h40/${dom.flag}.png"
+                   alt="${label} flag"
+                   width="24" height="16"
+                   loading="lazy" decoding="async">`;
+
+        a.innerHTML = `${imgHtml} ${label}`;
         grid.appendChild(a);
       });
 
