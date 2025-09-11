@@ -58,39 +58,47 @@
     return 'ko';
   }
 
-  // ===== translations fallback (이번 이슈 관련 키 3개만) =====
+  // ===== translations fallback (단축링크 안내 강화) =====
   const FALLBACK_TEXT = {
     ko: {
       shortlinkTitle: "단축링크는 변환되지 않아요",
       shortlinkBody:
-        "단축링크를 먼저 열어 주세요.<br>" +
-        "주소창의 전체 주소를 복사해 붙여넣으면 국가별 최저가 링크를 만들어 드려요.<br>" +
-        "<span class=\"sl-example\">예: kr.trip.com/hotels… / kr.trip.com/flights…</span>",
-      shortlinkOpenFull: "단축링크 열어서 전체링크 확인하기"
+        "Safari / 삼성인터넷 / Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
+        "<li>1) 단축링크를 <strong>브라우저 주소창</strong>에 붙여넣어 여세요.</li>" +
+        "<li>2) 페이지가 열리면 주소창의 <strong>전체 URL</strong>을 복사하세요.</li>" +
+        "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
+        '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
+      shortlinkOpenFull: "브라우저에서 단축링크 열기"
     },
     en: {
       shortlinkTitle: "Short links can’t be converted",
       shortlinkBody:
-        "Please open the short link first.<br>" +
-        "Copy the full URL from the address bar and paste it here to build country-price links.<br>" +
-        "<span class=\"sl-example\">e.g. kr.trip.com/hotels… / kr.trip.com/flights…</span>",
-      shortlinkOpenFull: "Open short link to get full URL"
+        "Open the short link in a <strong>web browser</strong> (Safari / Samsung Internet / Chrome), then copy the expanded full URL and paste it here.<ul>" +
+        "<li>1) Paste the short link into the <strong>browser address bar</strong>.</li>" +
+        "<li>2) When the page loads, copy the <strong>full URL</strong> in the address bar.</li>" +
+        "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
+        '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
+      shortlinkOpenFull: "Open short link in browser"
     },
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
       shortlinkBody:
-        "まず短縮リンクを開いてください。<br>" +
-        "アドレスバーのフルURLをコピーして貼り付けると、国別の最安値リンクを作成できます。<br>" +
-        "<span class=\"sl-example\">例: kr.trip.com/hotels… / kr.trip.com/flights…</span>",
-      shortlinkOpenFull: "短縮リンクを開いてフルURLを確認"
+        "Safari / Samsung Internet / Chrome などの<strong>Webブラウザ</strong>で短縮リンクを開き、展開されたフルURLをコピーしてこちらに貼り付けてください。<ul>" +
+        "<li>1) 短縮リンクを<strong>ブラウザのアドレスバー</strong>に貼り付けて開く。</li>" +
+        "<li>2) ページが表示されたら、アドレスバーの<strong>フルURL</strong>をコピー。</li>" +
+        "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
+        '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
+      shortlinkOpenFull: "ブラウザで短縮リンクを開く"
     },
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
       shortlinkBody:
-        "โปรดเปิดลิงก์แบบย่อก่อน<br>" +
-        "คัดลอก URL แบบเต็มจากแถบที่อยู่และวางที่นี่ เพื่อสร้างลิงก์เทียบราคาตามประเทศ<br>" +
-        "<span class=\"sl-example\">เช่น kr.trip.com/hotels… / kr.trip.com/flights…</span>",
-      shortlinkOpenFull: "เปิดลิงก์แบบย่อเพื่อดู URL เต็ม"
+        "เปิดลิงก์แบบย่อใน<strong>เว็บเบราว์เซอร์</strong> (Safari / Samsung Internet / Chrome) แล้วคัดลอก URL แบบเต็มที่ขยายแล้วมาวางที่นี่<ul>" +
+        "<li>1) วางลิงก์แบบย่อใน<strong>แถบที่อยู่ของเบราว์เซอร์</strong></li>" +
+        "<li>2) เมื่อหน้าโหลดแล้ว ให้คัดลอก<strong>URL แบบเต็ม</strong>ในแถบที่อยู่</li>" +
+        "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
+        '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
+      shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์"
     }
   };
   const TL = (key) =>
