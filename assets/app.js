@@ -63,7 +63,7 @@
     ko: {
       shortlinkTitle: "단축링크는 변환되지 않아요",
       shortlinkBody:
-        "삼성인터넷 / Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
+        "삼성인터넷/safari/Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
         "<li>1) 단축링크를 <strong>브라우저 주소창</strong>에 붙여넣어 여세요.</li>" +
         "<li>2) 페이지가 열리면 주소창의 <strong>전체 URL</strong>을 복사하세요.</li>" +
         "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
@@ -73,7 +73,7 @@
     en: {
       shortlinkTitle: "Short links can’t be converted",
       shortlinkBody:
-        "Open the short link in a <strong>web browser</strong> (Safari / Samsung Internet / Chrome), then copy the expanded full URL and paste it here.<ul>" +
+        "Open the short link in a <strong>web browser</strong> (Safari/Samsung Internet/Chrome), then copy the expanded full URL and paste it here.<ul>" +
         "<li>1) Paste the short link into the <strong>browser address bar</strong>.</li>" +
         "<li>2) When the page loads, copy the <strong>full URL</strong> in the address bar.</li>" +
         "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
@@ -83,7 +83,7 @@
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
       shortlinkBody:
-        "Safari / Samsung Internet / Chrome などの<strong>Webブラウザ</strong>で短縮リンクを開き、展開されたフルURLをコピーしてこちらに貼り付けてください。<ul>" +
+        "Safari/Samsung Internet/Chrome などの<strong>Webブラウザ</strong>で短縮リンクを開き、展開されたフルURLをコピーしてこちらに貼り付けてください。<ul>" +
         "<li>1) 短縮リンクを<strong>ブラウザのアドレスバー</strong>に貼り付けて開く。</li>" +
         "<li>2) ページが表示されたら、アドレスバーの<strong>フルURL</strong>をコピー。</li>" +
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
@@ -93,7 +93,7 @@
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
       shortlinkBody:
-        "เปิดลิงก์แบบย่อใน<strong>เว็บเบราว์เซอร์</strong> (Safari / Samsung Internet / Chrome) แล้วคัดลอก URL แบบเต็มที่ขยายแล้วมาวางที่นี่<ul>" +
+        "เปิดลิงก์แบบย่อใน<strong>เว็บเบราว์เซอร์</strong> (Safari/Samsung Internet/Chrome) แล้วคัดลอก URL แบบเต็มที่ขยายแล้วมาวางที่นี่<ul>" +
         "<li>1) วางลิงก์แบบย่อใน<strong>แถบที่อยู่ของเบราว์เซอร์</strong></li>" +
         "<li>2) เมื่อหน้าโหลดแล้ว ให้คัดลอก<strong>URL แบบเต็ม</strong>ในแถบที่อยู่</li>" +
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
