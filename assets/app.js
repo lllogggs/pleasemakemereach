@@ -118,7 +118,7 @@
     ru:'RUB', ar:'SAR'
   };
 
-  // Trip.com 국가 도메인 리스트
+  // Trip.com 국가 도메인 리스트 (태국 flag 포함)
   const domains = [
     { ko:'한국',     en:'Korea',        ja:'韓国',      th:'เกาหลี',        code:'kr', flag:'kr' },
     { ko:'미국',     en:'USA',          ja:'アメリカ',  th:'สหรัฐฯ',        code:'us', flag:'us' },
@@ -140,7 +140,7 @@
     { ko:'러시아',   en:'Russia',       ja:'ロシア',    th:'รัสเซีย',       code:'ru', flag:'ru' },
     { ko:'아르헨티나',en:'Argentina',   ja:'アルゼンチン', th:'อาร์เจนตินา', code:'ar', flag:'ar' },
     { ko:'포르투갈', en:'Portugal',     ja:'ポルトガル', th:'โปรตุเกส',    code:'pt', flag:'pt' },
-    { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラビア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
+    { ko:'사우디',   en:'Saudi Arabia', ja:'サウジアラ비ア', th:'ซาอุฯ',  code:'sa', flag:'sa' },
     { ko:'태국',     en:'Thailand',     ja:'タイ',      th:'ไทย',           code:'th', flag:'th' }
   ];
 
@@ -157,6 +157,12 @@
       _iataCityMap = {};
     }
     return _iataCityMap;
+  }
+
+  // ===== 유틸: /w/ 세그먼트 제거 =====
+  function stripWSegments(pathname){
+    // 모든 '/w/' 세그먼트를 안전하게 제거 (예: /hotels/w/detail → /hotels/detail)
+    return pathname.replace(/\/w\/+/gi, '/');
   }
 
   // ===== 날짜 포맷 변환 YYYY-MM-DD → YYYY/MM/DD =====
@@ -207,7 +213,6 @@
     const T = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
     $$('[data-lang]').forEach(el => {
       const key = el.getAttribute('data-lang');
-      // TL() 안에서 강제 fallback 처리됨
       const val = (key in (T||{})) ? (FORCE_FALLBACK_KEYS.has(key) ? TL(key) : T[key]) : TL(key);
       if (val != null) el.innerHTML = val;
     });
@@ -327,28 +332,44 @@
   function normalizeTripShortUrl(raw){
     try{
       const u = new URL(raw, location.origin);
+      const host = u.hostname.replace(/^www\./,'');
+      const isTrip = (host === 'trip.com' || host.endsWith('.trip.com'));
 
-      // 1) 경로 선두에 /w/가 남아있는 경우: /w/만 제거 (/w/hotels/... -> /hotels/...)
-      if (/^\/w\//i.test(u.pathname)) {
-        const known = u.pathname.match(/^\/w\/(m\/)?(hotels|flights|packages|things-to-do|airport-transfers)(\/.*)?$/i);
-        if (known) {
-          u.pathname = u.pathname.replace(/^\/w\//i, '/');
-          return u.toString();
-        }
-      }
-
-      // 2) 쿼리에 실제 목적지 URL이 들어있는 경우
+      // 1) target / url / redirect 쿼리에 최종 목적지가 들어온 경우
       const t = u.searchParams.get('target') || u.searchParams.get('url') || u.searchParams.get('redirect');
       if (t) {
         try{
           const decoded = decodeURIComponent(t);
-          if (/https?:\/\/([a-z]{2}\.)?trip\.com/i.test(decoded)) return decoded;
+          const tu = new URL(decoded);
+          const th = tu.hostname.replace(/^www\./,'');
+          if (th === 'trip.com' || th.endsWith('.trip.com')) {
+            // 최종 목적지 경로에 내장된 /w/ 세그먼트 제거
+            tu.pathname = stripWSegments(tu.pathname);
+            return tu.toString();
+          }
         }catch(_){}
-        if (/https?:\/\/([a-z]{2}\.)?trip\.com/i.test(t)) return t;
+        // decode 실패 시에도 직접 사용 시도
+        try{
+          const tu2 = new URL(t);
+          const th2 = tu2.hostname.replace(/^www\./,'');
+          if (th2 === 'trip.com' || th2.endsWith('.trip.com')) {
+            tu2.pathname = stripWSegments(tu2.pathname);
+            return tu2.toString();
+          }
+        }catch(_){}
       }
 
-      // 변환할 수 없으면 원본
-      return raw;
+      // 2) 경로가 /w/로 시작하는 경우 → /w/ 제거
+      if (/^\/w\//i.test(u.pathname)) {
+        u.pathname = u.pathname.replace(/^\/w\//i, '/');
+      }
+
+      // 3) (신규) 경로 내부에 /w/ 세그먼트가 포함된 확장 링크 → 모두 제거
+      if (isTrip && /\/w\//i.test(u.pathname)) {
+        u.pathname = stripWSegments(u.pathname);
+      }
+
+      return u.toString();
     }catch(_){
       return raw;
     }
@@ -550,7 +571,9 @@
     try{
       // 정상 URL만 파싱/정제
       const url = new URL(workingInput);
-      let pathname = url.pathname;
+      // (중요) 확장 링크 경로 내부의 /w/ 세그먼트 제거
+      let pathname = stripWSegments(url.pathname);
+
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
 
