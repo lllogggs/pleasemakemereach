@@ -323,6 +323,37 @@
     } catch { return false; }
   }
 
+  // ===== /w/ 포함 "풀링크" 정규화: /w/ 제거 또는 target/url/redirect 추출 =====
+  function normalizeTripShortUrl(raw){
+    try{
+      const u = new URL(raw, location.origin);
+
+      // 1) 경로 선두에 /w/가 남아있는 경우: /w/만 제거 (/w/hotels/... -> /hotels/...)
+      if (/^\/w\//i.test(u.pathname)) {
+        const known = u.pathname.match(/^\/w\/(m\/)?(hotels|flights|packages|things-to-do|airport-transfers)(\/.*)?$/i);
+        if (known) {
+          u.pathname = u.pathname.replace(/^\/w\//i, '/');
+          return u.toString();
+        }
+      }
+
+      // 2) 쿼리에 실제 목적지 URL이 들어있는 경우
+      const t = u.searchParams.get('target') || u.searchParams.get('url') || u.searchParams.get('redirect');
+      if (t) {
+        try{
+          const decoded = decodeURIComponent(t);
+          if (/https?:\/\/([a-z]{2}\.)?trip\.com/i.test(decoded)) return decoded;
+        }catch(_){}
+        if (/https?:\/\/([a-z]{2}\.)?trip\.com/i.test(t)) return t;
+      }
+
+      // 변환할 수 없으면 원본
+      return raw;
+    }catch(_){
+      return raw;
+    }
+  }
+
   // ===== 리디렉트 토스트 =====
   let isRedirecting = false;
   function redirectWithModal(affUrl, delayMs=800){
@@ -496,16 +527,29 @@
       return;
     }
 
-    // /w/ 단축링크면 안내만 표시
+    // ★ /w/ 단축링크 처리: 정규화 시도 후, 여전히 /w/면 안내 노출
+    let workingInput = input;
     if (isTripShortLink(input)) {
-      renderShortlinkNotice(input, resultsDiv);
-      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
-      return;
+      const normalized = normalizeTripShortUrl(input);
+      try {
+        const pn = new URL(normalized, location.origin).pathname;
+        if (/^\/w\//i.test(pn)) {
+          renderShortlinkNotice(input, resultsDiv);
+          if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+          return;
+        }
+      } catch(_) {
+        renderShortlinkNotice(input, resultsDiv);
+        if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+        return;
+      }
+      // /w/ 제거에 성공했으면 그 링크로 계속 진행
+      workingInput = normalized;
     }
 
     try{
       // 정상 URL만 파싱/정제
-      const url = new URL(input);
+      const url = new URL(workingInput);
       let pathname = url.pathname;
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
