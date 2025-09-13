@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tripdotdot | ค้นหาลิงก์ราคาถูกสุดของ Trip.com</title>
 
   <!-- GA4 -->
@@ -12,14 +11,19 @@
   <!-- Microsoft Clarity -->
   <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","sd3i2hqjuv");</script>
 
-  <!-- canonical -->
+  <!-- canonical / hreflang -->
   <link rel="canonical" href="https://tripdotdot.com/th/">
+  <link rel="alternate" href="https://tripdotdot.com/" hreflang="ko">
+  <link rel="alternate" href="https://tripdotdot.com/en/" hreflang="en">
+  <link rel="alternate" href="https://tripdotdot.com/ja/" hreflang="ja">
+  <link rel="alternate" href="https://tripdotdot.com/th/" hreflang="th">
+  <link rel="alternate" href="https://tripdotdot.com/" hreflang="x-default">
 
   <!-- SEO -->
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="author" content="tripdotdot">
-  <meta name="keywords" content="Tripdotdot, Trip.com, ราคาถูก, โค้ดส่วนลด, คูปอง, เปรียบเทียบราคา, โรงแรม, ตั๋วเครื่องบิน">
+  <meta name="keywords" content="Tripdotdot, Trip.com, ราคาถูก, เปรียบเทียบราคา, โรงแรม, ตั๋วเครื่องบิน, แพ็กเกจ, คูปอง, โค้ดส่วนลด, โค้ดโปรโมชัน, Trip.com โค้ดส่วนลด, Trip.com ส่วนลด กันยายน, Trip.com ส่วนลด ตุลาคม">
   <meta name="description" content="ลิงก์ส่วนลด Trip.com แยกตามประเทศ | ประหยัดทันที | เปรียบเทียบราคาถูกสุดได้สูงสุด 21 ประเทศ">
 
   <!-- Open Graph -->
@@ -34,10 +38,26 @@
   <meta property="og:locale:alternate" content="ja_JP">
   <meta property="og:locale:alternate" content="ko_KR">
 
+  <!-- Icons / CSS -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-icon.png">
-
   <link rel="stylesheet" href="/assets/styles.css">
+
+  <!-- JSON-LD (WebSite + SearchAction) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Tripdotdot",
+    "url": "https://tripdotdot.com/",
+    "inLanguage": "th-TH",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://tripdotdot.com/th/?url={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
   <div class="container">
@@ -106,12 +126,12 @@
     </footer>
   </div>
 
-  <!-- 가운데 토스트 -->
-  <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="Trip.com redirect notice">
+  <!-- Toast (center) -->
+  <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="กำลังเชื่อมต่อ Trip.com">
     <div class="redirect-box" data-lang="redirecting">กำลังไปที่ Trip.com...</div>
   </div>
 
-  <!-- 검색 위젯 모달 -->
+  <!-- Search widget modal -->
   <div id="search-modal" class="modal-overlay">
     <div class="modal-content">
       <span class="modal-close">×</span>
@@ -130,6 +150,7 @@
     </div>
   </div>
 
+  <!-- Mobile notice -->
   <div id="mobile-notice-modal" class="modal-overlay">
     <div class="modal-content notice-modal-content">
       <span class="modal-close">×</span>
@@ -137,7 +158,7 @@
     </div>
   </div>
 
-  <!-- 공통 스크립트 -->
+  <!-- Common scripts -->
   <script>window.PAGE_LANG='th';</script>
   <script defer src="/i18n/translations.js"></script>
   <script defer src="/assets/app.js"></script>
