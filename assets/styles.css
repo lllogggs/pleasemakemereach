@@ -256,11 +256,16 @@ footer p{ margin:3px 0; }
 
 /* ===== Responsive ===== */
 @media (max-width:600px){
+  /* 언어 선택 버튼 크기 조정 */
   .language-selector{ top:-20px; right:-5px; }
-  .header{ margin-top:24px; }
   .language-button{ padding:4px 8px; gap:5px; }
   #lang-flag{ width:20px; height:20px; }
   #lang-text{ font-size:14px; }
+
+  /* 입력창 및 결과 글자 크기 조정 */
+  .header{ margin-top:24px; }
+  .header p{ font-size:14px; }
+  #inputUrl{ font-size:15px; }
   .modal-content{ width:95%; max-height:85vh; padding:15px; overflow-y:auto; }
   .tab-button{ padding:12px; font-size:15px; }
   .tab-content-container{ padding-top:15px; }
