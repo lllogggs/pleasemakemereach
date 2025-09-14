@@ -244,7 +244,7 @@ footer p{ margin:3px 0; }
 .notice-icon{ font-size:32px; margin:0 0 16px 0; }
 .notice-text{ font-size:17px; font-weight:500; line-height:1.6; margin:0 0 8px 0; }
 .notice-text strong{ color:var(--primary-blue); }
-.notice-text small{ display:inline-block; margin-top:10px; font-size:13px; color:var(--text-secondary); }
+.notice-text small{ display:inline-block; margin-top:10px; font-size:13px; color:#666b7280; }
 
 /* ===== Center toast ===== */
 #redirect-modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.45);
@@ -274,4 +274,18 @@ footer p{ margin:3px 0; }
   .header p { font-size:14px; }
   #inputUrl { font-size:15px; }
   .link-list-grid a { font-size:14px; }
+}
+
+/* === Patch: clear-btn 중앙정렬만 고침 (안전 스코프) === */
+.input-section .input-wrapper .clear-btn{
+  display:grid !important;      /* flex 대신 grid로 정확히 중앙 */
+  place-items:center !important;
+  padding:0; line-height:0;
+}
+.input-section .input-wrapper .clear-btn.show{
+  display:grid !important;
+}
+.input-section .input-wrapper .clear-btn svg{
+  width:20px; height:20px;      /* 18~22px 사이 취향대로 */
+  display:block; margin:0; overflow:visible;
 }
