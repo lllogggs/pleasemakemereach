@@ -101,7 +101,7 @@ footer p{ margin:3px 0; }
 .clear-btn:hover{ background:#eceff3; }
 .clear-btn:active{ transform:translateY(-50%) scale(.98); }
 .clear-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
-.clear-btn svg{ width:24px; height:24px; display:block; transform:translate(-0.5px, 1px); }
+.clear-btn svg{ width:24px; height:24px; display:block; }
 
 /* 메인 버튼 */
 .main-button{
@@ -268,7 +268,7 @@ footer p{ margin:3px 0; }
 
   /* 모바일에서 'X' 버튼 크기 조정 */
   .clear-btn{ width:32px; height:32px; }
-  .clear-btn svg{ width:20px; height:20px; transform:translate(-0.5px, 1px); }
+  .clear-btn svg{ width:20px; height:20px; }
 
   /* 모바일에서 텍스트 크기 조정 */
   .header p { font-size:14px; }
