@@ -101,7 +101,7 @@ footer p{ margin:3px 0; }
 .clear-btn:hover{ background:#eceff3; }
 .clear-btn:active{ transform:translateY(-50%) scale(.98); }
 .clear-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
-.clear-btn svg{ width:24px; height:24px; display:block; transform:translateY(1px); }
+.clear-btn svg{ width:24px; height:24px; display:block; transform:translateY(1px) translateX(-1px); }
 
 /* 메인 버튼 */
 .main-button{
