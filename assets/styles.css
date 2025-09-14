@@ -92,7 +92,7 @@ footer p{ margin:3px 0; }
 /* 우측 X(지우기) 버튼 */
 .clear-btn{
   position:absolute; top:50%; right:10px; transform:translateY(-50%);
-  width:28px; height:28px; border-radius:50%;
+  width:36px; height:36px; border-radius:50%;
   display:none; align-items:center; justify-content:center;
   background:#f3f4f6; color:#6b7280; border:1px solid var(--border-color);
   cursor:pointer; line-height:0; /* ⬅ 수직중앙 보정 */
@@ -101,7 +101,7 @@ footer p{ margin:3px 0; }
 .clear-btn:hover{ background:#eceff3; }
 .clear-btn:active{ transform:translateY(-50%) scale(.98); }
 .clear-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
-.clear-btn svg{ width:16px; height:16px; display:block; }
+.clear-btn svg{ width:24px; height:24px; display:block; transform:translateY(1px); }
 
 /* 메인 버튼 */
 .main-button{
@@ -256,21 +256,22 @@ footer p{ margin:3px 0; }
 
 /* ===== Responsive ===== */
 @media (max-width:600px){
-  /* 언어 선택 버튼 크기 조정 */
   .language-selector{ top:-20px; right:-5px; }
+  .header{ margin-top:24px; }
   .language-button{ padding:4px 8px; gap:5px; }
   #lang-flag{ width:20px; height:20px; }
   #lang-text{ font-size:14px; }
-
-  /* 입력창 및 결과 글자 크기 조정 */
-  .header{ margin-top:24px; }
-  .header p{ font-size:14px; }
-  #inputUrl{ font-size:15px; }
   .modal-content{ width:95%; max-height:85vh; padding:15px; overflow-y:auto; }
   .tab-button{ padding:12px; font-size:15px; }
   .tab-content-container{ padding-top:15px; }
   .tab-content iframe{ width:100%; height:450px; }
 
-  /* 모바일에서 예시 텍스트 약간 더 작게 */
-  .sl-example{ font-size:12.5px; }
+  /* 모바일에서 'X' 버튼 크기 조정 */
+  .clear-btn{ width:32px; height:32px; }
+  .clear-btn svg{ width:20px; height:20px; }
+
+  /* 모바일에서 텍스트 크기 조정 */
+  .header p { font-size:14px; }
+  #inputUrl { font-size:15px; }
+  .link-list-grid a { font-size:14px; }
 }
