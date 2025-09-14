@@ -79,33 +79,29 @@ footer p{ margin:3px 0; }
 }
 
 /* 입력창 + 클리어 버튼 래퍼 */
-.input-wrapper{ position:relative; width:100%; margin-bottom:12px; }
+.input-wrapper{ position:relative; width:100%; margin-bottom:12px; } /* ⬅ margin 이동 */
 #inputUrl{
   width:100%; padding:14px 16px; font-size:16px; border:1px solid var(--border-color);
-  border-radius:8px; margin-bottom:0; transition:.2s;
+  border-radius:8px; margin-bottom:0; transition:.2s; /* ⬅ 0으로 */
 }
 .input-wrapper #inputUrl{ padding-right:48px; } /* X 버튼 공간 확보 */
 #inputUrl:focus{
   outline:none; border-color:var(--primary-blue); box-shadow:0 0 0 3px var(--light-blue);
 }
 
-/* 우측 X(지우기) 버튼 — 중앙정렬 최적화 */
+/* 우측 X(지우기) 버튼 */
 .clear-btn{
   position:absolute; top:50%; right:10px; transform:translateY(-50%);
   width:36px; height:36px; border-radius:50%;
-  display:grid;                 /* ✅ grid로 완전 중앙정렬 */
-  place-items:center;           /* ✅ 가로+세로센터 */
+  display:none; align-items:center; justify-content:center;
   background:#f3f4f6; color:#6b7280; border:1px solid var(--border-color);
-  cursor:pointer; padding:0; line-height:0; -webkit-appearance:none; appearance:none;
+  cursor:pointer; line-height:0; /* ⬅ 수직중앙 보정 */
 }
-.clear-btn.show{ display:grid; }
+.clear-btn.show{ display:inline-flex; }
 .clear-btn:hover{ background:#eceff3; }
 .clear-btn:active{ transform:translateY(-50%) scale(.98); }
 .clear-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
-.clear-btn svg{
-  width:20px; height:20px;     /* ✅ 시각적 균형값 */
-  display:block; margin:0; overflow:visible;
-}
+.clear-btn svg{ width:24px; height:24px; display:block; }
 
 /* 메인 버튼 */
 .main-button{
@@ -137,20 +133,24 @@ footer p{ margin:3px 0; }
 .info-card p strong,
 .info-card ul li strong{ color:var(--primary-blue); }
 
-/* 작은 예시 텍스트 */
+/* 작은 예시 텍스트 (단축링크 안내 안의 kr.trip.com/hotels… 등) */
 .sl-example{
-  display:block; font-size:13px; color:var(--text-secondary);
-  margin-top:8px; letter-spacing:.1px;
+  display:block;
+  font-size:13px;
+  color:var(--text-secondary);
+  margin-top:8px;
+  letter-spacing:.1px;
 }
 
 /* ===== External links ===== */
 .external-links{ display:flex; gap:8px; }
 
-/* 기본: 파란 버튼 */
+/* 기본: 파란 버튼 (안내 카드의 “단축링크 열어서 전체링크 확인하기” 등) */
 .external-link-btn{
   display:inline-flex; align-items:center; gap:5px; padding:10px 14px; border-radius:8px;
   text-decoration:none; font-size:14px; font-weight:600; color:#fff; transition:.2s;
-  background:var(--primary-blue); border:1px solid transparent;
+  background:var(--primary-blue);
+  border:1px solid transparent;
 }
 .external-link-btn:hover{ opacity:.95; background:var(--primary-blue-hover); }
 .external-link-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
@@ -160,13 +160,19 @@ footer p{ margin:3px 0; }
 .external-link-btn.youtube{ background:#FF0000; }
 .external-link-btn.naver{ background:#03C75A; }
 
-/* ===== LIST: 점 제거 + 들여쓰기 제거 ===== */
+/* ===== LIST: 점(•) 제거 + 들여쓰기 제거 ===== */
 .info-card ul{
-  list-style:none !important; margin:0 !important; padding-left:0 !important;
+  list-style:none !important;
+  margin:0 !important;
+  padding-left:0 !important;
   font-size:16px; line-height:1.7;
 }
-.info-card ul li{ list-style:none !important; margin:4px 0; padding-left:0 !important; }
-.info-card ul li::marker{ content:''; }
+.info-card ul li{
+  list-style:none !important;
+  margin:4px 0;
+  padding-left:0 !important;
+}
+.info-card ul li::marker{ content:''; } /* 일부 브라우저 대비 */
 
 /* ===== Results ===== */
 .link-list{
@@ -178,4 +184,94 @@ footer p{ margin:3px 0; }
 
 .link-list-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px; }
 .link-list-grid a{
-  display:flex; align-items:
+  display:flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px;
+  background:#fff; border:1px solid var(--border-color); border-radius:8px; text-decoration:none;
+  color:var(--text-primary); font-size:15px; font-weight:500; transition:.2s; word-break:keep-all;
+}
+.link-list-grid a:hover{ background:var(--light-blue); border-color:var(--primary-blue); transform:translateY(-2px); }
+.link-list-grid a.clicked{ background:var(--light-blue); border-color:var(--primary-blue); font-weight:700; }
+.flag{ width:24px; height:16px; object-fit:cover; border-radius:3px; flex-shrink:0; }
+/* 결과 버튼 내 국기 아이콘 살짝 테두리 */
+.link-list-grid a .flag{ box-shadow:0 0 0 1px rgba(0,0,0,.06); }
+
+.highlight{ background:rgba(255,247,0,.6); font-weight:700; padding:2px 0 2px 4px; border-radius:3px; }
+
+/* ===== Shortlink Warning Banner (보류: 현재는 info-card로 안내) ===== */
+.shortlink-warning{
+  display:flex; align-items:center; gap:10px;
+  padding:12px 14px; margin:12px 0 18px;
+  background:#fff3cd; color:#664d03; border:1px solid #ffecb5;
+  border-radius:10px;
+}
+.shortlink-warning .warn-icon{ font-size:18px; line-height:1; }
+.shortlink-warning .warn-text{ flex:1; font-size:14px; line-height:1.6; }
+.shortlink-warning .actions{ display:flex; gap:8px; }
+.shortlink-warning .btn{
+  font-size:13px; padding:6px 10px; border-radius:8px;
+  border:1px solid currentColor; text-decoration:none; cursor:pointer;
+}
+.shortlink-warning .btn-primary{ background:#0ea5e9; border-color:#0ea5e9; color:#fff; }
+.shortlink-warning .btn-outline{ background:transparent; color:#0ea5e9; }
+
+/* ===== Modals ===== */
+.modal-overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.6);
+  justify-content:center; align-items:center; z-index:100; }
+.modal-content{
+  position:relative; background:var(--card-background); padding:20px; border-radius:14px;
+  width:550px; box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+.modal-close{ position:absolute; top:15px; right:20px; font-size:28px; font-weight:bold; color:var(--text-secondary); cursor:pointer; }
+
+.tab-nav{ display:flex; border-bottom:1px solid var(--border-color); }
+.tab-button{
+  flex:1; padding:15px; font-size:16px; font-weight:600; text-align:center; border:none; background:transparent;
+  color:var(--text-secondary); cursor:pointer; border-bottom:3px solid transparent; transition:color .2s, border-color .2s;
+}
+.tab-button.active{ color:var(--primary-blue); border-bottom:3px solid var(--primary-blue); }
+.tab-content-container{ padding-top:20px; }
+.tab-content{ display:none; }
+.tab-content.active{ display:block; }
+.tab-content iframe{ width:500px; height:500px; border:none !important; }
+
+/* ===== Kakao CTA ===== */
+.kakao-chat-btn{
+  display:block; width:100%; background:#FAE100; color:#3C1E1E;
+  text-align:center; padding:14px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; margin-top:20px;
+}
+
+/* ===== Notice modal ===== */
+.notice-modal-content{ width:90%; max-width:320px; text-align:center; padding:30px 20px; }
+.notice-icon{ font-size:32px; margin:0 0 16px 0; }
+.notice-text{ font-size:17px; font-weight:500; line-height:1.6; margin:0 0 8px 0; }
+.notice-text strong{ color:var(--primary-blue); }
+.notice-text small{ display:inline-block; margin-top:10px; font-size:13px; color:var(--text-secondary); }
+
+/* ===== Center toast ===== */
+#redirect-modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.45);
+  z-index:9999; align-items:center; justify-content:center; }
+#redirect-modal .redirect-box{
+  background:#fff; padding:14px 18px; border-radius:10px; border:1px solid var(--border-color);
+  font-size:14px; color:var(--text-primary); box-shadow:0 8px 24px rgba(0,0,0,.2);
+}
+
+/* ===== Responsive ===== */
+@media (max-width:600px){
+  .language-selector{ top:-20px; right:-5px; }
+  .header{ margin-top:24px; }
+  .language-button{ padding:4px 8px; gap:5px; }
+  #lang-flag{ width:20px; height:20px; }
+  #lang-text{ font-size:14px; }
+  .modal-content{ width:95%; max-height:85vh; padding:15px; overflow-y:auto; }
+  .tab-button{ padding:12px; font-size:15px; }
+  .tab-content-container{ padding-top:15px; }
+  .tab-content iframe{ width:100%; height:450px; }
+
+  /* 모바일에서 'X' 버튼 크기 조정 */
+  .clear-btn{ width:32px; height:32px; }
+  .clear-btn svg{ width:20px; height:20px; }
+
+  /* 모바일에서 텍스트 크기 조정 */
+  .header p { font-size:14px; }
+  #inputUrl { font-size:15px; }
+  .link-list-grid a { font-size:14px; }
+}
