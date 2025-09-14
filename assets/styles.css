@@ -251,7 +251,7 @@ footer p{ margin:3px 0; }
   z-index:9999; align-items:center; justify-content:center; }
 #redirect-modal .redirect-box{
   background:#fff; padding:14px 18px; border-radius:10px; border:1px solid var(--border-color);
-  font-size:14px; color:var(--text-primary); box-shadow:0 8px 24px rgba(0,0,0,.2);
+  font-size:14px; color:#1f2937; box-shadow:0 8px 24px rgba(0,0,0,.2);
 }
 
 /* ===== Responsive ===== */
@@ -276,37 +276,48 @@ footer p{ margin:3px 0; }
   .link-list-grid a { font-size:14px; }
 }
 
-/* === Patch: clear-btn 중앙정렬만 고침 (안전 스코프) === */
-.input-section .input-wrapper .clear-btn{
-  display:grid !important;      /* flex 대신 grid로 정확히 중앙 */
-  place-items:center !important;
-  padding:0; line-height:0;
-}
-.input-section .input-wrapper .clear-btn.show{
-  display:grid !important;
-}
-.input-section .input-wrapper .clear-btn svg{
-  width:20px; height:20px;      /* 18~22px 사이 취향대로 */
-  display:block; margin:0; overflow:visible;
+/* ===== Final: Clear Button (show일 때만 보임 + 중앙정렬 + 위로 살짝) ===== */
+
+/* 조절 변수 */
+:root{
+  --clear-x-nudge:-2px;           /* 음수=위로, 양수=아래로 */
+  --clear-x-color:#aeb6c4;        /* 기본 색(연한 회색) */
+  --clear-x-color-hover:#9aa3b2;  /* 호버 색 */
 }
 
-/* === Patch 2: X 아이콘 미세 상향 + 색상 연하게 === */
-:root{
-  --clear-x-nudge:-1.5px;          /* 음수=위로, 양수=아래로 */
-  --clear-x-color:#a7b0bf;         /* 아이콘 기본색(연한 회색) */
-  --clear-x-color-hover:#939dad;   /* 호버 색상 */
-}
+/* 기본은 숨김 유지 */
 .input-section .input-wrapper .clear-btn{
-  color:var(--clear-x-color) !important;   /* SVG가 currentColor를 쓰면 적용 */
+  display:none !important;
+  color:var(--clear-x-color) !important;
 }
+
+/* 값 있을 때(.show)만 보이게 + 확실한 중앙정렬 */
+.input-section .input-wrapper .clear-btn.show{
+  display:grid !important;
+  place-items:center;
+}
+
+/* 색상 변화 */
 .input-section .input-wrapper .clear-btn:hover{
   color:var(--clear-x-color-hover) !important;
 }
+
+/* 아이콘 크기/정렬 */
 .input-section .input-wrapper .clear-btn svg{
-  transform:translateY(var(--clear-x-nudge)); /* 위/아래 미세 이동 */
+  width:20px; height:20px;               /* 36px 버튼 안에서 균형 좋은 크기 */
+  display:block; margin:0; overflow:visible;
+  transform:translateY(var(--clear-x-nudge));
 }
 
-/* 모바일에선 이동량 절반(선택) */
+/* SVG 내부 선 색상을 currentColor로 강제 (아이콘 파일이 달라도 일관) */
+.input-section .input-wrapper .clear-btn svg path,
+.input-section .input-wrapper .clear-btn svg line,
+.input-section .input-wrapper .clear-btn svg polyline{
+  stroke:currentColor !important;
+  fill:none;
+}
+
+/* 모바일에선 이동량을 절반만 적용(옵션) */
 @media (max-width:600px){
   .input-section .input-wrapper .clear-btn svg{
     transform:translateY(calc(var(--clear-x-nudge) / 2));
