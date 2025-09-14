@@ -289,3 +289,26 @@ footer p{ margin:3px 0; }
   width:20px; height:20px;      /* 18~22px 사이 취향대로 */
   display:block; margin:0; overflow:visible;
 }
+
+/* === Patch 2: X 아이콘 미세 상향 + 색상 연하게 === */
+:root{
+  --clear-x-nudge:-1.5px;          /* 음수=위로, 양수=아래로 */
+  --clear-x-color:#a7b0bf;         /* 아이콘 기본색(연한 회색) */
+  --clear-x-color-hover:#939dad;   /* 호버 색상 */
+}
+.input-section .input-wrapper .clear-btn{
+  color:var(--clear-x-color) !important;   /* SVG가 currentColor를 쓰면 적용 */
+}
+.input-section .input-wrapper .clear-btn:hover{
+  color:var(--clear-x-color-hover) !important;
+}
+.input-section .input-wrapper .clear-btn svg{
+  transform:translateY(var(--clear-x-nudge)); /* 위/아래 미세 이동 */
+}
+
+/* 모바일에선 이동량 절반(선택) */
+@media (max-width:600px){
+  .input-section .input-wrapper .clear-btn svg{
+    transform:translateY(calc(var(--clear-x-nudge) / 2));
+  }
+}
