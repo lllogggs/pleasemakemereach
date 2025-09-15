@@ -28534,6 +28534,15 @@
     "lon": 103.226652,
     "source": "ourairports"
   },
+  "kti": {
+    "city": "Phnom Penh (Boeng Khyang)",
+    "municipality": "Phnom Penh (Boeng Khyang)",
+    "airport": "Techo International Airport",
+    "country": "KH",
+    "lat": 11.359987,
+    "lon": 104.921272,
+    "source": "ourairports"
+  },
   "hab": {
     "city": "Hamilton",
     "municipality": "Hamilton",
@@ -32490,8 +32499,8 @@
     "municipality": "Osceola",
     "airport": "L O Simenstad Municipal Airport",
     "country": "US",
-    "lat": 45.310001373291,
-    "lon": -92.691902160645,
+    "lat": 45.310001,
+    "lon": -92.691902,
     "source": "ourairports"
   },
   "off": {
@@ -34434,8 +34443,8 @@
     "municipality": "Merrill",
     "airport": "Merrill Municipal Airport",
     "country": "US",
-    "lat": 45.1988983154,
-    "lon": -89.7128982544,
+    "lat": 45.198898,
+    "lon": -89.712898,
     "source": "ourairports"
   },
   "rrt": {
@@ -36666,8 +36675,8 @@
     "municipality": "Camp Douglas",
     "airport": "Volk Field",
     "country": "US",
-    "lat": 43.938999176025,
-    "lon": -90.253402709961,
+    "lat": 43.938999,
+    "lon": -90.253403,
     "source": "ourairports"
   },
   "vps": {
@@ -64784,8 +64793,8 @@
     "municipality": "Tashkent",
     "airport": "Tashkent International Airport",
     "country": "UZ",
-    "lat": 41.257900238,
-    "lon": 69.2811965942,
+    "lat": 41.2579,
+    "lon": 69.281197,
     "source": "ourairports"
   },
   "omn": {
