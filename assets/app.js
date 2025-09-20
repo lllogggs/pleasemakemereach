@@ -548,29 +548,16 @@
       return;
     }
 
-    // ★ /w/ 단축링크 처리: 정규화 시도 후, 여전히 /w/면 안내 노출
-    let workingInput = input;
+    // ★ /w/ 단축링크 처리: 정규화 시도 없이 무조건 안내 노출
     if (isTripShortLink(input)) {
-      const normalized = normalizeTripShortUrl(input);
-      try {
-        const pn = new URL(normalized, location.origin).pathname;
-        if (/^\/w\//i.test(pn)) {
-          renderShortlinkNotice(input, resultsDiv);
-          if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
-          return;
-        }
-      } catch(_) {
-        renderShortlinkNotice(input, resultsDiv);
-        if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
-        return;
-      }
-      // /w/ 제거에 성공했으면 그 링크로 계속 진행
-      workingInput = normalized;
+      renderShortlinkNotice(input, resultsDiv);
+      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+      return;
     }
 
     try{
       // 정상 URL만 파싱/정제
-      const url = new URL(workingInput);
+      const url = new URL(input);
       // (중요) 확장 링크 경로 내부의 /w/ 세그먼트 제거
       let pathname = stripWSegments(url.pathname);
 
