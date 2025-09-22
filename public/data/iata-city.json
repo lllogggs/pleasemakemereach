@@ -652,8 +652,8 @@
     "municipality": "Stirling Island",
     "airport": "Mono Airport",
     "country": "SB",
-    "lat": -7.416940212249756,
-    "lon": 155.56500244140625,
+    "lat": -7.41694,
+    "lon": 155.565002,
     "source": "ourairports"
   },
   "prs": {
@@ -697,8 +697,8 @@
     "municipality": "Marau",
     "airport": "Marau Airport",
     "country": "SB",
-    "lat": -9.861669540409999,
-    "lon": 160.824996948,
+    "lat": -9.86167,
+    "lon": 160.824997,
     "source": "ourairports"
   },
   "vao": {
@@ -16189,8 +16189,8 @@
     "municipality": "Mampikony",
     "airport": "Mampikony Airport",
     "country": "MG",
-    "lat": -16.072269,
-    "lon": 47.644165,
+    "lat": -16.071916,
+    "lon": 47.642953,
     "source": "ourairports"
   },
   "bpy": {
@@ -17205,8 +17205,8 @@
     "municipality": "Xai-Xai",
     "airport": "Xai-Xai Chongoene Airport",
     "country": "MZ",
-    "lat": -24.895362,
-    "lon": 33.749896,
+    "lat": -24.892909,
+    "lon": 33.753024,
     "source": "ourairports"
   },
   "des": {
@@ -44495,8 +44495,8 @@
     "municipality": "Manihiki Island",
     "airport": "Manihiki Island Airport",
     "country": "CK",
-    "lat": -10.376700401306152,
-    "lon": -161.0019989013672,
+    "lat": -10.3767,
+    "lon": -161.001999,
     "source": "ourairports"
   },
   "muk": {
@@ -59205,12 +59205,12 @@
     "source": "ourairports"
   },
   "ptq": {
-    "city": "Porto De Moz",
-    "municipality": "Porto De Moz",
+    "city": "Porto de Moz",
+    "municipality": "Porto de Moz",
     "airport": "Porto de Moz Airport",
     "country": "BR",
-    "lat": -1.74145,
-    "lon": -52.236099,
+    "lat": -1.741307,
+    "lon": -52.236026,
     "source": "ourairports"
   },
   "nnu": {
@@ -65520,8 +65520,8 @@
     "municipality": "Rajkot",
     "airport": "Rajkot Airport",
     "country": "IN",
-    "lat": 22.3092002869,
-    "lon": 70.77950286869999,
+    "lat": 22.3092,
+    "lon": 70.779503,
     "source": "ourairports"
   },
   "rpr": {
