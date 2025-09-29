@@ -1277,8 +1277,8 @@
     "municipality": "Bayanhot",
     "airport": "Alxa Left Banner Bayanhot Airport",
     "country": "CN",
-    "lat": 38.74831,
-    "lon": 105.58858,
+    "lat": 38.748317,
+    "lon": 105.58416,
     "source": "ourairports"
   },
   "axo": {
@@ -5332,6 +5332,15 @@
     "lon": 114.737,
     "source": "ourairports"
   },
+  "jnh": {
+    "city": "Xiuzhou, Hangzhou",
+    "municipality": "Xiuzhou, Hangzhou",
+    "airport": "Jiaxing Airport / Jiaxing Air Base",
+    "country": "CN",
+    "lat": 30.705535,
+    "lon": 120.679779,
+    "source": "ourairports"
+  },
   "dws": {
     "city": "Hulunbuir",
     "municipality": "Hulunbuir",
@@ -5450,12 +5459,12 @@
     "source": "ourairports"
   },
   "wrh": {
-    "city": "Urhu",
-    "municipality": "Urhu",
-    "airport": "Orku Baikouquan Airport (under construction)",
+    "city": "Orku",
+    "municipality": "Orku",
+    "airport": "Wuerhe Airport",
     "country": "CN",
-    "lat": 46.018127,
-    "lon": 85.655293,
+    "lat": 46.01761,
+    "lon": 85.657436,
     "source": "ourairports"
   },
   "jrj": {
@@ -5472,8 +5481,8 @@
     "municipality": "Burang Town",
     "airport": "Ali Pulan Airport",
     "country": "CN",
-    "lat": 30.3975,
-    "lon": 81.138611,
+    "lat": 30.397898,
+    "lon": 81.13317,
     "source": "ourairports"
   },
   "zfl": {
@@ -20494,7 +20503,7 @@
   "hbe": {
     "city": "Alexandria",
     "municipality": "Alexandria",
-    "airport": "Borj El Arab International Airport",
+    "airport": "Alexandria International Airport",
     "country": "EG",
     "lat": 30.93249,
     "lon": 29.696437,
@@ -31455,8 +31464,8 @@
     "municipality": "Kimaam",
     "airport": "Kimaam Airport",
     "country": "ID",
-    "lat": -7.9782,
-    "lon": 138.852005,
+    "lat": -7.97789,
+    "lon": 138.851776,
     "source": "ourairports"
   },
   "mmh": {
@@ -59225,10 +59234,10 @@
   "psw": {
     "city": "Passos",
     "municipality": "Passos",
-    "airport": "Municipal José Figueiredo Airport",
+    "airport": "José Figueiredo Municipal Airport",
     "country": "BR",
-    "lat": -20.732200622558594,
-    "lon": -46.661800384521484,
+    "lat": -20.731838,
+    "lon": -46.662011,
     "source": "ourairports"
   },
   "fej": {
@@ -68722,12 +68731,12 @@
     "source": "ourairports"
   },
   "foo": {
-    "city": "Kornasoren",
-    "municipality": "Kornasoren",
+    "city": "Nomfor",
+    "municipality": "Nomfor",
     "airport": "Kornasoren Airport",
     "country": "ID",
-    "lat": -0.935842,
-    "lon": 134.872298,
+    "lat": -0.935745,
+    "lon": 134.872292,
     "source": "ourairports"
   },
   "wet": {
@@ -68884,8 +68893,8 @@
     "source": "ourairports"
   },
   "tte": {
-    "city": "Sango",
-    "municipality": "Sango",
+    "city": "Ternate",
+    "municipality": "Ternate",
     "airport": "Sultan Babullah Airport",
     "country": "ID",
     "lat": 0.831012,
@@ -68895,10 +68904,10 @@
   "sqn": {
     "city": "Sanana",
     "municipality": "Sanana",
-    "airport": "Emalamo Sanana Airport",
+    "airport": "Emalamo Airport",
     "country": "ID",
-    "lat": -2.097833,
-    "lon": 125.963833,
+    "lat": -2.100424,
+    "lon": 125.965838,
     "source": "ourairports"
   },
   "oti": {
@@ -69185,8 +69194,8 @@
     "municipality": "Kepi",
     "airport": "Kepi Airport",
     "country": "ID",
-    "lat": -6.5418,
-    "lon": 139.3318,
+    "lat": -6.54297,
+    "lon": 139.332401,
     "source": "ourairports"
   },
   "zeg": {
@@ -69194,8 +69203,8 @@
     "municipality": "Senggo-Papua Island",
     "airport": "Senggo Airport",
     "country": "ID",
-    "lat": -5.6908,
-    "lon": 139.3502,
+    "lat": -5.690668,
+    "lon": 139.350414,
     "source": "ourairports"
   },
   "tmh": {
@@ -69271,12 +69280,12 @@
     "source": "ourairports"
   },
   "glx": {
-    "city": "Galela-Celebes Island",
-    "municipality": "Galela-Celebes Island",
+    "city": "Galela",
+    "municipality": "Galela",
     "airport": "Gamarmalamo Airport",
     "country": "ID",
-    "lat": 1.83833,
-    "lon": 127.786003,
+    "lat": 1.838134,
+    "lon": 127.786191,
     "source": "ourairports"
   },
   "pgq": {
@@ -69325,12 +69334,12 @@
     "source": "ourairports"
   },
   "kaz": {
-    "city": "Kao-Celebes Island",
-    "municipality": "Kao-Celebes Island",
+    "city": "Kao",
+    "municipality": "Kao",
     "airport": "Kuabang Airport",
     "country": "ID",
-    "lat": 1.18528,
-    "lon": 127.896004,
+    "lat": 1.188608,
+    "lon": 127.896036,
     "source": "ourairports"
   },
   "mdc": {
@@ -69385,15 +69394,6 @@
     "country": "ID",
     "lat": 1.102318,
     "lon": 121.413358,
-    "source": "ourairports"
-  },
-  "wan": {
-    "city": "Waverney",
-    "municipality": "Waverney",
-    "airport": "Waverney Airport",
-    "country": "AU",
-    "lat": -25.3563,
-    "lon": 141.9254,
     "source": "ourairports"
   },
   "btw": {
@@ -69518,8 +69518,8 @@
     "municipality": "Labuha-Halmahera Island",
     "airport": "Oesman Sadik Airport",
     "country": "ID",
-    "lat": -0.635259,
-    "lon": 127.501999,
+    "lat": -0.633764,
+    "lon": 127.505394,
     "source": "ourairports"
   },
   "bjk": {
@@ -69689,8 +69689,8 @@
     "municipality": "Bintuni",
     "airport": "Stenkol Airport",
     "country": "ID",
-    "lat": -2.1033,
-    "lon": 133.5164,
+    "lat": -2.102572,
+    "lon": 133.515981,
     "source": "ourairports"
   },
   "rsk": {
@@ -69698,8 +69698,8 @@
     "municipality": "Ransiki-Papua Island",
     "airport": "Abresso Airport",
     "country": "ID",
-    "lat": -1.496771,
-    "lon": 134.175,
+    "lat": -1.496667,
+    "lon": 134.1925,
     "source": "ourairports"
   },
   "keq": {
@@ -69732,7 +69732,7 @@
   "kng": {
     "city": "Kaimana",
     "municipality": "Kaimana",
-    "airport": "Kaimana Airport",
+    "airport": "Utarom Airport",
     "country": "ID",
     "lat": -3.6446,
     "lon": 133.695116,
@@ -70418,8 +70418,8 @@
     "municipality": "Kertajati",
     "airport": "Kertajati International Airport",
     "country": "ID",
-    "lat": -6.648924,
-    "lon": 108.166692,
+    "lat": -6.647384,
+    "lon": 108.165561,
     "source": "ourairports"
   },
   "rto": {
@@ -78180,6 +78180,15 @@
     "lon": 100.060317,
     "source": "ourairports"
   },
+  "dej": {
+    "city": "Tongren",
+    "municipality": "Tongren",
+    "airport": "Tongren Dejiang Airport (Under Construction)",
+    "country": "CN",
+    "lat": 28.121,
+    "lon": 108.1631,
+    "source": "ourairports"
+  },
   "dax": {
     "city": "Dazhou (Daxian)",
     "municipality": "Dazhou (Daxian)",
@@ -78914,8 +78923,8 @@
     "municipality": "Qian Gorlos Mongol Autonomous County",
     "airport": "Songyuan Chaganhu Airport",
     "country": "CN",
-    "lat": 44.938114,
-    "lon": 124.550178,
+    "lat": 44.931143,
+    "lon": 124.552121,
     "source": "ourairports"
   },
   "dlc": {
