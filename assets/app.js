@@ -412,7 +412,12 @@
     openBtn.target = '_blank';
     openBtn.rel = 'noopener';
     openBtn.textContent = TL('shortlinkOpenFull');
-    try { openBtn.href = rawUrl; } catch { openBtn.href = '#'; }
+    
+    // --- 수정된 부분 시작 ---
+    let cleanedUrl = rawUrl;
+    try { cleanedUrl = normalizeTripShortUrl(rawUrl); } catch(_) {}
+    try { openBtn.href = cleanedUrl; } catch { openBtn.href = '#'; }
+    // --- 수정된 부분 끝 ---
 
     btnRow.appendChild(openBtn);
     card.appendChild(h);
