@@ -71,7 +71,8 @@
         "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
         '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "브라우저에서 단축링크 열기",
-        redirectingToSearch: "트립닷컴에서 검색합니다..."
+        redirectingToSearch: "트립닷컴에서 검색합니다...",
+        cityNameIdNotFound: "도시 ID를 찾을 수 없습니다. (오사카, 도쿄, 부산 등 등록된 도시만 검색 가능합니다.)"
     },
     en: {
       shortlinkTitle: "Short links can’t be converted",
@@ -82,7 +83,8 @@
         "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
         '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "Open short link in browser",
-        redirectingToSearch: "Searching on Trip.com..."
+        redirectingToSearch: "Searching on Trip.com...",
+        cityNameIdNotFound: "City ID for the search term not found. (Only registered cities like Osaka, Tokyo, Busan are searchable.)"
     },
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
@@ -93,7 +95,8 @@
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
         '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "ブラウザで短縮リンクを開く",
-        redirectingToSearch: "Trip.comで検索中..."
+        redirectingToSearch: "Trip.comで検索中...",
+        cityNameIdNotFound: "都市IDが見つかりません。（大阪、東京、釜山など登録된 도시만 검색 가능합니다。）"
     },
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
@@ -104,7 +107,8 @@
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
         '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
-        redirectingToSearch: "กำลังค้นหาใน Trip.com..."
+        redirectingToSearch: "กำลังค้นหาใน Trip.com...",
+        cityNameIdNotFound: "ไม่พบ ID เมือง (สามารถค้นหาได้เฉพาะเมืองที่ลงทะเบียนไว้ เช่น โอซาก้า โตเกียว ปูซาน)"
     }
   };
   const TL = (key) => {
@@ -202,13 +206,15 @@
   }
 
   // ===== 호텔 검색 URL(검색어 기반) + 제휴코드 자동 =====
-  function buildHotelSearchUrl(baseHost, cityName, checkin, checkout, curr){
+  // cityId와 cityName을 사용하여 검색 URL을 구성합니다.
+  function buildHotelSearchUrl(baseHost, cityId, searchCityName, checkin, checkout, curr){
     const params = new URLSearchParams();
-    if (cityName) params.set('searchWord', cityName);
+    if (cityId) params.set('city', cityId); 
+    if (searchCityName) params.set('cityName', searchCityName);
     if (checkin)  params.set('checkin', checkin);
     if (checkout) params.set('checkout', checkout);
     if (curr)     params.set('curr', curr);
-    params.set('searchBoxArg','t');
+    // searchBoxArg='t' 파라미터는 요청에 따라 제거된 상태를 유지합니다.
     const raw = `https://${baseHost}/hotels/list?${params.toString()}`;
     return appendAffiliate(raw);
   }
@@ -554,14 +560,39 @@
     }
     
     // ===============================================
-    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리
+    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리 (City ID 매핑 사용)
     // ===============================================
     if (!isUrl) {
+        // 통합된 임시 City ID 맵 (한글/소문자 영어 검색어 지원)
+        const CityIdMap = {
+            '오사카': 219,
+            '도쿄': 204,
+            '부산': 482,
+            'osaka': 219,
+            'tokyo': 204,
+            'busan': 482
+        };
+
         const baseCurr = (languageToCurrencyMap[currentLang] || 'USD');
         const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
-        
-        // 입력값을 검색어로 사용하여 호텔 검색 URL 생성 (날짜, 인원 등은 기본값)
-        const searchUrl = buildHotelSearchUrl(host, input, '', '', baseCurr);
+        
+        // 입력값을 소문자로 변환하여 맵에서 ID를 조회
+        const searchCityNameKey = input.toLowerCase();
+        const searchCityId = CityIdMap[searchCityNameKey];
+
+        // 사용자에게 보여줄 cityName은 원본 입력값을 사용하여 URL에 포함
+        const searchCityNameForUrl = input;
+
+
+        // 도시 ID가 없는 경우 오류 처리
+        if (!searchCityId) {
+            resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${TL('cityNameIdNotFound')}</p>`;
+            if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+            return;
+        }
+
+        // City ID와 City Name을 사용하여 호텔 검색 URL 생성
+        const searchUrl = buildHotelSearchUrl(host, searchCityId, searchCityNameForUrl, '', '', baseCurr);
         
         // 검색 중 메시지 표시 및 리디렉션
         resultsDiv.innerHTML = `<p style="text-align:center; font-weight:bold;">${TL('redirectingToSearch')}</p>`;
@@ -606,8 +637,10 @@
           const checkin  = ymdToSlash(ddate);
           const checkout = ymdToSlash(rdate);
           const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
-          const hotelUrl = buildHotelSearchUrl(host, cityName, checkin, checkout, baseCurr);
-
+          // 항공편에서 호텔 검색 CTA를 위한 URL 생성 (여기서는 cityId가 없으므로 null 처리)
+          const hotelUrl = buildHotelSearchUrl(host, null, cityName, checkin, checkout, baseCurr); // null 처리
+          // ... (나머지 CTA 로직)
+          
           const ctaWrap = document.createElement('div');
           ctaWrap.style.textAlign = 'center';
           ctaWrap.style.margin = '0 0 12px';
