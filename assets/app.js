@@ -943,6 +943,15 @@
 
     const inputEl2 = $('#inputUrl');
     if (inputEl2) {
+      // ★ 추가된 로직: Enter 키 감지
+      inputEl2.addEventListener('keydown', (e) => {
+        // 'Enter' 키를 누르고
+        if (e.key === 'Enter') {
+          e.preventDefault(); // 기본 동작 (페이지 새로고침 등) 방지
+          window.generateLinks(); // 링크 생성/검색 함수 호출
+        }
+      });
+      
       inputEl2.addEventListener('click', () => {
         if (!inputEl2.value.trim()) {
           blankClickCount++;
