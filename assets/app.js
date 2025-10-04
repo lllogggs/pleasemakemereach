@@ -72,7 +72,7 @@
         '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "브라우저에서 단축링크 열기",
         redirectingToSearch: "트립닷컴에서 검색합니다...",
-        cityNameIdNotFound: "도시 ID를 찾을 수 없습니다. (오사카, 도쿄, 부산 등 등록된 도시만 검색 가능합니다.)"
+        cityNameIdNotFound: "도시 ID를 찾을 수 없습니다. (City ID 맵에 등록된 도시 이름으로 검색해 주세요.)"
     },
     en: {
       shortlinkTitle: "Short links can’t be converted",
@@ -84,7 +84,7 @@
         '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "Open short link in browser",
         redirectingToSearch: "Searching on Trip.com...",
-        cityNameIdNotFound: "City ID for the search term not found. (Only registered cities like Osaka, Tokyo, Busan are searchable.)"
+        cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)"
     },
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
@@ -95,8 +95,7 @@
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
         '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "ブラウザで短縮リンクを開く",
-        redirectingToSearch: "Trip.comで検索中...",
-        cityNameIdNotFound: "都市IDが見つかりません。（大阪、東京、釜山など登録된 도시만 검색 가능합니다。）"
+        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップに登録된 도시 이름으로 검색해 주세요。）"
     },
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
@@ -107,8 +106,7 @@
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
         '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
-        redirectingToSearch: "กำลังค้นหาใน Trip.com...",
-        cityNameIdNotFound: "ไม่พบ ID เมือง (สามารถค้นหาได้เฉพาะเมืองที่ลงทะเบียนไว้ เช่น โอซาก้า โตเกียว ปูซาน)"
+        cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)"
     }
   };
   const TL = (key) => {
@@ -166,6 +164,26 @@
     }
     return _iataCityMap;
   }
+
+// ----------------------------------------------------
+// ★ 추가된 로직: City ID Map 로드 함수 (JSON 파일 사용)
+// ----------------------------------------------------
+  let _cityIdMap = null;
+  async function loadCityIdMapOnce(){
+    if (_cityIdMap) return _cityIdMap;
+    try{
+      // public/data/city-id-map.json 파일을 로드하도록 경로 지정
+      const res = await fetch('/data/city-id-map.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('city-id-map.json fetch failed: ' + res.status);
+      _cityIdMap = await res.json();
+    }catch(e){
+      console.warn('City ID map load failed:', e);
+      _cityIdMap = {};
+    }
+    return _cityIdMap;
+  }
+// ----------------------------------------------------
+
 
   // ===== 유틸: /w/ 세그먼트 제거 =====
   function stripWSegments(pathname){
@@ -560,23 +578,16 @@
     }
     
     // ===============================================
-    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리 (City ID 매핑 사용)
+    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리 (City ID 매핑 파일 사용)
     // ===============================================
     if (!isUrl) {
-        // 통합된 임시 City ID 맵 (한글/소문자 영어 검색어 지원)
-        const CityIdMap = {
-            '오사카': 219,
-            '도쿄': 204,
-            '부산': 482,
-            'osaka': 219,
-            'tokyo': 204,
-            'busan': 482
-        };
+        // City ID 맵을 비동기적으로 로드하여 사용
+        const CityIdMap = await loadCityIdMapOnce();
 
         const baseCurr = (languageToCurrencyMap[currentLang] || 'USD');
         const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
         
-        // 입력값을 소문자로 변환하여 맵에서 ID를 조회
+        // 입력값을 소문자로 변환하여 맵에서 ID를 조회 (대소문자 무시)
         const searchCityNameKey = input.toLowerCase();
         const searchCityId = CityIdMap[searchCityNameKey];
 
