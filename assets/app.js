@@ -166,14 +166,14 @@
   }
 
 // ----------------------------------------------------
-// ★ 추가된 로직: City ID Map 로드 함수 (JSON 파일 사용)
+// ★ 수정된 로직: City ID Map 로드 함수 (파일 경로 '/public/data/city-id-map.json' 사용)
 // ----------------------------------------------------
   let _cityIdMap = null;
   async function loadCityIdMapOnce(){
     if (_cityIdMap) return _cityIdMap;
     try{
-      // public/data/city-id-map.json 파일을 로드하도록 경로 지정
-      const res = await fetch('/data/city-id-map.json', { cache: 'no-cache' });
+      // 파일 경로를 '/public/data/city-id-map.json'으로 수정하여 고객님의 파일 구조를 반영
+      const res = await fetch('/public/data/city-id-map.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('city-id-map.json fetch failed: ' + res.status);
       _cityIdMap = await res.json();
     }catch(e){
