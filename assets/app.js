@@ -72,7 +72,7 @@
         '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "브라우저에서 단축링크 열기",
         redirectingToSearch: "트립닷컴에서 검색합니다...",
-        cityNameIdNotFound: "도시 ID를 찾을 수 없습니다. (City ID 맵에 등록된 도시 이름으로 검색해 주세요.)"
+        cityNameIdNotFound: "여행 갈 도시 이름을 입력해주세요 (ex : 오사카)"
     },
     en: {
       shortlinkTitle: "Short links can’t be converted",
