@@ -23,7 +23,7 @@
     `).join('');
   }
 
-  // ===== 설정 상수 =====
+  // ===== 설정 상수 (원본값으로 복구 확인) =====
   const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
   const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
 
@@ -70,7 +70,8 @@
         "<li>2) 페이지가 열리면 주소창의 <strong>전체 URL</strong>을 복사하세요.</li>" +
         "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
         '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "브라우저에서 단축링크 열기"
+      shortlinkOpenFull: "브라우저에서 단축링크 열기",
+        redirectingToSearch: "트립닷컴에서 검색합니다..."
     },
     en: {
       shortlinkTitle: "Short links can’t be converted",
@@ -80,7 +81,8 @@
         "<li>2) When the page loads, copy the <strong>full URL</strong> in the address bar.</li>" +
         "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
         '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "Open short link in browser"
+      shortlinkOpenFull: "Open short link in browser",
+        redirectingToSearch: "Searching on Trip.com..."
     },
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
@@ -90,7 +92,8 @@
         "<li>2) ページが表示されたら、アドレスバーの<strong>フルURL</strong>をコピー。</li>" +
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
         '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "ブラウザで短縮リンクを開く"
+      shortlinkOpenFull: "ブラウザで短縮リンクを開く",
+        redirectingToSearch: "Trip.comで検索中..."
     },
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
@@ -100,7 +103,8 @@
         "<li>2) เมื่อหน้าโหลดแล้ว ให้คัดลอก<strong>URL แบบเต็ม</strong>ในแถบที่อยู่</li>" +
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
         '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์"
+      shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
+        redirectingToSearch: "กำลังค้นหาใน Trip.com..."
     }
   };
   const TL = (key) => {
@@ -412,7 +416,10 @@
     openBtn.target = '_blank';
     openBtn.rel = 'noopener';
     openBtn.textContent = TL('shortlinkOpenFull');
-    try { openBtn.href = rawUrl; } catch { openBtn.href = '#'; }
+    
+    let cleanedUrl = rawUrl;
+    try { cleanedUrl = normalizeTripShortUrl(rawUrl); } catch(_) {}
+    try { openBtn.href = cleanedUrl; } catch { openBtn.href = '#'; }
 
     btnRow.appendChild(openBtn);
     card.appendChild(h);
@@ -501,11 +508,16 @@
 
     // 카테고리 판별(대략)
     let category = 'Other';
-    if (input.includes('/hotels/')) category = 'Hotel';
-    else if (input.includes('/flights/')) category = 'Flight';
-    else if (input.includes('/packages/')) category = 'Package';
-    else if (input.includes('/things-to-do/')) category = 'Activity';
-    else if (input.includes('/airport-transfers/')) category = 'Airport Pickup';
+    const isUrl = input.includes('http') || input.includes('trip.com');
+    if (isUrl) {
+      if (input.includes('/hotels/')) category = 'Hotel';
+      else if (input.includes('/flights/')) category = 'Flight';
+      else if (input.includes('/packages/')) category = 'Package';
+      else if (input.includes('/things-to-do/')) category = 'Activity';
+      else if (input.includes('/airport-transfers/')) category = 'Airport Pickup';
+    } else if (input) {
+      category = 'SearchTerm';
+    }
 
     if (input && typeof gtag === 'function') {
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
@@ -540,13 +552,25 @@
       a.textContent = isError ? (T.kakaoTalkError || 'Report an Error') : (T.kakaoTalk || 'KakaoTalk');
       return a;
     }
-
-    // Trip.com 링크가 아니면 에러
-    if (!input.includes('trip.com')) {
-      resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.invalidLink || 'Invalid link.'}</p>`;
-      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
-      return;
+    
+    // ===============================================
+    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리
+    // ===============================================
+    if (!isUrl) {
+        const baseCurr = (languageToCurrencyMap[currentLang] || 'USD');
+        const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
+        
+        // 입력값을 검색어로 사용하여 호텔 검색 URL 생성 (날짜, 인원 등은 기본값)
+        const searchUrl = buildHotelSearchUrl(host, input, '', '', baseCurr);
+        
+        // 검색 중 메시지 표시 및 리디렉션
+        resultsDiv.innerHTML = `<p style="text-align:center; font-weight:bold;">${TL('redirectingToSearch')}</p>`;
+        redirectWithModal(searchUrl, 500);
+        
+        return;
     }
+    // ===============================================
+
 
     // ★ /w/ 단축링크 처리: 정규화 시도 없이 무조건 안내 노출
     if (isTripShortLink(input)) {
