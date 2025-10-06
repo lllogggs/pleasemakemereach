@@ -11615,15 +11615,6 @@
     "lon": -0.793056,
     "source": "ourairports"
   },
-  "nqt": {
-    "city": "Nottingham",
-    "municipality": "Nottingham",
-    "airport": "Nottingham City Airport",
-    "country": "GB",
-    "lat": 52.919998,
-    "lon": -1.07917,
-    "source": "ourairports"
-  },
   "gba": {
     "city": "Cirencester, Gloucestershire",
     "municipality": "Cirencester, Gloucestershire",
@@ -58966,8 +58957,8 @@
     "municipality": "Redenção",
     "airport": "Redenção Airport",
     "country": "BR",
-    "lat": -8.03329,
-    "lon": -49.9799,
+    "lat": -8.031188,
+    "lon": -49.979687,
     "source": "ourairports"
   },
   "dti": {
@@ -67705,8 +67696,8 @@
     "municipality": "Bangkok",
     "airport": "Suvarnabhumi Airport",
     "country": "TH",
-    "lat": 13.681099891662598,
-    "lon": 100.74700164794922,
+    "lat": 13.6811,
+    "lon": 100.747002,
     "source": "ourairports"
   },
   "utp": {
@@ -67834,15 +67825,6 @@
     "country": "TH",
     "lat": 16.896,
     "lon": 99.253304,
-    "source": "ourairports"
-  },
-  "utr": {
-    "city": "Uttaradit",
-    "municipality": "Uttaradit",
-    "airport": "Uttaradit Airport",
-    "country": "TH",
-    "lat": 17.617000579833984,
-    "lon": 100.0999984741211,
     "source": "ourairports"
   },
   "urt": {
@@ -70562,8 +70544,8 @@
     "municipality": "Jakarta",
     "airport": "Soekarno-Hatta International Airport",
     "country": "ID",
-    "lat": -6.1255698204,
-    "lon": 106.65599823,
+    "lat": -6.12557,
+    "lon": 106.655998,
     "source": "ourairports"
   },
   "tkg": {
@@ -71300,8 +71282,8 @@
     "municipality": "Albany",
     "airport": "Albany Airport",
     "country": "AU",
-    "lat": -34.94329833984375,
-    "lon": 117.80899810791016,
+    "lat": -34.944519,
+    "lon": 117.808896,
     "source": "ourairports"
   },
   "abg": {
@@ -71325,8 +71307,8 @@
     "city": "Augustus",
     "airport": "Augustus Downs Airport",
     "country": "AU",
-    "lat": -18.514999389648438,
-    "lon": 139.8780059814453,
+    "lat": -18.5087,
+    "lon": 139.882084,
     "source": "ourairports"
   },
   "mrp": {
@@ -75113,16 +75095,16 @@
     "city": "Quilpie",
     "airport": "Quilpie Airport",
     "country": "AU",
-    "lat": -26.612199783325195,
-    "lon": 144.2530059814453,
+    "lat": -26.609176,
+    "lon": 144.253746,
     "source": "ourairports"
   },
   "uee": {
     "city": "Queenstown",
     "airport": "Queenstown Airport",
     "country": "AU",
-    "lat": -42.075001,
-    "lon": 145.531998,
+    "lat": -42.075731,
+    "lon": 145.530088,
     "source": "ourairports"
   },
   "rrv": {
@@ -75842,8 +75824,8 @@
     "city": "Vanrook",
     "airport": "Vanrook Station Airport",
     "country": "AU",
-    "lat": -16.963300704956055,
-    "lon": 141.9499969482422,
+    "lat": -16.961532,
+    "lon": 141.95227,
     "source": "ourairports"
   },
   "wau": {
@@ -76182,8 +76164,8 @@
     "city": "Young",
     "airport": "Young Airport",
     "country": "AU",
-    "lat": -34.2556,
-    "lon": 148.248001,
+    "lat": -34.255576,
+    "lon": 148.247118,
     "source": "ourairports"
   },
   "orr": {
