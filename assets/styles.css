@@ -66,7 +66,14 @@ footer p{ margin:3px 0; }
   transition:transform .2s;
 }
 .language-button:hover{ transform:translateY(-1px); }
-#lang-flag{ width:24px; height:24px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+/* 메인 버튼 깃발: 직사각형 형태로 통일하여 드롭다운 항목과 시각적 일관성 확보 */
+#lang-flag{ 
+    width:24px; 
+    height:16px; /* 24px -> 16px로 변경 */
+    border-radius:3px; /* 50% -> 3px로 변경 */
+    object-fit:cover; 
+    flex-shrink:0; 
+}
 #lang-text{ color:#fff; font-size:15px; font-weight:700; }
 .dropdown-arrow{ color:#fff; font-size:12px; margin-left:4px; }
 
@@ -76,7 +83,7 @@ footer p{ margin:3px 0; }
   box-shadow:0 6px 18px rgba(0,0,0,.12); /* 그림자 강화 */
   padding:0; /* 내부 패딩 제거 */
   min-width:150px;
-  max-width:max-content; /* 내용물 너비에 맞게 조정 (추가) */
+  max-width:max-content; /* 내용물 너비에 맞게 조정 */
 }
 .language-dropdown.show{ display:block; }
 .lang-option{
@@ -224,6 +231,19 @@ footer p{ margin:3px 0; }
 .external-link-btn.naver svg{
   width:var(--ext-compact-icon);
   height:var(--ext-compact-icon);
+}
+
+/* [추가] 아이콘 크기 조정: 유튜브(삼각형)는 줄이고, 네이버(네모)는 키워서 시각적 균형 확보 */
+/* 1. 유튜브 아이콘(▶) 크기 조정: 인라인 스타일(16px)을 14px로 강제 조정 (줄임) */
+.external-link-btn.youtube span[aria-hidden="true"] {
+  font-size: 14px !important; 
+  line-height: 1 !important;
+}
+
+/* 2. 네이버 아이콘(■) 크기 조정: SVG 크기를 16px로 강제 조정 (키움) */
+.external-link-btn.naver svg {
+  width: 16px !important; 
+  height: 16px !important; 
 }
 
 /* ===== LIST: 점 제거 + 들여쓰기 제거 ===== */
