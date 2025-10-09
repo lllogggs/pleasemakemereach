@@ -71,8 +71,8 @@
         "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
         '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "브라우저에서 단축링크 열기",
-        redirectingToSearch: "트립닷컴에서 검색합니다...",
-        cityNameIdNotFound: "여행 갈 도시 이름을 입력해주세요 (ex : 오사카)"
+        redirectingToSearch: "트립닷컴에서 검색합니다...",
+        cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요"
     },
     en: {
       shortlinkTitle: "Short links can’t be converted",
@@ -83,8 +83,8 @@
         "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
         '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "Open short link in browser",
-        redirectingToSearch: "Searching on Trip.com...",
-        cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)"
+        redirectingToSearch: "Searching on Trip.com...",
+        cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)"
     },
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
@@ -95,7 +95,7 @@
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
         '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "ブラウザで短縮リンクを開く",
-        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップに登録된 도시 이름으로 검색해 주세요。）"
+        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップに登録된 도시 이름으로 검색해 주세요。）"
     },
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
@@ -106,7 +106,7 @@
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
         '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
-        cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)"
+        cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)"
     }
   };
   const TL = (key) => {
@@ -227,7 +227,7 @@
   // cityId와 cityName을 사용하여 검색 URL을 구성합니다.
   function buildHotelSearchUrl(baseHost, cityId, searchCityName, checkin, checkout, curr){
     const params = new URLSearchParams();
-    if (cityId) params.set('city', cityId); 
+    if (cityId) params.set('city', cityId); 
     if (searchCityName) params.set('cityName', searchCityName);
     if (checkin)  params.set('checkin', checkin);
     if (checkout) params.set('checkout', checkout);
@@ -440,7 +440,7 @@
     openBtn.target = '_blank';
     openBtn.rel = 'noopener';
     openBtn.textContent = TL('shortlinkOpenFull');
-    
+    
     let cleanedUrl = rawUrl;
     try { cleanedUrl = normalizeTripShortUrl(rawUrl); } catch(_) {}
     try { openBtn.href = cleanedUrl; } catch { openBtn.href = '#'; }
@@ -576,42 +576,42 @@
       a.textContent = isError ? (T.kakaoTalkError || 'Report an Error') : (T.kakaoTalk || 'KakaoTalk');
       return a;
     }
-    
-    // ===============================================
-    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리 (City ID 매핑 파일 사용)
-    // ===============================================
+    
+    // ===============================================
+    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리 (City ID 매핑 파일 사용)
+    // ===============================================
     if (!isUrl) {
         // City ID 맵을 비동기적으로 로드하여 사용
         const CityIdMap = await loadCityIdMapOnce();
 
         const baseCurr = (languageToCurrencyMap[currentLang] || 'USD');
         const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
-        
-        // 입력값을 소문자로 변환하여 맵에서 ID를 조회 (대소문자 무시)
-        const searchCityNameKey = input.toLowerCase();
-        const searchCityId = CityIdMap[searchCityNameKey];
+        
+        // 입력값을 소문자로 변환하여 맵에서 ID를 조회 (대소문자 무시)
+        const searchCityNameKey = input.toLowerCase();
+        const searchCityId = CityIdMap[searchCityNameKey];
 
-        // 사용자에게 보여줄 cityName은 원본 입력값을 사용하여 URL에 포함
-        const searchCityNameForUrl = input;
+        // 사용자에게 보여줄 cityName은 원본 입력값을 사용하여 URL에 포함
+        const searchCityNameForUrl = input;
 
 
-        // 도시 ID가 없는 경우 오류 처리
-        if (!searchCityId) {
-            resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${TL('cityNameIdNotFound')}</p>`;
-            if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
-            return;
-        }
+        // 도시 ID가 없는 경우 오류 처리
+        if (!searchCityId) {
+            resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${TL('cityNameIdNotFound')}</p>`;
+            if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+            return;
+        }
 
-        // City ID와 City Name을 사용하여 호텔 검색 URL 생성
+        // City ID와 City Name을 사용하여 호텔 검색 URL 생성
         const searchUrl = buildHotelSearchUrl(host, searchCityId, searchCityNameForUrl, '', '', baseCurr);
-        
-        // 검색 중 메시지 표시 및 리디렉션
+        
+        // 검색 중 메시지 표시 및 리디렉션
         resultsDiv.innerHTML = `<p style="text-align:center; font-weight:bold;">${TL('redirectingToSearch')}</p>`;
         redirectWithModal(searchUrl, 500);
-        
+        
         return;
     }
-    // ===============================================
+    // ===============================================
 
 
     // ★ /w/ 단축링크 처리: 정규화 시도 없이 무조건 안내 노출
@@ -651,7 +651,7 @@
           // 항공편에서 호텔 검색 CTA를 위한 URL 생성 (여기서는 cityId가 없으므로 null 처리)
           const hotelUrl = buildHotelSearchUrl(host, null, cityName, checkin, checkout, baseCurr); // null 처리
           // ... (나머지 CTA 로직)
-          
+          
           const ctaWrap = document.createElement('div');
           ctaWrap.style.textAlign = 'center';
           ctaWrap.style.margin = '0 0 12px';
@@ -700,7 +700,8 @@
         }
 
       } else {
-        const whitelist = ['hotelId','hotelid','cityId','checkIn','checkOut','adults','children','rooms','nights','crn','ages','travelpurpose','adult','curr', 'city', 'cityName', 'countryId'];
+        // ★ 수정된 부분: 호텔/일반 URL 처리의 whitelist에 checkin/checkout 추가
+        const whitelist = ['hotelId','hotelid','cityId','checkIn','checkOut','adults','children','rooms','nights','crn','ages','travelpurpose','adult','curr', 'city', 'cityName', 'countryId', 'checkin', 'checkout']; // checkin, checkout 추가
         whitelist.forEach(p => {
           if (originalParams.has(p)) originalParams.getAll(p).forEach(v => essentialParams.append(p, v));
         });
@@ -943,15 +944,14 @@
 
     const inputEl2 = $('#inputUrl');
     if (inputEl2) {
-      // ★ 추가된 로직: Enter 키 감지
-      inputEl2.addEventListener('keydown', (e) => {
-        // 'Enter' 키를 누르고
-        if (e.key === 'Enter') {
-          e.preventDefault(); // 기본 동작 (페이지 새로고침 등) 방지
-          window.generateLinks(); // 링크 생성/검색 함수 호출
-        }
-      });
-      
+      // Enter 키 감지 로직
+      inputEl2.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault(); // 기본 동작 (페이지 새로고침 등) 방지
+          window.generateLinks(); // 링크 생성/검색 함수 호출
+        }
+      });
+      
       inputEl2.addEventListener('click', () => {
         if (!inputEl2.value.trim()) {
           blankClickCount++;
