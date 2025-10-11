@@ -18,7 +18,7 @@ window.TRANSLATIONS = {
     card1Title:"🌍 Find the Cheapest Country",
     card1Desc:`Trip.com prices can <strong>differ by country.</strong><br>Use <strong>Tripdotdot</strong> to book at the <span class="highlight">absolute lowest price!</span>`,
     card2Title:"✅ How to Use",
-    card2List:`<li>1️⃣ Find a deal on Trip.com and <strong>copy the link.</strong></li><li>2️⃣ Paste the link above and click <strong>'Find'</strong>!</li><li>3️⃣ Click the generated links to <strong>find the best price!</strong></li>`,
+    card2List:`<li>1️⃣ Find a deal on Trip.com and <strong>copy the link.</strong></li><li>2️⃣ Paste the link above and press <strong>'Find'</strong>.</li><li>3️⃣ Click the generated links to <strong>find the best price!</strong></li>`,
     card3Title:"💡 Good to Know",
     card3List:`👉 Use Chrome's <strong>'Translate'</strong> for foreign pages.<br>⚠️ Some deals may have the <strong>same price</strong> in all countries.<br>💰 Always compare the <strong>'final price'</strong> including taxes.`,
     privacy:"Privacy Policy",
@@ -36,12 +36,12 @@ window.TRANSLATIONS = {
 
     trustTitle:"Save more of your planning time",
     trustDesc:"Tripdotdot is a maker-built shortcut for price discovery. Skip spreadsheets and tap one button to compare globally.",
+    trustMetricSavings:"₩100M+",
+    trustMetricUsage:"200+",
     trustMetricCountries:"21+",
-    trustMetricLinks:"1-click",
-    trustMetricMinutes:"10+",
+    trustStatSavings:"Booking value unlocked",
+    trustStatUsage:"Bookings assisted",
     trustStatCountries:"Markets covered",
-    trustStatLinks:"Auto-generated links",
-    trustStatMinutes:"Minutes saved",
 
     /* Shortlink (/w/) guidance */
     shortlinkTitle: "Short links aren’t supported",
@@ -67,7 +67,7 @@ window.TRANSLATIONS = {
     card1Title:"🌍 최저가 국가를 찾아보세요",
     card1Desc:`트립닷컴 상품은 <strong>국가별로 가격이 다를 수 있어요</strong><br><strong>트립닷닷</strong>으로 <span class="highlight">가장 저렴하게 예약</span>하세요!`,
     card2Title:"✅ 사용 방법",
-    card2List:`<li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong></li><li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong> 버튼을 클릭!</li><li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>`,
+    card2List:`<li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong></li><li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong></li><li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>`,
     card3Title:"💡 알아두면 좋은 팁",
     card3List:`👉 크롬 <strong>'번역'</strong> 기능을 사용하세요<br>⚠️ 국가별 가격이 <strong>동일</strong>할 수도 있어요<br>💰 <strong>세금/수수료 포함</strong>한 금액으로 비교하세요`,
     privacy:"개인정보처리방침",
@@ -85,12 +85,12 @@ window.TRANSLATIONS = {
 
     trustTitle:"여행 비용을 더 아껴보세요",
     trustDesc:"트립닷닷을 통해 할인받아 구매한 금액이 1억을 넘었어요 !",
+    trustMetricSavings:"1억+",
+    trustMetricUsage:"200+",
     trustMetricCountries:"21+",
-    trustMetricLinks:"1클릭",
-    trustMetricMinutes:"10+",
+    trustStatSavings:"할인 받아 구매한 금액",
+    trustStatUsage:"이용 건수",
     trustStatCountries:"지원 국가",
-    trustStatLinks:"링크 자동 변환",
-    trustStatMinutes:"평균 절약 시간(분)",
 
     /* Shortlink (/w/) guidance */
     shortlinkTitle: "단축링크는 변환되지 않아요",
@@ -116,7 +116,7 @@ window.TRANSLATIONS = {
     card1Title:"🌍 最安値の国を探す",
     card1Desc:`Trip.comの商品は<strong>国によって価格が異なります。</strong><br><strong>トリップドットドット（Tripdotdot）</strong>で<span class="highlight">最安値を予約</span>しましょう！`,
     card2Title:"✅ ご利用方法",
-    card2List:`<li>1️⃣ Trip.comで商品を検索し、<strong>リンクをコピー</strong>します。</li><li>2️⃣ コピーしたリンクを貼り付けて<strong>「検索」</strong>をクリック！</li><li>3️⃣ 生成された各国のリンクから<strong>最安値を確認！</strong></li>`,
+    card2List:`<li>1️⃣ Trip.comで商品を検索し、<strong>リンクをコピー</strong>します。</li><li>2️⃣ コピーしたリンクを貼り付けて<strong>「検索」</strong>を押します。</li><li>3️⃣ 生成された各国のリンクから<strong>最安値を確認！</strong></li>`,
     card3Title:"💡 お役立ち情報",
     card3List:`👉 外国語のページはChromeの<strong>「翻訳」</strong>機能をご利用ください。<br>⚠️ 一部の商品は国によって価格が<strong>同じ</strong>場合があります。<br>💰 税金/手数料込みの<strong>「最終金額」</strong>で比較してください。`,
     privacy:"プライバシーポリシー",
@@ -134,12 +134,12 @@ window.TRANSLATIONS = {
 
     trustTitle:"旅の準備時間をもっと節約",
     trustDesc:"Tripdotdotはメイカーが作ったシンプルな比較ツールです。スプレッドシートよりボタン一つで価格比較しましょう。",
+    trustMetricSavings:"₩100M+",
+    trustMetricUsage:"200+",
     trustMetricCountries:"21+",
-    trustMetricLinks:"1クリック",
-    trustMetricMinutes:"10+",
+    trustStatSavings:"割引購入金額",
+    trustStatUsage:"利用件数",
     trustStatCountries:"対応国",
-    trustStatLinks:"自動生成リンク",
-    trustStatMinutes:"節約できる時間（分）",
 
     /* Shortlink (/w/) guidance */
     shortlinkTitle: "短縮リンクは変換できません",
@@ -165,7 +165,7 @@ window.TRANSLATIONS = {
     card1Title:"🌍 หา ‘ประเทศ’ ที่ถูกที่สุด",
     card1Desc:`ราคาบน Trip.com อาจ<strong>แตกต่างตามประเทศ</strong>ได้<br>ใช้ <strong>Tripdotdot</strong> เพื่อจองในราคา <span class="highlight">ถูกที่สุด!</span>`,
     card2Title:"✅ วิธีใช้งาน",
-    card2List:`<li>1️⃣ หาดีลบน Trip.com แล้ว<strong>คัดลอกลิงก์</strong></li><li>2️⃣ วางลิงก์ด้านบนแล้วคลิก <strong>'ค้นหา'</strong></li><li>3️⃣ คลิกลิงก์ประเทศที่สร้างขึ้นเพื่อ<strong>เช็กราคาถูกสุด</strong></li>`,
+    card2List:`<li>1️⃣ หาดีลบน Trip.com แล้ว<strong>คัดลอกลิงก์</strong></li><li>2️⃣ วางลิงก์ด้านบนแล้วกด <strong>'ค้นหา'</strong></li><li>3️⃣ คลิกลิงก์ประเทศที่สร้างขึ้นเพื่อ<strong>เช็กราคาถูกสุด</strong></li>`,
     card3Title:"💡 เกร็ดน่ารู้",
     card3List:`👉 สำหรับหน้าต่างประเทศ ให้ใช้ฟังก์ชัน <strong>'แปลภาษา'</strong> ของ Chrome<br>⚠️ บางดีลอาจมีราคา<strong>เท่ากัน</strong>ทุกประเทศ<br>💰 เปรียบเทียบจาก<strong>'ราคารวมสุดท้าย'</strong>ที่รวมภาษี/ค่าธรรมเนียมแล้ว`,
     privacy:"นโยบายความเป็นส่วนตัว",
@@ -183,12 +183,12 @@ window.TRANSLATIONS = {
 
     trustTitle:"ประหยัดเวลาวางแผนทริปได้มากขึ้น",
     trustDesc:"Tripdotdot คือเครื่องมือที่เมกเกอร์ทำเพื่อชาวท่องเที่ยว กดปุ่มเดียวแทนการเทียบราคาด้วยสเปรดชีต",
+    trustMetricSavings:"₩100M+",
+    trustMetricUsage:"200+",
     trustMetricCountries:"21+",
-    trustMetricLinks:"1 คลิก",
-    trustMetricMinutes:"10+",
+    trustStatSavings:"มูลค่าการจองที่ปลดล็อก",
+    trustStatUsage:"จำนวนการใช้งาน",
     trustStatCountries:"ประเทศที่รองรับ",
-    trustStatLinks:"ลิงก์ที่สร้างให้อัตโนมัติ",
-    trustStatMinutes:"เวลาที่ประหยัด (นาที)",
 
     /* Shortlink (/w/) guidance */
     shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",

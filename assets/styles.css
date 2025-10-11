@@ -294,19 +294,6 @@ footer p{ margin:3px 0; }
   box-shadow:0 15px 40px rgba(15,23,42,.08);
 }
 
-.highlight-card h2{
-  margin:0 0 12px;
-  border-bottom:none;
-  padding-bottom:0;
-}
-
-.highlight-card p{
-  font-size:15px;
-  line-height:1.7;
-  color:var(--text-secondary);
-  margin:0;
-}
-
 /* 작은 예시 텍스트 */
 .sl-example{
   display:block;
