@@ -71,57 +71,106 @@
         </div>
       </div>
 
-      <h1 data-lang="mainTitle">🌐 Tripdotdot</h1>
-      <p data-lang="subtitle">Trip.com Lowest Price Link Finder</p>
+      <div class="hero-surface">
+        <div class="hero-copy">
+          <h1 data-lang="mainTitle">🌐 Tripdotdot</h1>
+          <p class="hero-subtitle" data-lang="subtitle">Trip.com Lowest Price Link Finder</p>
+        </div>
+        <div class="hero-input input-section">
+          <input id="inputUrl" data-lang-placeholder placeholder="Paste Hotel/Flight link from trip.com!" type="text" inputmode="url">
+          <div class="input-actions">
+            <button class="main-button" onclick="generateLinks()" data-lang="findButton">Find Lowest Price Links</button>
+            <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">No link yet? Search on Trip.com</button>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <section class="input-section">
-      <input id="inputUrl" data-lang-placeholder placeholder="Paste Hotel/Flight link from trip.com!" type="text" inputmode="url">
-      <button class="main-button" onclick="generateLinks()" data-lang="findButton">Find Lowest Price Links</button>
-      <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">No link yet? Search on Trip.com</button>
-    </section>
 
     <div class="link-list" id="results"></div>
 
-    <section class="info-card">
-      <div class="card-header">
-        <h2 data-lang="card2Title">✅ How to Use</h2>
-        <div class="external-links">
-          <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="YouTube">
-            <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
-            <span data-lang="youtube">YouTube</span>
-          </a>
-          <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver" aria-label="Blog">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
-            <span data-lang="blog">Blog</span>
-          </a>
+    <div class="info-grid">
+      <section class="info-card usage-card">
+        <div class="card-header">
+          <h2 data-lang="card2Title">✅ How to Use</h2>
+          <div class="external-links">
+            <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="YouTube">
+              <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
+              <span data-lang="youtube">YouTube</span>
+            </a>
+            <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver" aria-label="Blog">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
+              <span data-lang="blog">Blog</span>
+            </a>
+          </div>
+        </div>
+        <ul data-lang="card2List">
+          <li>1️⃣ Find a deal on Trip.com and <strong>copy the link.</strong></li>
+          <li>2️⃣ Paste the link above and click <strong>'Find'</strong>!</li>
+          <li>3️⃣ Click the generated links to <strong>find the best price!</strong></li>
+        </ul>
+      </section>
+
+      <section class="info-card highlight-card">
+        <h2 data-lang="card1Title">🌍 Find the Cheapest Country</h2>
+        <p data-lang="card1Desc">Trip.com prices can <strong>differ by country.</strong><br>Use <strong>Tripdotdot</strong> to book at the <span class="highlight">absolute lowest price!</span></p>
+      </section>
+
+      <section class="info-card">
+        <h2 data-lang="card3Title">💡 Good to Know</h2>
+        <p data-lang="card3List">
+          👉 Use Chrome’s <strong>“Translate”</strong> for foreign pages.<br>
+          ⚠️ Some deals may have the <strong>same price</strong> in all countries.<br>
+          💰 Always compare the <strong>final price</strong> including taxes/fees.
+        </p>
+      </section>
+    </div>
+
+    <section class="feature-section">
+      <h2 data-lang="featureTitle">🚀 Why creators love it</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⏱️</span>
+          <h3 data-lang="featureSpeedTitle">Ready in 3 seconds</h3>
+          <p data-lang="featureSpeedDesc">Drop in a link and instantly generate comparison URLs across 21 regions.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🎯</span>
+          <h3 data-lang="featureAutomationTitle">Auto affiliate tags</h3>
+          <p data-lang="featureAutomationDesc">Country-specific discount codes and partner parameters are added for you.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌏</span>
+          <h3 data-lang="featureLanguageTitle">Built for global teams</h3>
+          <p data-lang="featureLanguageDesc">Switch the UI across Korean, English, Japanese, and Thai for effortless sharing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="trust-panel">
+      <div class="trust-copy">
+        <h2 data-lang="trustTitle">Save more on travel costs</h2>
+        <p data-lang="trustDesc">Travelers have saved over KRW 100 million through Tripdotdot discounts!</p>
+      </div>
+      <div class="trust-metrics" role="list">
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricCountries">21+</span>
+          <span class="metric-label" data-lang="trustStatCountries">Markets covered</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricLinks">1-click</span>
+          <span class="metric-label" data-lang="trustStatLinks">Auto-generated links</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricMinutes">10+</span>
+          <span class="metric-label" data-lang="trustStatMinutes">Minutes saved</span>
         </div>
       </div>
-      <ul data-lang="card2List">
-        <li>1️⃣ Find a deal on Trip.com and <strong>copy the link.</strong></li>
-        <li>2️⃣ Paste the link above and click <strong>'Find'</strong>!</li>
-        <li>3️⃣ Click the generated links to <strong>find the best price!</strong></li>
-      </ul>
     </section>
 
-    <section class="info-card">
-      <h2 data-lang="card1Title">🌍 Find the Cheapest Country</h2>
-      <p data-lang="card1Desc">Trip.com prices can <strong>differ by country.</strong><br>Use <strong>Tripdotdot</strong> to book at the <span class="highlight">absolute lowest price!</span></p>
-    </section>
-
-    <section class="info-card">
-      <h2 data-lang="card3Title">💡 Good to Know</h2>
-      <p data-lang="card3List">
-        👉 Use Chrome’s <strong>“Translate”</strong> for foreign pages.<br>
-        ⚠️ Some deals may have the <strong>same price</strong> in all countries.<br>
-        💰 Always compare the <strong>final price</strong> including taxes/fees.
-      </p>
-    </section>
-
-    <footer style="text-align:center; margin-top:40px; font-size:14px; color:#aaa;">
-      <p><a id="privacy-link" href="/privacy_en.html" target="_blank" style="color:#aaa;" data-lang="privacy">Privacy Policy</a></p>
-      <p data-lang="disclosureAffiliate" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
-      <p data-lang="disclosureCollection" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
+    <footer class="site-footer">
+      <p><a id="privacy-link" href="/privacy_en.html" target="_blank" data-lang="privacy">Privacy Policy</a></p>
+      <p data-lang="disclosureAffiliate"></p>
+      <p data-lang="disclosureCollection"></p>
       <p id="copyright" data-lang="copyright"></p>
     </footer>
   </div>
