@@ -89,7 +89,7 @@ footer p{ margin:3px 0; }
   font-size:38px;
   font-weight:700;
   color:var(--primary-blue);
-  margin:0;
+  margin:0 0 6px;
 }
 .header p{
   font-size:17px;
@@ -100,7 +100,7 @@ footer p{ margin:3px 0; }
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:2px;
+  gap:0;
   text-align:center;
 }
 
@@ -407,12 +407,6 @@ footer p{ margin:3px 0; }
 @media (min-width:640px){
   .info-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-}
-
-@media (min-width:1024px){
-  .info-grid{
-    grid-template-columns:repeat(4,minmax(0,1fr));
   }
 }
 
