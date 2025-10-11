@@ -73,57 +73,106 @@
         </div>
       </div>
 
-      <h1 data-lang="mainTitle">🌐 트립닷닷</h1>
-      <p data-lang="subtitle">트립닷컴 최저가 링크 찾기</p>
+      <div class="hero-surface">
+        <div class="hero-copy">
+          <h1 data-lang="mainTitle">🌐 트립닷닷</h1>
+          <p class="hero-subtitle" data-lang="subtitle">트립닷컴 최저가 링크 찾기</p>
+        </div>
+        <div class="hero-input input-section">
+          <input id="inputUrl" data-lang-placeholder placeholder="https://kr.trip.com/~ 호텔/항공권 링크 복붙!" type="text" inputmode="url">
+          <div class="input-actions">
+            <button class="main-button" onclick="generateLinks()" data-lang="findButton">최저가 링크 찾기</button>
+            <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">링크가 없다면? 여기서 검색하기</button>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <section class="input-section">
-      <input id="inputUrl" data-lang-placeholder placeholder="https://kr.trip.com/~ 호텔/항공권 링크 복붙!" type="text" inputmode="url">
-      <button class="main-button" onclick="generateLinks()" data-lang="findButton">최저가 링크 찾기</button>
-      <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">링크가 없다면? 여기서 검색하기</button>
-    </section>
 
     <div class="link-list" id="results"></div>
 
-    <section class="info-card">
-      <div class="card-header">
-        <h2 data-lang="card2Title">✅ 사용 방법</h2>
-        <div class="external-links">
-          <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="유튜브">
-            <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
-            <span data-lang="youtube">YouTube</span>
-          </a>
-          <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver" aria-label="블로그">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
-            <span data-lang="blog">Blog</span>
-          </a>
+    <section class="feature-section">
+      <h2 data-lang="featureTitle">🚀 이런 점이 좋아요</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⏱️</span>
+          <h3 data-lang="featureSpeedTitle">3초면 준비 끝</h3>
+          <p data-lang="featureSpeedDesc">링크를 붙여넣는 순간 21개국 가격 비교 링크가 자동 생성돼요.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🎯</span>
+          <h3 data-lang="featureAutomationTitle">할인코드 자동 적용</h3>
+          <p data-lang="featureAutomationDesc">국가별로 다른 할인 코드와 제휴 파라미터를 알아서 붙여줘요.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌏</span>
+          <h3 data-lang="featureLanguageTitle">다국어 완전 지원</h3>
+          <p data-lang="featureLanguageDesc">한국어, 영어, 일본어, 태국어 UI로 누구나 쉽게 공유할 수 있어요.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-card usage-card">
+        <div class="card-header">
+          <h2 data-lang="card2Title">✅ 사용 방법</h2>
+          <div class="external-links">
+            <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="유튜브">
+              <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
+              <span data-lang="youtube">YouTube</span>
+            </a>
+            <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver" aria-label="블로그">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
+              <span data-lang="blog">Blog</span>
+            </a>
+          </div>
+        </div>
+        <ul data-lang="card2List">
+          <li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong></li>
+          <li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong> 버튼을 클릭!</li>
+          <li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>
+        </ul>
+      </section>
+
+      <section class="info-card highlight-card">
+        <h2 data-lang="card1Title">🌍 최저가 국가를 찾아보세요</h2>
+        <p data-lang="card1Desc">트립닷컴은 <strong>국가별로 가격이 다를 수 있어요</strong><br><strong>트립닷닷</strong>으로 <span class="highlight">가장 저렴하게 예약</span>하세요!</p>
+      </section>
+
+      <section class="info-card">
+        <h2 data-lang="card3Title">💡 알아두면 좋은 팁</h2>
+        <p data-lang="card3List">
+          👉 크롬 <strong>'번역'</strong> 기능을 사용하세요<br>
+          ⚠️ 국가별 가격이 <strong>동일</strong>할 수도 있어요<br>
+          💰 <strong>세금/수수료 포함</strong> 금액으로 비교하세요
+        </p>
+      </section>
+    </div>
+
+    <section class="trust-panel">
+      <div class="trust-copy">
+        <h2 data-lang="trustTitle">여행 준비 시간을 더 아껴보세요</h2>
+        <p data-lang="trustDesc">트립닷닷은 기획자와 메이커가 직접 만든 초간단 가격 비교 도구예요. 복잡한 표 대신 버튼만 눌러보세요.</p>
+      </div>
+      <div class="trust-metrics" role="list">
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricCountries">21+</span>
+          <span class="metric-label" data-lang="trustStatCountries">지원 국가</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricLinks">1클릭</span>
+          <span class="metric-label" data-lang="trustStatLinks">링크 자동 변환</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricMinutes">10+</span>
+          <span class="metric-label" data-lang="trustStatMinutes">평균 절약 시간(분)</span>
         </div>
       </div>
-      <ul data-lang="card2List">
-        <li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong></li>
-        <li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong> 버튼을 클릭!</li>
-        <li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>
-      </ul>
     </section>
 
-    <section class="info-card">
-      <h2 data-lang="card1Title">🌍 최저가 국가를 찾아보세요</h2>
-      <p data-lang="card1Desc">트립닷컴은 <strong>국가별로 가격이 다를 수 있어요</strong><br><strong>트립닷닷</strong>으로 <span class="highlight">가장 저렴하게 예약</span>하세요!</p>
-    </section>
-
-    <section class="info-card">
-      <h2 data-lang="card3Title">💡 알아두면 좋은 팁</h2>
-      <p data-lang="card3List">
-        👉 크롬 <strong>'번역'</strong> 기능을 사용하세요<br>
-        ⚠️ 국가별 가격이 <strong>동일</strong>할 수도 있어요<br>
-        💰 <strong>세금/수수료</strong> 포함 금액'으로 비교하세요
-      </p>
-    </section>
-
-    <footer style="text-align:center; margin-top:40px; font-size:14px; color:#aaa;">
-      <p><a id="privacy-link" href="/privacy_ko.html" target="_blank" style="color:#aaa;" data-lang="privacy">개인정보처리방침</a></p>
-      <p data-lang="disclosureAffiliate" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
-      <p data-lang="disclosureCollection" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
+    <footer class="site-footer">
+      <p><a id="privacy-link" href="/privacy_ko.html" target="_blank" data-lang="privacy">개인정보처리방침</a></p>
+      <p data-lang="disclosureAffiliate"></p>
+      <p data-lang="disclosureCollection"></p>
       <p id="copyright" data-lang="copyright"></p>
     </footer>
   </div>

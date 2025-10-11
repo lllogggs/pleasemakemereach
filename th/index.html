@@ -71,57 +71,106 @@
         <div id="language-dropdown" class="language-dropdown" role="menu"></div>
       </div>
 
-      <h1 data-lang="mainTitle">🌐 Tripdotdot</h1>
-      <p data-lang="subtitle">ค้นหาลิงก์ราคาถูกสุดของ Trip.com</p>
+      <div class="hero-surface">
+        <div class="hero-copy">
+          <h1 data-lang="mainTitle">🌐 Tripdotdot</h1>
+          <p class="hero-subtitle" data-lang="subtitle">ค้นหาลิงก์ราคาถูกสุดของ Trip.com</p>
+        </div>
+        <div class="hero-input input-section">
+          <input id="inputUrl" data-lang-placeholder placeholder="วางลิงก์โรงแรม/ตั๋วเครื่องบินจาก trip.com!" type="text" inputmode="url">
+          <div class="input-actions">
+            <button class="main-button" onclick="generateLinks()" data-lang="findButton">ค้นหาลิงก์ราคาถูกสุด</button>
+            <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">ยังไม่มีลิงก์? ค้นหาบน Trip.com</button>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <section class="input-section">
-      <input id="inputUrl" data-lang-placeholder placeholder="วางลิงก์โรงแรม/ตั๋วเครื่องบินจาก trip.com!" type="text" inputmode="url">
-      <button class="main-button" onclick="generateLinks()" data-lang="findButton">ค้นหาลิงก์ราคาถูกสุด</button>
-      <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">ยังไม่มีลิงก์? ค้นหาบน Trip.com</button>
-    </section>
 
     <div class="link-list" id="results"></div>
 
-    <section class="info-card">
-      <div class="card-header">
-        <h2 data-lang="card2Title">✅ วิธีใช้งาน</h2>
-        <div class="external-links">
-          <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="YouTube">
-            <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
-            <span data-lang="youtube">YouTube</span>
-          </a>
-          <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver" aria-label="Blog">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
-            <span data-lang="blog">Blog</span>
-          </a>
+    <section class="feature-section">
+      <h2 data-lang="featureTitle">🚀 จุดเด่นของ Tripdotdot</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⏱️</span>
+          <h3 data-lang="featureSpeedTitle">พร้อมใช้ใน 3 วินาที</h3>
+          <p data-lang="featureSpeedDesc">วางลิงก์แล้วรับลิงก์เปรียบเทียบ 21 ประเทศทันที</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🎯</span>
+          <h3 data-lang="featureAutomationTitle">ผูกโค้ดส่วนลดอัตโนมัติ</h3>
+          <p data-lang="featureAutomationDesc">ระบบใส่โค้ดส่วนลดและพารามิเตอร์พาร์ทเนอร์ให้ตามแต่ละประเทศ</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌏</span>
+          <h3 data-lang="featureLanguageTitle">แชร์ได้หลายภาษา</h3>
+          <p data-lang="featureLanguageDesc">สลับ UI ได้ทั้งเกาหลี อังกฤษ ญี่ปุ่น และไทย เพื่อทำงานร่วมกับทีมต่างประเทศ</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-card usage-card">
+        <div class="card-header">
+          <h2 data-lang="card2Title">✅ วิธีใช้งาน</h2>
+          <div class="external-links">
+            <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" class="external-link-btn youtube" aria-label="YouTube">
+              <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
+              <span data-lang="youtube">YouTube</span>
+            </a>
+            <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" class="external-link-btn naver" aria-label="Blog">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path></svg>
+              <span data-lang="blog">Blog</span>
+            </a>
+          </div>
+        </div>
+        <ul data-lang="card2List">
+          <li>1️⃣ ค้นหาดีลใน Trip.com แล้ว<strong>คัดลอกลิงก์</strong></li>
+          <li>2️⃣ วางลิงก์ด้านบนแล้วกด<strong>‘ค้นหา’</strong></li>
+          <li>3️⃣ คลิกลิงก์ประเทศที่สร้าง เพื่อ<strong>ดูราคาดีที่สุด</strong></li>
+        </ul>
+      </section>
+
+      <section class="info-card highlight-card">
+        <h2 data-lang="card1Title">🌍 หาประเทศที่ถูกที่สุด</h2>
+        <p data-lang="card1Desc">ราคาบน Trip.com <strong>อาจต่างกันตามประเทศ</strong><br>ใช้ <strong>Tripdotdot</strong> เพื่อจองใน <span class="highlight">ราคาต่ำสุด!</span></p>
+      </section>
+
+      <section class="info-card">
+        <h2 data-lang="card3Title">💡 เกร็ดน่ารู้</h2>
+        <p data-lang="card3List">
+          👉 ใช้ฟีเจอร์<strong>“แปลภาษา”</strong>ของ Chrome สำหรับหน้าเว็บต่างภาษา<br>
+          ⚠️ บางดีลอาจมี<strong>ราคาเท่ากัน</strong>ทุกประเทศ<br>
+          💰 เทียบ<strong>“ราคารวมสุดท้าย”</strong>ที่รวมภาษี/ค่าธรรมเนียมแล้ว
+        </p>
+      </section>
+    </div>
+
+    <section class="trust-panel">
+      <div class="trust-copy">
+        <h2 data-lang="trustTitle">ประหยัดเวลาวางแผนทริปได้มากขึ้น</h2>
+        <p data-lang="trustDesc">Tripdotdot คือเครื่องมือที่เมกเกอร์ทำเพื่อชาวท่องเที่ยว กดปุ่มเดียวแทนการเทียบราคาด้วยสเปรดชีต</p>
+      </div>
+      <div class="trust-metrics" role="list">
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricCountries">21+</span>
+          <span class="metric-label" data-lang="trustStatCountries">ประเทศที่รองรับ</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricLinks">1 คลิก</span>
+          <span class="metric-label" data-lang="trustStatLinks">ลิงก์ที่สร้างให้อัตโนมัติ</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricMinutes">10+</span>
+          <span class="metric-label" data-lang="trustStatMinutes">เวลาที่ประหยัด (นาที)</span>
         </div>
       </div>
-      <ul data-lang="card2List">
-        <li>1️⃣ ค้นหาดีลใน Trip.com แล้ว<strong>คัดลอกลิงก์</strong></li>
-        <li>2️⃣ วางลิงก์ด้านบนแล้วกด<strong>‘ค้นหา’</strong></li>
-        <li>3️⃣ คลิกลิงก์ประเทศที่สร้าง เพื่อ<strong>ดูราคาดีที่สุด</strong></li>
-      </ul>
     </section>
 
-    <section class="info-card">
-      <h2 data-lang="card1Title">🌍 หาประเทศที่ถูกที่สุด</h2>
-      <p data-lang="card1Desc">ราคาบน Trip.com <strong>อาจต่างกันตามประเทศ</strong><br>ใช้ <strong>Tripdotdot</strong> เพื่อจองใน <span class="highlight">ราคาต่ำสุด!</span></p>
-    </section>
-
-    <section class="info-card">
-      <h2 data-lang="card3Title">💡 เกร็ดน่ารู้</h2>
-      <p data-lang="card3List">
-        👉 ใช้ฟีเจอร์<strong>“แปลภาษา”</strong>ของ Chrome สำหรับหน้าเว็บต่างภาษา<br>
-        ⚠️ บางดีลอาจมี<strong>ราคาเท่ากัน</strong>ทุกประเทศ<br>
-        💰 เทียบ<strong>“ราคารวมสุดท้าย”</strong>ที่รวมภาษี/ค่าธรรมเนียมแล้ว
-      </p>
-    </section>
-
-    <footer style="text-align:center; margin-top:40px; font-size:14px; color:#aaa;">
-      <p><a id="privacy-link" href="/privacy_th.html" target="_blank" style="color:#aaa;" data-lang="privacy">นโยบายความเป็นส่วนตัว</a></p>
-      <p data-lang="disclosureAffiliate" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
-      <p data-lang="disclosureCollection" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
+    <footer class="site-footer">
+      <p><a id="privacy-link" href="/privacy_th.html" target="_blank" data-lang="privacy">นโยบายความเป็นส่วนตัว</a></p>
+      <p data-lang="disclosureAffiliate"></p>
+      <p data-lang="disclosureCollection"></p>
       <p id="copyright" data-lang="copyright"></p>
     </footer>
   </div>

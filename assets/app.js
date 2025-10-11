@@ -40,14 +40,14 @@
          flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
   };
 
-  const langDetails = {
-    ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
-    en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
-    ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
-    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
-  };
+  const langDetails = {
+    ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
+    en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
+    ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
+    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
+  };
 
-  // ===== 언어 판별 & 적용 =====
+  // ===== 언어 판별 & 적용 =====
   let currentLang = window.PAGE_LANG || detectLangByPath();
 
   function detectLangByPath(){
@@ -72,8 +72,8 @@
         '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "브라우저에서 단축링크 열기",
         redirectingToSearch: "트립닷컴에서 검색합니다...",
-        cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요"
-    },
+        cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요",
+   },
     en: {
       shortlinkTitle: "Short links can’t be converted",
       shortlinkBody:
@@ -84,8 +84,8 @@
         '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "Open short link in browser",
         redirectingToSearch: "Searching on Trip.com...",
-        cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)"
-    },
+        cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)",
+   },
     ja: {
       shortlinkTitle: "短縮リンクは変換できません",
       shortlinkBody:
@@ -95,8 +95,8 @@
         "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
         '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "ブラウザで短縮リンクを開く",
-        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップに登録된 도시 이름으로 검색해 주세요。）"
-    },
+        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップに登録된 도시 이름으로 검색해 주세요。）",
+   },
     th: {
       shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
       shortlinkBody:
@@ -106,8 +106,8 @@
         "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
         '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
       shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
-        cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)"
-    }
+        cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)",
+   }
   };
   const TL = (key) => {
     const fallback = (FALLBACK_TEXT[currentLang]?.[key]) ?? (FALLBACK_TEXT.en?.[key] ?? key);
@@ -543,10 +543,10 @@
       category = 'SearchTerm';
     }
 
-    if (input && typeof gtag === 'function') {
-      gtag('event','submit_url',{ submitted_link: input, link_category: category });
-    }
-    if (input) logSubmittedUrl(input, category);
+    if (input && typeof gtag === 'function') {
+      gtag('event','submit_url',{ submitted_link: input, link_category: category });
+    }
+    if (input) logSubmittedUrl(input, category);
 
     if (!input) {
       const defaultAff =
@@ -914,6 +914,7 @@
     if (showWidgetButton) showWidgetButton.addEventListener('click', () => { modal.style.display = 'flex'; });
     if (modalClose)      modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
     if (modal)           modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
 
     const tabButtons = $$('.tab-button');
     const tabContents = $$('.tab-content');
