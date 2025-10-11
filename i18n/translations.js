@@ -83,8 +83,8 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"Blog",
     redirecting:"트립닷컴으로 이동합니다...",
 
-    trustTitle:"여행 준비 시간을 더 아껴보세요",
-    trustDesc:"트립닷닷은 기획자와 메이커가 직접 만든 초간단 가격 비교 도구예요. 복잡한 표 대신 버튼만 눌러보세요.",
+    trustTitle:"여행 비용을 더 아껴보세요",
+    trustDesc:"트립닷닷을 통해 할인받아 구매한 금액이 1억을 넘었어요 !",
     trustMetricCountries:"21+",
     trustMetricLinks:"1클릭",
     trustMetricMinutes:"10+",
