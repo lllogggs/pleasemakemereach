@@ -90,65 +90,113 @@
         <div id="language-dropdown" class="language-dropdown" role="menu"></div>
       </nav>
 
-      <!-- H1/H2 にブランド名を明示 -->
-      <h1 data-lang="mainTitle">🌐 トリップドットドット（Tripdotdot）</h1>
-      <p data-lang="subtitle">Trip.com 最安値リンク検索｜トリップドットドット</p>
+      <div class="hero-surface">
+        <div class="hero-copy">
+          <h1 data-lang="mainTitle">🌐 トリップドットドット（Tripdotdot）</h1>
+          <p class="hero-subtitle" data-lang="subtitle">Trip.com 最安値リンク検索｜トリップドットドット</p>
+        </div>
+        <div class="hero-input input-section">
+          <label for="inputUrl" class="sr-only">Trip.comのURLを入力</label>
+          <input id="inputUrl" data-lang-placeholder placeholder="ホテル・航空券のリンクをペースト" type="url" inputmode="url" autocomplete="off">
+          <div class="input-actions">
+            <button class="main-button" onclick="generateLinks()" data-lang="findButton">最安値リンクを検索</button>
+            <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">リンクがありませんか？こちらで検索</button>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <section class="input-section">
-      <label for="inputUrl" class="sr-only">Trip.comのURLを入力</label>
-      <input id="inputUrl" data-lang-placeholder placeholder="ホテル・航空券のリンクをペースト" type="url" inputmode="url" autocomplete="off">
-      <button class="main-button" onclick="generateLinks()" data-lang="findButton">最安値リンクを検索</button>
-      <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">リンクがありませんか？こちらで検索</button>
-    </section>
 
     <div class="link-list" id="results"></div>
 
-    <section class="info-card">
-      <div class="card-header">
-        <h2 data-lang="card2Title">✅ ご利用方法</h2>
-        <div class="external-links">
-          <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" rel="noopener" class="external-link-btn youtube" aria-label="YouTube">
-            <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
-            <span data-lang="youtube">YouTube</span>
-          </a>
-          <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" rel="noopener" class="external-link-btn naver" aria-label="ブログ">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14" aria-hidden="true">
-              <path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path>
-            </svg>
-            <span data-lang="blog">ブログ</span>
-          </a>
+    <section class="feature-section">
+      <h2 data-lang="featureTitle">🚀 Tripdotdot の魅力</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⏱️</span>
+          <h3 data-lang="featureSpeedTitle">3秒で準備完了</h3>
+          <p data-lang="featureSpeedDesc">リンクを貼り付けるだけで21地域の比較リンクが即座に生成されます。</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🎯</span>
+          <h3 data-lang="featureAutomationTitle">割引コードも自動付与</h3>
+          <p data-lang="featureAutomationDesc">国ごとに異なるディスカウントコードとパートナーパラメータを自動で適用します。</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌏</span>
+          <h3 data-lang="featureLanguageTitle">グローバルに共有</h3>
+          <p data-lang="featureLanguageDesc">韓国語・英語・日本語・タイ語のUIにワンクリックで切り替えられます。</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-card usage-card">
+        <div class="card-header">
+          <h2 data-lang="card2Title">✅ ご利用方法</h2>
+          <div class="external-links">
+            <a href="https://youtube.com/shorts/reQWEWc72Yw?feature=share" target="_blank" rel="noopener" class="external-link-btn youtube" aria-label="YouTube">
+              <span aria-hidden="true" style="font-size:16px; line-height:1;">▶</span>
+              <span data-lang="youtube">YouTube</span>
+            </a>
+            <a href="https://blog.naver.com/tripdotdot/223948757114" target="_blank" rel="noopener" class="external-link-btn naver" aria-label="ブログ">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14" aria-hidden="true">
+                <path d="M16.273 12.845v-1.742h-3.447v3.49h3.447v-1.748zM18.02 7.966H7.135v9.224h9.136V7.966H18.02z"></path>
+              </svg>
+              <span data-lang="blog">ブログ</span>
+            </a>
+          </div>
+        </div>
+        <ul data-lang="card2List">
+          <li>1️⃣ Trip.comで商品を検索し、<strong>リンクをコピー</strong>します。</li>
+          <li>2️⃣ コピーしたリンクを貼り付けて<strong>「検索」</strong>をクリック！</li>
+          <li>3️⃣ 生成された各国のリンクから<strong>最安値を確認！</strong></li>
+        </ul>
+      </section>
+
+      <section class="info-card highlight-card">
+        <h2 data-lang="card1Title">🌍 最安値の国を探す</h2>
+        <p data-lang="card1Desc">
+          Trip.comの商品は<strong>国によって価格が異なります。</strong><br>
+          <strong>トリップドットドット（Tripdotdot）</strong>で
+          <span class="highlight">最安値を予約</span>しましょう！
+        </p>
+      </section>
+
+      <section class="info-card">
+        <h2 data-lang="card3Title">💡 お役立ち情報</h2>
+        <p data-lang="card3List">
+          👉 外国語のページはChromeの<strong>「翻訳」</strong>機能をご利用ください。<br>
+          ⚠️ 一部の商品は国によって価格が<strong>同じ</strong>場合があります。<br>
+          💰 税金/手数料込みの<strong>「最終金額」</strong>で比較してください。
+        </p>
+      </section>
+    </div>
+
+    <section class="trust-panel">
+      <div class="trust-copy">
+        <h2 data-lang="trustTitle">旅の準備時間をもっと節約</h2>
+        <p data-lang="trustDesc">Tripdotdotはメイカーが作ったシンプルな比較ツールです。スプレッドシートよりボタン一つで価格比較しましょう。</p>
+      </div>
+      <div class="trust-metrics" role="list">
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricCountries">21+</span>
+          <span class="metric-label" data-lang="trustStatCountries">対応国</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricLinks">1クリック</span>
+          <span class="metric-label" data-lang="trustStatLinks">自動生成リンク</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricMinutes">10+</span>
+          <span class="metric-label" data-lang="trustStatMinutes">節約できる時間（分）</span>
         </div>
       </div>
-      <ul data-lang="card2List">
-        <li>1️⃣ Trip.comで商品を検索し、<strong>リンクをコピー</strong>します。</li>
-        <li>2️⃣ コピーしたリンクを貼り付けて<strong>「検索」</strong>をクリック！</li>
-        <li>3️⃣ 生成された各国のリンクから<strong>最安値を確認！</strong></li>
-      </ul>
     </section>
 
-    <section class="info-card">
-      <h2 data-lang="card1Title">🌍 最安値の国を探す</h2>
-      <p data-lang="card1Desc">
-        Trip.comの商品は<strong>国によって価格が異なります。</strong><br>
-        <strong>トリップドットドット（Tripdotdot）</strong>で
-        <span class="highlight">最安値を予約</span>しましょう！
-      </p>
-    </section>
-
-    <section class="info-card">
-      <h2 data-lang="card3Title">💡 お役立ち情報</h2>
-      <p data-lang="card3List">
-        👉 外国語のページはChromeの<strong>「翻訳」</strong>機能をご利用ください。<br>
-        ⚠️ 一部の商品は国によって価格が<strong>同じ</strong>場合があります。<br>
-        💰 税金/手数料込みの<strong>「最終金額」</strong>で比較してください。
-      </p>
-    </section>
-
-    <footer style="text-align:center; margin-top:40px; font-size:14px; color:#aaa;">
-      <p><a id="privacy-link" href="/privacy_ja.html" target="_blank" rel="noopener" style="color:#aaa;" data-lang="privacy">プライバシーポリシー</a></p>
-      <p data-lang="disclosureAffiliate" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
-      <p data-lang="disclosureCollection" style="font-size:12px; padding:0 10px; line-height:1.6;"></p>
+    <footer class="site-footer">
+      <p><a id="privacy-link" href="/privacy_ja.html" target="_blank" rel="noopener" data-lang="privacy">プライバシーポリシー</a></p>
+      <p data-lang="disclosureAffiliate"></p>
+      <p data-lang="disclosureCollection"></p>
       <p id="copyright" data-lang="copyright"></p>
     </footer>
   </div>
