@@ -84,7 +84,7 @@ window.TRANSLATIONS = {
     redirecting:"트립닷컴으로 이동합니다...",
 
     trustTitle:"여행 비용을 더 아껴보세요",
-    trustDesc:"트립닷닷을 통해 할인받아 구매한 금액이 1억을 넘었어요!",
+    trustDesc:"트립닷닷을 통해 할인받아 구매한 금액이 1억을 넘었어요 !",
     trustMetricCountries:"21+",
     trustMetricLinks:"1클릭",
     trustMetricMinutes:"10+",
