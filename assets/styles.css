@@ -460,7 +460,7 @@ footer p{ margin:3px 0; }
 }
 
 @media (max-width:480px){
-  .language-selector{ top:14px; right:14px; }
+  .language-selector{ top:8px; right:10px; }
   .language-button{ padding:5px 10px; }
   .language-button #lang-text{ font-size:14px; }
 }
@@ -606,7 +606,11 @@ footer p{ margin:3px 0; }
 
 /* ===== Responsive ===== */
 @media (max-width:600px){
-  .language-selector{ top:-20px; right:-5px; }
+  /* 모바일에서 언어 버튼이 카드에 잘리지 않도록 살짝 안쪽으로 배치 */
+  .language-selector{
+    top:8px;
+    right:12px;
+  }
   .header{ margin-top:24px; }
   .language-button{ padding:4px 8px; gap:5px; }
   #lang-flag{ width:20px; height:20px; }
