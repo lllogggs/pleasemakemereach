@@ -458,6 +458,12 @@ footer p{ margin:3px 0; }
   .feature-section{ padding:28px 24px; }
   .trust-panel{ padding:28px 24px; }
 }
+
+@media (max-width:480px){
+  .language-selector{ top:14px; right:14px; }
+  .language-button{ padding:5px 10px; }
+  .language-button #lang-text{ font-size:14px; }
+}
 .external-link-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
 
 /* 플랫폼 전용 색상 유지 */
