@@ -26712,8 +26712,8 @@
     "municipality": "Edwards",
     "airport": "Edwards Air Force Base",
     "country": "US",
-    "lat": 34.905399,
-    "lon": -117.884003,
+    "lat": 34.910781,
+    "lon": -117.886391,
     "source": "ourairports"
   },
   "eed": {
@@ -51477,7 +51477,7 @@
   "ror": {
     "city": "Babelthuap Island",
     "municipality": "Babelthuap Island",
-    "airport": "Babelthuap Airport",
+    "airport": "Palau International Airport",
     "country": "PW",
     "lat": 7.36731,
     "lon": 134.544236,
@@ -58669,8 +58669,8 @@
     "municipality": "Trinidad",
     "airport": "Teniente Av. Jorge Henrich Arauz Airport",
     "country": "BO",
-    "lat": -14.8186998367,
-    "lon": -64.9179992676,
+    "lat": -14.8187,
+    "lon": -64.917999,
     "source": "ourairports"
   },
   "uyu": {
@@ -64730,8 +64730,8 @@
     "municipality": "Urgench",
     "airport": "Urgench Airport",
     "country": "UZ",
-    "lat": 41.58430099487305,
-    "lon": 60.641700744628906,
+    "lat": 41.584301,
+    "lon": 60.641701,
     "source": "ourairports"
   },
   "nvi": {
@@ -64775,8 +64775,8 @@
     "municipality": "Samarkand",
     "airport": "Samarkand Airport",
     "country": "UZ",
-    "lat": 39.70050048828125,
-    "lon": 66.98380279541016,
+    "lat": 39.7005,
+    "lon": 66.983803,
     "source": "ourairports"
   },
   "tmj": {
