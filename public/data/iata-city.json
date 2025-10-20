@@ -130,8 +130,8 @@
     "municipality": "Telida",
     "airport": "Telida Airport",
     "country": "US",
-    "lat": 63.393901824951,
-    "lon": -153.26899719238,
+    "lat": 63.393902,
+    "lon": -153.268997,
     "source": "ourairports"
   },
   "bzt": {
@@ -418,8 +418,8 @@
     "municipality": "Chignik Lake",
     "airport": "Chignik Lake Airport",
     "country": "US",
-    "lat": 56.2550010681,
-    "lon": -158.774993896,
+    "lat": 56.255001,
+    "lon": -158.774994,
     "source": "ourairports"
   },
   "aad": {
@@ -10580,6 +10580,15 @@
     "lon": 12.752222,
     "source": "ourairports"
   },
+  "qxh": {
+    "city": "Trebbin",
+    "municipality": "Trebbin",
+    "airport": "Schönhagen Airfield",
+    "country": "DE",
+    "lat": 52.204631,
+    "lon": 13.159526,
+    "source": "ourairports"
+  },
   "cso": {
     "city": "Hecklingen",
     "municipality": "Hecklingen",
@@ -11161,8 +11170,8 @@
     "municipality": "Helgoland",
     "airport": "Helgoland-Düne Airport",
     "country": "DE",
-    "lat": 54.185279846200004,
-    "lon": 7.91583299637,
+    "lat": 54.18528,
+    "lon": 7.915833,
     "source": "ourairports"
   },
   "qhu": {
@@ -48209,6 +48218,15 @@
     "lon": 54.024601,
     "source": "ourairports"
   },
+  "kcf": {
+    "city": "Kandanwari",
+    "municipality": "Kandanwari",
+    "airport": "Thar Airport",
+    "country": "PK",
+    "lat": 27.203205,
+    "lon": 69.14884,
+    "source": "ourairports"
+  },
   "ddu": {
     "city": "Dadu",
     "municipality": "Dadu",
@@ -50554,8 +50572,8 @@
     "municipality": "Teller",
     "airport": "Teller Airport",
     "country": "US",
-    "lat": 65.2404022217,
-    "lon": -166.339004517,
+    "lat": 65.240402,
+    "lon": -166.339005,
     "source": "ourairports"
   },
   "tog": {
@@ -51312,6 +51330,15 @@
     "lon": -155.860001,
     "source": "ourairports"
   },
+  "jiw": {
+    "city": "Jiwani",
+    "municipality": "Jiwani",
+    "airport": "Jiwani Airport (INACTIVE}",
+    "country": "PK",
+    "lat": 25.067801,
+    "lon": 61.805401,
+    "source": "ourairports"
+  },
   "bhc": {
     "city": "Bhurban",
     "municipality": "Bhurban",
@@ -51337,15 +51364,6 @@
     "country": "PK",
     "lat": 32.62826,
     "lon": 74.067287,
-    "source": "ourairports"
-  },
-  "kcf": {
-    "city": "Kadanwari",
-    "municipality": "Kadanwari",
-    "airport": "Kadanwari Airport",
-    "country": "PK",
-    "lat": 27.1667003632,
-    "lon": 69.31670379639999,
     "source": "ourairports"
   },
   "req": {
