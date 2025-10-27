@@ -5703,10 +5703,10 @@
   "ysa": {
     "city": "Sable Island",
     "municipality": "Sable Island",
-    "airport": "Sable Island Landing Strip",
+    "airport": "Sable Island Airport.",
     "country": "CA",
-    "lat": 43.930951,
-    "lon": -59.996147,
+    "lat": 43.928235,
+    "lon": -59.948986,
     "source": "ourairports"
   },
   "yls": {
@@ -5777,8 +5777,8 @@
     "municipality": "Kattiniq",
     "airport": "Donaldson Airport",
     "country": "CA",
-    "lat": 61.6622009277,
-    "lon": -73.3214035034,
+    "lat": 61.662201,
+    "lon": -73.321404,
     "source": "ourairports"
   },
   "zgs": {
@@ -10578,15 +10578,6 @@
     "country": "DE",
     "lat": 53.306389,
     "lon": 12.752222,
-    "source": "ourairports"
-  },
-  "qxh": {
-    "city": "Trebbin",
-    "municipality": "Trebbin",
-    "airport": "Schönhagen Airfield",
-    "country": "DE",
-    "lat": 52.204631,
-    "lon": 13.159526,
     "source": "ourairports"
   },
   "cso": {
@@ -61346,12 +61337,12 @@
     "source": "ourairports"
   },
   "irz": {
-    "city": "Santa Isabel Do Rio Negro",
-    "municipality": "Santa Isabel Do Rio Negro",
+    "city": "Santa Isabel do Rio Negro",
+    "municipality": "Santa Isabel do Rio Negro",
     "airport": "Tapuruquara Airport",
     "country": "BR",
-    "lat": -0.3786,
-    "lon": -64.9923,
+    "lat": -0.378604,
+    "lon": -64.992558,
     "source": "ourairports"
   },
   "tgq": {
