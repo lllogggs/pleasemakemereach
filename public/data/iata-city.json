@@ -1092,6 +1092,14 @@
     "lon": 150.368611111,
     "source": "ourairports"
   },
+  "wfr": {
+    "city": "Wolf's",
+    "airport": "Wolf's Fang Runway",
+    "country": "AQ",
+    "lat": -71.517,
+    "lon": 8.8,
+    "source": "ourairports"
+  },
   "lyt": {
     "city": "Lady Elliot Island",
     "municipality": "Lady Elliot Island",
@@ -5256,8 +5264,8 @@
     "municipality": "Obre Lake",
     "airport": "North of Sixty Airport",
     "country": "CA",
-    "lat": 60.316398620605,
-    "lon": -103.12899780273,
+    "lat": 60.315719,
+    "lon": -103.131324,
     "source": "ourairports"
   },
   "ckx": {
@@ -8098,8 +8106,8 @@
     "municipality": "Colville Lake",
     "airport": "Tommy Kochon Airport",
     "country": "CA",
-    "lat": 67.02,
-    "lon": -126.126,
+    "lat": 67.02015,
+    "lon": -126.128364,
     "source": "ourairports"
   },
   "yvm": {
