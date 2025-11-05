@@ -266,6 +266,25 @@ footer p{ margin:3px 0; }
   border-radius:18px;
   box-shadow:0 15px 40px rgba(15,23,42,.08);
   border:1px solid rgba(255,255,255,.55);
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.adsense-card{
+  padding:0;
+  align-items:center;
+  justify-content:center;
+}
+.adsense-card .adsense-wrapper{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:1 1 auto;
+}
+.adsense-card .adsbygoogle{
+  width:100%;
 }
 .card-header{
   display:flex; justify-content:space-between; align-items:center;
@@ -398,6 +417,18 @@ footer p{ margin:3px 0; }
   display:grid;
   gap:24px;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.desktop-only{ display:block; }
+
+@media (min-width:768px){
+  .info-grid{
+    grid-auto-rows:minmax(260px,auto);
+    align-items:stretch;
+  }
+}
+
+@media (max-width:768px){
+  .desktop-only{ display:none !important; }
 }
 
 /* ===== Trust Panel ===== */
