@@ -79,19 +79,6 @@ body::after{
   flex-direction:column;
   gap:32px;
 }
-.desktop-ad-slot{
-  display:none;
-}
-@media (min-width:1024px){
-  .desktop-ad-slot{
-    display:flex;
-    justify-content:center;
-  }
-  .desktop-ad-slot .adsbygoogle{
-    width:100%;
-    max-width:728px;
-  }
-}
 footer p{ margin:3px 0; }
 
 .header{
