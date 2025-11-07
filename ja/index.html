@@ -81,6 +81,22 @@
   </script>
 </head>
 <body>
+  <!-- Ads 유입자 안내 팝업 -->
+  <div id="ad-guide-popup" style="display:none;">
+    <div class="ad-guide-overlay"></div>
+    <div class="ad-guide-box">
+      <h2 id="ad-guide-title">트립닷닷 이용 가이드 ✈️</h2>
+      <p id="ad-guide-line1">Trip.com에서 마음에 드는 호텔이나 항공권을 찾으셨나요?</p>
+      <p id="ad-guide-line2">그 페이지의 링크(URL)를 복사해서 이곳 입력창에 붙여넣으면 됩니다.</p>
+      <ol id="ad-guide-steps">
+        <li>① Trip.com에서 호텔/항공 페이지 열기</li>
+        <li>② 주소창 링크 복사해서 트립닷닷에 붙여넣기</li>
+        <li>③ ‘최저가 링크 찾기’ 클릭 → 국가별 가격 자동 비교</li>
+      </ol>
+      <button id="ad-guide-close">이해했어요</button>
+    </div>
+  </div>
+
   <div class="container">
     <header class="header">
       <div class="hero-surface">
@@ -247,6 +263,111 @@
       <div class="notice-modal-body" data-lang="mobileNotice"></div>
     </div>
   </div>
+
+  <script>
+    const popupGuideTexts = {
+      ko: {
+        title: "트립닷닷 이용 가이드 ✈️",
+        line1: "Trip.com에서 마음에 드는 호텔이나 항공권을 찾으셨나요?",
+        line2: "그 페이지의 링크(URL)를 복사해서 입력창에 붙여넣으면 됩니다.",
+        steps: [
+          "① Trip.com에서 호텔/항공 페이지 열기",
+          "② 주소창 링크 복사해서 트립닷닷에 붙여넣기",
+          "③ ‘최저가 링크 찾기’ 클릭 → 국가별 가격 자동 비교"
+        ],
+        button: "이해했어요"
+      },
+      ja: {
+        title: "Tripdotdot の使い方 ✈️",
+        line1: "Trip.com で気になるホテルや航空券を見つけましたか？",
+        line2: "そのページのリンク(URL)をコピーして入力欄に貼り付けるだけです。",
+        steps: [
+          "① Trip.com でホテル/航空券ページを開く",
+          "② URL をコピーして Tripdotdot に貼り付ける",
+          "③ 「最安値リンクを探す」をクリック → 各国価格を自動比較"
+        ],
+        button: "OK"
+      },
+      th: {
+        title: "วิธีใช้ Tripdotdot ✈️",
+        line1: "เจอลิงก์โรงแรมหรือเที่ยวบินใน Trip.com แล้วหรือยัง?",
+        line2: "ก็อปลิงก์ (URL) นั้นมาแปะในช่องของ Tripdotdot ได้เลย",
+        steps: [
+          "① เปิดหน้าที่ต้องการใน Trip.com",
+          "② คัดลอก URL แล้ววางใน Tripdotdot",
+          "③ กด “ค้นหาลิงก์ราคาต่ำสุด” เพื่อเทียบราคาหลายประเทศ"
+        ],
+        button: "เข้าใจแล้ว"
+      }
+    };
+
+    function getCurrentLang() {
+      const path = window.location.pathname;
+      if (path.startsWith("/ja/")) return "ja";
+      if (path.startsWith("/th/")) return "th";
+      return "ko";
+    }
+
+    function applyPopupTexts(lang) {
+      const t = popupGuideTexts[lang] || popupGuideTexts["ko"];
+      document.getElementById("ad-guide-title").textContent = t.title;
+      document.getElementById("ad-guide-line1").textContent = t.line1;
+      document.getElementById("ad-guide-line2").textContent = t.line2;
+      const stepsEl = document.getElementById("ad-guide-steps");
+      stepsEl.innerHTML = "";
+      t.steps.forEach((s) => {
+        const li = document.createElement("li");
+        li.textContent = s;
+        stepsEl.appendChild(li);
+      });
+      document.getElementById("ad-guide-close").textContent = t.button;
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const fromGoogle = params.get("utm_source") === "google" || params.get("utm_medium") === "cpc";
+
+      const popup = document.getElementById("ad-guide-popup");
+      const closeBtn = document.getElementById("ad-guide-close");
+      const overlay = popup ? popup.querySelector(".ad-guide-overlay") : null;
+
+      function closePopup() {
+        if (popup) {
+          popup.style.display = "none";
+        }
+        try {
+          localStorage.setItem("seenAdGuide", "true");
+        } catch (e) {
+          // localStorage unavailable
+        }
+      }
+
+      if (fromGoogle) {
+        try {
+          if (!localStorage.getItem("seenAdGuide")) {
+            const lang = getCurrentLang();
+            applyPopupTexts(lang);
+
+            setTimeout(() => {
+              if (popup) {
+                popup.style.display = "block";
+              }
+            }, 1200);
+          }
+        } catch (e) {
+          // localStorage unavailable
+        }
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", closePopup);
+      }
+
+      if (overlay) {
+        overlay.addEventListener("click", closePopup);
+      }
+    });
+  </script>
 
   <!-- Page lang context for app.js -->
   <script>window.PAGE_LANG='ja';</script>

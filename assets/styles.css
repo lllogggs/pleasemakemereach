@@ -630,6 +630,58 @@ footer p{ margin:3px 0; }
   font-size:14px; color:#1f2937; box-shadow:0 8px 24px rgba(0,0,0,.2);
 }
 
+/* ===== Ads guide popup ===== */
+#ad-guide-popup .ad-guide-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:9998;
+}
+
+#ad-guide-popup .ad-guide-box{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:#ffffff;
+  border-radius:16px;
+  padding:20px 22px;
+  max-width:420px;
+  width:90%;
+  z-index:9999;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  text-align:center;
+  line-height:1.5;
+}
+
+#ad-guide-popup h2{
+  margin-bottom:10px;
+  font-size:1.15rem;
+}
+
+#ad-guide-popup p{
+  margin-bottom:8px;
+  color:#333;
+  font-size:0.95rem;
+}
+
+#ad-guide-popup ol{
+  text-align:left;
+  margin:10px 0 16px;
+  padding-left:20px;
+  font-size:0.9rem;
+}
+
+#ad-guide-popup button#ad-guide-close{
+  background:#0f5fff;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  padding:9px 16px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+
 /* ===== Responsive ===== */
 @media (max-width:600px){
   /* 모바일에서 언어 버튼이 카드에 잘리지 않도록 살짝 안쪽으로 배치 */
