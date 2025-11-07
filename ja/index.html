@@ -85,15 +85,17 @@
   <div id="ad-guide-popup" style="display:none;">
     <div class="ad-guide-overlay"></div>
     <div class="ad-guide-box">
-      <h2 id="ad-guide-title">트립닷닷 이용 가이드 ✈️</h2>
-      <p id="ad-guide-line1">Trip.com에서 마음에 드는 호텔이나 항공권을 찾으셨나요?</p>
-      <p id="ad-guide-line2">그 페이지의 링크(URL)를 복사해서 이곳 입력창에 붙여넣으면 됩니다.</p>
-      <ol id="ad-guide-steps">
-        <li>① Trip.com에서 호텔/항공 페이지 열기</li>
-        <li>② 주소창 링크 복사해서 트립닷닷에 붙여넣기</li>
-        <li>③ ‘최저가 링크 찾기’ 클릭 → 국가별 가격 자동 비교</li>
-      </ol>
-      <button id="ad-guide-close">이해했어요</button>
+      <h2 class="ad-guide-title">Trip.com リンク貼り付け ✈️</h2>
+      <p class="ad-guide-desc">
+        Trip.comで開いている <b>ホテル・航空ページのURL</b> をコピーして貼り付ければ<br>
+        <b>国別の最安値をすぐ比較</b>できます。
+      </p>
+      <ul class="ad-guide-steps">
+        <li><span class="step-badge step1">1</span> Trip.comでホテル／航空券ページを開く</li>
+        <li><span class="step-badge step2">2</span> アドレスバーのリンクをコピー → 入力欄に貼り付け</li>
+        <li><span class="step-badge step3">3</span> <b>「最安値リンクを探す」</b>をクリック！</li>
+      </ul>
+      <button id="ad-guide-close" class="ad-guide-btn">OK</button>
     </div>
   </div>
 
@@ -267,35 +269,32 @@
   <script>
     const popupGuideTexts = {
       ko: {
-        title: "트립닷닷 이용 가이드 ✈️",
-        line1: "Trip.com에서 마음에 드는 호텔이나 항공권을 찾으셨나요?",
-        line2: "그 페이지의 링크(URL)를 복사해서 입력창에 붙여넣으면 됩니다.",
+        title: "Trip.com 링크 붙여넣기 ✈️",
+        desc: "Trip.com에서 열어둔 <b>호텔·항공 페이지 주소</b>를 복사해 붙여넣으면<br><b>나라별 최저가를 바로 비교</b>할 수 있어요.",
         steps: [
-          "① Trip.com에서 호텔/항공 페이지 열기",
-          "② 주소창 링크 복사해서 트립닷닷에 붙여넣기",
-          "③ ‘최저가 링크 찾기’ 클릭 → 국가별 가격 자동 비교"
+          "Trip.com에서 호텔/항공 페이지 열기",
+          "주소창 링크 복사 → 입력창에 붙여넣기",
+          "<b>‘최저가 링크 찾기’</b> 클릭!"
         ],
-        button: "이해했어요"
+        button: "확인했어요"
       },
       ja: {
-        title: "Tripdotdot の使い方 ✈️",
-        line1: "Trip.com で気になるホテルや航空券を見つけましたか？",
-        line2: "そのページのリンク(URL)をコピーして入力欄に貼り付けるだけです。",
+        title: "Trip.com リンク貼り付け ✈️",
+        desc: "Trip.comで開いている<b>ホテル・航空ページのURL</b>をコピーして貼り付ければ<br><b>国別の最安値をすぐ比較</b>できます。",
         steps: [
-          "① Trip.com でホテル/航空券ページを開く",
-          "② URL をコピーして Tripdotdot に貼り付ける",
-          "③ 「最安値リンクを探す」をクリック → 各国価格を自動比較"
+          "Trip.comでホテル／航空券ページを開く",
+          "アドレスバーのリンクをコピー → 入力欄に貼り付け",
+          "<b>「最安値リンクを探す」</b>をクリック！"
         ],
         button: "OK"
       },
       th: {
-        title: "วิธีใช้ Tripdotdot ✈️",
-        line1: "เจอลิงก์โรงแรมหรือเที่ยวบินใน Trip.com แล้วหรือยัง?",
-        line2: "ก็อปลิงก์ (URL) นั้นมาแปะในช่องของ Tripdotdot ได้เลย",
+        title: "วางลิงก์จาก Trip.com ✈️",
+        desc: "ก็อปปี้ <b>ลิงก์หน้าโรงแรม/ตั๋วเครื่องบิน</b> ที่เปิดอยู่ใน Trip.com<br>แล้ววางเพื่อ<b>เทียบราคาต่ำสุดของแต่ละประเทศได้ทันที</b>",
         steps: [
-          "① เปิดหน้าที่ต้องการใน Trip.com",
-          "② คัดลอก URL แล้ววางใน Tripdotdot",
-          "③ กด “ค้นหาลิงก์ราคาต่ำสุด” เพื่อเทียบราคาหลายประเทศ"
+          "เปิดหน้าโรงแรม/เที่ยวบินใน Trip.com",
+          "คัดลอกลิงก์จากแถบที่อยู่ → วางในช่องด้านล่าง",
+          "กด <b>“ค้นหาลิงก์ราคาต่ำสุด”</b>!"
         ],
         button: "เข้าใจแล้ว"
       }
@@ -309,18 +308,24 @@
     }
 
     function applyPopupTexts(lang) {
+      const popup = document.getElementById("ad-guide-popup");
+      if (!popup) return;
       const t = popupGuideTexts[lang] || popupGuideTexts["ko"];
-      document.getElementById("ad-guide-title").textContent = t.title;
-      document.getElementById("ad-guide-line1").textContent = t.line1;
-      document.getElementById("ad-guide-line2").textContent = t.line2;
-      const stepsEl = document.getElementById("ad-guide-steps");
-      stepsEl.innerHTML = "";
-      t.steps.forEach((s) => {
-        const li = document.createElement("li");
-        li.textContent = s;
-        stepsEl.appendChild(li);
-      });
-      document.getElementById("ad-guide-close").textContent = t.button;
+      const titleEl = popup.querySelector(".ad-guide-title");
+      if (titleEl) titleEl.textContent = t.title;
+      const descEl = popup.querySelector(".ad-guide-desc");
+      if (descEl) descEl.innerHTML = t.desc;
+      const stepsEl = popup.querySelector(".ad-guide-steps");
+      if (stepsEl) {
+        stepsEl.innerHTML = "";
+        t.steps.forEach((s, idx) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<span class="step-badge step${idx + 1}">${idx + 1}</span> ${s}`;
+          stepsEl.appendChild(li);
+        });
+      }
+      const closeBtn = popup.querySelector("#ad-guide-close");
+      if (closeBtn) closeBtn.textContent = t.button;
     }
 
     window.addEventListener("DOMContentLoaded", function () {
@@ -331,14 +336,20 @@
       const closeBtn = document.getElementById("ad-guide-close");
       const overlay = popup ? popup.querySelector(".ad-guide-overlay") : null;
 
-      function closePopup() {
+      function showPopup() {
         if (popup) {
-          popup.style.display = "none";
+          popup.style.display = "block";
         }
         try {
           localStorage.setItem("seenAdGuide", "true");
         } catch (e) {
           // localStorage unavailable
+        }
+      }
+
+      function closePopup() {
+        if (popup) {
+          popup.style.display = "none";
         }
       }
 
@@ -349,9 +360,7 @@
             applyPopupTexts(lang);
 
             setTimeout(() => {
-              if (popup) {
-                popup.style.display = "block";
-              }
+              showPopup();
             }, 1200);
           }
         } catch (e) {

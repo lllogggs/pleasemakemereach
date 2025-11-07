@@ -631,55 +631,98 @@ footer p{ margin:3px 0; }
 }
 
 /* ===== Ads guide popup ===== */
-#ad-guide-popup .ad-guide-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:9998;
+#ad-guide-popup .ad-guide-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 15, 28, 0.35);
+  z-index: 9998;
 }
 
-#ad-guide-popup .ad-guide-box{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  background:#ffffff;
-  border-radius:16px;
-  padding:20px 22px;
-  max-width:420px;
-  width:90%;
-  z-index:9999;
-  box-shadow:0 10px 30px rgba(0,0,0,0.12);
-  text-align:center;
-  line-height:1.5;
+#ad-guide-popup .ad-guide-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 20px 20px;
+  max-width: 420px;
+  width: 92%;
+  z-index: 9999;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-#ad-guide-popup h2{
-  margin-bottom:10px;
-  font-size:1.15rem;
+.ad-guide-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-#ad-guide-popup p{
-  margin-bottom:8px;
-  color:#333;
-  font-size:0.95rem;
+.ad-guide-desc {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #3a3d44;
+  background: #f5f7ff;
+  border: 1px solid #e0e6ff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
 }
 
-#ad-guide-popup ol{
-  text-align:left;
-  margin:10px 0 16px;
-  padding-left:20px;
-  font-size:0.9rem;
+.ad-guide-steps {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-#ad-guide-popup button#ad-guide-close{
-  background:#0f5fff;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  padding:9px 16px;
-  cursor:pointer;
-  font-size:0.9rem;
+.ad-guide-steps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: #222;
+}
+
+.step-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.step1 { background: #0f62fe; }
+.step2 { background: #ffb000; }
+.step3 { background: #3dbb78; }
+
+.ad-guide-btn {
+  width: 100%;
+  background: #0f62fe;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 9px 0 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease-out;
+}
+
+.ad-guide-btn:hover {
+  opacity: 0.93;
+}
+
+@media (max-width: 420px) {
+  #ad-guide-popup .ad-guide-box { padding: 16px; }
+  .ad-guide-desc { font-size: 0.84rem; }
 }
 
 /* ===== Responsive ===== */
