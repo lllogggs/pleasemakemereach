@@ -653,11 +653,24 @@ footer p{ margin:3px 0; }
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+
 .ad-guide-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.ad-guide-heading {
+  display: flex;
+  align-items: baseline;
   gap: 6px;
-  margin-bottom: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(15, 98, 254, 0.18);
+  flex: 1;
 }
 
 .ad-guide-logo {
@@ -668,6 +681,14 @@ footer p{ margin:3px 0; }
 .ad-guide-title {
   font-weight: 600;
   color: #1f2329;
+}
+
+.ad-guide-heading .ad-guide-title {
+  color: #0f172a;
+}
+
+.ad-guide-heading .ad-guide-logo {
+  margin-right: 2px;
 }
 
 .ad-guide-emoji {

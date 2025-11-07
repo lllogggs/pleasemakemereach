@@ -67,8 +67,10 @@
     <div class="ad-guide-overlay"></div>
     <div class="ad-guide-box">
       <div class="ad-guide-header">
-        <span class="ad-guide-logo"></span>
-        <span class="ad-guide-title"></span>
+        <div class="ad-guide-heading">
+          <span class="ad-guide-logo"></span>
+          <span class="ad-guide-title"></span>
+        </div>
         <span class="ad-guide-emoji">✈️</span>
       </div>
       <ul id="ad-guide-list" class="ad-guide-list"></ul>
@@ -178,21 +180,21 @@
 
     <section class="trust-panel">
       <div class="trust-copy">
-        <h2 data-lang="trustTitle">Save more of your planning time</h2>
-        <p data-lang="trustDesc">Tripdotdot is a maker-built shortcut for price discovery. Skip spreadsheets and tap one button to compare globally.</p>
+        <h2 data-lang="trustTitle">Save more on travel costs</h2>
+        <p data-lang="trustDesc">Tripdotdot users have unlocked over ₩100M in discounted bookings!</p>
       </div>
       <div class="trust-metrics" role="list">
         <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricSavings">₩100M+</span>
+          <span class="metric-label" data-lang="trustStatSavings">Discounted booking value</span>
+        </div>
+        <div class="trust-metric" role="listitem">
+          <span class="metric-number" data-lang="trustMetricUsage">200+</span>
+          <span class="metric-label" data-lang="trustStatUsage">Bookings assisted</span>
+        </div>
+        <div class="trust-metric" role="listitem">
           <span class="metric-number" data-lang="trustMetricCountries">21+</span>
           <span class="metric-label" data-lang="trustStatCountries">Markets covered</span>
-        </div>
-        <div class="trust-metric" role="listitem">
-          <span class="metric-number" data-lang="trustMetricLinks">1-click</span>
-          <span class="metric-label" data-lang="trustStatLinks">Auto-generated links</span>
-        </div>
-        <div class="trust-metric" role="listitem">
-          <span class="metric-number" data-lang="trustMetricMinutes">10+</span>
-          <span class="metric-label" data-lang="trustStatMinutes">Minutes saved</span>
         </div>
       </div>
     </section>
@@ -240,47 +242,47 @@
   <script>
     const popupTexts = {
       ko: {
-        logo: "트립닷닷",
+        logo: "🌐 트립닷닷",
         title: "사용법",
         button: "확인했어요",
         steps: [
-          "Trip.com에서 원하는 호텔/항공 상품 선택",
-          "해당 상품 주소창 링크 복사",
-          "트립닷닷 입력창에 링크 붙여넣기",
-          "‘최저가 링크 찾기’ 클릭"
+          "Trip.com에서 <strong>원하는 호텔/항공 상품 선택</strong>",
+          "해당 상품 주소창 <strong>링크 복사</strong>",
+          "트립닷닷 입력창에 <strong>링크 붙여넣기</strong>",
+          "‘<strong>최저가 링크 찾기</strong>’ 클릭"
         ]
       },
       ja: {
-        logo: "Tripdotdot",
+        logo: "🌐 Tripdotdot",
         title: "使い方",
         button: "OK",
         steps: [
-          "Trip.comで宿泊/航空ページを開く",
-          "そのページのURLをコピーする",
-          "Tripdotdotの入力欄に貼り付ける",
-          "「最安値リンクを探す」をクリック"
+          "Trip.comで<strong>宿泊/航空ページを開く</strong>",
+          "そのページのURLを<strong>コピーする</strong>",
+          "Tripdotdotの入力欄に<strong>貼り付ける</strong>",
+          "「<strong>最安値リンクを探す</strong>」をクリック"
         ]
       },
       th: {
-        logo: "Tripdotdot",
+        logo: "🌐 Tripdotdot",
         title: "วิธีใช้",
         button: "เข้าใจแล้ว",
         steps: [
-          "เปิดหน้าโรงแรม/ตั๋วเครื่องบินใน Trip.com",
-          "คัดลอกลิงก์ (URL) ของหน้านั้น",
-          "วางลิงก์ในช่องของ Tripdotdot",
-          "กด “ค้นหาลิงก์ราคาต่ำสุด”"
+          "ใน Trip.com <strong>เปิดหน้าโรงแรม/ตั๋วเครื่องบิน</strong>",
+          "<strong>คัดลอกลิงก์ (URL)</strong> ของหน้านั้น",
+          "ที่ Tripdotdot <strong>วางลิงก์</strong>",
+          "กด “<strong>ค้นหาลิงก์ราคาต่ำสุด</strong>”"
         ]
       },
       en: {
-        logo: "Tripdotdot",
+        logo: "🌐 Tripdotdot",
         title: "How to use",
         button: "Got it",
         steps: [
-          "Open the hotel/flight page on Trip.com",
-          "Copy the page URL from the address bar",
-          "Paste the URL into Tripdotdot",
-          "Click “Find lowest price”"
+          "On Trip.com, <strong>choose your hotel/flight</strong>",
+          "<strong>Copy the link</strong> from the address bar",
+          "In Tripdotdot, <strong>paste the link</strong>",
+          "Click “<strong>Find lowest price</strong>”"
         ]
       }
     };
@@ -312,7 +314,12 @@
         num.className = "num";
         num.textContent = (idx + 1).toString();
         li.appendChild(num);
-        li.appendChild(document.createTextNode(txt));
+
+        const textSpan = document.createElement("span");
+        textSpan.className = "step-text";
+        textSpan.innerHTML = txt;
+        li.appendChild(textSpan);
+
         list.appendChild(li);
       });
     }

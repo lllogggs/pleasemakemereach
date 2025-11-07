@@ -34,12 +34,12 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"Blog",
     redirecting:"Redirecting to Trip.com...",
 
-    trustTitle:"Save more of your planning time",
-    trustDesc:"Tripdotdot is a maker-built shortcut for price discovery. Skip spreadsheets and tap one button to compare globally.",
+    trustTitle:"Save more on travel costs",
+    trustDesc:"Tripdotdot users have unlocked over ₩100M in discounted bookings!",
     trustMetricSavings:"₩100M+",
     trustMetricUsage:"200+",
     trustMetricCountries:"21+",
-    trustStatSavings:"Booking value unlocked",
+    trustStatSavings:"Discounted booking value",
     trustStatUsage:"Bookings assisted",
     trustStatCountries:"Markets covered",
 
@@ -132,8 +132,8 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"ブログ",
     redirecting:"Trip.comに移動します...",
 
-    trustTitle:"旅の準備時間をもっと節約",
-    trustDesc:"Tripdotdotはメイカーが作ったシンプルな比較ツールです。スプレッドシートよりボタン一つで価格比較しましょう。",
+    trustTitle:"旅費をもっと節約しましょう",
+    trustDesc:"Tripdotdotを使って割引購入した金額は累計₩100Mを突破しました！",
     trustMetricSavings:"₩100M+",
     trustMetricUsage:"200+",
     trustMetricCountries:"21+",
@@ -181,12 +181,12 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"บล็อก",
     redirecting:"กำลังพาไปที่ Trip.com...",
 
-    trustTitle:"ประหยัดเวลาวางแผนทริปได้มากขึ้น",
-    trustDesc:"Tripdotdot คือเครื่องมือที่เมกเกอร์ทำเพื่อชาวท่องเที่ยว กดปุ่มเดียวแทนการเทียบราคาด้วยสเปรดชีต",
+    trustTitle:"ประหยัดค่าเดินทางได้มากขึ้น",
+    trustDesc:"ยอดการจองผ่าน Tripdotdot ที่ได้รับส่วนลดรวมกันเกิน ₩100M แล้ว!",
     trustMetricSavings:"₩100M+",
     trustMetricUsage:"200+",
     trustMetricCountries:"21+",
-    trustStatSavings:"มูลค่าการจองที่ปลดล็อก",
+    trustStatSavings:"มูลค่าการจองที่ประหยัดได้",
     trustStatUsage:"จำนวนการใช้งาน",
     trustStatCountries:"ประเทศที่รองรับ",
 
