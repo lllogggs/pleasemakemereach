@@ -64,24 +64,6 @@
   </script>
 </head>
 <body>
-  <!-- Ads 유입자용 안내 팝업 -->
-  <div id="ad-guide-popup" style="display:none;">
-    <div class="ad-guide-overlay"></div>
-    <div class="ad-guide-box">
-      <h2 class="ad-guide-title">Trip.com 링크 붙여넣기 ✈️</h2>
-      <p class="ad-guide-desc">
-        Trip.com에서 열어둔 <b>호텔·항공 페이지 주소</b>를 복사해 붙여넣으면<br>
-        <b>나라별 최저가를 바로 비교</b>할 수 있어요.
-      </p>
-      <ul class="ad-guide-steps">
-        <li><span class="step-badge step1">1</span> Trip.com에서 호텔/항공 페이지 열기</li>
-        <li><span class="step-badge step2">2</span> 주소창 링크 복사 → 입력창에 붙여넣기</li>
-        <li><span class="step-badge step3">3</span> <b>‘최저가 링크 찾기’</b> 클릭!</li>
-      </ul>
-      <button id="ad-guide-close" class="ad-guide-btn">확인했어요</button>
-    </div>
-  </div>
-
   <div class="container">
     <header class="header">
       <div class="hero-surface">
@@ -245,117 +227,61 @@
     </div>
   </div>
 
+  <!-- 광고 유입자 안내 팝업 -->
+  <div id="ad-guide-popup" style="display:none;">
+    <div class="ad-guide-overlay"></div>
+    <div class="ad-guide-box">
+      <div class="ad-guide-header">
+        <span class="ad-guide-logo">트립닷닷</span>
+        <span class="ad-guide-title">사용법</span>
+        <span class="ad-guide-emoji">✈️</span>
+      </div>
+      <ul class="ad-guide-list">
+        <li>
+          <span class="num">1</span>
+          Trip.com에서 원하는 호텔/항공 상품 선택
+        </li>
+        <li>
+          <span class="num">2</span>
+          해당 상품 주소창 링크 복사
+        </li>
+        <li>
+          <span class="num">3</span>
+          트립닷닷 입력창에 링크 붙여넣기
+        </li>
+        <li>
+          <span class="num">4</span>
+          ‘최저가 링크 찾기’ 클릭
+        </li>
+      </ul>
+      <button id="ad-guide-close" class="ad-guide-btn">확인했어요</button>
+    </div>
+  </div>
+
   <script>
-    // 다국어 팝업 텍스트
-    const popupGuideTexts = {
-      ko: {
-        title: "Trip.com 링크 붙여넣기 ✈️",
-        desc: "Trip.com에서 열어둔 <b>호텔·항공 페이지 주소</b>를 복사해 붙여넣으면<br><b>나라별 최저가를 바로 비교</b>할 수 있어요.",
-        steps: [
-          "Trip.com에서 호텔/항공 페이지 열기",
-          "주소창 링크 복사 → 입력창에 붙여넣기",
-          "<b>‘최저가 링크 찾기’</b> 클릭!"
-        ],
-        button: "확인했어요"
-      },
-      ja: {
-        title: "Trip.com リンク貼り付け ✈️",
-        desc: "Trip.comで開いている<b>ホテル・航空ページのURL</b>をコピーして貼り付ければ<br><b>国別の最安値をすぐ比較</b>できます。",
-        steps: [
-          "Trip.comでホテル／航空券ページを開く",
-          "アドレスバーのリンクをコピー → 入力欄に貼り付け",
-          "<b>「最安値リンクを探す」</b>をクリック！"
-        ],
-        button: "OK"
-      },
-      th: {
-        title: "วางลิงก์จาก Trip.com ✈️",
-        desc: "ก็อปปี้ <b>ลิงก์หน้าโรงแรม/ตั๋วเครื่องบิน</b> ที่เปิดอยู่ใน Trip.com<br>แล้ววางเพื่อ<b>เทียบราคาต่ำสุดของแต่ละประเทศได้ทันที</b>",
-        steps: [
-          "เปิดหน้าโรงแรม/เที่ยวบินใน Trip.com",
-          "คัดลอกลิงก์จากแถบที่อยู่ → วางในช่องด้านล่าง",
-          "กด <b>“ค้นหาลิงก์ราคาต่ำสุด”</b>!"
-        ],
-        button: "เข้าใจแล้ว"
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(location.search);
+      const fromGoogle =
+        params.get("utm_source") === "google" ||
+        params.get("utm_medium") === "cpc";
+
+      if (fromGoogle && !localStorage.getItem("seenAdGuide")) {
+        setTimeout(() => {
+          document.getElementById("ad-guide-popup").style.display = "block";
+          localStorage.setItem("seenAdGuide", "true");
+        }, 1200);
       }
-    };
-
-    // 현재 언어 추론: URL 경로에 /ja/ /th/ 있는지로 판단, 없으면 ko
-    function getCurrentLang() {
-      const path = window.location.pathname;
-      if (path.startsWith("/ja/")) return "ja";
-      if (path.startsWith("/th/")) return "th";
-      return "ko";
-    }
-
-    function applyPopupTexts(lang) {
-      const popup = document.getElementById("ad-guide-popup");
-      if (!popup) return;
-      const t = popupGuideTexts[lang] || popupGuideTexts["ko"];
-      const titleEl = popup.querySelector(".ad-guide-title");
-      if (titleEl) titleEl.textContent = t.title;
-      const descEl = popup.querySelector(".ad-guide-desc");
-      if (descEl) descEl.innerHTML = t.desc;
-      const stepsEl = popup.querySelector(".ad-guide-steps");
-      if (stepsEl) {
-        stepsEl.innerHTML = "";
-        t.steps.forEach((s, idx) => {
-          const li = document.createElement("li");
-          li.innerHTML = `<span class="step-badge step${idx + 1}">${idx + 1}</span> ${s}`;
-          stepsEl.appendChild(li);
-        });
-      }
-      const closeBtn = popup.querySelector("#ad-guide-close");
-      if (closeBtn) closeBtn.textContent = t.button;
-    }
-
-    window.addEventListener("DOMContentLoaded", function () {
-      const params = new URLSearchParams(window.location.search);
-      const fromGoogle = params.get("utm_source") === "google" || params.get("utm_medium") === "cpc";
 
       const popup = document.getElementById("ad-guide-popup");
       const closeBtn = document.getElementById("ad-guide-close");
-      const overlay = popup ? popup.querySelector(".ad-guide-overlay") : null;
-
-      function showPopup() {
-        if (popup) {
-          popup.style.display = "block";
-        }
-        try {
-          localStorage.setItem("seenAdGuide", "true");
-        } catch (e) {
-          // localStorage unavailable
-        }
-      }
+      const overlay = popup.querySelector(".ad-guide-overlay");
 
       function closePopup() {
-        if (popup) {
-          popup.style.display = "none";
-        }
+        popup.style.display = "none";
       }
 
-      if (fromGoogle) {
-        try {
-          if (!localStorage.getItem("seenAdGuide")) {
-            const lang = getCurrentLang();
-            applyPopupTexts(lang);
-
-            setTimeout(() => {
-              showPopup();
-            }, 1200);
-          }
-        } catch (e) {
-          // localStorage unavailable
-        }
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener("click", closePopup);
-      }
-
-      if (overlay) {
-        overlay.addEventListener("click", closePopup);
-      }
+      closeBtn.addEventListener("click", closePopup);
+      overlay.addEventListener("click", closePopup);
     });
   </script>
 
