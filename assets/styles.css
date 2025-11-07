@@ -634,7 +634,7 @@ footer p{ margin:3px 0; }
 #ad-guide-popup .ad-guide-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(9, 15, 28, 0.35);
+  background: rgba(0,0,0,0.35);
   z-index: 9998;
 }
 
@@ -645,84 +645,76 @@ footer p{ margin:3px 0; }
   transform: translate(-50%, -50%);
   background: #fff;
   border-radius: 18px;
-  padding: 18px 20px 20px;
-  max-width: 420px;
+  padding: 16px 18px 18px;
   width: 92%;
+  max-width: 360px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
   z-index: 9999;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.ad-guide-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.ad-guide-desc {
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: #3a3d44;
-  background: #f5f7ff;
-  border: 1px solid #e0e6ff;
-  border-radius: 12px;
-  padding: 10px 12px;
+.ad-guide-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 12px;
 }
 
-.ad-guide-steps {
-  list-style: none;
-  margin: 0 0 14px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.ad-guide-logo {
+  font-weight: 700;
+  color: #0f62fe; /* 트립닷닷 메인 파랑 */
 }
 
-.ad-guide-steps li {
+.ad-guide-title {
+  font-weight: 600;
+  color: #1f2329;
+}
+
+.ad-guide-emoji {
+  margin-left: auto;
+}
+
+.ad-guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ad-guide-list li {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.86rem;
+  font-size: 0.87rem;
+  line-height: 1.35;
   color: #222;
 }
 
-.step-badge {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
+.ad-guide-list .num {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #0f62fe;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #fff;
+  flex: 0 0 22px;
 }
-
-.step1 { background: #0f62fe; }
-.step2 { background: #ffb000; }
-.step3 { background: #3dbb78; }
 
 .ad-guide-btn {
   width: 100%;
   background: #0f62fe;
-  border: none;
   color: #fff;
+  border: none;
   border-radius: 10px;
   padding: 9px 0 10px;
-  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.15s ease-out;
-}
-
-.ad-guide-btn:hover {
-  opacity: 0.93;
-}
-
-@media (max-width: 420px) {
-  #ad-guide-popup .ad-guide-box { padding: 16px; }
-  .ad-guide-desc { font-size: 0.84rem; }
 }
 
 /* ===== Responsive ===== */
