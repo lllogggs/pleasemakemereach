@@ -85,17 +85,13 @@
   <div id="ad-guide-popup" style="display:none;">
     <div class="ad-guide-overlay"></div>
     <div class="ad-guide-box">
-      <h2 class="ad-guide-title">Trip.com リンク貼り付け ✈️</h2>
-      <p class="ad-guide-desc">
-        Trip.comで開いている <b>ホテル・航空ページのURL</b> をコピーして貼り付ければ<br>
-        <b>国別の最安値をすぐ比較</b>できます。
-      </p>
-      <ul class="ad-guide-steps">
-        <li><span class="step-badge step1">1</span> Trip.comでホテル／航空券ページを開く</li>
-        <li><span class="step-badge step2">2</span> アドレスバーのリンクをコピー → 入力欄に貼り付け</li>
-        <li><span class="step-badge step3">3</span> <b>「最安値リンクを探す」</b>をクリック！</li>
-      </ul>
-      <button id="ad-guide-close" class="ad-guide-btn">OK</button>
+      <div class="ad-guide-header">
+        <span class="ad-guide-logo"></span>
+        <span class="ad-guide-title"></span>
+        <span class="ad-guide-emoji">✈️</span>
+      </div>
+      <ul id="ad-guide-list" class="ad-guide-list"></ul>
+      <button id="ad-guide-close" class="ad-guide-btn"></button>
     </div>
   </div>
 
@@ -267,114 +263,103 @@
   </div>
 
   <script>
-    const popupGuideTexts = {
+    const popupTexts = {
       ko: {
-        title: "Trip.com 링크 붙여넣기 ✈️",
-        desc: "Trip.com에서 열어둔 <b>호텔·항공 페이지 주소</b>를 복사해 붙여넣으면<br><b>나라별 최저가를 바로 비교</b>할 수 있어요.",
+        logo: "트립닷닷",
+        title: "사용법",
+        button: "확인했어요",
         steps: [
-          "Trip.com에서 호텔/항공 페이지 열기",
-          "주소창 링크 복사 → 입력창에 붙여넣기",
-          "<b>‘최저가 링크 찾기’</b> 클릭!"
-        ],
-        button: "확인했어요"
+          "Trip.com에서 원하는 호텔/항공 상품 선택",
+          "해당 상품 주소창 링크 복사",
+          "트립닷닷 입력창에 링크 붙여넣기",
+          "‘최저가 링크 찾기’ 클릭"
+        ]
       },
       ja: {
-        title: "Trip.com リンク貼り付け ✈️",
-        desc: "Trip.comで開いている<b>ホテル・航空ページのURL</b>をコピーして貼り付ければ<br><b>国別の最安値をすぐ比較</b>できます。",
+        logo: "Tripdotdot",
+        title: "使い方",
+        button: "OK",
         steps: [
-          "Trip.comでホテル／航空券ページを開く",
-          "アドレスバーのリンクをコピー → 入力欄に貼り付け",
-          "<b>「最安値リンクを探す」</b>をクリック！"
-        ],
-        button: "OK"
+          "Trip.comで宿泊/航空ページを開く",
+          "そのページのURLをコピーする",
+          "Tripdotdotの入力欄に貼り付ける",
+          "「最安値リンクを探す」をクリック"
+        ]
       },
       th: {
-        title: "วางลิงก์จาก Trip.com ✈️",
-        desc: "ก็อปปี้ <b>ลิงก์หน้าโรงแรม/ตั๋วเครื่องบิน</b> ที่เปิดอยู่ใน Trip.com<br>แล้ววางเพื่อ<b>เทียบราคาต่ำสุดของแต่ละประเทศได้ทันที</b>",
+        logo: "Tripdotdot",
+        title: "วิธีใช้",
+        button: "เข้าใจแล้ว",
         steps: [
-          "เปิดหน้าโรงแรม/เที่ยวบินใน Trip.com",
-          "คัดลอกลิงก์จากแถบที่อยู่ → วางในช่องด้านล่าง",
-          "กด <b>“ค้นหาลิงก์ราคาต่ำสุด”</b>!"
-        ],
-        button: "เข้าใจแล้ว"
+          "เปิดหน้าโรงแรม/ตั๋วเครื่องบินใน Trip.com",
+          "คัดลอกลิงก์ (URL) ของหน้านั้น",
+          "วางลิงก์ในช่องของ Tripdotdot",
+          "กด “ค้นหาลิงก์ราคาต่ำสุด”"
+        ]
+      },
+      en: {
+        logo: "Tripdotdot",
+        title: "How to use",
+        button: "Got it",
+        steps: [
+          "Open the hotel/flight page on Trip.com",
+          "Copy the page URL from the address bar",
+          "Paste the URL into Tripdotdot",
+          "Click “Find lowest price”"
+        ]
       }
     };
 
     function getCurrentLang() {
-      const path = window.location.pathname;
-      if (path.startsWith("/ja/")) return "ja";
-      if (path.startsWith("/th/")) return "th";
+      const p = location.pathname;
+      if (p.startsWith("/ja/")) return "ja";
+      if (p.startsWith("/th/")) return "th";
+      if (p.startsWith("/en/")) return "en";
       return "ko";
     }
 
-    function applyPopupTexts(lang) {
+    function renderAdGuidePopup() {
+      const lang = getCurrentLang();
+      const t = popupTexts[lang] || popupTexts.ko;
+
       const popup = document.getElementById("ad-guide-popup");
       if (!popup) return;
-      const t = popupGuideTexts[lang] || popupGuideTexts["ko"];
-      const titleEl = popup.querySelector(".ad-guide-title");
-      if (titleEl) titleEl.textContent = t.title;
-      const descEl = popup.querySelector(".ad-guide-desc");
-      if (descEl) descEl.innerHTML = t.desc;
-      const stepsEl = popup.querySelector(".ad-guide-steps");
-      if (stepsEl) {
-        stepsEl.innerHTML = "";
-        t.steps.forEach((s, idx) => {
-          const li = document.createElement("li");
-          li.innerHTML = `<span class="step-badge step${idx + 1}">${idx + 1}</span> ${s}`;
-          stepsEl.appendChild(li);
-        });
-      }
-      const closeBtn = popup.querySelector("#ad-guide-close");
-      if (closeBtn) closeBtn.textContent = t.button;
+
+      popup.querySelector(".ad-guide-logo").textContent = t.logo;
+      popup.querySelector(".ad-guide-title").textContent = t.title;
+      popup.querySelector("#ad-guide-close").textContent = t.button;
+
+      const list = document.getElementById("ad-guide-list");
+      list.innerHTML = "";
+      t.steps.forEach((txt, idx) => {
+        const li = document.createElement("li");
+        const num = document.createElement("span");
+        num.className = "num";
+        num.textContent = (idx + 1).toString();
+        li.appendChild(num);
+        li.appendChild(document.createTextNode(txt));
+        list.appendChild(li);
+      });
     }
 
-    window.addEventListener("DOMContentLoaded", function () {
-      const params = new URLSearchParams(window.location.search);
-      const fromGoogle = params.get("utm_source") === "google" || params.get("utm_medium") === "cpc";
+    document.addEventListener("DOMContentLoaded", function() {
+      renderAdGuidePopup();
+
+      const params = new URLSearchParams(location.search);
+      const fromGoogle =
+        params.get("utm_source") === "google" ||
+        params.get("utm_medium") === "cpc";
+
+      if (fromGoogle && !localStorage.getItem("seenAdGuide")) {
+        setTimeout(() => {
+          document.getElementById("ad-guide-popup").style.display = "block";
+          localStorage.setItem("seenAdGuide", "true");
+        }, 800);
+      }
 
       const popup = document.getElementById("ad-guide-popup");
-      const closeBtn = document.getElementById("ad-guide-close");
-      const overlay = popup ? popup.querySelector(".ad-guide-overlay") : null;
-
-      function showPopup() {
-        if (popup) {
-          popup.style.display = "block";
-        }
-        try {
-          localStorage.setItem("seenAdGuide", "true");
-        } catch (e) {
-          // localStorage unavailable
-        }
-      }
-
-      function closePopup() {
-        if (popup) {
-          popup.style.display = "none";
-        }
-      }
-
-      if (fromGoogle) {
-        try {
-          if (!localStorage.getItem("seenAdGuide")) {
-            const lang = getCurrentLang();
-            applyPopupTexts(lang);
-
-            setTimeout(() => {
-              showPopup();
-            }, 1200);
-          }
-        } catch (e) {
-          // localStorage unavailable
-        }
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener("click", closePopup);
-      }
-
-      if (overlay) {
-        overlay.addEventListener("click", closePopup);
-      }
+      popup.querySelector("#ad-guide-close").onclick = () => popup.style.display = "none";
+      popup.querySelector(".ad-guide-overlay").onclick = () => popup.style.display = "none";
     });
   </script>
 
