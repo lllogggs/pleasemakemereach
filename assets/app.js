@@ -27,7 +27,16 @@
   const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
   const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
 
-  const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+  const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+
+  function getAffiliateHomeUrl(lang = currentLang) {
+    const base =
+      (lang === 'ko') ? 'https://kr.trip.com/?curr=KRW' :
+      (lang === 'ja') ? 'https://www.trip.com/?curr=JPY' :
+      (lang === 'th') ? 'https://www.trip.com/?curr=THB' :
+                        'https://www.trip.com/?curr=USD';
+    return appendAffiliate(base);
+  }
 
   const widgetSrcModal = {
     ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
@@ -442,8 +451,12 @@
     openBtn.textContent = TL('shortlinkOpenFull');
     
     let cleanedUrl = rawUrl;
-    try { cleanedUrl = normalizeTripShortUrl(rawUrl); } catch(_) {}
-    try { openBtn.href = cleanedUrl; } catch { openBtn.href = '#'; }
+    try { cleanedUrl = normalizeTripShortUrl(rawUrl); } catch(_) {}
+    try {
+      openBtn.href = getAffiliateHomeUrl();
+    } catch {
+      openBtn.href = cleanedUrl || '#';
+    }
 
     btnRow.appendChild(openBtn);
     card.appendChild(h);
@@ -548,15 +561,11 @@
     }
     if (input) logSubmittedUrl(input, category);
 
-    if (!input) {
-      const defaultAff =
-        (currentLang === 'ko') ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX :
-        (currentLang === 'ja') ? 'https://www.trip.com/?curr=JPY&' + AFF_AFFIX :
-        (currentLang === 'th') ? 'https://www.trip.com/?curr=THB&' + AFF_AFFIX :
-                                 'https://www.trip.com/?curr=USD&' + AFF_AFFIX;
-      redirectWithModal(defaultAff, 800);
-      return;
-    }
+    if (!input) {
+      const defaultAff = getAffiliateHomeUrl();
+      redirectWithModal(defaultAff, 800);
+      return;
+    }
 
     const resultsDiv = $('#results');
     if (!resultsDiv) return;
