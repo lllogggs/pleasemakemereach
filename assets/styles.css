@@ -647,6 +647,49 @@ footer p{ margin:3px 0; }
 }
 #redirect-modal .redirect-guide-list li{ line-height:1.5; }
 
+.redirect-guide-card{
+  background:#f4f7fb;
+  border:1px solid #dbe7f5;
+  border-radius:16px;
+  padding:16px;
+  max-width:720px;
+  margin:0 auto;
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+  text-align:left;
+}
+.redirect-guide-card__title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:8px;
+  color:#0b3b73;
+}
+.redirect-guide-card__body{
+  color:#243b53;
+  line-height:1.6;
+  font-size:14px;
+}
+.redirect-guide-card__body .redirect-guide-list{
+  margin-top:6px;
+  padding-left:18px;
+}
+.redirect-guide-card__body .redirect-guide-list li{ margin-bottom:4px; }
+.redirect-guide-card__cta{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 14px;
+  background:#0f6cf2;
+  color:#fff;
+  font-weight:700;
+  border-radius:10px;
+  text-decoration:none;
+  box-shadow:0 10px 20px rgba(15,108,242,0.15);
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.redirect-guide-card__cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 24px rgba(15,108,242,0.2);
+}
+
 /* ===== Ads guide popup ===== */
 #ad-guide-popup .ad-guide-overlay {
   position: fixed;

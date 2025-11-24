@@ -412,23 +412,51 @@
     }
   }
 
-  // ===== 리디렉트 토스트 =====
-  let isRedirecting = false;
-  function redirectWithModal(affUrl, delayMs=800){
-    if (isRedirecting) return;
-    isRedirecting = true;
+  // ===== 리디렉트 토스트 =====
+  let isRedirecting = false;
+  function redirectWithModal(affUrl, delayMs=800){
+    if (isRedirecting) return;
+    isRedirecting = true;
     const modal = $('#redirect-modal');
     if (modal) modal.style.display = 'flex';
     setTimeout(() => {
       if (modal) modal.style.display = 'none';
       window.open(affUrl, '_blank', 'noopener');
-      isRedirecting = false;
-    }, delayMs);
-  }
+      isRedirecting = false;
+    }, delayMs);
+  }
 
-  // ===== 단축링크 안내 카드 =====
-  function renderShortlinkNotice(rawUrl, container){
-    container.innerHTML = '';
+  function renderRedirectGuideCard(container, tripUrl){
+    if (!container) return;
+    container.innerHTML = '';
+
+    const card = document.createElement('div');
+    card.className = 'redirect-guide-card';
+
+    const title = document.createElement('div');
+    title.className = 'redirect-guide-card__title';
+    title.textContent = TL('redirecting');
+
+    const desc = document.createElement('div');
+    desc.className = 'redirect-guide-card__body';
+    desc.innerHTML = TL('redirectGuide') || '';
+
+    const link = document.createElement('a');
+    link.className = 'redirect-guide-card__cta';
+    link.href = tripUrl || '#';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = TL('redirectingToSearch') || TL('searchPrompt');
+
+    card.appendChild(title);
+    card.appendChild(desc);
+    card.appendChild(link);
+    container.appendChild(card);
+  }
+
+  // ===== 단축링크 안내 카드 =====
+  function renderShortlinkNotice(rawUrl, container){
+    container.innerHTML = '';
 
     const card = document.createElement('div');
     card.className = 'info-card';
@@ -591,8 +619,10 @@
     // ===============================================
     if (!isUrl) {
       const affiliateHome = getAffiliateHomeUrl();
-      resultsDiv.innerHTML = `<p style="text-align:center; font-weight:bold;">${TL('redirecting')}</p>`;
-      redirectWithModal(affiliateHome, 800);
+      renderRedirectGuideCard(resultsDiv, affiliateHome);
+      try {
+        window.open(affiliateHome, '_blank', 'noopener');
+      } catch(_) {}
       return;
     }
     // ===============================================
