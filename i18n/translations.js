@@ -33,6 +33,8 @@ window.TRANSLATIONS = {
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text">For more accurate price comparison,<br><strong>use the PC (Desktop site) version!</strong><br><small>(Some prices may be the same across countries on mobile)</small></p>`,
     youtube:"YouTube", blog:"Blog",
     redirecting:"Redirecting to Trip.com...",
+    searchModeTitle:"How to fetch a Trip.com link",
+    searchModeGuide:`<p class="redirect-guide-lead">We detected a search term. Please follow these steps on Trip.com to grab the actual link:</p><ol class="redirect-guide-list redirect-guide-list--compact"><li>On Trip.com, search for the hotel or product you want (e.g., “Osaka Hilton”).</li><li>Select your travel dates and number of guests.</li><li>Press the search button to view the results.</li><li>Copy the results page URL and paste it back into Tripdotdot.</li></ol>`,
     redirectGuide:`<ol class="redirect-guide-list"><li>On the Trip.com page that opens, type your destination or hotel name (e.g., "Osaka Hilton").</li><li>Enter your travel dates.</li><li>Press search.</li><li>Copy the results page URL and paste it back into Tripdotdot.</li></ol>`,
 
     trustTitle:"Save more on travel costs",
@@ -83,6 +85,8 @@ window.TRANSLATIONS = {
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text"><strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong><br><small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small></p>`,
     youtube:"YouTube", blog:"Blog",
     redirecting:"트립닷컴으로 이동합니다...",
+    searchModeTitle:"트립닷닷 이용 안내",
+    searchModeGuide:`<p class="redirect-guide-lead">검색어가 입력되었습니다. 아래 순서대로 트립닷컴에서 실제 링크를 가져와 주세요:</p><ol class="redirect-guide-list redirect-guide-list--compact"><li>트립닷컴에서 “오사카 힐튼”처럼 원하는 호텔/상품을 검색</li><li>여행 날짜와 인원 등을 선택</li><li>검색 버튼을 눌러 결과 페이지 확인</li><li>검색 결과 페이지의 URL을 복사해 다시 트립닷닷 입력창에 붙여넣기</li></ol>`,
     redirectGuide:`<ol class="redirect-guide-list"><li><strong>연결된 트립닷컴</strong> 홈페이지에서 원하는 숙소/상품을 검색하세요. (예: "오사카 힐튼")</li><li>여행 일정/숙박 기간을 입력</li><li>검색</li><li>검색 결과 페이지 주소를 복사해서 트립닷닷에 붙여넣기</li></ol>`,
 
     trustTitle:"여행 비용을 더 아껴보세요",
@@ -133,6 +137,8 @@ window.TRANSLATIONS = {
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text"><strong>より正確な価格比較は<br>PC（デスクトップサイト）で可能です！</strong><br><small>（一部の商品はモバイルで各国の価格が同じです）</small></p>`,
     youtube:"YouTube", blog:"ブログ",
     redirecting:"Trip.comに移動します...",
+    searchModeTitle:"Trip.comリンクの取り方",
+    searchModeGuide:`<p class="redirect-guide-lead">検索キーワードが入力されました。Trip.comで実際のリンクを取得する手順です：</p><ol class="redirect-guide-list redirect-guide-list--compact"><li>Trip.comで「大阪 ヒルトン」のように希望のホテル/商品を検索</li><li>旅行日程や人数などを選択</li><li>検索ボタンを押して結果を確認</li><li>検索結果ページのURLをコピーし、Tripdotdotの入力欄に貼り付け</li></ol>`,
     redirectGuide:`<ol class="redirect-guide-list"><li>開いたTrip.comのトップで行き先/ホテル名を入力（例：「大阪 ヒルトン」）。</li><li>宿泊日程や旅行日を入力。</li><li>検索を押す。</li><li>表示された検索結果ページのURLをコピーし、Tripdotdotに貼り付け。</li></ol>`,
 
     trustTitle:"旅費をもっと節約しましょう",
@@ -183,6 +189,8 @@ window.TRANSLATIONS = {
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text">เพื่อการเปรียบเทียบราคาที่แม่นยำกว่า<br><strong>แนะนำให้ใช้งานบนพีซี (Desktop)</strong><br><small>(บนมือถือ บางรายการอาจมีราคาเท่ากันทุกประเทศ)</small></p>`,
     youtube:"YouTube", blog:"บล็อก",
     redirecting:"กำลังพาไปที่ Trip.com...",
+    searchModeTitle:"วิธีนำลิงก์จาก Trip.com",
+    searchModeGuide:`<p class="redirect-guide-lead">ตรวจพบคำค้นหาแล้ว ทำตามขั้นตอนด้านล่างเพื่อดึงลิงก์จริงจาก Trip.com:</p><ol class="redirect-guide-list redirect-guide-list--compact"><li>ที่ Trip.com ค้นหาโรงแรมหรือสินค้าที่ต้องการ (เช่น “Osaka Hilton”)</li><li>เลือกวันที่เดินทางและจำนวนผู้เข้าพัก</li><li>กดปุ่มค้นหาเพื่อดูผลลัพธ์</li><li>คัดลอก URL ของหน้าผลการค้นหา แล้วนำมาวางในช่องกรอกของ Tripdotdot</li></ol>`,
     redirectGuide:`<ol class="redirect-guide-list"><li>หน้า Trip.com ที่เปิดขึ้น ให้พิมพ์จุดหมายหรือชื่อโรงแรม (เช่น “Osaka Hilton”)</li><li>ใส่วันที่เดินทางหรือเข้าพัก</li><li>กดค้นหา</li><li>คัดลอก URL ของหน้าผลการค้นหาแล้วกลับมาวางที่ Tripdotdot</li></ol>`,
 
     trustTitle:"ประหยัดค่าเดินทางได้มากขึ้น",
