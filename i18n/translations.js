@@ -34,7 +34,7 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"Blog",
     redirecting:"Redirecting to Trip.com...",
     searchModeTitle:"🔍 You entered a search term. Grab the real link like this.",
-    searchModeGuide:`<p class="redirect-guide-lead">We detected a search term. Follow these steps on Trip.com to bring back the actual link:</p><ol class="search-mode-list"><li><span class="search-step-emoji">1️⃣</span><span class="search-step-text">On Trip.com, search for the hotel or product you want (e.g., “Osaka Hilton”).</span></li><li><span class="search-step-emoji">2️⃣</span><span class="search-step-text">Choose your travel dates and guest details.</span></li><li><span class="search-step-emoji">3️⃣</span><span class="search-step-text">Press the search button to view the results page.</span></li><li><span class="search-step-emoji">4️⃣</span><span class="search-step-text">Copy the results page URL and paste it back into Tripdotdot.</span></li></ol>`,
+    searchModeGuide:`<p class="redirect-guide-lead">We detected a search term. Follow these steps on Trip.com to bring back the actual link:</p><ol class="search-mode-list"><li>On Trip.com, search for the hotel or product you want (e.g., “Osaka Hilton”).</li><li>Choose your travel dates and guest details.</li><li>Press the search button to view the results page.</li><li>Copy the results page URL and paste it back into Tripdotdot.</li></ol>`,
     searchModeCta:"Search on Trip.com",
     redirectGuide:`<ol class="redirect-guide-list"><li>On the Trip.com page that opens, type your destination or hotel name (e.g., "Osaka Hilton").</li><li>Enter your travel dates.</li><li>Press search.</li><li>Copy the results page URL and paste it back into Tripdotdot.</li></ol>`,
 
@@ -86,8 +86,8 @@ window.TRANSLATIONS = {
     mobileNotice:`<p class="notice-icon">✨</p><p class="notice-text"><strong>더 정확한 최저가 비교는<br>PC(데스크톱 사이트)에서 가능해요!</strong><br><small>(일부 상품은 모바일에서 국가별 가격이 동일해요)</small></p>`,
     youtube:"YouTube", blog:"Blog",
     redirecting:"트립닷컴으로 이동합니다...",
-    searchModeTitle:"🔍 입력하신 내용은 ‘검색어’예요. 이렇게 링크를 가져와 주세요.",
-    searchModeGuide:`<p class="redirect-guide-lead">검색어가 입력되었습니다. 아래 순서대로 트립닷컴에서 실제 링크를 가져와 주세요:</p><ol class="search-mode-list"><li><span class="search-step-emoji">1️⃣</span><span class="search-step-text">트립닷컴에서 “오사카 힐튼”처럼 원하는 호텔/상품을 검색</span></li><li><span class="search-step-emoji">2️⃣</span><span class="search-step-text">여행 날짜와 인원 등을 선택</span></li><li><span class="search-step-emoji">3️⃣</span><span class="search-step-text">검색 버튼을 눌러 결과 페이지 확인</span></li><li><span class="search-step-emoji">4️⃣</span><span class="search-step-text">검색 결과 페이지의 URL을 복사해 다시 트립닷닷 입력창에 붙여넣기</span></li></ol>`,
+    searchModeTitle:"🔍 검색어로 찾고 계시네요!",
+    searchModeGuide:`<ol class="search-mode-list"><li><span class="search-step-emoji">1️⃣</span><span class="search-step-text">트립닷컴에서 “<span class="search-highlight">오사카 힐튼</span>”처럼 원하는 호텔/상품을 검색</span></li><li><span class="search-step-emoji">2️⃣</span><span class="search-step-text"><strong class="search-highlight">여행 날짜 / 인원</strong> 선택</span></li><li><span class="search-step-emoji">3️⃣</span><span class="search-step-text">검색 결과 페이지 열기</span></li><li><span class="search-step-emoji">4️⃣</span><span class="search-step-text"><strong class="search-highlight">URL 복사</strong> → 트립닷닷 입력창에 붙여넣기</span></li></ol>`,
     searchModeCta:"트립닷컴에서 검색하기",
     redirectGuide:`<ol class="redirect-guide-list"><li><strong>연결된 트립닷컴</strong> 홈페이지에서 원하는 숙소/상품을 검색하세요. (예: "오사카 힐튼")</li><li>여행 일정/숙박 기간을 입력</li><li>검색</li><li>검색 결과 페이지 주소를 복사해서 트립닷닷에 붙여넣기</li></ol>`,
 
@@ -140,7 +140,7 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"ブログ",
     redirecting:"Trip.comに移動します...",
     searchModeTitle:"🔍 入力内容は“検索キーワード”です。こうしてリンクを取得してください。",
-    searchModeGuide:`<p class="redirect-guide-lead">検索キーワードが入力されました。Trip.comで実際のリンクを取得する手順です：</p><ol class="search-mode-list"><li><span class="search-step-emoji">1️⃣</span><span class="search-step-text">Trip.comで「大阪 ヒルトン」のように希望のホテル/商品を検索</span></li><li><span class="search-step-emoji">2️⃣</span><span class="search-step-text">旅行日程や人数などを選択</span></li><li><span class="search-step-emoji">3️⃣</span><span class="search-step-text">検索ボタンを押して結果ページを表示</span></li><li><span class="search-step-emoji">4️⃣</span><span class="search-step-text">結果ページのURLをコピーし、Tripdotdotの入力欄に貼り付け</span></li></ol>`,
+    searchModeGuide:`<p class="redirect-guide-lead">検索キーワードが入力されました。Trip.comで実際のリンクを取得する手順です：</p><ol class="search-mode-list"><li>Trip.comで「大阪 ヒルトン」のように希望のホテル/商品を検索</li><li>旅行日程や人数などを選択</li><li>検索ボタンを押して結果ページを表示</li><li>結果ページのURLをコピーし、Tripdotdotの入力欄に貼り付け</li></ol>`,
     searchModeCta:"Trip.comで検索する",
     redirectGuide:`<ol class="redirect-guide-list"><li>開いたTrip.comのトップで行き先/ホテル名を入力（例：「大阪 ヒルトン」）。</li><li>宿泊日程や旅行日を入力。</li><li>検索を押す。</li><li>表示された検索結果ページのURLをコピーし、Tripdotdotに貼り付け。</li></ol>`,
 
@@ -193,7 +193,7 @@ window.TRANSLATIONS = {
     youtube:"YouTube", blog:"บล็อก",
     redirecting:"กำลังพาไปที่ Trip.com...",
     searchModeTitle:"🔍 เนื้อหาที่กรอกคือ ‘คำค้นหา’ ทำตามนี้เพื่อดึงลิงก์จริง",
-    searchModeGuide:`<p class="redirect-guide-lead">ตรวจพบคำค้นหาแล้ว ทำตามขั้นตอนด้านล่างเพื่อดึงลิงก์จริงจาก Trip.com:</p><ol class="search-mode-list"><li><span class="search-step-emoji">1️⃣</span><span class="search-step-text">ที่ Trip.com ค้นหาโรงแรมหรือสินค้าที่ต้องการ (เช่น “Osaka Hilton”)</span></li><li><span class="search-step-emoji">2️⃣</span><span class="search-step-text">เลือกวันที่เดินทางและจำนวนผู้เข้าพัก</span></li><li><span class="search-step-emoji">3️⃣</span><span class="search-step-text">กดปุ่มค้นหาเพื่อดูหน้าผลลัพธ์</span></li><li><span class="search-step-emoji">4️⃣</span><span class="search-step-text">คัดลอก URL ของหน้าผลการค้นหา แล้ววางกลับมาที่ช่องกรอกของ Tripdotdot</span></li></ol>`,
+    searchModeGuide:`<p class="redirect-guide-lead">ตรวจพบคำค้นหาแล้ว ทำตามขั้นตอนด้านล่างเพื่อดึงลิงก์จริงจาก Trip.com:</p><ol class="search-mode-list"><li>ที่ Trip.com ค้นหาโรงแรมหรือสินค้าที่ต้องการ (เช่น “Osaka Hilton”)</li><li>เลือกวันที่เดินทางและจำนวนผู้เข้าพัก</li><li>กดปุ่มค้นหาเพื่อดูหน้าผลลัพธ์</li><li>คัดลอก URL ของหน้าผลการค้นหา แล้ววางกลับมาที่ช่องกรอกของ Tripdotdot</li></ol>`,
     searchModeCta:"ไปค้นหาบน Trip.com",
     redirectGuide:`<ol class="redirect-guide-list"><li>หน้า Trip.com ที่เปิดขึ้น ให้พิมพ์จุดหมายหรือชื่อโรงแรม (เช่น “Osaka Hilton”)</li><li>ใส่วันที่เดินทางหรือเข้าพัก</li><li>กดค้นหา</li><li>คัดลอก URL ของหน้าผลการค้นหาแล้วกลับมาวางที่ Tripdotdot</li></ol>`,
 
