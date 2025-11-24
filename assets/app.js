@@ -271,12 +271,17 @@
     }
 
     const langFlag = $('#lang-flag');
-    if (langFlag) {
-      langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag}.png`;
-      langFlag.alt = `${langDetails[lang].text} Flag`;
-      langFlag.width = 24; langFlag.height = 24;
-    }
-  }
+    if (langFlag) {
+      langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag}.png`;
+      langFlag.alt = `${langDetails[lang].text} Flag`;
+      langFlag.width = 24; langFlag.height = 24;
+    }
+
+    const helpCard = $('#redirect-help');
+    if (helpCard && !helpCard.hidden) {
+      updateRedirectHelp(lastSearchTerm);
+    }
+  }
 
   function goLang(newLang){
     const qs = window.location.search || '';
@@ -412,13 +417,47 @@
     }
   }
 
-  // ===== 리디렉트 토스트 =====
-  let isRedirecting = false;
-  function redirectWithModal(affUrl, delayMs=800){
-    if (isRedirecting) return;
-    isRedirecting = true;
-    const modal = $('#redirect-modal');
-    if (modal) modal.style.display = 'flex';
+  // ===== 리디렉트 토스트 =====
+  let isRedirecting = false;
+  let lastSearchTerm = '';
+
+  function hideRedirectHelp(){
+    const helpCard = $('#redirect-help');
+    const stepsList = $('#redirect-help-steps');
+    if (helpCard) helpCard.hidden = true;
+    if (stepsList) stepsList.innerHTML = '';
+  }
+
+  function updateRedirectHelp(searchTerm=''){
+    const helpCard = $('#redirect-help');
+    const stepsList = $('#redirect-help-steps');
+    if (!helpCard || !stepsList) return;
+
+    const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
+    const steps = Array.isArray(T.redirectGuideSteps) ? T.redirectGuideSteps : [];
+    if (!steps.length) {
+      hideRedirectHelp();
+      return;
+    }
+
+    const fallbackTerm = (T.redirectGuidePlaceholder || '').trim() || '검색어';
+    const safeTerm = (searchTerm || '').trim() || fallbackTerm;
+
+    stepsList.innerHTML = '';
+    steps.forEach(step => {
+      const li = document.createElement('li');
+      li.textContent = (step || '').replace('{query}', safeTerm);
+      stepsList.appendChild(li);
+    });
+
+    helpCard.hidden = false;
+  }
+
+  function redirectWithModal(affUrl, delayMs=800){
+    if (isRedirecting) return;
+    isRedirecting = true;
+    const modal = $('#redirect-modal');
+    if (modal) modal.style.display = 'flex';
     setTimeout(() => {
       if (modal) modal.style.display = 'none';
       window.open(affUrl, '_blank', 'noopener');
@@ -540,12 +579,14 @@
   let mobilePopupShown = false;
   let blankClickCount = 0;
 
-  window.generateLinks = async function(){
-    const input = ($('#inputUrl')?.value || '').trim();
+  window.generateLinks = async function(){
+    const input = ($('#inputUrl')?.value || '').trim();
+    lastSearchTerm = input;
+    hideRedirectHelp();
 
-    // 카테고리 판별(대략)
-    let category = 'Other';
-    const isUrl = input.includes('http') || input.includes('trip.com');
+    // 카테고리 판별(대략)
+    let category = 'Other';
+    const isUrl = input.includes('http') || input.includes('trip.com');
     if (isUrl) {
       if (input.includes('/hotels/')) category = 'Hotel';
       else if (input.includes('/flights/')) category = 'Flight';
@@ -586,41 +627,17 @@
       return a;
     }
     
-    // ===============================================
-    // ★ 변경된 로직: 링크 형식이 아니면 검색어로 처리 (City ID 매핑 파일 사용)
-    // ===============================================
-    if (!isUrl) {
-        // City ID 맵을 비동기적으로 로드하여 사용
-        const CityIdMap = await loadCityIdMapOnce();
-
-        const baseCurr = (languageToCurrencyMap[currentLang] || 'USD');
-        const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
-        
-        // 입력값을 소문자로 변환하여 맵에서 ID를 조회 (대소문자 무시)
-        const searchCityNameKey = input.toLowerCase();
-        const searchCityId = CityIdMap[searchCityNameKey];
-
-        // 사용자에게 보여줄 cityName은 원본 입력값을 사용하여 URL에 포함
-        const searchCityNameForUrl = input;
-
-
-        // 도시 ID가 없는 경우 오류 처리
-        if (!searchCityId) {
-            resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${TL('cityNameIdNotFound')}</p>`;
-            if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
-            return;
-        }
-
-        // City ID와 City Name을 사용하여 호텔 검색 URL 생성
-        const searchUrl = buildHotelSearchUrl(host, searchCityId, searchCityNameForUrl, '', '', baseCurr);
-        
-        // 검색 중 메시지 표시 및 리디렉션
-        resultsDiv.innerHTML = `<p style="text-align:center; font-weight:bold;">${TL('redirectingToSearch')}</p>`;
-        redirectWithModal(searchUrl, 500);
-        
-        return;
-    }
-    // ===============================================
+    // ===============================================
+    // ★ 변경된 로직: URL이 아니면 트립닷컴 메인으로 제휴 리디렉션
+    // ===============================================
+    if (!isUrl) {
+      const affiliateHome = getAffiliateHomeUrl();
+      updateRedirectHelp(input);
+      resultsDiv.innerHTML = `<p style="text-align:center; font-weight:bold;">${TL('redirecting')}</p>`;
+      redirectWithModal(affiliateHome, 800);
+      return;
+    }
+    // ===============================================
 
 
     // ★ /w/ 단축링크 처리: 정규화 시도 없이 무조건 안내 노출

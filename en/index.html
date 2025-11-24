@@ -95,7 +95,7 @@
           <p class="hero-subtitle" data-lang="subtitle">Trip.com Lowest Price Link Finder</p>
         </div>
         <div class="hero-input input-section">
-          <input id="inputUrl" data-lang-placeholder placeholder="Paste Hotel/Flight link from trip.com!" type="text" inputmode="url">
+          <input id="inputUrl" data-lang-placeholder placeholder="Paste the Trip.com link after selecting your dates!" type="text" inputmode="url">
           <div class="input-actions">
             <button class="main-button" onclick="generateLinks()" data-lang="findButton">Find Lowest Price Links</button>
             <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">No link yet? Search on Trip.com</button>
@@ -105,6 +105,11 @@
     </header>
 
     <div class="link-list" id="results"></div>
+
+    <section id="redirect-help" class="info-card redirect-help" aria-live="polite" hidden>
+      <h2 class="redirect-help-title" data-lang="redirecting">Redirecting to Trip.com...</h2>
+      <ol id="redirect-help-steps" class="redirect-help-steps"></ol>
+    </section>
 
     <div class="info-grid">
       <section class="info-card usage-card">
@@ -122,8 +127,8 @@
           </div>
         </div>
         <ul data-lang="card2List">
-          <li>1️⃣ Find a deal on Trip.com and <strong>copy the link.</strong></li>
-          <li>2️⃣ Paste the link above and click <strong>'Find'</strong>!</li>
+          <li>1️⃣ On Trip.com, choose your hotel/flight, enter <strong>stay or travel dates</strong>, then copy the URL.</li>
+          <li>2️⃣ Paste that link above and press <strong>'Find'</strong>.</li>
           <li>3️⃣ Click the generated links to <strong>find the best price!</strong></li>
         </ul>
       </section>
@@ -209,7 +214,9 @@
 
   <!-- Center toast -->
   <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="Trip.com redirect notice">
-    <div class="redirect-box" data-lang="redirecting">Redirecting to Trip.com...</div>
+    <div class="redirect-box">
+      <div class="redirect-title" data-lang="redirecting">Redirecting to Trip.com...</div>
+    </div>
   </div>
 
   <!-- Search widget modal -->
