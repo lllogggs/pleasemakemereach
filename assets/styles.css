@@ -751,7 +751,7 @@ footer p{ margin:3px 0; }
 .search-highlight{ color:var(--primary-blue); font-weight:750; }
 
 .search-mode-list{
-  list-style:decimal;
+  list-style:none;
   list-style-position:inside;
   padding:0;
   margin:10px 0 0;
