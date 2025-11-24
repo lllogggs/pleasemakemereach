@@ -426,31 +426,44 @@
     }, delayMs);
   }
 
-  function renderRedirectGuideCard(container, tripUrl){
+  function renderRedirectGuideCard(container, tripUrl, options={}){
     if (!container) return;
     container.innerHTML = '';
 
     const card = document.createElement('div');
     card.className = 'redirect-guide-card';
 
+    const header = document.createElement('div');
+    header.className = 'redirect-guide-card__header';
+
+    const icon = document.createElement('span');
+    icon.className = 'redirect-guide-card__icon';
+    icon.textContent = options.icon || '🔗';
+
     const title = document.createElement('div');
     title.className = 'redirect-guide-card__title';
-    title.textContent = TL('redirecting');
+    title.textContent = options.titleText || TL('redirecting');
+
+    header.appendChild(icon);
+    header.appendChild(title);
 
     const desc = document.createElement('div');
     desc.className = 'redirect-guide-card__body';
-    desc.innerHTML = TL('redirectGuide') || '';
+    desc.innerHTML = options.guideHtml || TL('redirectGuide') || '';
 
-    const link = document.createElement('a');
-    link.className = 'redirect-guide-card__cta';
-    link.href = tripUrl || '#';
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = TL('redirectingToSearch') || TL('searchPrompt');
-
-    card.appendChild(title);
+    card.appendChild(header);
     card.appendChild(desc);
-    card.appendChild(link);
+
+    if (options.showCta !== false) {
+      const link = document.createElement('a');
+      link.className = 'redirect-guide-card__cta';
+      link.href = tripUrl || '#';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = options.ctaLabel || TL('redirectingToSearch') || TL('searchPrompt');
+      card.appendChild(link);
+    }
+
     container.appendChild(card);
   }
 
@@ -619,7 +632,12 @@
     // ===============================================
     if (!isUrl) {
       const affiliateHome = getAffiliateHomeUrl();
-      renderRedirectGuideCard(resultsDiv, affiliateHome);
+      renderRedirectGuideCard(resultsDiv, affiliateHome, {
+        icon: '🌍',
+        titleText: TL('searchModeTitle') || TL('redirecting'),
+        guideHtml: TL('searchModeGuide') || TL('redirectGuide'),
+        ctaLabel: TL('redirectingToSearch') || TL('searchPrompt')
+      });
       try {
         window.open(affiliateHome, '_blank', 'noopener');
       } catch(_) {}
