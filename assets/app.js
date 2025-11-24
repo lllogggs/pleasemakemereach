@@ -432,6 +432,9 @@
 
     const card = document.createElement('div');
     card.className = 'redirect-guide-card';
+    if (options.className) {
+      card.classList.add(options.className);
+    }
 
     const header = document.createElement('div');
     header.className = 'redirect-guide-card__header';
@@ -460,11 +463,21 @@
       link.href = tripUrl || '#';
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.textContent = options.ctaLabel || TL('redirectingToSearch') || TL('searchPrompt');
+      link.textContent = options.ctaLabel || TL('searchModeCta') || TL('redirectingToSearch') || TL('searchPrompt');
       card.appendChild(link);
     }
 
     container.appendChild(card);
+  }
+
+  function renderSearchModeCard(container, affiliateHome){
+    renderRedirectGuideCard(container, affiliateHome, {
+      icon: '🔍',
+      titleText: TL('searchModeTitle') || TL('redirecting'),
+      guideHtml: TL('searchModeGuide') || TL('redirectGuide'),
+      ctaLabel: TL('searchModeCta') || TL('redirectingToSearch') || TL('searchPrompt'),
+      className: 'redirect-guide-card--search-mode'
+    });
   }
 
   // ===== 단축링크 안내 카드 =====
@@ -576,6 +589,20 @@
     document.head.appendChild(style);
   }
 
+  function isLikelyUrl(input){
+    if (!input) return false;
+    const lower = input.toLowerCase();
+    if (lower.startsWith('http://') || lower.startsWith('https://')) return true;
+    if (lower.includes('trip.com')) return true;
+    try {
+      // 공백이 없는 일반 텍스트 + 도메인 패턴까지 감지
+      const parsed = new URL(lower.startsWith('http') ? lower : `https://${lower}`);
+      return Boolean(parsed.hostname && parsed.hostname.includes('.'));
+    } catch {
+      return false;
+    }
+  }
+
   // ===== 메인 기능 =====
   let linkClickCount = 0;
   let mobilePopupShown = false;
@@ -585,8 +612,8 @@
     const input = ($('#inputUrl')?.value || '').trim();
 
     // 카테고리 판별(대략)
-    let category = 'Other';
-    const isUrl = input.includes('http') || input.includes('trip.com');
+    let category = 'Other';
+    const isUrl = isLikelyUrl(input);
     if (isUrl) {
       if (input.includes('/hotels/')) category = 'Hotel';
       else if (input.includes('/flights/')) category = 'Flight';
@@ -628,19 +655,11 @@
     }
     
     // ===============================================
-    // ★ 변경된 로직: URL이 아니면 트립닷컴 메인으로 제휴 리디렉션
+    // 검색어 모드: 팝업 대신 하단 카드로 안내
     // ===============================================
     if (!isUrl) {
       const affiliateHome = getAffiliateHomeUrl();
-      renderRedirectGuideCard(resultsDiv, affiliateHome, {
-        icon: '🌍',
-        titleText: TL('searchModeTitle') || TL('redirecting'),
-        guideHtml: TL('searchModeGuide') || TL('redirectGuide'),
-        ctaLabel: TL('redirectingToSearch') || TL('searchPrompt')
-      });
-      try {
-        window.open(affiliateHome, '_blank', 'noopener');
-      } catch(_) {}
+      renderSearchModeCard(resultsDiv, affiliateHome);
       return;
     }
     // ===============================================
