@@ -626,9 +626,26 @@ footer p{ margin:3px 0; }
 #redirect-modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.45);
   z-index:9999; align-items:center; justify-content:center; }
 #redirect-modal .redirect-box{
-  background:#fff; padding:14px 18px; border-radius:10px; border:1px solid var(--border-color);
+  background:#fff; padding:16px 18px; border-radius:10px; border:1px solid var(--border-color);
   font-size:14px; color:#1f2937; box-shadow:0 8px 24px rgba(0,0,0,.2);
+  max-width: 360px;
 }
+#redirect-modal .redirect-title{
+  font-weight:700;
+  margin:0 0 8px;
+}
+#redirect-modal .redirect-guide{
+  color:#4b5563;
+  font-size:13px;
+}
+#redirect-modal .redirect-guide-list{
+  margin:0;
+  padding-left:18px;
+  display:flex;
+  gap:6px;
+  flex-direction:column;
+}
+#redirect-modal .redirect-guide-list li{ line-height:1.5; }
 
 /* ===== Ads guide popup ===== */
 #ad-guide-popup .ad-guide-overlay {
