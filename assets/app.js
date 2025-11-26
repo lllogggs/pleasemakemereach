@@ -609,13 +609,14 @@
   let blankClickCount = 0;
 
   window.generateLinks = async function(){
-    const input = ($('#inputUrl')?.value || '').trim();
+    const input = ($('#inputUrl')?.value || '').trim();
+    const lowerInput = input.toLowerCase();
 
     // 카테고리 판별(대략)
     let category = 'Other';
-    const isUrl = isLikelyUrl(input);
-    if (isUrl) {
-      if (input.includes('/hotels/')) category = 'Hotel';
+     const isUrl = isLikelyUrl(input);
+     if (isUrl) {
+       if (input.includes('/hotels/')) category = 'Hotel';
       else if (input.includes('/flights/')) category = 'Flight';
       else if (input.includes('/packages/')) category = 'Package';
       else if (input.includes('/things-to-do/')) category = 'Activity';
@@ -627,13 +628,17 @@
     if (input && typeof gtag === 'function') {
       gtag('event','submit_url',{ submitted_link: input, link_category: category });
     }
-    if (input) logSubmittedUrl(input, category);
+     if (input) logSubmittedUrl(input, category);
 
-    if (!input) {
-      const defaultAff = getAffiliateHomeUrl();
-      redirectWithModal(defaultAff, 800);
-      return;
-    }
+     if (!input) {
+       const defaultAff = getAffiliateHomeUrl();
+       redirectWithModal(defaultAff, 800);
+       return;
+     }
+
+     if (isUrl && lowerInput.includes('booknew')) {
+       alert(TL('booknewWarning'));
+     }
 
     const resultsDiv = $('#results');
     if (!resultsDiv) return;
