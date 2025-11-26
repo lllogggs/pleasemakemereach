@@ -266,6 +266,9 @@ footer p{ margin:3px 0; }
   border-radius:18px;
   box-shadow:0 15px 40px rgba(15,23,42,.08);
   border:1px solid rgba(255,255,255,.55);
+  display:flex;
+  flex-direction:column;
+  height:100%;
 }
 .adsense-card{
   padding:0;
@@ -411,6 +414,13 @@ footer p{ margin:3px 0; }
   display:grid;
   gap:24px;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  align-items:stretch;
+}
+
+@media (min-width:640px){
+  .info-grid .info-card:not(.adsense-card){
+    min-height:260px;
+  }
 }
 .desktop-only{ display:block; }
 
