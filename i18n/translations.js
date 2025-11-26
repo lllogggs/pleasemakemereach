@@ -64,7 +64,7 @@ window.TRANSLATIONS = {
     featureAutomationDesc:"국가별로 다른 할인 코드와 제휴 파라미터를 알아서 붙여줘요.",
     featureLanguageTitle:"다국어 완전 지원",
     featureLanguageDesc:"한국어·영어·일본어·태국어 UI로 누구나 쉽게 공유할 수 있어요.",
-    placeholder:"트립닷컴에서 날짜 선택 후 나온 링크를 붙여넣어 주세요!",
+    placeholder:"https://kr.trip.com/hotels/detail/~~",
     findButton:"최저가 링크 찾기",
     searchPrompt:"링크가 없다면? 여기서 검색하기",
     hotelTabTitle:"🏨 호텔 예약",
