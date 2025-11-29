@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 
@@ -608,7 +608,7 @@
   let mobilePopupShown = false;
   let blankClickCount = 0;
 
-  async function generateLinks(){
+  window.generateLinks = async function(){
     const input = ($('#inputUrl')?.value || '').trim();
     const lowerInput = input.toLowerCase();
 
@@ -1005,7 +1005,7 @@
       inputEl2.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           e.preventDefault(); // 기본 동작 (페이지 새로고침 등) 방지
-          generateLinks(); // 링크 생성/검색 함수 호출
+          window.generateLinks(); // 링크 생성/검색 함수 호출
         }
       });
       
@@ -1027,19 +1027,4 @@
       });
     }
   });
-// ===== 이벤트 리스너 부착 =====
-const generateBtn = $('#generate-btn');
-if (generateBtn) {
-    generateBtn.addEventListener('click', generateLinks);
-}
-
-const inputUrl = $('#inputUrl');
-if (inputUrl) {
-    inputUrl.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') generateLinks();
-    });
-}
-
-  }) ();
-
-
+})();
