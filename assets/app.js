@@ -603,10 +603,25 @@
     }
   }
 
-  // ===== 메인 기능 =====
-  let linkClickCount = 0;
-  let mobilePopupShown = false;
-  let blankClickCount = 0;
+  let countryClickCount = 0;
+
+  function checkHighQualityConversion() {
+    const inputValue = document.getElementById('inputUrl').value;
+
+    // 조건: URL 입력 + 국가 버튼 3번 이상 클릭
+    if (inputValue.length > 5 && countryClickCount >= 3) {
+      gtag('event', 'high_quality_conversion', {
+        event_category: 'engaged_user',
+        event_label: 'hq_conversion',
+        value: 1
+      });
+    }
+  }
+
+  // ===== 메인 기능 =====
+  let linkClickCount = 0;
+  let mobilePopupShown = false;
+  let blankClickCount = 0;
 
   window.generateLinks = async function(){
     const input = ($('#inputUrl')?.value || '').trim();
@@ -806,15 +821,18 @@
         const finalAffix = (param ? '&' : '?') + AFF_AFFIX;
         const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
 
-        const a = document.createElement('a');
-        a.href = fullUrl;
-        a.target = '_blank';
-        a.rel = 'noopener nofollow sponsored';
-        a.onclick = () => {
-          a.classList.toggle('clicked');
-          linkClickCount++;
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          if (isMobile && linkClickCount >= 4 && !mobilePopupShown) {
+        const a = document.createElement('a');
+        a.href = fullUrl;
+        a.target = '_blank';
+        a.rel = 'noopener nofollow sponsored';
+        a.addEventListener('click', () => {
+          countryClickCount++;
+        });
+        a.onclick = () => {
+          a.classList.toggle('clicked');
+          linkClickCount++;
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+          if (isMobile && linkClickCount >= 4 && !mobilePopupShown) {
             const mobileModal = $('#mobile-notice-modal');
             if (mobileModal) { mobileModal.style.display = 'flex'; mobilePopupShown = true; }
           }
@@ -837,13 +855,14 @@
       });
 
       resultsDiv.appendChild(grid);
-      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton());
+      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton());
 
-      hardenExternalLinks();
+      hardenExternalLinks();
+      checkHighQualityConversion();
 
-    } catch (e){
-      const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
-      const resultsDiv = $('#results');
+    } catch (e){
+      const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
+      const resultsDiv = $('#results');
       if (resultsDiv) {
         resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.parseError || 'Parse error.'}</p>`;
         if (currentLang === 'ko') resultsDiv.appendChild((() => {
