@@ -603,7 +603,20 @@
     }
   }
 
+  function isHotelUrl(input) {
+    if (!input) return false;
+    const url = input.toLowerCase();
+    return (
+      url.includes('/hotels/') ||
+      url.includes('hotelid=') ||
+      url.includes('/hotels/detail') ||
+      url.includes('/hotels/') ||
+      url.includes('hoteluniquekey')
+    );
+  }
+
   let countryClickCount = 0;
+  let hotelConversionFired = false;  // 호텔 전환은 1회만
 
   function checkHighQualityConversion() {
     const inputValue = document.getElementById('inputUrl').value;
@@ -618,14 +631,38 @@
     }
   }
 
+  function checkHighQualityConversionHotel() {
+    if (hotelConversionFired) return;
+
+    const inputEl = document.getElementById('inputUrl');
+    const inputValue = inputEl ? inputEl.value.trim() : '';
+
+    // 조건: 호텔 링크 + 국가 버튼 2회 이상 + gtag 존재
+    if (isHotelUrl(inputValue) &&
+        countryClickCount >= 2 &&
+        typeof gtag === 'function') {
+
+      gtag('event', 'hq_conversion_hotel', {
+        event_category: 'engaged_user',
+        event_label: 'hotel_hq_conversion',
+        value: 1
+      });
+
+      hotelConversionFired = true; // 중복 방지
+    }
+  }
+
   // ===== 메인 기능 =====
   let linkClickCount = 0;
   let mobilePopupShown = false;
   let blankClickCount = 0;
 
   window.generateLinks = async function(){
-    const input = ($('#inputUrl')?.value || '').trim();
-    const lowerInput = input.toLowerCase();
+   const input = ($('#inputUrl')?.value || '').trim();
+   const lowerInput = input.toLowerCase();
+
+    countryClickCount = 0;
+    hotelConversionFired = false;
 
     // 카테고리 판별(대략)
     let category = 'Other';
@@ -827,6 +864,7 @@
         a.rel = 'noopener nofollow sponsored';
         a.addEventListener('click', () => {
           countryClickCount++;
+          checkHighQualityConversionHotel(); // 호텔 전환 체크
         });
         a.onclick = () => {
           a.classList.toggle('clicked');
