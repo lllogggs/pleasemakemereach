@@ -27636,10 +27636,10 @@
   "fpr": {
     "city": "Fort Pierce",
     "municipality": "Fort Pierce",
-    "airport": "St Lucie County International Airport",
+    "airport": "Treasure Coast International Airport",
     "country": "US",
-    "lat": 27.49510002,
-    "lon": -80.36830139,
+    "lat": 27.4951,
+    "lon": -80.368301,
     "source": "ourairports"
   },
   "frg": {
@@ -58376,8 +58376,8 @@
     "source": "ourairports"
   },
   "sre": {
-    "city": "Yamparaez",
-    "municipality": "Yamparaez",
+    "city": "Sucre",
+    "municipality": "Sucre",
     "airport": "Alcantarí Airport",
     "country": "BO",
     "lat": -19.246835,
@@ -58648,10 +58648,10 @@
   "srb": {
     "city": "Santa Rosa",
     "municipality": "Santa Rosa",
-    "airport": "Santa Rosa De Yacuma Airport",
+    "airport": "Santa Rosa de Yacuma Airport",
     "country": "BO",
-    "lat": -14.0662,
-    "lon": -66.786797,
+    "lat": -14.073072,
+    "lon": -66.787391,
     "source": "ourairports"
   },
   "mqk": {
@@ -60152,8 +60152,8 @@
     "municipality": "Itaqui",
     "airport": "Itaqui Airport",
     "country": "BR",
-    "lat": -29.173099517822266,
-    "lon": -56.53670120239258,
+    "lat": -29.171981,
+    "lon": -56.538343,
     "source": "ourairports"
   },
   "jcb": {
@@ -63125,8 +63125,8 @@
     "municipality": "Petropavlovsk-Kamchatsky",
     "airport": "Yelizovo Airport",
     "country": "RU",
-    "lat": 53.16764,
-    "lon": 158.451863,
+    "lat": 53.168716,
+    "lon": 158.451068,
     "source": "ourairports"
   },
   "bvv": {
@@ -63809,8 +63809,8 @@
     "municipality": "Kaliningrad",
     "airport": "Khrabrovo Airport",
     "country": "RU",
-    "lat": 54.88999938964844,
-    "lon": 20.592599868774414,
+    "lat": 54.891616,
+    "lon": 20.598607,
     "source": "ourairports"
   },
   "gna": {
@@ -73930,10 +73930,10 @@
   "avv": {
     "city": "Lara",
     "municipality": "Lara",
-    "airport": "Avalon Airport",
+    "airport": "Melbourne Avalon International Airport",
     "country": "AU",
-    "lat": -38.039398,
-    "lon": 144.468994,
+    "lat": -38.040269,
+    "lon": 144.467196,
     "source": "ourairports"
   },
   "abx": {
