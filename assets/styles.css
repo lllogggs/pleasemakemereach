@@ -790,11 +790,42 @@ footer p{ margin:3px 0; }
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+.ad-guide-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 98, 254, 0.2);
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(15, 98, 254, 0.12);
+  transition: transform 0.12s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.ad-guide-close:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(15, 98, 254, 0.16);
+  opacity: 0.92;
+}
+
+.ad-guide-close:focus-visible {
+  outline: 2px solid #0f62fe;
+  outline-offset: 2px;
+}
+
 
 .ad-guide-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
   margin-bottom: 16px;
 }
@@ -826,10 +857,6 @@ footer p{ margin:3px 0; }
 
 .ad-guide-heading .ad-guide-logo {
   margin-right: 2px;
-}
-
-.ad-guide-emoji {
-  margin-left: auto;
 }
 
 .ad-guide-list {
@@ -866,13 +893,29 @@ footer p{ margin:3px 0; }
 
 .ad-guide-btn {
   width: 100%;
-  background: #0f62fe;
+  background: linear-gradient(120deg, #0f62fe, #1d4ed8);
   color: #fff;
   border: none;
-  border-radius: 10px;
-  padding: 9px 0 10px;
-  font-weight: 600;
+  border-radius: 12px;
+  padding: 11px 0 12px;
+  font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 10px 22px rgba(15, 98, 254, 0.23);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.ad-guide-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(15, 98, 254, 0.28);
+}
+
+.ad-guide-btn__icon {
+  font-size: 1.05rem;
 }
 
 /* ===== Responsive ===== */
