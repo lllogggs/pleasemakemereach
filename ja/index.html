@@ -85,17 +85,13 @@
   <div id="ad-guide-popup" style="display:none;">
     <div class="ad-guide-overlay"></div>
     <div class="ad-guide-box">
-      <button id="ad-guide-close" class="ad-guide-close" type="button" aria-label="">
-        <span aria-hidden="true">×</span>
-      </button>
       <div class="ad-guide-header">
         <div class="ad-guide-heading">
           <span class="ad-guide-logo"></span>
           <span class="ad-guide-title"></span>
         </div>
-        <button id="ad-guide-dismiss" class="ad-guide-emoji" type="button">
-          <span class="ad-guide-emoji__icon">✈️</span>
-          <span class="ad-guide-emoji__close" aria-hidden="true">×</span>
+        <button id="ad-guide-dismiss" class="ad-guide-dismiss" type="button" aria-label="">
+          <span class="ad-guide-dismiss__icon" aria-hidden="true">×</span>
         </button>
       </div>
       <ul id="ad-guide-list" class="ad-guide-list"></ul>
@@ -383,9 +379,6 @@
       const dismiss = popup.querySelector("#ad-guide-dismiss");
       if (dismiss) dismiss.setAttribute("aria-label", t.closeLabel);
 
-      const closeBtn = popup.querySelector("#ad-guide-close");
-      if (closeBtn) closeBtn.setAttribute("aria-label", t.closeLabel);
-
       const list = document.getElementById("ad-guide-list");
       list.innerHTML = "";
       t.steps.forEach((txt, idx) => {
@@ -422,9 +415,11 @@
       const popup = document.getElementById("ad-guide-popup");
       const closePopup = () => popup.style.display = "none";
 
-      popup.querySelector("#ad-guide-dismiss").onclick = closePopup;
-      popup.querySelector("#ad-guide-close").onclick = closePopup;
-      popup.querySelector(".ad-guide-overlay").onclick = closePopup;
+      const dismissButton = popup.querySelector("#ad-guide-dismiss");
+      if (dismissButton) dismissButton.onclick = closePopup;
+
+      const overlay = popup.querySelector(".ad-guide-overlay");
+      if (overlay) overlay.onclick = closePopup;
     });
   </script>
 
