@@ -790,37 +790,6 @@ footer p{ margin:3px 0; }
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.ad-guide-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 98, 254, 0.2);
-  background: #f8fafc;
-  color: #0f172a;
-  font-size: 20px;
-  font-weight: 800;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 16px rgba(15, 98, 254, 0.12);
-  transition: transform 0.12s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-
-.ad-guide-close:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(15, 98, 254, 0.16);
-  opacity: 0.92;
-}
-
-.ad-guide-close:focus-visible {
-  outline: 2px solid #0f62fe;
-  outline-offset: 2px;
-}
-
 
 .ad-guide-header {
   display: flex;
@@ -861,26 +830,23 @@ footer p{ margin:3px 0; }
 
 .ad-guide-dismiss {
   margin-left: auto;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 98, 254, 0.2);
-  background: #f8fafc;
-  color: #0f172a;
-  font-size: 20px;
-  font-weight: 800;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 16px rgba(15, 98, 254, 0.12);
-  transition: transform 0.12s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .ad-guide-dismiss:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(15, 98, 254, 0.16);
-  opacity: 0.92;
+  color: #64748b;
+  opacity: 0.9;
 }
 
 .ad-guide-dismiss:focus-visible {
