@@ -250,9 +250,8 @@
           <span class="ad-guide-logo"></span>
           <span class="ad-guide-title"></span>
         </div>
-        <button id="ad-guide-dismiss" class="ad-guide-emoji" type="button">
-          <span class="ad-guide-emoji__icon">✈️</span>
-          <span class="ad-guide-emoji__close" aria-hidden="true">×</span>
+        <button id="ad-guide-dismiss" class="ad-guide-dismiss" type="button">
+          <span class="ad-guide-dismiss__icon" aria-hidden="true">×</span>
         </button>
       </div>
       <ul id="ad-guide-list" class="ad-guide-list"></ul>
@@ -391,6 +390,14 @@
       });
     }
 
+    function trackAdGuideCtaClick() {
+      if (typeof gtag !== "function") return;
+      gtag('event', 'ad_guide_popup_cta_click', {
+        event_category: 'ad_guide_popup',
+        event_label: 'cta_button'
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       renderAdGuidePopup();
 
@@ -412,6 +419,9 @@
       popup.querySelector("#ad-guide-dismiss").onclick = closePopup;
       popup.querySelector("#ad-guide-close").onclick = closePopup;
       popup.querySelector(".ad-guide-overlay").onclick = closePopup;
+
+      const ctaButton = popup.querySelector("#ad-guide-cta");
+      if (ctaButton) ctaButton.addEventListener("click", trackAdGuideCtaClick);
     });
   </script>
 
