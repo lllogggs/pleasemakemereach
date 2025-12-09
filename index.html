@@ -242,15 +242,24 @@
   <div id="ad-guide-popup" style="display:none;">
     <div class="ad-guide-overlay"></div>
     <div class="ad-guide-box">
+      <button id="ad-guide-close" class="ad-guide-close" type="button" aria-label="">
+        <span aria-hidden="true">×</span>
+      </button>
       <div class="ad-guide-header">
         <div class="ad-guide-heading">
           <span class="ad-guide-logo"></span>
           <span class="ad-guide-title"></span>
         </div>
-        <span class="ad-guide-emoji">✈️</span>
+        <button id="ad-guide-dismiss" class="ad-guide-emoji" type="button">
+          <span class="ad-guide-emoji__icon">✈️</span>
+          <span class="ad-guide-emoji__close" aria-hidden="true">×</span>
+        </button>
       </div>
       <ul id="ad-guide-list" class="ad-guide-list"></ul>
-      <button id="ad-guide-close" class="ad-guide-btn"></button>
+      <a id="ad-guide-cta" class="ad-guide-btn" target="_blank" rel="noopener">
+        <span class="ad-guide-btn__icon" aria-hidden="true">↗</span>
+        <span class="ad-guide-btn__text"></span>
+      </a>
     </div>
   </div>
 
@@ -259,7 +268,8 @@
       ko: {
         logo: "🌐 트립닷닷",
         title: "사용법",
-        button: "확인했어요",
+        cta: "원하는 상품 찾기",
+        closeLabel: "팝업 숨기기",
         steps: [
           "Trip.com에서 <strong>원하는 호텔/항공 상품 선택</strong>",
           "해당 상품 주소창 <strong>링크 복사</strong>",
@@ -270,7 +280,8 @@
       ja: {
         logo: "🌐 Tripdotdot",
         title: "使い方",
-        button: "OK",
+        cta: "원하는 상품 찾기",
+        closeLabel: "ポップアップを非表示にする",
         steps: [
           "Trip.comで<strong>宿泊/航空ページを開く</strong>",
           "そのページのURLを<strong>コピーする</strong>",
@@ -281,7 +292,8 @@
       th: {
         logo: "🌐 Tripdotdot",
         title: "วิธีใช้",
-        button: "เข้าใจแล้ว",
+        cta: "원하는 상품 찾기",
+        closeLabel: "ซ่อนป๊อปอัพ",
         steps: [
           "ใน Trip.com <strong>เปิดหน้าโรงแรม/ตั๋วเครื่องบิน</strong>",
           "<strong>คัดลอกลิงก์ (URL)</strong> ของหน้านั้น",
@@ -292,7 +304,8 @@
       en: {
         logo: "🌐 Tripdotdot",
         title: "How to use",
-        button: "Got it",
+        cta: "원하는 상품 찾기",
+        closeLabel: "Hide popup",
         steps: [
           "On Trip.com, <strong>choose your hotel/flight</strong>",
           "<strong>Copy the link</strong> from the address bar",
@@ -310,6 +323,34 @@
       return "ko";
     }
 
+    const AFF_AFFIX = "Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351";
+
+    function appendAffiliate(urlStr) {
+      try {
+        const u = new URL(urlStr, location.origin);
+        const sp = u.searchParams;
+        if (!sp.has("Allianceid") && !sp.has("SID")) {
+          AFF_AFFIX.split("&").forEach(kv => {
+            const [k, v = ""] = kv.split("=");
+            if (!sp.has(k)) sp.set(k, v);
+          });
+          u.search = sp.toString();
+        }
+        return u.toString();
+      } catch (_) {
+        return urlStr + (urlStr.includes("?") ? "&" : "?") + AFF_AFFIX;
+      }
+    }
+
+    function getAffiliateHomeUrlForPopup(lang) {
+      const base =
+        (lang === "ko") ? "https://kr.trip.com/?curr=KRW" :
+        (lang === "ja") ? "https://www.trip.com/?curr=JPY" :
+        (lang === "th") ? "https://www.trip.com/?curr=THB" :
+                          "https://www.trip.com/?curr=USD";
+      return appendAffiliate(base);
+    }
+
     function renderAdGuidePopup() {
       const lang = getCurrentLang();
       const t = popupTexts[lang] || popupTexts.ko;
@@ -319,7 +360,18 @@
 
       popup.querySelector(".ad-guide-logo").textContent = t.logo;
       popup.querySelector(".ad-guide-title").textContent = t.title;
-      popup.querySelector("#ad-guide-close").textContent = t.button;
+
+      const cta = popup.querySelector("#ad-guide-cta");
+      if (cta) {
+        cta.querySelector(".ad-guide-btn__text").textContent = t.cta;
+        cta.href = getAffiliateHomeUrlForPopup(lang);
+      }
+
+      const dismiss = popup.querySelector("#ad-guide-dismiss");
+      if (dismiss) dismiss.setAttribute("aria-label", t.closeLabel);
+
+      const closeBtn = popup.querySelector("#ad-guide-close");
+      if (closeBtn) closeBtn.setAttribute("aria-label", t.closeLabel);
 
       const list = document.getElementById("ad-guide-list");
       list.innerHTML = "";
@@ -355,8 +407,11 @@
       }
 
       const popup = document.getElementById("ad-guide-popup");
-      popup.querySelector("#ad-guide-close").onclick = () => popup.style.display = "none";
-      popup.querySelector(".ad-guide-overlay").onclick = () => popup.style.display = "none";
+      const closePopup = () => popup.style.display = "none";
+
+      popup.querySelector("#ad-guide-dismiss").onclick = closePopup;
+      popup.querySelector("#ad-guide-close").onclick = closePopup;
+      popup.querySelector(".ad-guide-overlay").onclick = closePopup;
     });
   </script>
 
