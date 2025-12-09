@@ -1021,17 +1021,12 @@
       resizeTimeout = setTimeout(updateLanguageButtonDisplay, 150);
     });
 
-    const showWidgetButton = $('#show-widget-button');
-    const tripHomeButton = $('#open-trip-home');
-    const modal = $('#search-modal');
-    const modalClose = modal?.querySelector('.modal-close');
-    if (showWidgetButton) showWidgetButton.addEventListener('click', () => { modal.style.display = 'flex'; });
-    if (tripHomeButton) tripHomeButton.addEventListener('click', () => {
-      const affHome = getAffiliateHomeUrl();
-      redirectWithModal(affHome, 400);
-    });
-    if (modalClose)      modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
-    if (modal)           modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    const showWidgetButton = $('#show-widget-button');
+    const modal = $('#search-modal');
+    const modalClose = modal?.querySelector('.modal-close');
+    if (showWidgetButton) showWidgetButton.addEventListener('click', () => { modal.style.display = 'flex'; });
+    if (modalClose)      modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
+    if (modal)           modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
 
     const tabButtons = $$('.tab-button');
