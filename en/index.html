@@ -71,15 +71,13 @@
           <span class="ad-guide-logo"></span>
           <span class="ad-guide-title"></span>
         </div>
-        <button id="ad-guide-dismiss" class="ad-guide-dismiss" type="button" aria-label="">
-          <span class="ad-guide-dismiss__icon" aria-hidden="true">×</span>
-        </button>
       </div>
       <ul id="ad-guide-list" class="ad-guide-list"></ul>
       <a id="ad-guide-cta" class="ad-guide-btn" target="_blank" rel="noopener">
         <span class="ad-guide-btn__icon" aria-hidden="true">↗</span>
         <span class="ad-guide-btn__text"></span>
       </a>
+      <button id="ad-guide-close" class="ad-guide-secondary-btn" type="button"></button>
     </div>
   </div>
 
@@ -289,6 +287,7 @@
         logo: "🌐 Tripdotdot",
         title: "How to use",
         cta: "원하는 상품 찾기",
+        secondaryCta: "트립닷컴 링크가 있어요",
         closeLabel: "Hide popup",
         steps: [
           "On Trip.com, <strong>choose your hotel/flight</strong>",
@@ -351,8 +350,11 @@
         cta.href = getAffiliateHomeUrlForPopup(lang);
       }
 
-      const dismiss = popup.querySelector("#ad-guide-dismiss");
-      if (dismiss) dismiss.setAttribute("aria-label", t.closeLabel);
+      const closeBtn = popup.querySelector("#ad-guide-close");
+      if (closeBtn) {
+        closeBtn.textContent = t.secondaryCta || t.closeLabel;
+        closeBtn.setAttribute("aria-label", t.closeLabel);
+      }
 
       const list = document.getElementById("ad-guide-list");
       list.innerHTML = "";
@@ -390,8 +392,8 @@
       const popup = document.getElementById("ad-guide-popup");
       const closePopup = () => popup.style.display = "none";
 
-      const dismissButton = popup.querySelector("#ad-guide-dismiss");
-      if (dismissButton) dismissButton.onclick = closePopup;
+      const closeButton = popup.querySelector("#ad-guide-close");
+      if (closeButton) closeButton.onclick = closePopup;
 
       const overlay = popup.querySelector(".ad-guide-overlay");
       if (overlay) overlay.onclick = closePopup;
