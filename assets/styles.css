@@ -573,21 +573,90 @@ footer p{ margin:3px 0; }
 
 .highlight{ background:rgba(255,247,0,.6); font-weight:700; padding:2px 0 2px 4px; border-radius:3px; }
 
-/* ===== Shortlink Warning Banner (보류: 현재는 info-card로 안내) ===== */
-.shortlink-warning{
-  display:flex; align-items:center; gap:10px;
-  padding:12px 14px; margin:12px 0 18px;
-  background:#fff3cd; color:#664d03; border:1px solid #ffecb5; border-radius:10px;
+/* ===== Shortlink notice ===== */
+.shortlink-card{
+  background:linear-gradient(135deg, #f6f8ff 0%, #ffffff 100%);
+  border:1px solid var(--border-color);
+  box-shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+  border-radius:18px;
+  padding:18px;
+  margin:12px 0 18px;
 }
-.shortlink-warning .warn-icon{ font-size:18px; line-height:1; }
-.shortlink-warning .warn-text{ flex:1; font-size:14px; line-height:1.6; }
-.shortlink-warning .actions{ display:flex; gap:8px; }
-.shortlink-warning .btn{
-  font-size:13px; padding:6px 10px; border-radius:8px;
-  border:1px solid currentColor; text-decoration:none; cursor:pointer;
+.shortlink-card__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(14, 165, 233, 0.12);
+  color:#0284c7;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  text-transform:uppercase;
 }
-.shortlink-warning .btn-primary{ background:#0ea5e9; border-color:#0ea5e9; color:#fff; }
-.shortlink-warning .btn-outline{ background:transparent; color:#0ea5e9; }
+.shortlink-card__header{ display:flex; gap:12px; align-items:flex-start; margin-top:10px; }
+.shortlink-card__icon{
+  width:46px; height:46px;
+  display:grid; place-items:center;
+  background:#0ea5e914;
+  color:#0284c7;
+  border:1px solid #bae6fd;
+  border-radius:14px;
+  font-size:22px;
+}
+.shortlink-card__titles{ flex:1; }
+.shortlink-card__title{ margin:0 0 6px 0; font-size:20px; color:var(--text-primary); }
+.shortlink-card__lead{ margin:0; color:var(--text-secondary); line-height:1.6; }
+
+.shortlink-card__body{ margin-top:14px; }
+.shortlink-card__body p{ margin:0 0 8px 0; color:var(--text-secondary); }
+.shortlink-steps{
+  list-style:none;
+  padding:0;
+  margin:0;
+  counter-reset: shortlink-step;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.shortlink-steps li{
+  counter-increment: shortlink-step;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px 14px;
+  background:#f8fafc;
+  border:1px solid var(--border-color);
+  border-radius:12px;
+  color:var(--text-primary);
+  line-height:1.6;
+  box-shadow:0 4px 10px rgba(15, 23, 42, 0.04);
+}
+.shortlink-steps li::before{
+  content: counter(shortlink-step);
+  width:26px; height:26px;
+  border-radius:50%;
+  background:var(--primary-blue);
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:13px;
+  box-shadow:0 6px 16px rgba(59, 130, 246, 0.25);
+  flex-shrink:0;
+}
+.shortlink-steps a{ color:#0284c7; font-weight:700; text-decoration:none; }
+.shortlink-steps a:hover{ text-decoration:underline; }
+.shortlink-card__example{
+  margin:10px 0 0 0;
+  font-size:13px;
+  color:var(--text-secondary);
+  padding-left:4px;
+}
+.shortlink-card__actions{ margin-top:14px; display:flex; }
+.shortlink-card__cta{ box-shadow:0 10px 20px rgba(14, 165, 233, 0.25); }
 
 /* ===== Modals ===== */
 .modal-overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.6);

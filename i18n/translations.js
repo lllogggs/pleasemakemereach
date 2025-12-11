@@ -49,9 +49,12 @@ window.TRANSLATIONS = {
     trustStatCountries:"Markets covered",
 
     /* Shortlink (/w/) guidance */
+    shortlinkLabel: "Trip.com URL tips",
     shortlinkTitle: "Short links aren’t supported",
-    shortlinkBody: "Short links won’t work. Paste only the <strong>address-bar URL</strong> from Trip.com searches.<ol><li><a href=\"https://www.trip.com/?curr=USD&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li><li>Search for your stay/product again</li><li>Copy the results-page URL from the address bar</li><li>Paste it here</li></ol><span class=\"sl-example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</span>",
-    shortlinkOpenFull: "Open short link to get full URL"
+    shortlinkLead: "Tripdotdot can’t read shortened URLs. Please paste the <strong>full address-bar URL</strong> from your Trip.com search.",
+    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=USD&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li><li>Copy the entire URL from the address bar</li><li>Paste it here to get country links</li></ol><p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>`,
+    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=USD&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li><li>Copy the entire URL from the address bar</li><li>Paste it here to get country links</li></ol><p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>`,
+    shortlinkOpenFull: "Go to Trip.com and search again"
   },
 
   ko: {
@@ -103,9 +106,12 @@ window.TRANSLATIONS = {
     trustStatCountries:"지원 국가",
 
     /* Shortlink (/w/) guidance */
+    shortlinkLabel: "Trip.com URL 안내",
     shortlinkTitle: "단축링크는 안 돼요",
-    shortlinkBody: "단축링크는 사용할 수 없어요. 트립닷컴 웹에서 검색한 <strong>주소창 URL</strong>만 넣어 주세요.<ol><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">트립닷컴 웹사이트 접속</a></li><li>원하는 숙소/상품을 다시 검색</li><li>결과 페이지 주소창 URL 복사</li><li>다시 붙여넣기</li></ol>",
-    shortlinkOpenFull: "단축링크 열어서 전체링크 확인하기"
+    shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요. 검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
+    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li><li>주소창의 전체 URL을 복사</li><li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol><p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>`,
+    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li><li>주소창의 전체 URL을 복사</li><li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol><p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>`,
+    shortlinkOpenFull: "Trip.com에서 다시 검색하기"
   },
 
   ja: {
@@ -157,9 +163,12 @@ window.TRANSLATIONS = {
     trustStatCountries:"対応国",
 
     /* Shortlink (/w/) guidance */
+    shortlinkLabel: "Trip.com URL ガイド",
     shortlinkTitle: "短縮リンクは使えません",
-    shortlinkBody: "短縮リンクは使用できません。Trip.comで検索した<strong>アドレスバーのURL</strong>だけを貼り付けてください。<ol><li><a href=\"https://www.trip.com/?curr=JPY&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li><li>希望の宿泊先/商品を検索し直す</li><li>結果ページのアドレスバーURLをコピー</li><li>ここに貼り付け</li></ol><span class=\"sl-example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</span>",
-    shortlinkOpenFull: "短縮リンクを開いてフルURLを確認"
+    shortlinkLead: "Tripdotdotは短縮リンクを読み込めません。検索後に表示される<strong>フルURL</strong>を貼り付けてください。",
+    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=JPY&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li><li>アドレスバーのフルURLをコピー</li><li>ここに貼り付けて各国リンクを受け取る</li></ol><p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>`,
+    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=JPY&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li><li>アドレスバーのフルURLをコピー</li><li>ここに貼り付けて各国リンクを受け取る</li></ol><p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>`,
+    shortlinkOpenFull: "Trip.comで検索し直す"
   },
 
   th: {
@@ -211,8 +220,11 @@ window.TRANSLATIONS = {
     trustStatCountries:"ประเทศที่รองรับ",
 
     /* Shortlink (/w/) guidance */
+    shortlinkLabel: "เคล็ดลับ URL ของ Trip.com",
     shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
-    shortlinkBody: "ใช้ลิงก์แบบย่อไม่ได้ กรุณาใส่เฉพาะ<strong>URL ในแถบที่อยู่</strong>จากการค้นหาบน Trip.com เท่านั้น<ol><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์ Trip.com</a></li><li>ค้นหาที่พัก/สินค้าอีกครั้ง</li><li>คัดลอก URL ของหน้าผลลัพธ์จากแถบที่อยู่</li><li>นำมาวางที่นี่</li></ol><span class=\"sl-example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</span>",
+    shortlinkLead: "Tripdotdot อ่านลิงก์แบบย่อไม่ได้ กรุณาวาง<strong>URL แบบเต็มจากแถบที่อยู่</strong>หลังจากค้นหาบน Trip.com",
+    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li><li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol><p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>`,
+    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li><li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol><p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>`,
     shortlinkOpenFull: "เปิดลิงก์ย่อเพื่อดู URL เต็ม"
   }
 };
