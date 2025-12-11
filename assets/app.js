@@ -612,22 +612,38 @@
       showCta: false,
     });
 
-    if (rawUrl) {
-      const desc = container.querySelector('.redirect-guide-card__body');
-      if (desc) {
-        const logic = document.createElement('p');
-        logic.className = 'redirect-guide-card__note';
-        logic.textContent = T.unsupportedDomainLogic || 'We only convert trip.com and subdomains (e.g., kr.trip.com, www.trip.com).';
-        desc.appendChild(logic);
+    const desc = container.querySelector('.redirect-guide-card__body');
+    if (desc) {
+      desc.classList.add('unsupported-domain-body');
 
+      const noteWrap = document.createElement('div');
+      noteWrap.className = 'unsupported-domain__notes';
+
+      const logic = document.createElement('p');
+      logic.className = 'redirect-guide-card__note unsupported-domain__logic';
+      logic.innerHTML = T.unsupportedDomainLogic || 'We only convert trip.com and subdomains (e.g., kr.trip.com, www.trip.com).';
+      noteWrap.appendChild(logic);
+
+      if (rawUrl) {
         try {
           const host = new URL(rawUrl).hostname.replace(/^www\./, '');
           const hostNote = document.createElement('p');
-          hostNote.className = 'redirect-guide-card__note';
-          hostNote.textContent = `${T.unsupportedDomainDetected || 'Detected domain'}: ${host}`;
-          desc.appendChild(hostNote);
+          hostNote.className = 'redirect-guide-card__note unsupported-domain__detected';
+
+          const hostLabel = document.createElement('span');
+          hostLabel.className = 'unsupported-domain__label';
+          hostLabel.textContent = `${T.unsupportedDomainDetected || 'Detected domain'}: `;
+          const hostValue = document.createElement('span');
+          hostValue.className = 'unsupported-domain__domain';
+          hostValue.textContent = host;
+
+          hostNote.appendChild(hostLabel);
+          hostNote.appendChild(hostValue);
+          noteWrap.appendChild(hostNote);
         } catch (_) {}
       }
+
+      desc.appendChild(noteWrap);
     }
 
     const card = container.querySelector('.redirect-guide-card');
