@@ -361,9 +361,9 @@
   }
 
   // ===== URL 로깅 =====
-  function logSubmittedUrl(rawUrl, category){
-    const payload = {
-      url: rawUrl,
+  function logSubmittedUrl(rawUrl, category){
+    const payload = {
+      url: rawUrl,
       pageLang: currentLang,
       category,
       referrer: document.referrer || '',
@@ -400,13 +400,25 @@
   }
 
   // ===== 축약링크 감지 =====
-  function isTripShortLink(raw){
-    try {
-      const u = new URL(raw);
-      const host = u.hostname.replace(/^www\./,'');
-      return (host === 'trip.com' || host.endsWith('.trip.com')) && /^\/w\/[^/]+/i.test(u.pathname);
-    } catch { return false; }
-  }
+  function isTripShortLink(raw){
+    try {
+      const u = new URL(raw);
+      const host = u.hostname.replace(/^www\./,'');
+      return (host === 'trip.com' || host.endsWith('.trip.com')) && /^\/w\/[^/]+/i.test(u.pathname);
+    } catch { return false; }
+  }
+
+  function isTripDomain(raw){
+    if (!raw) return false;
+    try {
+      const url = new URL(raw.startsWith('http') ? raw : `https://${raw}`);
+      const host = url.hostname.replace(/^www\./,'');
+      // 정확한 도메인 일치 확인 (예: "trip.com" 또는 "*.trip.com" 만 허용)
+      return /^([^.]+\.)*trip\.com$/i.test(host);
+    } catch (_){
+      return false;
+    }
+  }
 
   // ===== /w/ 포함 "풀링크" 정규화: /w/ 제거 또는 target/url/redirect 추출 =====
   function normalizeTripShortUrl(raw){
@@ -589,6 +601,80 @@
     container.appendChild(card);
   }
 
+  function renderUnsupportedDomainCard(rawUrl, container){
+    const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
+    renderRedirectGuideCard(container, getAffiliateHomeUrl(), {
+      icon: '🚫',
+      titleText: T.unsupportedDomainTitle || 'Trip.com links only',
+      guideHtml: T.unsupportedDomainBody || '',
+      ctaLabel: T.unsupportedDomainCta || TL('searchModeCta') || 'Open Trip.com',
+      showCta: false,
+    });
+
+    if (rawUrl) {
+      const desc = container.querySelector('.redirect-guide-card__body');
+      if (desc) {
+        const logic = document.createElement('p');
+        logic.className = 'redirect-guide-card__note';
+        logic.textContent = T.unsupportedDomainLogic || 'We only convert trip.com and subdomains (e.g., kr.trip.com, www.trip.com).';
+        desc.appendChild(logic);
+
+        try {
+          const host = new URL(rawUrl).hostname.replace(/^www\./, '');
+          const hostNote = document.createElement('p');
+          hostNote.className = 'redirect-guide-card__note';
+          hostNote.textContent = `${T.unsupportedDomainDetected || 'Detected domain'}: ${host}`;
+          desc.appendChild(hostNote);
+        } catch (_) {}
+
+        const note = document.createElement('p');
+        note.className = 'redirect-guide-card__note';
+        try {
+          const link = document.createElement('a');
+          link.href = new URL(rawUrl).toString();
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = rawUrl;
+          link.className = 'redirect-guide-card__note-link';
+          note.appendChild(link);
+        } catch (_) {
+          note.textContent = rawUrl;
+        }
+        desc.appendChild(note);
+      }
+    }
+
+    const card = container.querySelector('.redirect-guide-card');
+    if (card) {
+      const actions = document.createElement('div');
+      actions.className = 'redirect-guide-card__actions';
+
+      const tripBtn = document.createElement('a');
+      tripBtn.className = 'redirect-guide-card__cta';
+      tripBtn.href = getAffiliateHomeUrl();
+      tripBtn.target = '_blank';
+      tripBtn.rel = 'noopener noreferrer';
+      tripBtn.textContent = T.unsupportedDomainCta || TL('searchModeCta') || 'Open Trip.com';
+      actions.appendChild(tripBtn);
+
+      if (rawUrl) {
+        try {
+          const parsed = new URL(rawUrl);
+          const rawLink = document.createElement('a');
+          rawLink.className = 'redirect-guide-card__cta redirect-guide-card__cta--ghost';
+          rawLink.href = parsed.toString();
+          rawLink.target = '_blank';
+          rawLink.rel = 'noopener noreferrer';
+          rawLink.textContent = T.unsupportedDomainOpenOriginal || 'View the link you pasted';
+          rawLink.title = parsed.toString();
+          actions.appendChild(rawLink);
+        } catch (_) {}
+      }
+
+      card.appendChild(actions);
+    }
+  }
+
   // ===== 입력창 우측 X 버튼 =====
   function attachInputClearButton(){
     const input = $('#inputUrl');
@@ -769,18 +855,26 @@
     linkClickCount = 0;
     mobilePopupShown = false;
 
-    const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
+   const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
 
-    function createKakaoButton(isError=false){
-      const a = document.createElement('a');
-      a.href = 'https://open.kakao.com/o/sKGmxMDh';
+    function createKakaoButton(isError=false){
+      const a = document.createElement('a');
+      a.href = 'https://open.kakao.com/o/sKGmxMDh';
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
       a.className = 'kakao-chat-btn';
       a.textContent = isError ? (T.kakaoTalkError || 'Report an Error') : (T.kakaoTalk || 'KakaoTalk');
-      return a;
-    }
-    
+      return a;
+    }
+
+    const isTrip = isTripDomain(input);
+
+    if (isUrl && !isTrip) {
+      renderUnsupportedDomainCard(input, resultsDiv);
+      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton(true));
+      return;
+    }
+
     // ===============================================
     // 검색어 모드: 팝업 대신 하단 카드로 안내
     // ===============================================
