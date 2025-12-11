@@ -881,15 +881,11 @@
       return;
     }
 
-    try{
-      // 정상 URL만 파싱/정제
-      const url = new URL(input);
-      // (중요) 확장 링크 경로 내부의 /w/ 세그먼트 제거
-      let pathname = stripWSegments(url.pathname);
-
-      if (pathname.includes('/flights/passenger')) {
-        showPaymentNotice();
-      }
+    try{
+      // 정상 URL만 파싱/정제
+      const url = new URL(input);
+      // (중요) 확장 링크 경로 내부의 /w/ 세그먼트 제거
+      let pathname = stripWSegments(url.pathname);
 
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
@@ -943,33 +939,20 @@
       } else if (pathname.includes('/flights')) {
         if (pathname.startsWith('/m/')) {
           pathname = '/flights/showfarefirst';
-          if (originalParams.has('dcitycode')) essentialParams.set('dcity',    originalParams.get('dcitycode'));
-          if (originalParams.has('acitycode')) essentialParams.set('acity',    originalParams.get('acitycode'));
-          if (originalParams.has('ddate'))      essentialParams.set('ddate',    originalParams.get('ddate'));
-          if (originalParams.has('adate'))      essentialParams.set('rdate',    originalParams.get('adate'));
-          const paxAdult  = parseInt(originalParams.get('adult')  || '0', 10);
-          const paxChild  = parseInt(originalParams.get('child')  || '0', 10);
-          const paxInfant = parseInt(originalParams.get('infant') || '0', 10);
-          const paxTotal = paxAdult + paxChild + paxInfant;
-          if (paxTotal > 0) {
-            essentialParams.set('quantity', String(paxTotal));
-          } else if (originalParams.has('adult')) {
-            essentialParams.set('quantity', originalParams.get('adult'));
-          }
+          if (originalParams.has('dcitycode')) essentialParams.set('dcity',   originalParams.get('dcitycode'));
+          if (originalParams.has('acitycode')) essentialParams.set('acity',   originalParams.get('acitycode'));
+          if (originalParams.has('ddate'))     essentialParams.set('ddate',   originalParams.get('ddate'));
+          if (originalParams.has('adate'))     essentialParams.set('rdate',   originalParams.get('adate'));
+          if (originalParams.has('adult'))     essentialParams.set('quantity',originalParams.get('adult'));
           const triptype = originalParams.get('triptype');
           if (triptype === '1' || triptype === 'rt') essentialParams.set('triptype','rt');
           else { essentialParams.set('triptype','ow'); essentialParams.delete('rdate'); }
           const classtype = originalParams.get('classtype');
           if      (classtype === '1' || classtype === 'c') essentialParams.set('class','c');
           else if (classtype === '2' || classtype === 'f') essentialParams.set('class','f');
-          else                      essentialParams.set('class','y');
-          const stopType = (originalParams.get('stoptype') || '').toLowerCase();
-          if (stopType === '1' || stopType === 'on' || stopType === 'nonstop') {
-            essentialParams.set('nonstoponly','on');
-          } else {
-            essentialParams.set('nonstoponly','off');
-          }
+          else                                             essentialParams.set('class','y');
           essentialParams.set('lowpricesource','searchform');
+          essentialParams.set('nonstoponly','off');
         } else {
           const blacklist = ['gclid','msclkid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','Allianceid','SID','trip_sub1','trip_sub3'];
           essentialParams = new URLSearchParams(originalParams);
@@ -1070,8 +1053,8 @@
     } catch (e){
       const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
       const resultsDiv = $('#results');
-      if (resultsDiv) {
-        resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.parseError || 'Parse error.'}</p>`;
+      if (resultsDiv) {
+        resultsDiv.innerHTML = `<p style="color:red; text-align:center;">${T.parseError || 'Parse error.'}</p>`;
         if (currentLang === 'ko') resultsDiv.appendChild((() => {
           const a = document.createElement('a');
           a.href = 'https://open.kakao.com/o/sKGmxMDh';
@@ -1081,36 +1064,27 @@
           a.textContent = T.kakaoTalkError || 'Report an Error';
           return a;
         })());
-      }
-      console.error('URL Parsing Error:', e);
-    }
-  };
+      }
+      console.error('URL Parsing Error:', e);
+    }
+  };
 
-  function showPaymentNotice(){
-    const modal = $('#payment-notice-modal');
-    if (!modal) return;
-    const body = modal.querySelector('.notice-modal-body');
-    if (body) body.innerHTML = TL('paymentNotice') || '';
-    modal.style.display = 'flex';
-  }
-
-  // ===== 스니펫 억제 =====
-  function applyNoSnippet(){
-    const selectors = [
-      '.header',
-      '.input-section',
+  // ===== 스니펫 억제 =====
+  function applyNoSnippet(){
+    const selectors = [
+      '.header',
+      '.input-section',
       '#results',
-      '.info-card',
-      'footer',
-      '#redirect-modal',
-      '#search-modal',
-      '#mobile-notice-modal',
-      '#payment-notice-modal'
-    ];
-    selectors.forEach(sel => {
-      $$(sel).forEach(el => {
-        if (el && !el.hasAttribute('data-nosnippet')) {
-          el.setAttribute('data-nosnippet', '');
+      '.info-card',
+      'footer',
+      '#redirect-modal',
+      '#search-modal',
+      '#mobile-notice-modal'
+    ];
+    selectors.forEach(sel => {
+      $$(sel).forEach(el => {
+        if (el && !el.hasAttribute('data-nosnippet')) {
+          el.setAttribute('data-nosnippet', '');
         }
       });
     });
@@ -1228,18 +1202,11 @@
     attachInputClearButton();
 
     const mobileModal = $('#mobile-notice-modal');
-    if (mobileModal) {
-      const mobileClose = mobileModal.querySelector('.modal-close');
-      if (mobileClose) mobileClose.addEventListener('click', () => { mobileModal.style.display = 'none'; });
-      mobileModal.addEventListener('click', (e) => { if (e.target === mobileModal) mobileModal.style.display = 'none'; });
-    }
-
-    const paymentModal = $('#payment-notice-modal');
-    if (paymentModal) {
-      const paymentClose = paymentModal.querySelector('.modal-close');
-      if (paymentClose) paymentClose.addEventListener('click', () => { paymentModal.style.display = 'none'; });
-      paymentModal.addEventListener('click', (e) => { if (e.target === paymentModal) paymentModal.style.display = 'none'; });
-    }
+    if (mobileModal) {
+      const mobileClose = mobileModal.querySelector('.modal-close');
+      if (mobileClose) mobileClose.addEventListener('click', () => { mobileModal.style.display = 'none'; });
+      mobileModal.addEventListener('click', (e) => { if (e.target === mobileModal) mobileModal.style.display = 'none'; });
+    }
 
     const inputEl2 = $('#inputUrl');
     if (inputEl2) {
