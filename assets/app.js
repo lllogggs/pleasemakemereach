@@ -80,14 +80,16 @@
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
-        "<li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol>" +
+        "<li>위 입력창에 붙여넣기</li></ol>" +
         '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
-        "<li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol>" +
+        "<li>위 입력창에 붙여넣기</li></ol>" +
         '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
       shortlinkOpenFull: "Trip.com에서 다시 검색하기",
         redirectingToSearch: "트립닷컴에서 검색합니다...",
