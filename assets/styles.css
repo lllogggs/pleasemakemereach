@@ -757,6 +757,7 @@ footer p{ margin:3px 0; }
   line-height:1.7;
   font-size:14.5px;
 }
+.redirect-guide-card__body.unsupported-domain-body{ display:flex; flex-direction:column; gap:10px; }
 .redirect-guide-card__note{
   margin:6px 0 0;
   color:#334155;
@@ -856,6 +857,23 @@ footer p{ margin:3px 0; }
 .redirect-guide-card--unsupported .redirect-guide-card__note{
   font-size:13.5px;
 }
+
+.brand-text{ color:var(--primary-blue); font-weight:800; }
+.unsupported-domain__headline{ margin:0; font-size:16px; font-weight:800; color:#0b3b73; line-height:1.65; }
+.unsupported-domain__help{ margin:0; color:#1f2937; line-height:1.65; }
+.unsupported-domain__notes{
+  margin-top:4px;
+  padding:12px;
+  border-radius:14px;
+  background:linear-gradient(135deg, #f4f7ff 0%, #f9fbff 100%);
+  border:1px dashed #d3defa;
+  display:flex;
+  gap:8px;
+  flex-direction:column;
+}
+.unsupported-domain__logic strong{ color:#0b3b73; }
+.unsupported-domain__label{ color:#475569; font-weight:700; }
+.unsupported-domain__domain{ color:#0f172a; font-weight:750; }
 
 .search-mode-lead{
   margin:0 0 10px;
