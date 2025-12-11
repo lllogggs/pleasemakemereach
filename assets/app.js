@@ -67,59 +67,90 @@
     return 'ko';
   }
 
-  // ===== translations fallback (단축링크 안내 강화) =====
-  // 이 3개 키는 항상 FALLBACK를 우선 사용(외부 TRANSLATIONS가 있어도 무시)
-  const FORCE_FALLBACK_KEYS = new Set(['shortlinkTitle','shortlinkBody','shortlinkOpenFull']);
+  // ===== translations fallback (단축링크 안내 강화) =====
+  // 이 단축링크 관련 키는 항상 FALLBACK를 우선 사용(외부 TRANSLATIONS가 있어도 무시)
+  const FORCE_FALLBACK_KEYS = new Set([
+    'shortlinkTitle','shortlinkLead','shortlinkSteps','shortlinkOpenFull','shortlinkLabel'
+  ]);
   const FALLBACK_TEXT = {
     ko: {
+      shortlinkLabel: "Trip.com URL 안내",
       shortlinkTitle: "단축링크는 안 돼요",
+      shortlinkLead: "트립닷닷은 단축 링크를 인식할 수 없어요.<br>검색 후 생성된 전체 주소(URL)를 그대로 붙여주세요.",
+      shortlinkSteps:
+        `<ol class=\"shortlink-steps\">` +
+        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        "<li>주소창의 전체 URL을 복사</li>" +
+        "<li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol>" +
+        '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
       shortlinkBody:
-        "단축링크는 사용할 수 없어요. 트립닷컴 웹에서 검색한 <strong>주소창 URL</strong>만 넣어 주세요.<ol>" +
-        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">트립닷컴 웹사이트 접속</a></li>` +
-        "<li>원하는 숙소/상품을 다시 검색</li>" +
-        "<li>결과 페이지 주소창 URL 복사</li>" +
-        "<li>다시 붙여넣기</li></ol>" +
-        '<span class=\"sl-example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</span>',
-      shortlinkOpenFull: "브라우저에서 단축링크 열기",
+        `<ol class=\"shortlink-steps\">` +
+        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        "<li>주소창의 전체 URL을 복사</li>" +
+        "<li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol>" +
+        '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
+      shortlinkOpenFull: "Trip.com에서 다시 검색하기",
         redirectingToSearch: "트립닷컴에서 검색합니다...",
         cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요",
    },
     en: {
+      shortlinkLabel: "Trip.com URL tips",
       shortlinkTitle: "Short links aren’t supported",
-      shortlinkBody:
-        "Short links won’t work. Paste only the <strong>address-bar URL</strong> from Trip.com searches.<ol>" +
+      shortlinkLead: "Tripdotdot can’t read shortened URLs. Please paste the <strong>full address-bar URL</strong> from your Trip.com search.",
+      shortlinkSteps:
+        `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
-        "<li>Search for your stay/product again</li>" +
-        "<li>Copy the results-page URL from the address bar</li>" +
-        "<li>Paste it here</li></ol>" +
-        '<span class=\"sl-example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</span>',
-      shortlinkOpenFull: "Open short link in browser",
+        "<li>Copy the entire URL from the address bar</li>" +
+        "<li>Paste it here to get country links</li></ol>" +
+        '<p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>',
+      shortlinkBody:
+        `<ol class=\"shortlink-steps\">` +
+        `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
+        "<li>Copy the entire URL from the address bar</li>" +
+        "<li>Paste it here to get country links</li></ol>" +
+        '<p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>',
+      shortlinkOpenFull: "Go to Trip.com and search again",
         redirectingToSearch: "Searching on Trip.com...",
         cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)",
    },
     ja: {
+      shortlinkLabel: "Trip.com URL ガイド",
       shortlinkTitle: "短縮リンクは使えません",
-      shortlinkBody:
-        "短縮リンクは使用できません。Trip.comで検索した<strong>アドレスバーのURL</strong>だけを貼り付けてください。<ol>" +
+      shortlinkLead: "Tripdotdotは短縮リンクを読み込めません。検索後に表示される<strong>フルURL</strong>を貼り付けてください。",
+      shortlinkSteps:
+        `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
-        "<li>希望の宿泊先/商品を検索し直す</li>" +
-        "<li>結果ページのアドレスバーURLをコピー</li>" +
-        "<li>ここに貼り付け</li></ol>" +
-        '<span class=\"sl-example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</span>',
-      shortlinkOpenFull: "ブラウザで短縮リンクを開く",
-        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップ에 등록된 도시 이름으로 검색해 주세요。）",
+        "<li>アドレスバーのフルURLをコピー</li>" +
+        "<li>ここに貼り付けて各国リンクを受け取る</li></ol>" +
+        '<p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>',
+      shortlinkBody:
+        `<ol class=\"shortlink-steps\">` +
+        `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
+        "<li>アドレスバーのフルURLをコピー</li>" +
+        "<li>ここに貼り付けて各国リンクを受け取る</li></ol>" +
+        '<p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>',
+      shortlinkOpenFull: "Trip.comで検索し直す",
+        cityNameIdNotFound: "都市ID가見つかりません。（City IDマップ에 등록된 도시 이름으로 검색해 주세요。）",
    },
     th: {
+      shortlinkLabel: "เคล็ดลับ URL ของ Trip.com",
       shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
+      shortlinkLead: "Tripdotdot อ่านลิงก์แบบย่อไม่ได้ กรุณาวาง<strong>URL แบบเต็มจากแถบที่อยู่</strong>หลังจากค้นหาบน Trip.com",
+      shortlinkSteps:
+        `<ol class=\"shortlink-steps\">` +
+        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li>` +
+        "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
+        "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
+        '<p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>',
       shortlinkBody:
-        "ใช้ลิงก์แบบย่อไม่ได้ กรุณาใส่เฉพาะ<strong>URL ในแถบที่อยู่</strong>จากการค้นหาบน Trip.com เท่านั้น<ol>" +
-        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์ Trip.com</a></li>` +
-        "<li>ค้นหาที่พัก/สินค้าอีกครั้ง</li>" +
-        "<li>คัดลอก URL ของหน้าผลลัพธ์จากแถบที่อยู่</li>" +
-        "<li>นำมาวางที่นี่</li></ol>" +
-        '<span class=\"sl-example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</span>',
-      shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
-        cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)",
+        `<ol class=\"shortlink-steps\">` +
+        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li>` +
+        "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
+        "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
+        '<p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>',
+      shortlinkOpenFull: "เปิดลิงก์ย่อในเบราว์เซอร์",
+        redirectingToSearch: "กำลังค้นหาบน Trip.com...",
+        cityNameIdNotFound: "ไม่พบรหัสเมืองสำหรับคำค้นหา (โปรดค้นหาด้วยชื่อเมืองที่มีใน City ID Map)",
    }
   };
   const TL = (key) => {
@@ -488,27 +519,56 @@
   function renderShortlinkNotice(rawUrl, container){
     container.innerHTML = '';
 
-    const card = document.createElement('div');
-    card.className = 'info-card';
+    const card = document.createElement('div');
+    card.className = 'shortlink-card';
 
-    const h = document.createElement('h2');
-    h.textContent = TL('shortlinkTitle');
+    const eyebrow = document.createElement('div');
+    eyebrow.className = 'shortlink-card__eyebrow';
+    eyebrow.textContent = TL('shortlinkLabel') || 'Trip.com URL tips';
+    card.appendChild(eyebrow);
 
-    const p = document.createElement('p');
-    p.innerHTML = TL('shortlinkBody');
+    const header = document.createElement('div');
+    header.className = 'shortlink-card__header';
 
-    const btnRow = document.createElement('div');
-    btnRow.style.marginTop = '12px';
-    btnRow.style.display = 'flex';
-    btnRow.style.gap = '8px';
+    const iconWrap = document.createElement('div');
+    iconWrap.className = 'shortlink-card__icon';
+    iconWrap.textContent = '🚫';
 
-    const openBtn = document.createElement('a');
-    openBtn.className = 'external-link-btn';
-    openBtn.target = '_blank';
-    openBtn.rel = 'noopener';
-    openBtn.textContent = TL('shortlinkOpenFull');
-    
-    let cleanedUrl = rawUrl;
+    const titles = document.createElement('div');
+    titles.className = 'shortlink-card__titles';
+
+    const h = document.createElement('h3');
+    h.className = 'shortlink-card__title';
+    h.textContent = TL('shortlinkTitle');
+    titles.appendChild(h);
+
+    const leadText = TL('shortlinkLead') || '';
+    if (leadText) {
+      const lead = document.createElement('p');
+      lead.className = 'shortlink-card__lead';
+      lead.innerHTML = leadText;
+      titles.appendChild(lead);
+    }
+
+    header.appendChild(iconWrap);
+    header.appendChild(titles);
+    card.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'shortlink-card__body';
+    body.innerHTML = TL('shortlinkSteps') || TL('shortlinkBody') || '';
+    card.appendChild(body);
+
+    const actions = document.createElement('div');
+    actions.className = 'shortlink-card__actions';
+
+    const openBtn = document.createElement('a');
+    openBtn.className = 'main-button shortlink-card__cta';
+    openBtn.target = '_blank';
+    openBtn.rel = 'noopener';
+    openBtn.textContent = TL('shortlinkOpenFull');
+
+    let cleanedUrl = rawUrl;
     try { cleanedUrl = normalizeTripShortUrl(rawUrl); } catch(_) {}
     try {
       openBtn.href = getAffiliateHomeUrl();
@@ -516,12 +576,10 @@
       openBtn.href = cleanedUrl || '#';
     }
 
-    btnRow.appendChild(openBtn);
-    card.appendChild(h);
-    card.appendChild(p);
-    card.appendChild(btnRow);
-    container.appendChild(card);
-  }
+    actions.appendChild(openBtn);
+    card.appendChild(actions);
+    container.appendChild(card);
+  }
 
   // ===== 입력창 우측 X 버튼 =====
   function attachInputClearButton(){
