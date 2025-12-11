@@ -795,7 +795,7 @@ footer p{ margin:3px 0; }
   text-decoration:none;
   box-shadow:0 14px 24px rgba(50,100,255,.2);
   transition:transform 0.15s ease, box-shadow 0.15s ease;
-  min-width: 240px;
+  min-width: 280px;
   text-align: center;
 }
 .redirect-guide-card__actions{
@@ -840,6 +840,20 @@ footer p{ margin:3px 0; }
   font-size:15px;
   line-height:1.65;
   color:var(--text-primary);
+}
+
+.redirect-guide-card--unsupported .redirect-guide-card__title{
+  font-size:19px;
+  line-height:1.55;
+}
+
+.redirect-guide-card--unsupported .redirect-guide-card__body{
+  font-size:15px;
+  line-height:1.7;
+}
+
+.redirect-guide-card--unsupported .redirect-guide-card__note{
+  font-size:13.5px;
 }
 
 .search-mode-lead{
