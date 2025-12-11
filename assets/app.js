@@ -80,14 +80,16 @@
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
-        "<li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol>" +
+        "<li>위 입력창에 붙여넣기</li></ol>" +
         '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
-        "<li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol>" +
+        "<li>위 입력창에 붙여넣기</li></ol>" +
         '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
       shortlinkOpenFull: "Trip.com에서 다시 검색하기",
         redirectingToSearch: "트립닷컴에서 검색합니다...",
@@ -100,12 +102,14 @@
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
+        "<li>Search for the hotel/product you want</li>" +
         "<li>Copy the entire URL from the address bar</li>" +
         "<li>Paste it here to get country links</li></ol>" +
         '<p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
+        "<li>Search for the hotel/product you want</li>" +
         "<li>Copy the entire URL from the address bar</li>" +
         "<li>Paste it here to get country links</li></ol>" +
         '<p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>',
@@ -120,12 +124,14 @@
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
+        "<li>希望のホテル/商品を検索</li>" +
         "<li>アドレスバーのフルURLをコピー</li>" +
         "<li>ここに貼り付けて各国リンクを受け取る</li></ol>" +
         '<p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
+        "<li>希望のホテル/商品を検索</li>" +
         "<li>アドレスバーのフルURLをコピー</li>" +
         "<li>ここに貼り付けて各国リンクを受け取る</li></ol>" +
         '<p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>',
@@ -139,12 +145,14 @@
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li>` +
+        "<li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li>" +
         "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
         "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
         '<p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li>` +
+        "<li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li>" +
         "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
         "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
         '<p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>',
