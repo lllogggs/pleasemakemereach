@@ -50,7 +50,7 @@ window.TRANSLATIONS = {
 
     /* Shortlink (/w/) guidance */
     shortlinkTitle: "Short links aren’t supported",
-    shortlinkBody: "Open the short link first.<br>Copy the <strong>full URL</strong> from the address bar and paste it here.<span class=\"sl-example\">(e.g., www.trip.com/hotels… or www.trip.com/flights…)</span>",
+    shortlinkBody: "Short links won’t work. Paste only the <strong>address-bar URL</strong> from Trip.com searches.<ol><li><a href=\"https://www.trip.com/?curr=USD&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li><li>Search for your stay/product again</li><li>Copy the results-page URL from the address bar</li><li>Paste it here</li></ol><span class=\"sl-example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</span>",
     shortlinkOpenFull: "Open short link to get full URL"
   },
 
@@ -103,8 +103,8 @@ window.TRANSLATIONS = {
     trustStatCountries:"지원 국가",
 
     /* Shortlink (/w/) guidance */
-    shortlinkTitle: "단축링크는 변환되지 않아요",
-    shortlinkBody: "먼저 단축링크를 열어 주세요.<br>주소창의 <strong>전체 URL</strong>을 복사해 붙여넣어 주세요.<span class=\"sl-example\">(예: kr.trip.com/hotels… 또는 kr.trip.com/flights…)</span>",
+    shortlinkTitle: "단축링크는 안 돼요",
+    shortlinkBody: "단축링크는 사용할 수 없어요. 트립닷컴 웹에서 검색한 <strong>주소창 URL</strong>만 넣어 주세요.<ol><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">트립닷컴 웹사이트 접속</a></li><li>원하는 숙소/상품을 다시 검색</li><li>결과 페이지 주소창 URL 복사</li><li>다시 붙여넣기</li></ol>",
     shortlinkOpenFull: "단축링크 열어서 전체링크 확인하기"
   },
 
@@ -157,8 +157,8 @@ window.TRANSLATIONS = {
     trustStatCountries:"対応国",
 
     /* Shortlink (/w/) guidance */
-    shortlinkTitle: "短縮リンクは変換できません",
-    shortlinkBody: "まず短縮リンクを開いてください。<br>アドレスバーの<strong>フルURL</strong>をコピーして貼り付けてください。<span class=\"sl-example\">（例： jp.trip.com/hotels… または jp.trip.com/flights…）</span>",
+    shortlinkTitle: "短縮リンクは使えません",
+    shortlinkBody: "短縮リンクは使用できません。Trip.comで検索した<strong>アドレスバーのURL</strong>だけを貼り付けてください。<ol><li><a href=\"https://www.trip.com/?curr=JPY&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li><li>希望の宿泊先/商品を検索し直す</li><li>結果ページのアドレスバーURLをコピー</li><li>ここに貼り付け</li></ol><span class=\"sl-example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</span>",
     shortlinkOpenFull: "短縮リンクを開いてフルURLを確認"
   },
 
@@ -212,7 +212,7 @@ window.TRANSLATIONS = {
 
     /* Shortlink (/w/) guidance */
     shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
-    shortlinkBody: "เปิดลิงก์แบบย่อก่อน<br>คัดลอก<strong>URL แบบเต็ม</strong>จากแถบที่อยู่แล้ววางที่นี่<span class=\"sl-example\">(เช่น th.trip.com/hotels… หรือ th.trip.com/flights…)</span>",
+    shortlinkBody: "ใช้ลิงก์แบบย่อไม่ได้ กรุณาใส่เฉพาะ<strong>URL ในแถบที่อยู่</strong>จากการค้นหาบน Trip.com เท่านั้น<ol><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์ Trip.com</a></li><li>ค้นหาที่พัก/สินค้าอีกครั้ง</li><li>คัดลอก URL ของหน้าผลลัพธ์จากแถบที่อยู่</li><li>นำมาวางที่นี่</li></ol><span class=\"sl-example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</span>",
     shortlinkOpenFull: "เปิดลิงก์ย่อเพื่อดู URL เต็ม"
   }
 };
