@@ -70,55 +70,59 @@
   // ===== translations fallback (단축링크 안내 강화) =====
   // 이 3개 키는 항상 FALLBACK를 우선 사용(외부 TRANSLATIONS가 있어도 무시)
   const FORCE_FALLBACK_KEYS = new Set(['shortlinkTitle','shortlinkBody','shortlinkOpenFull']);
-  const FALLBACK_TEXT = {
-    ko: {
-      shortlinkTitle: "단축링크는 변환되지 않아요",
-      shortlinkBody:
-        "삼성인터넷 / Chrome 같은 <strong>웹브라우저</strong>에서 단축링크를 열어, 확장된 전체 주소를 확인해 주세요.<ul>" +
-        "<li>1) 단축링크를 <strong>브라우저 주소창</strong>에 붙여넣어 여세요.</li>" +
-        "<li>2) 페이지가 열리면 주소창의 <strong>전체 URL</strong>을 복사하세요.</li>" +
-        "<li>3) 이곳 입력창에 붙여넣고 <strong>‘최저가 링크 찾기’</strong>를 누르세요.</li></ul>" +
-        '<span class="sl-example">예: https://kr.trip.com/hotels/… 또는 https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "브라우저에서 단축링크 열기",
-        redirectingToSearch: "트립닷컴에서 검색합니다...",
+  const FALLBACK_TEXT = {
+    ko: {
+      shortlinkTitle: "단축링크는 안 돼요",
+      shortlinkBody:
+        "단축링크는 사용할 수 없어요. 트립닷컴 웹에서 검색한 <strong>주소창 URL</strong>만 넣어 주세요.<ol>" +
+        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">트립닷컴 웹사이트 접속</a></li>` +
+        "<li>원하는 숙소/상품을 다시 검색</li>" +
+        "<li>결과 페이지 주소창 URL 복사</li>" +
+        "<li>다시 붙여넣기</li></ol>" +
+        '<span class=\"sl-example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</span>',
+      shortlinkOpenFull: "브라우저에서 단축링크 열기",
+        redirectingToSearch: "트립닷컴에서 검색합니다...",
         cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요",
-   },
-    en: {
-      shortlinkTitle: "Short links can’t be converted",
-      shortlinkBody:
-        "Open the short link in a <strong>web browser</strong> (Safari / Samsung Internet / Chrome), then copy the expanded full URL and paste it here.<ul>" +
-        "<li>1) Paste the short link into the <strong>browser address bar</strong>.</li>" +
-        "<li>2) When the page loads, copy the <strong>full URL</strong> in the address bar.</li>" +
-        "<li>3) Paste it here and click <strong>Find lowest-price links</strong>.</li></ul>" +
-        '<span class="sl-example">e.g. https://kr.trip.com/hotels/… or https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "Open short link in browser",
-        redirectingToSearch: "Searching on Trip.com...",
+   },
+    en: {
+      shortlinkTitle: "Short links aren’t supported",
+      shortlinkBody:
+        "Short links won’t work. Paste only the <strong>address-bar URL</strong> from Trip.com searches.<ol>" +
+        `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
+        "<li>Search for your stay/product again</li>" +
+        "<li>Copy the results-page URL from the address bar</li>" +
+        "<li>Paste it here</li></ol>" +
+        '<span class=\"sl-example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</span>',
+      shortlinkOpenFull: "Open short link in browser",
+        redirectingToSearch: "Searching on Trip.com...",
         cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)",
-   },
-    ja: {
-      shortlinkTitle: "短縮リンクは変換できません",
-      shortlinkBody:
-        "Safari / Samsung Internet / Chrome などの<strong>Webブラウザ</strong>で短縮リンクを開き、展開されたフルURLをコピーしてこちらに貼り付けてください。<ul>" +
-        "<li>1) 短縮リンクを<strong>ブラウザのアドレスバー</strong>に貼り付けて開く。</li>" +
-        "<li>2) ページが表示されたら、アドレスバーの<strong>フルURL</strong>をコピー。</li>" +
-        "<li>3) ここに貼り付けて<strong>最安値リンクを探す</strong>をクリック。</li></ul>" +
-        '<span class="sl-example">例: https://kr.trip.com/hotels/… または https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "ブラウザで短縮リンクを開く",
-        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップに登録된 도시 이름으로 검색해 주세요。）",
-   },
-    th: {
-      shortlinkTitle: "ไม่สามารถแปลงลิงก์แบบย่อได้",
-      shortlinkBody:
-        "เปิดลิงก์แบบย่อใน<strong>เว็บเบราว์เซอร์</strong> (Safari / Samsung Internet / Chrome) แล้วคัดลอก URL แบบเต็มที่ขยายแล้วมาวางที่นี่<ul>" +
-        "<li>1) วางลิงก์แบบย่อใน<strong>แถบที่อยู่ของเบราว์เซอร์</strong></li>" +
-        "<li>2) เมื่อหน้าโหลดแล้ว ให้คัดลอก<strong>URL แบบเต็ม</strong>ในแถบที่อยู่</li>" +
-        "<li>3) วางที่นี่แล้วกด<strong>ค้นหาลิงก์ราคาถูกที่สุด</strong></li></ul>" +
-        '<span class="sl-example">เช่น https://kr.trip.com/hotels/… หรือ https://kr.trip.com/flights/…</span>',
-      shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
+   },
+    ja: {
+      shortlinkTitle: "短縮リンクは使えません",
+      shortlinkBody:
+        "短縮リンクは使用できません。Trip.comで検索した<strong>アドレスバーのURL</strong>だけを貼り付けてください。<ol>" +
+        `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
+        "<li>希望の宿泊先/商品を検索し直す</li>" +
+        "<li>結果ページのアドレスバーURLをコピー</li>" +
+        "<li>ここに貼り付け</li></ol>" +
+        '<span class=\"sl-example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</span>',
+      shortlinkOpenFull: "ブラウザで短縮リンクを開く",
+        cityNameIdNotFound: "都市IDが見つかりません。（City IDマップ에 등록된 도시 이름으로 검색해 주세요。）",
+   },
+    th: {
+      shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
+      shortlinkBody:
+        "ใช้ลิงก์แบบย่อไม่ได้ กรุณาใส่เฉพาะ<strong>URL ในแถบที่อยู่</strong>จากการค้นหาบน Trip.com เท่านั้น<ol>" +
+        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์ Trip.com</a></li>` +
+        "<li>ค้นหาที่พัก/สินค้าอีกครั้ง</li>" +
+        "<li>คัดลอก URL ของหน้าผลลัพธ์จากแถบที่อยู่</li>" +
+        "<li>นำมาวางที่นี่</li></ol>" +
+        '<span class=\"sl-example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</span>',
+      shortlinkOpenFull: "เปิดลิงก์แบบย่อในเบราว์เซอร์",
         cityNameIdNotFound: "ไม่พบ ID เมือง (โปรดค้นหาโดยใช้ชื่อเมืองที่ลงทะเบียนในแผนที่ City ID)",
-   }
-  };
-  const TL = (key) => {
+   }
+  };
+  const TL = (key) => {
     const fallback = (FALLBACK_TEXT[currentLang]?.[key]) ?? (FALLBACK_TEXT.en?.[key] ?? key);
     if (FORCE_FALLBACK_KEYS.has(key)) return fallback;
     return (window.TRANSLATIONS?.[currentLang]?.[key]) ?? fallback;
