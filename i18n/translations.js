@@ -108,7 +108,7 @@ window.TRANSLATIONS = {
     /* Shortlink (/w/) guidance */
     shortlinkLabel: "Trip.com URL 안내",
     shortlinkTitle: "단축링크는 안 돼요",
-    shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요. 검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
+    shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요.<br>검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
     shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li><li>주소창의 전체 URL을 복사</li><li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol><p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>`,
     shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li><li>주소창의 전체 URL을 복사</li><li>아래 입력창에 붙여넣어 최저가 링크 찾기</li></ol><p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>`,
     shortlinkOpenFull: "Trip.com에서 다시 검색하기"
