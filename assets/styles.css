@@ -721,7 +721,7 @@ footer p{ margin:3px 0; }
 #redirect-modal .redirect-guide-list li{ line-height:1.5; }
 
 .redirect-guide-card{
-  background:linear-gradient(135deg, #f7fbff 0%, #eef3ff 100%);
+  background:#fff;
   border:1px solid #d9e6ff;
   border-radius:18px;
   padding:18px 18px 20px;
@@ -795,12 +795,15 @@ footer p{ margin:3px 0; }
   text-decoration:none;
   box-shadow:0 14px 24px rgba(50,100,255,.2);
   transition:transform 0.15s ease, box-shadow 0.15s ease;
+  min-width: 240px;
+  text-align: center;
 }
 .redirect-guide-card__actions{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
   margin-top:16px;
+  justify-content:center;
 }
 .redirect-guide-card__cta--ghost{
   background:#fff;
