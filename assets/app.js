@@ -76,7 +76,7 @@
     ko: {
       shortlinkLabel: "Trip.com URL 안내",
       shortlinkTitle: "단축링크는 안 돼요",
-      shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요. 검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
+      shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요.<br>검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
