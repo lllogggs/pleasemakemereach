@@ -608,6 +608,7 @@
       titleText: T.unsupportedDomainTitle || 'Trip.com links only',
       guideHtml: T.unsupportedDomainBody || '',
       ctaLabel: T.unsupportedDomainCta || TL('searchModeCta') || 'Open Trip.com',
+      className: 'redirect-guide-card--unsupported',
       showCta: false,
     });
 
