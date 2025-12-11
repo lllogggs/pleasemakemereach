@@ -626,21 +626,6 @@
           hostNote.textContent = `${T.unsupportedDomainDetected || 'Detected domain'}: ${host}`;
           desc.appendChild(hostNote);
         } catch (_) {}
-
-        const note = document.createElement('p');
-        note.className = 'redirect-guide-card__note';
-        try {
-          const link = document.createElement('a');
-          link.href = new URL(rawUrl).toString();
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.textContent = rawUrl;
-          link.className = 'redirect-guide-card__note-link';
-          note.appendChild(link);
-        } catch (_) {
-          note.textContent = rawUrl;
-        }
-        desc.appendChild(note);
       }
     }
 
@@ -656,20 +641,6 @@
       tripBtn.rel = 'noopener noreferrer';
       tripBtn.textContent = T.unsupportedDomainCta || TL('searchModeCta') || 'Open Trip.com';
       actions.appendChild(tripBtn);
-
-      if (rawUrl) {
-        try {
-          const parsed = new URL(rawUrl);
-          const rawLink = document.createElement('a');
-          rawLink.className = 'redirect-guide-card__cta redirect-guide-card__cta--ghost';
-          rawLink.href = parsed.toString();
-          rawLink.target = '_blank';
-          rawLink.rel = 'noopener noreferrer';
-          rawLink.textContent = T.unsupportedDomainOpenOriginal || 'View the link you pasted';
-          rawLink.title = parsed.toString();
-          actions.appendChild(rawLink);
-        } catch (_) {}
-      }
 
       card.appendChild(actions);
     }
