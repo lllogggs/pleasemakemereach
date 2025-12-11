@@ -795,8 +795,9 @@ footer p{ margin:3px 0; }
   text-decoration:none;
   box-shadow:0 14px 24px rgba(50,100,255,.2);
   transition:transform 0.15s ease, box-shadow 0.15s ease;
-  min-width: 280px;
-  text-align: center;
+  width:100%;
+  max-width:420px;
+  text-align:center;
 }
 .redirect-guide-card__actions{
   display:flex;

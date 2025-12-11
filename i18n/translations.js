@@ -87,7 +87,7 @@ window.TRANSLATIONS = {
     privacy:"개인정보처리방침",
     invalidLink:"트립닷컴에서 상품과 날짜를 선택한 뒤 생성된 링크를 붙여넣어 주세요.",
     unsupportedDomainTitle:"Trip.com 링크만 지원해요",
-    unsupportedDomainBody:"붙여넣은 주소가 Trip.com 링크가 아니에요.<br><br>Trip.com에서 숙소나 항공권을 검색한 뒤 주소창의 전체 URL을 복사해 주세요.",
+    unsupportedDomainBody:"붙여넣은 주소가 Trip.com 링크가 아니에요.<br>Trip.com에서 숙소나 항공권을 검색한 뒤 주소창의 전체 URL을 복사해 주세요.",
     unsupportedDomainCta:"Trip.com 열기",
     unsupportedDomainLogic:"트립닷닷은 trip.com과 모든 하위 도메인 링크만 변환해요. (예: www.trip.com, kr.trip.com)",
     unsupportedDomainDetected:"감지된 도메인",
