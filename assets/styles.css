@@ -105,6 +105,18 @@ footer p{ margin:3px 0; }
   text-align:center;
 }
 
+/* 일본어 페이지: 긴 텍스트 줄바꿈 완화 */
+html:lang(ja) .header h1{
+  font-size:32px;
+  line-height:1.2;
+}
+html:lang(ja) .hero-subtitle{
+  font-size:15px;
+  line-height:1.35;
+}
+html:lang(ja) .main-button{ font-size:15px; padding:15px; }
+html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
+
 /* ===== Language Switcher ===== (수정됨) */
 .language-selector{ position:absolute; top:24px; right:24px; z-index:10; }
 .language-button{
