@@ -306,14 +306,30 @@
       return "ko";
     }
 
-    const AFF_AFFIX = "Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351";
+    const DEFAULT_AFF_AFFIX = "Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351";
+    const AFFILIATE_AFFIX_MAP = {
+      ko: {
+        desktop: "Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351",
+        mobile: "Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686"
+      },
+      ja: {
+        desktop: "Allianceid=6624731&SID=225753893&trip_sub1=jp_pc&trip_sub3=D8322736",
+        mobile: "Allianceid=6624731&SID=225753893&trip_sub1=jp_mobile&trip_sub3=D8377749"
+      }
+    };
+    const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    function appendAffiliate(urlStr) {
+    function getAffiliateAffix(lang = getCurrentLang(), deviceIsMobile = isMobileDevice()) {
+      const affixByLang = AFFILIATE_AFFIX_MAP[lang];
+      if (!affixByLang) return DEFAULT_AFF_AFFIX;
+      return (deviceIsMobile ? affixByLang.mobile : affixByLang.desktop) || DEFAULT_AFF_AFFIX;
+    }
+    function appendAffiliate(urlStr, lang = getCurrentLang()) {
       try {
         const u = new URL(urlStr, location.origin);
         const sp = u.searchParams;
         if (!sp.has("Allianceid") && !sp.has("SID")) {
-          AFF_AFFIX.split("&").forEach(kv => {
+          getAffiliateAffix(lang).split("&").forEach(kv => {
             const [k, v = ""] = kv.split("=");
             if (!sp.has(k)) sp.set(k, v);
           });
@@ -321,7 +337,7 @@
         }
         return u.toString();
       } catch (_) {
-        return urlStr + (urlStr.includes("?") ? "&" : "?") + AFF_AFFIX;
+        return urlStr + (urlStr.includes("?") ? "&" : "?") + getAffiliateAffix(lang);
       }
     }
 
@@ -331,7 +347,7 @@
         (lang === "ja") ? "https://www.trip.com/?curr=JPY" :
         (lang === "th") ? "https://www.trip.com/?curr=THB" :
                           "https://www.trip.com/?curr=USD";
-      return appendAffiliate(base);
+      return appendAffiliate(base, lang);
     }
 
     function renderAdGuidePopup() {

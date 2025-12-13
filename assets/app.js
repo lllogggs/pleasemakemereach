@@ -25,9 +25,28 @@
 
   // ===== 설정 상수 (원본값으로 복구 확인) =====
   const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
-  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
+  const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
 
-  const AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+  const DEFAULT_AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+  const AFFILIATE_AFFIX_MAP = {
+    ko: {
+      desktop: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351',
+      mobile: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686'
+    },
+    ja: {
+      desktop: 'Allianceid=6624731&SID=225753893&trip_sub1=jp_pc&trip_sub3=D8322736',
+      mobile: 'Allianceid=6624731&SID=225753893&trip_sub1=jp_mobile&trip_sub3=D8377749'
+    }
+  };
+
+  const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  function getAffiliateAffix(lang = currentLang, deviceIsMobile = isMobileDevice()) {
+    const affixByLang = AFFILIATE_AFFIX_MAP[lang];
+    if (!affixByLang) return DEFAULT_AFF_AFFIX;
+    return (deviceIsMobile ? affixByLang.mobile : affixByLang.desktop) || DEFAULT_AFF_AFFIX;
+  }
+
 
   function getAffiliateHomeUrl(lang = currentLang) {
     const base =
@@ -35,7 +54,7 @@
       (lang === 'ja') ? 'https://www.trip.com/?curr=JPY' :
       (lang === 'th') ? 'https://www.trip.com/?curr=THB' :
                         'https://www.trip.com/?curr=USD';
-    return appendAffiliate(base);
+    return appendAffiliate(base, lang);
   }
 
   const widgetSrcModal = {
@@ -258,24 +277,25 @@
   }
 
   // ===== 제휴 파라미터 부착 =====
-  function appendAffiliate(urlStr){
-    try{
-      const u = new URL(urlStr, location.origin);
-      const sp = u.searchParams;
-      if (!sp.has('Allianceid') && !sp.has('SID')) {
-        AFF_AFFIX.split('&').forEach(kv => {
-          const [k, v=''] = kv.split('=');
-          if (!sp.has(k)) sp.set(k, v);
-        });
-        u.search = sp.toString();
-      }
-      return u.toString();
-    }catch(_){
-      return urlStr + (urlStr.includes('?') ? '&' : '?') + AFF_AFFIX;
-    }
-  }
+  function appendAffiliate(urlStr, lang = currentLang){
+    const affix = getAffiliateAffix(lang);
+    try{
+      const u = new URL(urlStr, location.origin);
+      const sp = u.searchParams;
+      if (!sp.has('Allianceid') && !sp.has('SID')) {
+        affix.split('&').forEach(kv => {
+          const [k, v=''] = kv.split('=');
+          if (!sp.has(k)) sp.set(k, v);
+        });
+        u.search = sp.toString();
+      }
+      return u.toString();
+    }catch(_){
+      return urlStr + (urlStr.includes('?') ? '&' : '?') + affix;
+    }
+  }
 
-  // ===== 호텔 검색 URL(검색어 기반) + 제휴코드 자동 =====
+  // ===== 호텔 검색 URL(검색어 기반) + 제휴코드 자동 =====
   // cityId와 cityName을 사용하여 검색 URL을 구성합니다.
   function buildHotelSearchUrl(baseHost, cityId, searchCityName, checkin, checkout, curr){
     const params = new URLSearchParams();
@@ -286,7 +306,7 @@
     if (curr)     params.set('curr', curr);
     // searchBoxArg='t' 파라미터는 요청에 따라 제거된 상태를 유지합니다.
     const raw = `https://${baseHost}/hotels/list?${params.toString()}`;
-    return appendAffiliate(raw);
+    return appendAffiliate(raw, currentLang);
   }
 
   function applyTranslations(lang){
@@ -1007,7 +1027,7 @@
 
         const param = p.toString();
         const cleanPath = basePath + (param ? '?' + param : '');
-        const finalAffix = (param ? '&' : '?') + AFF_AFFIX;
+        const finalAffix = (param ? '&' : '?') + getAffiliateAffix();
         const fullUrl = `https://${dom.code}.trip.com${cleanPath}${finalAffix}`;
 
         const a = document.createElement('a');
@@ -1224,10 +1244,10 @@
           if (blankClickCount >= 3) {
             blankClickCount = 0;
             const defaultAff =
-              (currentLang === 'ko') ? 'https://kr.trip.com/?curr=KRW&' + AFF_AFFIX :
-              (currentLang === 'ja') ? 'https://www.trip.com/?curr=JPY&' + AFF_AFFIX :
-              (currentLang === 'th') ? 'https://www.trip.com/?curr=THB&' + AFF_AFFIX :
-                                       'https://www.trip.com/?curr=USD&' + AFF_AFFIX;
+              (currentLang === 'ko') ? getAffiliateHomeUrl('ko') :
+              (currentLang === 'ja') ? getAffiliateHomeUrl('ja') :
+              (currentLang === 'th') ? getAffiliateHomeUrl('th') :
+                                       getAffiliateHomeUrl('en');
             redirectWithModal(defaultAff, 800);
           }
         } else {
