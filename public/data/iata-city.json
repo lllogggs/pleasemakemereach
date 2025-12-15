@@ -35981,8 +35981,8 @@
     "municipality": "Miami",
     "airport": "Dade Collier Training and Transition Airport",
     "country": "US",
-    "lat": 25.861799240112,
-    "lon": -80.897003173828,
+    "lat": 25.861788,
+    "lon": -80.89701,
     "source": "ourairports"
   },
   "tnu": {
@@ -46976,15 +46976,6 @@
     "country": "SA",
     "lat": 27.437901,
     "lon": 41.686298,
-    "source": "ourairports"
-  },
-  "qjb": {
-    "city": "Jubail",
-    "municipality": "Jubail",
-    "airport": "Jubail Airport",
-    "country": "SA",
-    "lat": 27.039,
-    "lon": 49.405102,
     "source": "ourairports"
   },
   "jed": {
@@ -78862,8 +78853,8 @@
     "municipality": "Mudanjiang",
     "airport": "Mudanjiang Hailang International Airport",
     "country": "CN",
-    "lat": 44.5241012573,
-    "lon": 129.569000244,
+    "lat": 44.525172,
+    "lon": 129.568634,
     "source": "ourairports"
   },
   "ohe": {
