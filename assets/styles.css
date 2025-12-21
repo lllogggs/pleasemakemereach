@@ -110,7 +110,7 @@ footer p{ margin:3px 0; }
   align-items:center;
   gap:8px;
   padding:12px 20px;
-  background:linear-gradient(145deg,#ffffff,#eef2f7);
+  background:transparent;
   color:var(--primary-blue);
   border:none;
   border-radius:14px;
