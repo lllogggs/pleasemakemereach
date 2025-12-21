@@ -104,6 +104,31 @@ footer p{ margin:3px 0; }
   gap:3px;
   text-align:center;
 }
+.logo-title{ margin:0; }
+.logo-button{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  background:var(--primary-blue);
+  color:#fff;
+  border:1px solid var(--primary-blue);
+  border-radius:14px;
+  text-decoration:none;
+  font-size:inherit;
+  font-weight:inherit;
+  box-shadow:0 10px 30px rgba(50,100,255,.18);
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.logo-button:hover{
+  background:var(--primary-blue-hover);
+  box-shadow:0 12px 36px rgba(37,78,220,.2);
+  transform:translateY(-1px);
+}
+.logo-button:focus-visible{
+  outline:3px solid #cbd8ff;
+  outline-offset:2px;
+}
 
 /* 일본어 페이지: 긴 텍스트 줄바꿈 완화 */
 html:lang(ja) .header h1{
