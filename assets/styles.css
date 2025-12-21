@@ -112,7 +112,7 @@ footer p{ margin:3px 0; }
   padding:12px 20px;
   background:linear-gradient(145deg,#ffffff,#eef2f7);
   color:var(--primary-blue);
-  border:1px solid rgba(50,100,255,.15);
+  border:none;
   border-radius:14px;
   text-decoration:none;
   font-size:inherit;
@@ -124,7 +124,6 @@ footer p{ margin:3px 0; }
   backdrop-filter:blur(2px);
 }
 .logo-button:hover{
-  border-color:rgba(50,100,255,.3);
   box-shadow:
     0 16px 34px rgba(17,24,39,.12),
     inset 0 1px 0 rgba(255,255,255,1);
