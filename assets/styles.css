@@ -117,16 +117,12 @@ footer p{ margin:3px 0; }
   text-decoration:none;
   font-size:inherit;
   font-weight:700;
-  box-shadow:
-    0 14px 28px rgba(17,24,39,.08),
-    inset 0 1px 0 rgba(255,255,255,.9);
+  box-shadow:none;
   transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  backdrop-filter:blur(2px);
+  backdrop-filter:none;
 }
 .logo-button:hover{
-  box-shadow:
-    0 16px 34px rgba(17,24,39,.12),
-    inset 0 1px 0 rgba(255,255,255,1);
+  box-shadow:none;
   transform:translateY(-1px);
 }
 .logo-button:focus-visible{
