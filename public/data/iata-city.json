@@ -17968,8 +17968,8 @@
     "municipality": "Opuwa",
     "airport": "Opuwa Airport",
     "country": "NA",
-    "lat": -18.061424,
-    "lon": 13.85047,
+    "lat": -18.056022,
+    "lon": 13.852061,
     "source": "ourairports"
   },
   "ohi": {
@@ -17986,7 +17986,7 @@
     "municipality": "Otjiwarongo",
     "airport": "Otjiwarongo Airport",
     "country": "NA",
-    "lat": -20.4347,
+    "lat": -20.433012,
     "lon": 16.660801,
     "source": "ourairports"
   },
@@ -17995,8 +17995,8 @@
     "municipality": "Rundu",
     "airport": "Rundu Airport",
     "country": "NA",
-    "lat": -17.956499099731,
-    "lon": 19.719400405884,
+    "lat": -17.956499,
+    "lon": 19.7194,
     "source": "ourairports"
   },
   "rhn": {
@@ -18031,8 +18031,8 @@
     "municipality": "Terrace Bay",
     "airport": "Terrace Bay Airport",
     "country": "NA",
-    "lat": -19.9713,
-    "lon": 13.0249,
+    "lat": -19.972112,
+    "lon": 13.025486,
     "source": "ourairports"
   },
   "tsb": {
@@ -18040,8 +18040,8 @@
     "municipality": "Tsumeb",
     "airport": "Tsumeb Airport",
     "country": "NA",
-    "lat": -19.26189994812,
-    "lon": 17.732500076294,
+    "lat": -19.262079,
+    "lon": 17.732509,
     "source": "ourairports"
   },
   "wvb": {
@@ -18058,8 +18058,8 @@
     "municipality": "Windhoek",
     "airport": "Eros Airport",
     "country": "NA",
-    "lat": -22.612199783325195,
-    "lon": 17.080400466918945,
+    "lat": -22.60492,
+    "lon": 17.079002,
     "source": "ourairports"
   },
   "wdh": {
@@ -29958,7 +29958,7 @@
   "lal": {
     "city": "Lakeland",
     "municipality": "Lakeland",
-    "airport": "Lakeland Linder International Airport",
+    "airport": "Lakeland Linder International/Regional Airport",
     "country": "US",
     "lat": 27.987656,
     "lon": -82.018776,
@@ -39509,8 +39509,8 @@
     "municipality": "Bolzano (BZ)",
     "airport": "Bolzano Airport",
     "country": "IT",
-    "lat": 46.460201,
-    "lon": 11.3264,
+    "lat": 46.459245,
+    "lon": 11.326125,
     "source": "ourairports"
   },
   "blq": {
@@ -43804,15 +43804,6 @@
     "country": "CU",
     "lat": 23.124001,
     "lon": -81.301598,
-    "source": "ourairports"
-  },
-  "lcl": {
-    "city": "Pinar del Rio",
-    "municipality": "Pinar del Rio",
-    "airport": "La Coloma Airport",
-    "country": "CU",
-    "lat": 22.3361,
-    "lon": -83.641899,
     "source": "ourairports"
   },
   "uma": {
@@ -56741,10 +56732,10 @@
   "cio": {
     "city": "Concepción",
     "municipality": "Concepción",
-    "airport": "Aeropuerto Nacional Tte. Cnel. Carmelo Peralta",
+    "airport": "Lieutenant Colonel Carmelo Peralta National Airport",
     "country": "PY",
-    "lat": -23.440334,
-    "lon": -57.429206,
+    "lat": -23.441609,
+    "lon": -57.427039,
     "source": "ourairports"
   },
   "eno": {
