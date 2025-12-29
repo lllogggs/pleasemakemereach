@@ -3833,7 +3833,7 @@
   "goh": {
     "city": "Nuuk",
     "municipality": "Nuuk",
-    "airport": "Nuuk Airport",
+    "airport": "Nuuk International Airport",
     "country": "GL",
     "lat": 64.191066,
     "lon": -51.67914,
@@ -3887,7 +3887,7 @@
   "sfj": {
     "city": "Kangerlussuaq",
     "municipality": "Kangerlussuaq",
-    "airport": "Kangerlussuaq Airport",
+    "airport": "Kangerlussuaq International Airport",
     "country": "GL",
     "lat": 67.010446,
     "lon": -50.715294,
@@ -3950,7 +3950,7 @@
   "aey": {
     "city": "Akureyri",
     "municipality": "Akureyri",
-    "airport": "Akureyri Airport",
+    "airport": "Akureyri International Airport",
     "country": "IS",
     "lat": 65.656573,
     "lon": -18.072018,
@@ -9335,7 +9335,7 @@
   "azr": {
     "city": "Adrar",
     "municipality": "Adrar",
-    "airport": "Touat Cheikh Sidi Mohamed Belkebir Airport",
+    "airport": "Touat-Cheikh Sidi Mohamed Belkebir Airport",
     "country": "DZ",
     "lat": 27.837601,
     "lon": -0.186414,
@@ -9443,10 +9443,10 @@
   "coo": {
     "city": "Cotonou",
     "municipality": "Cotonou",
-    "airport": "Cadjehoun Airport",
+    "airport": "Cotonou Cadjehoun International Airport",
     "country": "BJ",
-    "lat": 6.357230186462402,
-    "lon": 2.384350061416626,
+    "lat": 6.35723,
+    "lon": 2.38435,
     "source": "ourairports"
   },
   "dja": {
@@ -9802,10 +9802,10 @@
   "kms": {
     "city": "Kumasi",
     "municipality": "Kumasi",
-    "airport": "Kumasi Airport",
+    "airport": "Prempeh I International Airport",
     "country": "GH",
-    "lat": 6.714560031890869,
-    "lon": -1.5908199548721313,
+    "lat": 6.71456,
+    "lon": -1.59082,
     "source": "ourairports"
   },
   "nyi": {
@@ -10033,10 +10033,10 @@
   "ask": {
     "city": "Yamoussoukro",
     "municipality": "Yamoussoukro",
-    "airport": "Yamoussoukro Airport",
+    "airport": "Yamoussoukro International Airport",
     "country": "CI",
-    "lat": 6.9031701088,
-    "lon": -5.36558008194,
+    "lat": 6.90317,
+    "lon": -5.36558,
     "source": "ourairports"
   },
   "dlr": {
@@ -11664,8 +11664,8 @@
     "municipality": "Campbeltown",
     "airport": "Campbeltown Airport",
     "country": "GB",
-    "lat": 55.437198638916016,
-    "lon": -5.686389923095703,
+    "lat": 55.437199,
+    "lon": -5.68639,
     "source": "ourairports"
   },
   "eoi": {
@@ -12159,8 +12159,8 @@
     "municipality": "Inverness",
     "airport": "Inverness Airport",
     "country": "GB",
-    "lat": 57.54249954223633,
-    "lon": -4.047500133514404,
+    "lat": 57.5425,
+    "lon": -4.0475,
     "source": "ourairports"
   },
   "gla": {
@@ -12204,8 +12204,8 @@
     "municipality": "Balivanich",
     "airport": "Benbecula Airport",
     "country": "GB",
-    "lat": 57.48109817504883,
-    "lon": -7.3627800941467285,
+    "lat": 57.481098,
+    "lon": -7.36278,
     "source": "ourairports"
   },
   "dnd": {
@@ -12213,8 +12213,8 @@
     "municipality": "Dundee",
     "airport": "Dundee Airport",
     "country": "GB",
-    "lat": 56.45249938964844,
-    "lon": -3.025830030441284,
+    "lat": 56.452499,
+    "lon": -3.02583,
     "source": "ourairports"
   },
   "syy": {
@@ -14974,10 +14974,10 @@
   "bzv": {
     "city": "Brazzaville",
     "municipality": "Brazzaville",
-    "airport": "Maya-Maya Airport",
+    "airport": "Maya-Maya International Airport",
     "country": "CG",
-    "lat": -4.251699924468994,
-    "lon": 15.253000259399414,
+    "lat": -4.2517,
+    "lon": 15.253,
     "source": "ourairports"
   },
   "djm": {
@@ -15021,8 +15021,8 @@
     "municipality": "Sibiti",
     "airport": "Sibiti Airport",
     "country": "CG",
-    "lat": -3.683,
-    "lon": 13.35,
+    "lat": -3.68661,
+    "lon": 13.37402,
     "source": "ourairports"
   },
   "nky": {
@@ -15039,8 +15039,8 @@
     "municipality": "Zanaga",
     "airport": "Zanaga Airport",
     "country": "CG",
-    "lat": -2.85,
-    "lon": 13.817,
+    "lat": -2.846651,
+    "lon": 13.821155,
     "source": "ourairports"
   },
   "msx": {
@@ -15488,8 +15488,8 @@
     "municipality": "Douala",
     "airport": "Douala International Airport",
     "country": "CM",
-    "lat": 4.0060801506,
-    "lon": 9.719479560849999,
+    "lat": 4.00608,
+    "lon": 9.71948,
     "source": "ourairports"
   },
   "mmf": {
@@ -15621,7 +15621,7 @@
   "yao": {
     "city": "Yaoundé",
     "municipality": "Yaoundé",
-    "airport": "Yaoundé Airport",
+    "airport": "Yaoundé Ville Airport",
     "country": "CM",
     "lat": 3.83604,
     "lon": 11.5235,
@@ -16923,10 +16923,10 @@
   "pog": {
     "city": "Port Gentil",
     "municipality": "Port Gentil",
-    "airport": "Port Gentil Airport",
+    "airport": "Port Gentil International Airport",
     "country": "GA",
-    "lat": -0.7117390036582947,
-    "lon": 8.754380226135254,
+    "lat": -0.711739,
+    "lon": 8.75438,
     "source": "ourairports"
   },
   "omb": {
@@ -16961,8 +16961,8 @@
     "municipality": "Libreville",
     "airport": "Libreville Leon M'ba International Airport",
     "country": "GA",
-    "lat": 0.458600014448,
-    "lon": 9.412280082699999,
+    "lat": 0.4586,
+    "lon": 9.41228,
     "source": "ourairports"
   },
   "mzc": {
@@ -16979,8 +16979,8 @@
     "municipality": "Franceville",
     "airport": "M'Vengue El Hadj Omar Bongo Ondimba International Airport",
     "country": "GA",
-    "lat": -1.6561599969863892,
-    "lon": 13.437999725341797,
+    "lat": -1.65616,
+    "lon": 13.438,
     "source": "ourairports"
   },
   "ltl": {
@@ -17049,7 +17049,7 @@
   "bew": {
     "city": "Beira",
     "municipality": "Beira",
-    "airport": "Beira Airport",
+    "airport": "Beira International Airport",
     "country": "MZ",
     "lat": -19.7964,
     "lon": 34.9076,
@@ -20333,8 +20333,8 @@
     "municipality": "Mogadishu",
     "airport": "Aden Adde International Airport",
     "country": "SO",
-    "lat": 2.0144400596618652,
-    "lon": 45.3046989440918,
+    "lat": 2.01444,
+    "lon": 45.304699,
     "source": "ourairports"
   },
   "blw": {
@@ -20774,8 +20774,8 @@
     "municipality": "Eldoret",
     "airport": "Eldoret International Airport",
     "country": "KE",
-    "lat": 0.4044579863548279,
-    "lon": 35.23889923095703,
+    "lat": 0.404458,
+    "lon": 35.238899,
     "source": "ourairports"
   },
   "eys": {
@@ -20844,10 +20844,10 @@
   "kis": {
     "city": "Kisumu",
     "municipality": "Kisumu",
-    "airport": "Kisumu Airport",
+    "airport": "Kisumu International Airport",
     "country": "KE",
-    "lat": -0.0861390009522438,
-    "lon": 34.72890090942383,
+    "lat": -0.086139,
+    "lon": 34.728901,
     "source": "ourairports"
   },
   "ilu": {
@@ -20988,7 +20988,7 @@
   "nuu": {
     "city": "Nakuru",
     "municipality": "Nakuru",
-    "airport": "Nakuru Airport",
+    "airport": "Lanet Military Airstrip",
     "country": "KE",
     "lat": -0.298067,
     "lon": 36.159302,
@@ -30210,7 +30210,7 @@
   "lgb": {
     "city": "Long Beach",
     "municipality": "Long Beach",
-    "airport": "Long Beach Airport (Daugherty Field)",
+    "airport": "Long Beach International Airport",
     "country": "US",
     "lat": 33.816523,
     "lon": -118.149891,
@@ -39869,8 +39869,8 @@
     "municipality": "Haifa",
     "airport": "Haifa International Airport",
     "country": "IL",
-    "lat": 32.80939865112305,
-    "lon": 35.04309844970703,
+    "lat": 32.810219,
+    "lon": 35.043719,
     "source": "ourairports"
   },
   "rpn": {
@@ -39900,6 +39900,15 @@
     "lon": 128.594,
     "source": "ourairports"
   },
+  "mip": {
+    "city": "Mitzpe Ramon",
+    "municipality": "Mitzpe Ramon",
+    "airport": "Mitzpe Ramon Airfield",
+    "country": "IL",
+    "lat": 30.6506,
+    "lon": 34.8069,
+    "source": "ourairports"
+  },
   "mtz": {
     "city": "Masada",
     "municipality": "Masada",
@@ -39925,24 +39934,6 @@
     "country": "IL",
     "lat": 29.9403,
     "lon": 34.935799,
-    "source": "ourairports"
-  },
-  "mip": {
-    "city": "Beersheba",
-    "municipality": "Beersheba",
-    "airport": "Ramon Air Base",
-    "country": "IL",
-    "lat": 30.7761,
-    "lon": 34.666698,
-    "source": "ourairports"
-  },
-  "yot": {
-    "city": "Yotvata",
-    "municipality": "Yotvata",
-    "airport": "Yotvata Airfield",
-    "country": "IL",
-    "lat": 29.901111,
-    "lon": 35.0675,
     "source": "ourairports"
   },
   "mla": {
@@ -43442,8 +43433,8 @@
     "municipality": "Puerto Limon",
     "airport": "Limon International Airport",
     "country": "CR",
-    "lat": 9.95796012878418,
-    "lon": -83.02200317382812,
+    "lat": 9.95796,
+    "lon": -83.022003,
     "source": "ourairports"
   },
   "csc": {
@@ -45006,8 +44997,8 @@
     "municipality": "Alofi",
     "airport": "Niue International Airport",
     "country": "NU",
-    "lat": -19.079030990600586,
-    "lon": -169.92559814453125,
+    "lat": -19.079031,
+    "lon": -169.925598,
     "source": "ourairports"
   },
   "njj": {
@@ -47053,7 +47044,7 @@
   "ruh": {
     "city": "Riyadh",
     "municipality": "Riyadh",
-    "airport": "King Khaled International Airport",
+    "airport": "King Khalid International Airport",
     "country": "SA",
     "lat": 24.9576,
     "lon": 46.698799,
@@ -47998,8 +47989,8 @@
     "municipality": "Al Ain",
     "airport": "Al Ain International Airport",
     "country": "AE",
-    "lat": 24.261699676513672,
-    "lon": 55.60919952392578,
+    "lat": 24.2617,
+    "lon": 55.6092,
     "source": "ourairports"
   },
   "dhf": {
@@ -51289,8 +51280,8 @@
     "municipality": "Hilo",
     "airport": "Hilo International Airport",
     "country": "US",
-    "lat": 19.721399,
-    "lon": -155.048004,
+    "lat": 19.72135,
+    "lon": -155.045428,
     "source": "ourairports"
   },
   "upp": {
@@ -61188,7 +61179,7 @@
   "ciz": {
     "city": "Coari",
     "municipality": "Coari",
-    "airport": "Coari Airport",
+    "airport": "Danilson Municipal Airport",
     "country": "BR",
     "lat": -4.13406,
     "lon": -63.132599,
@@ -61890,10 +61881,10 @@
   "pse": {
     "city": "Ponce",
     "municipality": "Ponce",
-    "airport": "Mercedita Airport",
+    "airport": "Mercedita International Airport",
     "country": "PR",
-    "lat": 18.00830078125,
-    "lon": -66.56300354003906,
+    "lat": 18.008301,
+    "lon": -66.563004,
     "source": "ourairports"
   },
   "nrr": {
@@ -62349,7 +62340,7 @@
   "oss": {
     "city": "Osh",
     "municipality": "Osh",
-    "airport": "Osh Airport",
+    "airport": "Osh International Airport",
     "country": "KG",
     "lat": 40.609001,
     "lon": 72.793297,
@@ -65357,9 +65348,9 @@
     "source": "ourairports"
   },
   "hbx": {
-    "city": "Hubli",
-    "municipality": "Hubli",
-    "airport": "Hubli Airport",
+    "city": "Hubballi",
+    "municipality": "Hubballi",
+    "airport": "Hubballi Airport",
     "country": "IN",
     "lat": 15.3617,
     "lon": 75.0849,
@@ -65485,7 +65476,7 @@
   "pnq": {
     "city": "Pune",
     "municipality": "Pune",
-    "airport": "Pune Airport / Lohagaon Air Force Station",
+    "airport": "Pune International Airport",
     "country": "IN",
     "lat": 18.5821,
     "lon": 73.919701,
@@ -66523,8 +66514,8 @@
     "municipality": "Lucknow",
     "airport": "Chaudhary Charan Singh International Airport",
     "country": "IN",
-    "lat": 26.7605991364,
-    "lon": 80.8892974854,
+    "lat": 26.760599,
+    "lon": 80.889297,
     "source": "ourairports"
   },
   "mzs": {
@@ -67155,9 +67146,9 @@
     "source": "ourairports"
   },
   "blr": {
-    "city": "Bangalore",
-    "municipality": "Bangalore",
-    "airport": "Kempegowda International Airport",
+    "city": "Bangaluru",
+    "municipality": "Bangaluru",
+    "airport": "Kempegowda International Airport Bengaluru",
     "country": "IN",
     "lat": 13.1979,
     "lon": 77.706299,
@@ -71807,8 +71798,8 @@
     "municipality": "Broome",
     "airport": "Broome International Airport",
     "country": "AU",
-    "lat": -17.949444,
-    "lon": 122.227778,
+    "lat": -17.948817,
+    "lon": 122.227482,
     "source": "ourairports"
   },
   "bzd": {
@@ -78709,8 +78700,8 @@
     "municipality": "Dalian (Changhai)",
     "airport": "Changhai Airport",
     "country": "CN",
-    "lat": 39.266667,
-    "lon": 122.666944,
+    "lat": 39.266441,
+    "lon": 122.66696,
     "source": "ourairports"
   },
   "chg": {
@@ -78725,7 +78716,7 @@
   "ddg": {
     "city": "Dandong (Zhenxing)",
     "municipality": "Dandong (Zhenxing)",
-    "airport": "Dandong Langtou Airport",
+    "airport": "Dandong Langtou International Airport",
     "country": "CN",
     "lat": 40.025453,
     "lon": 124.28669,
