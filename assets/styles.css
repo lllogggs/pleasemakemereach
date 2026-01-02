@@ -589,6 +589,114 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
 }
 .info-card ul li::marker{ content:''; }
 
+/* ===== History ===== */
+.history-section{
+  background:var(--card-background);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+  border-radius:16px;
+  padding:18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.history-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.history-header h2{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+}
+.history-clear{
+  border:none;
+  background:transparent;
+  color:var(--text-secondary);
+  font-weight:700;
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:10px;
+  transition:background .15s ease, color .15s ease;
+}
+.history-clear:hover{
+  background:var(--light-blue);
+  color:var(--primary-blue);
+}
+.history-body{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.history-empty{
+  margin:0;
+  color:var(--text-secondary);
+  font-size:14px;
+}
+.history-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.history-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--border-color);
+  background:#fff;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+  cursor:pointer;
+  text-align:left;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.history-item:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 30px rgba(15,23,42,.08);
+  border-color:var(--primary-blue);
+}
+.history-emoji{
+  font-size:18px;
+  flex-shrink:0;
+}
+.history-text{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-width:0;
+}
+.history-title{
+  margin:0;
+  font-size:15px;
+  font-weight:700;
+  color:var(--text-primary);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.history-subtitle{
+  margin:0;
+  font-size:13px;
+  color:var(--text-secondary);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.history-item:focus-visible,
+.history-clear:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px var(--light-blue);
+}
+
+@media (max-width:520px){
+  .history-header{ flex-direction:column; align-items:flex-start; }
+  .history-clear{ align-self:flex-end; }
+  .history-title, .history-subtitle{ white-space:normal; }
+}
+
 /* ===== Results ===== */
 .link-list{
   display:none; background:var(--card-background); padding:8px 24px 24px; border-radius:12px;
