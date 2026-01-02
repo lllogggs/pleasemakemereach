@@ -263,13 +263,188 @@
   }
 
   // ===== 날짜 포맷 변환 YYYY-MM-DD → YYYY/MM/DD =====
-  function ymdToSlash(ymd){
-    if (!ymd) return '';
-    return ymd.replaceAll('-', '/');
-  }
+  function ymdToSlash(ymd){
+    if (!ymd) return '';
+    return ymd.replaceAll('-', '/');
+  }
 
-  // ===== 항공 → 호텔 CTA 라벨(일반 문구) =====
-  function hotelCtaLabel(){
+  // ===== 최근 본 링크 관리 =====
+  const HISTORY_KEY = 'tripdotdot_history_v1';
+  const HISTORY_LIMIT = 10;
+
+  function safeDecodeURIComponent(str){
+    if (!str) return '';
+    try{
+      return decodeURIComponent(str.replace(/\+/g, ' '));
+    }catch(_){
+      return str;
+    }
+  }
+
+  function formatHistoryDate(ymd){
+    if (!ymd) return '';
+    const parts = ymd.split('-');
+    if (parts.length === 3) {
+      const m = parts[1]?.padStart(2,'0');
+      const d = parts[2]?.padStart(2,'0');
+      return `${m}/${d}`;
+    }
+    return ymd;
+  }
+
+  function formatHistoryRange(start, end){
+    const s = formatHistoryDate(start);
+    const e = formatHistoryDate(end);
+    if (s && e) return `${s}~${e}`;
+    return s || e || '';
+  }
+
+  function cityNameFromCode(code, map){
+    if (!code) return '';
+    const lower = code.toLowerCase();
+    const entry = map?.[lower];
+    return (entry && entry.city) ? entry.city : code.toUpperCase();
+  }
+
+  function summarizeHotelName(pathname, params){
+    const candidate = params.get('hotelname') || params.get('hotelName') || params.get('name');
+    if (candidate) {
+      const decoded = safeDecodeURIComponent(candidate).trim();
+      if (decoded) return decoded;
+    }
+
+    const segments = pathname.split('/').filter(Boolean);
+    const hotelIdx = segments.indexOf('hotels');
+    if (hotelIdx >= 0) {
+      const raw = (segments[hotelIdx+1] === 'detail') ? segments[hotelIdx+2] : segments[hotelIdx+1];
+      if (raw) {
+        const cleaned = safeDecodeURIComponent(raw).replace(/[-_]+/g,' ').trim();
+        if (cleaned) return cleaned;
+      }
+    }
+
+    return TL('historyHotelFallback');
+  }
+
+  function loadHistoryItems(){
+    try{
+      const raw = localStorage.getItem(HISTORY_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    }catch(e){
+      console.warn('History load failed', e);
+      return [];
+    }
+  }
+
+  function persistHistory(items){
+    try{
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(0, HISTORY_LIMIT)));
+    }catch(e){
+      console.warn('History save failed', e);
+    }
+  }
+
+  function renderHistory(){
+    const list = $('#history-list');
+    const empty = $('#history-empty');
+    if (!list || !empty) return;
+
+    const entries = loadHistoryItems();
+    list.innerHTML = '';
+
+    if (!entries.length){
+      empty.style.display = 'block';
+      return;
+    }
+
+    empty.style.display = 'none';
+    entries.forEach(entry => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'history-item';
+      btn.setAttribute('role','listitem');
+      btn.addEventListener('click', () => {
+        const inputEl = $('#inputUrl');
+        if (inputEl) {
+          inputEl.value = entry.url;
+          window.generateLinks();
+          inputEl.focus();
+        }
+      });
+
+      const emoji = document.createElement('span');
+      emoji.className = 'history-emoji';
+      emoji.textContent = entry.emoji || '🔗';
+
+      const textWrap = document.createElement('div');
+      textWrap.className = 'history-text';
+
+      const title = document.createElement('p');
+      title.className = 'history-title';
+      title.textContent = entry.title || entry.url;
+      textWrap.appendChild(title);
+
+      if (entry.subtitle) {
+        const subtitle = document.createElement('p');
+        subtitle.className = 'history-subtitle';
+        subtitle.textContent = entry.subtitle;
+        textWrap.appendChild(subtitle);
+      }
+
+      btn.appendChild(emoji);
+      btn.appendChild(textWrap);
+      list.appendChild(btn);
+    });
+  }
+
+  async function addHistoryFromUrl(input, urlObj, category){
+    if (!urlObj) return;
+
+    const params = new URLSearchParams(urlObj.search);
+    const pathname = stripWSegments(urlObj.pathname);
+    const base = { url: input, ts: Date.now() };
+    let entry = { ...base, emoji:'🔗', title: input, subtitle:'' };
+
+    if (pathname.includes('/flights') || category === 'Flight') {
+      const map = await loadIataMapOnce();
+      const dcity = params.get('dcity') || params.get('dcitycode');
+      const acity = params.get('acity') || params.get('acitycode');
+      const departDate = params.get('ddate') || '';
+      const returnDate = params.get('rdate') || params.get('adate') || '';
+
+      const depName = cityNameFromCode(dcity, map) || TL('historyUnknownCity');
+      const arrName = cityNameFromCode(acity, map) || TL('historyUnknownCity');
+      const subtitle = returnDate ? formatHistoryRange(departDate, returnDate) : formatHistoryDate(departDate);
+
+      entry = {
+        ...base,
+        type:'flight',
+        emoji:'✈️',
+        title: `${depName} - ${arrName}`,
+        subtitle: subtitle || TL('historyFlightFallback')
+      };
+    } else if (pathname.includes('/hotels') || category === 'Hotel') {
+      const checkin = params.get('checkin') || params.get('checkIn');
+      const checkout = params.get('checkout') || params.get('checkOut');
+
+      entry = {
+        ...base,
+        type:'hotel',
+        emoji:'🏨',
+        title: summarizeHotelName(pathname, params),
+        subtitle: formatHistoryRange(checkin, checkout) || ''
+      };
+    }
+
+    const existing = loadHistoryItems().filter(i => i.url !== input);
+    existing.unshift(entry);
+    persistHistory(existing);
+    renderHistory();
+  }
+
+  // ===== 항공 → 호텔 CTA 라벨(일반 문구) =====
+  function hotelCtaLabel(){
     if (currentLang === 'ko') return '숙소도 한번에 찾기';
     if (currentLang === 'ja') return '宿もまとめて検索';
     if (currentLang === 'th') return 'ค้นหาโรงแรมพร้อมกัน';
@@ -901,11 +1076,12 @@
       return;
     }
 
-    try{
-      // 정상 URL만 파싱/정제
-      const url = new URL(input);
-      // (중요) 확장 링크 경로 내부의 /w/ 세그먼트 제거
-      let pathname = stripWSegments(url.pathname);
+   try{
+     // 정상 URL만 파싱/정제
+     const url = new URL(input);
+     await addHistoryFromUrl(input, url, category);
+     // (중요) 확장 링크 경로 내부의 /w/ 세그먼트 제거
+     let pathname = stripWSegments(url.pathname);
 
       const originalParams = new URLSearchParams(url.search);
       let essentialParams = new URLSearchParams();
@@ -1161,6 +1337,7 @@
     injectMetaIntro();
     applyNoSnippet();
     hardenExternalLinks();
+    renderHistory();
 
     const langSelector = $('.language-selector');
     const langButton = $('#language-button');
@@ -1220,6 +1397,9 @@
     }
 
     attachInputClearButton();
+
+    const historyClearBtn = $('#history-clear');
+    if (historyClearBtn) historyClearBtn.addEventListener('click', () => { persistHistory([]); renderHistory(); });
 
     const mobileModal = $('#mobile-notice-modal');
     if (mobileModal) {
