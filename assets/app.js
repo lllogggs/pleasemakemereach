@@ -299,11 +299,40 @@
     return s || e || '';
   }
 
+  function hotelCityLabel(city){
+    if (!city) return '';
+    const suffix = TL('historyHotelSuffix') || 'Hotel';
+    return `${city} ${suffix}`.trim();
+  }
+
   function cityNameFromCode(code, map){
     if (!code) return '';
     const lower = code.toLowerCase();
     const entry = map?.[lower];
     return (entry && entry.city) ? entry.city : code.toUpperCase();
+  }
+
+  async function resolveHotelCityName(params){
+    const nameParam = params.get('cityName') || params.get('cityname');
+    if (nameParam) {
+      const decoded = safeDecodeURIComponent(nameParam).trim();
+      if (decoded) return decoded;
+    }
+
+    const hCity = params.get('hCity') || params.get('hcity');
+    if (hCity) {
+      const decoded = safeDecodeURIComponent(hCity).trim();
+      if (decoded) return decoded;
+    }
+
+    const cityId = params.get('city') || params.get('cityId');
+    if (cityId) {
+      const map = await loadCityIdMapOnce();
+      const mapped = map?.[cityId];
+      if (mapped?.city) return mapped.city;
+    }
+
+    return '';
   }
 
   function summarizeHotelName(pathname, params){
@@ -449,11 +478,27 @@
         title: `${depName} - ${arrName}`,
         subtitle: subtitle || TL('historyFlightFallback')
       };
+    } else if (pathname.includes('/packages/') || category === 'Package') {
+      const map = await loadIataMapOnce();
+      const arrivalCode = params.get('aCity') || params.get('acity') || params.get('hCity') || params.get('hcity');
+      const arrivalName = cityNameFromCode(arrivalCode, map) || TL('historyUnknownCity');
+      const departDate = params.get('dDate') || params.get('iDate') || '';
+      const returnDate = params.get('rDate') || params.get('oDate') || '';
+      const subtitle = formatHistoryRange(departDate, returnDate);
+
+      entry = {
+        ...base,
+        type:'package',
+        emoji:'🏨✈️',
+        title: arrivalName,
+        subtitle: subtitle || TL('historyPackageFallback')
+      };
     } else if (pathname.includes('/hotels') || category === 'Hotel') {
       const checkin = params.get('checkin') || params.get('checkIn');
       const checkout = params.get('checkout') || params.get('checkOut');
       const fallbackName = nextHotelFallbackLabel(existingItems);
-      const hotelName = summarizeHotelName(pathname, params) || fallbackName;
+      const cityName = await resolveHotelCityName(params);
+      const hotelName = cityName ? hotelCityLabel(cityName) : (summarizeHotelName(pathname, params) || fallbackName);
 
       entry = {
         ...base,
