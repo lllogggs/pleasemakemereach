@@ -323,7 +323,13 @@
       }
     }
 
-    return TL('historyHotelFallback');
+    return '';
+  }
+
+  function nextHotelFallbackLabel(existingItems){
+    const hotelCount = existingItems.filter(i => i && (i.type === 'hotel' || i.emoji === '🏨')).length + 1;
+    const template = TL('historyHotelNumbered') || TL('historyHotelFallback');
+    return String(template).replace('{n}', hotelCount);
   }
 
   function loadHistoryItems(){
@@ -394,8 +400,26 @@
 
       btn.appendChild(emoji);
       btn.appendChild(textWrap);
+
+      const removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.className = 'history-remove';
+      removeBtn.setAttribute('aria-label', TL('historyRemove'));
+      removeBtn.textContent = '×';
+      removeBtn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        removeHistoryItem(entry.url);
+      });
+
+      btn.appendChild(removeBtn);
       list.appendChild(btn);
     });
+  }
+
+  function removeHistoryItem(url){
+    const filtered = loadHistoryItems().filter(i => i.url !== url);
+    persistHistory(filtered);
+    renderHistory();
   }
 
   async function addHistoryFromUrl(input, urlObj, category){
@@ -404,6 +428,7 @@
     const params = new URLSearchParams(urlObj.search);
     const pathname = stripWSegments(urlObj.pathname);
     const base = { url: input, ts: Date.now() };
+    const existingItems = loadHistoryItems().filter(i => i.url !== input);
     let entry = { ...base, emoji:'🔗', title: input, subtitle:'' };
 
     if (pathname.includes('/flights') || category === 'Flight') {
@@ -427,19 +452,20 @@
     } else if (pathname.includes('/hotels') || category === 'Hotel') {
       const checkin = params.get('checkin') || params.get('checkIn');
       const checkout = params.get('checkout') || params.get('checkOut');
+      const fallbackName = nextHotelFallbackLabel(existingItems);
+      const hotelName = summarizeHotelName(pathname, params) || fallbackName;
 
       entry = {
         ...base,
         type:'hotel',
         emoji:'🏨',
-        title: summarizeHotelName(pathname, params),
+        title: hotelName,
         subtitle: formatHistoryRange(checkin, checkout) || ''
       };
     }
 
-    const existing = loadHistoryItems().filter(i => i.url !== input);
-    existing.unshift(entry);
-    persistHistory(existing);
+    existingItems.unshift(entry);
+    persistHistory(existingItems);
     renderHistory();
   }
 

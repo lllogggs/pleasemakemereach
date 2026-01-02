@@ -636,15 +636,16 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   font-size:14px;
 }
 .history-list{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+  gap:10px;
 }
 .history-item{
   display:flex;
   align-items:center;
   gap:10px;
   padding:12px 14px;
+  min-height:54px;
   border-radius:12px;
   border:1px solid var(--border-color);
   background:#fff;
@@ -667,6 +668,7 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   flex-direction:column;
   gap:4px;
   min-width:0;
+  flex:1;
 }
 .history-title{
   margin:0;
@@ -684,6 +686,26 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+}
+.history-remove{
+  margin-left:auto;
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  border:1px solid var(--border-color);
+  background:#f8fafc;
+  color:var(--clear-x-color);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  font-size:16px;
+  line-height:1;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.history-remove:hover{
+  background:#eef2f7;
+  color:var(--clear-x-color-hover);
+  border-color:var(--primary-blue);
 }
 .history-item:focus-visible,
 .history-clear:focus-visible{
