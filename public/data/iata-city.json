@@ -8151,8 +8151,8 @@
     "municipality": "Vancouver",
     "airport": "Vancouver International Airport",
     "country": "CA",
-    "lat": 49.193901062,
-    "lon": -123.183998108,
+    "lat": 49.193901,
+    "lon": -123.183998,
     "source": "ourairports"
   },
   "yvt": {
@@ -9161,15 +9161,6 @@
     "country": "DZ",
     "lat": 36.2760009765625,
     "lon": 6.620389938354492,
-    "source": "ourairports"
-  },
-  "qmh": {
-    "city": "Oum El Bouaghi",
-    "municipality": "Oum El Bouaghi",
-    "airport": "Oum El Bouaghi Air Base",
-    "country": "DZ",
-    "lat": 35.8797,
-    "lon": 7.2708,
     "source": "ourairports"
   },
   "tee": {
@@ -11696,12 +11687,12 @@
     "source": "ourairports"
   },
   "skl": {
-    "city": "Ashaig",
-    "municipality": "Ashaig",
+    "city": "Ashaig, Highland",
+    "municipality": "Ashaig, Highland",
     "airport": "Broadford Airstrip",
     "country": "GB",
-    "lat": 57.253399,
-    "lon": -5.8279,
+    "lat": 57.253131,
+    "lon": -5.827755,
     "source": "ourairports"
   },
   "col": {
@@ -12389,8 +12380,8 @@
     "source": "ourairports"
   },
   "nht": {
-    "city": "London",
-    "municipality": "London",
+    "city": "Northolt, Greater London",
+    "municipality": "Northolt, Greater London",
     "airport": "RAF Northolt",
     "country": "GB",
     "lat": 51.553001,
@@ -12994,7 +12985,7 @@
   "osl": {
     "city": "Oslo (Gardermoen)",
     "municipality": "Oslo (Gardermoen)",
-    "airport": "Oslo Airport, Gardermoen",
+    "airport": "Oslo-Gardermoen International Airport",
     "country": "NO",
     "lat": 60.193901,
     "lon": 11.1004,
@@ -20392,12 +20383,12 @@
     "source": "ourairports"
   },
   "ggr": {
-    "city": "Garowe",
-    "municipality": "Garowe",
+    "city": "New orleans",
+    "municipality": "New orleans",
     "airport": "Garowe Airport",
-    "country": "SO",
-    "lat": 8.457942,
-    "lon": 48.567407,
+    "country": "UM",
+    "lat": 8.456412,
+    "lon": 48.564034,
     "source": "ourairports"
   },
   "jib": {
@@ -34084,15 +34075,6 @@
     "country": "US",
     "lat": 41.065601348899996,
     "lon": -86.18170166019999,
-    "source": "ourairports"
-  },
-  "rct": {
-    "city": "Reed City",
-    "municipality": "Reed City",
-    "airport": "Nartron Field",
-    "country": "US",
-    "lat": 43.9000015259,
-    "lon": -85.5167007446,
     "source": "ourairports"
   },
   "rdd": {
