@@ -921,8 +921,8 @@
     "municipality": "Yaren District",
     "airport": "Nauru International Airport",
     "country": "NR",
-    "lat": -0.547458,
-    "lon": 166.919006,
+    "lat": -0.547893,
+    "lon": 166.919525,
     "source": "ourairports"
   },
   "anz": {
@@ -1093,11 +1093,12 @@
     "source": "ourairports"
   },
   "wfr": {
-    "city": "Wolf's",
-    "airport": "Wolf's Fang Runway",
+    "city": "Queen Maud Island",
+    "municipality": "Queen Maud Island",
+    "airport": "(Duplicate)Wolf's Fang Runway",
     "country": "AQ",
-    "lat": -71.517,
-    "lon": 8.8,
+    "lat": -71.5264,
+    "lon": 8.799459,
     "source": "ourairports"
   },
   "lyt": {
@@ -3815,7 +3816,7 @@
   "uak": {
     "city": "Narsarsuaq",
     "municipality": "Narsarsuaq",
-    "airport": "Narsarsuaq Airport",
+    "airport": "Narsarsuaq International Airport",
     "country": "GL",
     "lat": 61.1605,
     "lon": -45.425999,
@@ -3907,8 +3908,8 @@
     "municipality": "Pituffik",
     "airport": "Pituffik Space Base",
     "country": "GL",
-    "lat": 76.531197,
-    "lon": -68.703201,
+    "lat": 76.53063,
+    "lon": -68.700541,
     "source": "ourairports"
   },
   "juv": {
@@ -4056,8 +4057,8 @@
     "source": "ourairports"
   },
   "gry": {
-    "city": "Grímsey",
-    "municipality": "Grímsey",
+    "city": "Grímsey/Sandvík",
+    "municipality": "Grímsey/Sandvík",
     "airport": "Grímsey Airport",
     "country": "IS",
     "lat": 66.5458,
@@ -7098,8 +7099,8 @@
     "municipality": "Alert",
     "airport": "Alert Airport",
     "country": "CA",
-    "lat": 82.517799,
-    "lon": -62.280602,
+    "lat": 82.517263,
+    "lon": -62.283037,
     "source": "ourairports"
   },
   "xgr": {
@@ -7636,7 +7637,7 @@
   "yqq": {
     "city": "Comox",
     "municipality": "Comox",
-    "airport": "Comox Valley Airport / CFB Comox",
+    "airport": "Comox Valley International Airport / CFB Comox",
     "country": "CA",
     "lat": 49.7108,
     "lon": -124.887001,
@@ -10051,7 +10052,7 @@
   "dka": {
     "city": "Katsina",
     "municipality": "Katsina",
-    "airport": "Katsina Airport",
+    "airport": "Umaru Musa Yar'adua Airport",
     "country": "NG",
     "lat": 13.0078,
     "lon": 7.66045,
@@ -10096,7 +10097,7 @@
   "bcu": {
     "city": "Bauchi",
     "municipality": "Bauchi",
-    "airport": "Sir Abubakar Tafawa Balewa International Airport",
+    "airport": "Sir Abubakar Tafawa Balewa Bauchi State International Airport",
     "country": "NG",
     "lat": 10.482833,
     "lon": 9.744,
@@ -10148,12 +10149,12 @@
     "source": "ourairports"
   },
   "ilr": {
-    "city": "Ilorin",
-    "municipality": "Ilorin",
-    "airport": "Ilorin International Airport",
+    "city": "Ilorin/Ogbomosho",
+    "municipality": "Ilorin/Ogbomosho",
+    "airport": "General Tunde Idiagbon International Airport",
     "country": "NG",
-    "lat": 8.440210342407227,
-    "lon": 4.493919849395752,
+    "lat": 8.44021,
+    "lon": 4.49392,
     "source": "ourairports"
   },
   "qow": {
@@ -10177,19 +10178,19 @@
   "kad": {
     "city": "Kaduna",
     "municipality": "Kaduna",
-    "airport": "Kaduna Airport",
+    "airport": "Kaduna International Airport",
     "country": "NG",
-    "lat": 10.696000099182129,
-    "lon": 7.320109844207764,
+    "lat": 10.696,
+    "lon": 7.32011,
     "source": "ourairports"
   },
   "kan": {
     "city": "Kano",
     "municipality": "Kano",
-    "airport": "Mallam Aminu International Airport",
+    "airport": "Mallam Aminu Kano International Airport",
     "country": "NG",
-    "lat": 12.0476,
-    "lon": 8.52462,
+    "lat": 12.045613,
+    "lon": 8.523566,
     "source": "ourairports"
   },
   "miu": {
@@ -10197,8 +10198,8 @@
     "municipality": "Maiduguri",
     "airport": "Maiduguri International Airport",
     "country": "NG",
-    "lat": 11.855299949645996,
-    "lon": 13.080900192260742,
+    "lat": 11.854163,
+    "lon": 13.080702,
     "source": "ourairports"
   },
   "mdi": {
@@ -10233,8 +10234,8 @@
     "municipality": "Port Harcourt",
     "airport": "Port Harcourt International Airport",
     "country": "NG",
-    "lat": 5.0154900550842285,
-    "lon": 6.94959020614624,
+    "lat": 5.01549,
+    "lon": 6.94959,
     "source": "ourairports"
   },
   "sko": {
@@ -10242,8 +10243,8 @@
     "municipality": "Sokoto",
     "airport": "Sadiq Abubakar III International Airport",
     "country": "NG",
-    "lat": 12.916299819946289,
-    "lon": 5.207190036773682,
+    "lat": 12.915729,
+    "lon": 5.207547,
     "source": "ourairports"
   },
   "qrw": {
@@ -12445,10 +12446,10 @@
   "mpn": {
     "city": "Mount Pleasant",
     "municipality": "Mount Pleasant",
-    "airport": "Mount Pleasant Airport",
+    "airport": "Mount Pleasant Airport / RAF Mount Pleasant",
     "country": "FK",
-    "lat": -51.82279968261719,
-    "lon": -58.447200775146484,
+    "lat": -51.822642,
+    "lon": -58.445777,
     "source": "ourairports"
   },
   "ams": {
@@ -12643,10 +12644,10 @@
   "noc": {
     "city": "Charlestown",
     "municipality": "Charlestown",
-    "airport": "Ireland West Knock Airport",
+    "airport": "Ireland West Airport Knock",
     "country": "IE",
-    "lat": 53.910301,
-    "lon": -8.81849,
+    "lat": 53.910439,
+    "lon": -8.817002,
     "source": "ourairports"
   },
   "kir": {
@@ -13201,10 +13202,10 @@
   "lyr": {
     "city": "Longyearbyen",
     "municipality": "Longyearbyen",
-    "airport": "Svalbard Airport, Longyear",
+    "airport": "Svalbard Airport",
     "country": "NO",
-    "lat": 78.246101379395,
-    "lon": 15.465600013733,
+    "lat": 78.246101,
+    "lon": 15.4656,
     "source": "ourairports"
   },
   "sdn": {
@@ -13327,7 +13328,7 @@
   "bzg": {
     "city": "Bydgoszcz",
     "municipality": "Bydgoszcz",
-    "airport": "Bydgoszcz Ignacy Jan Paderewski Airport",
+    "airport": "Ignacy Jan Paderewski Bydgoszcz Airport",
     "country": "PL",
     "lat": 53.096802,
     "lon": 17.977699,
@@ -13381,7 +13382,7 @@
   "wmi": {
     "city": "Nowy Dwór Mazowiecki",
     "municipality": "Nowy Dwór Mazowiecki",
-    "airport": "Modlin Airport",
+    "airport": "Warsaw Modlin Airport",
     "country": "PL",
     "lat": 52.451099,
     "lon": 20.6518,
@@ -14308,10 +14309,10 @@
   "hds": {
     "city": "Hoedspruit",
     "municipality": "Hoedspruit",
-    "airport": "Hoedspruit Air Force Base Airport",
+    "airport": "Eastgate Airport / Air Force Base Hoedspruit",
     "country": "ZA",
-    "lat": -24.368600845299998,
-    "lon": 31.0487003326,
+    "lat": -24.361864,
+    "lon": 31.052921,
     "source": "ourairports"
   },
   "kxe": {
@@ -14333,12 +14334,12 @@
     "source": "ourairports"
   },
   "mqp": {
-    "city": "Mpumalanga",
-    "municipality": "Mpumalanga",
+    "city": "Mbombela",
+    "municipality": "Mbombela",
     "airport": "Kruger Mpumalanga International Airport",
     "country": "ZA",
-    "lat": -25.3831996918,
-    "lon": 31.1056003571,
+    "lat": -25.383327,
+    "lon": 31.105325,
     "source": "ourairports"
   },
   "kof": {
@@ -14848,10 +14849,10 @@
   "frw": {
     "city": "Francistown",
     "municipality": "Francistown",
-    "airport": "P G Matante Intl",
+    "airport": "Phillip Gaonwe Matante International Airport",
     "country": "BW",
-    "lat": -21.15914,
-    "lon": 27.468545,
+    "lat": -21.159183,
+    "lon": 27.468826,
     "source": "ourairports"
   },
   "gnz": {
@@ -14875,10 +14876,10 @@
   "bbk": {
     "city": "Kasane",
     "municipality": "Kasane",
-    "airport": "Kasane Airport",
+    "airport": "Kasane International Airport",
     "country": "BW",
-    "lat": -17.832899,
-    "lon": 25.162399,
+    "lat": -17.831653,
+    "lon": 25.166195,
     "source": "ourairports"
   },
   "khw": {
@@ -14902,7 +14903,7 @@
   "mub": {
     "city": "Maun",
     "municipality": "Maun",
-    "airport": "Maun Airport",
+    "airport": "Maun International Airport",
     "country": "BW",
     "lat": -19.970491,
     "lon": 23.431409,
@@ -15434,17 +15435,17 @@
     "municipality": "Cat Hill",
     "airport": "RAF Ascension Island",
     "country": "SH",
-    "lat": -7.9696,
-    "lon": -14.3937,
+    "lat": -7.970179,
+    "lon": -14.392744,
     "source": "ourairports"
   },
   "hle": {
-    "city": "Longwood",
-    "municipality": "Longwood",
-    "airport": "Saint Helena Airport",
+    "city": "Jamestown",
+    "municipality": "Jamestown",
+    "airport": "Saint Helena International Airport",
     "country": "SH",
-    "lat": -15.957725,
-    "lon": -5.645943,
+    "lat": -15.958898,
+    "lon": -5.646066,
     "source": "ourairports"
   },
   "mru": {
@@ -15731,8 +15732,8 @@
     "municipality": "Livingstone",
     "airport": "Harry Mwanga Nkumbula International Airport",
     "country": "ZM",
-    "lat": -17.8218,
-    "lon": 25.822701,
+    "lat": -17.821524,
+    "lon": 25.819642,
     "source": "ourairports"
   },
   "lxu": {
@@ -16716,10 +16717,10 @@
   "sdd": {
     "city": "Lubango",
     "municipality": "Lubango",
-    "airport": "Lubango Airport",
+    "airport": "Lubango Mukanka International Airport",
     "country": "AO",
-    "lat": -14.924699783325195,
-    "lon": 13.574999809265137,
+    "lat": -14.924839,
+    "lon": 13.576653,
     "source": "ourairports"
   },
   "luo": {
@@ -17447,8 +17448,8 @@
     "municipality": "Bulawayo",
     "airport": "Joshua Mqabuko Nkomo International Airport",
     "country": "ZW",
-    "lat": -20.021254,
-    "lon": 28.626296,
+    "lat": -20.016284,
+    "lon": 28.622897,
     "source": "ourairports"
   },
   "chj": {
@@ -17474,8 +17475,8 @@
     "municipality": "Victoria Falls",
     "airport": "Victoria Falls International Airport",
     "country": "ZW",
-    "lat": -18.09589958190918,
-    "lon": 25.839000701904297,
+    "lat": -18.097437,
+    "lon": 25.836867,
     "source": "ourairports"
   },
   "hre": {
@@ -18364,8 +18365,8 @@
     "municipality": "Goma",
     "airport": "Goma International Airport",
     "country": "CD",
-    "lat": -1.66617,
-    "lon": 29.237929,
+    "lat": -1.666758,
+    "lon": 29.238037,
     "source": "ourairports"
   },
   "bnc": {
@@ -22769,8 +22770,8 @@
     "source": "ourairports"
   },
   "abe": {
-    "city": "Allentown",
-    "municipality": "Allentown",
+    "city": "Allentown/Bethlehem",
+    "municipality": "Allentown/Bethlehem",
     "airport": "Lehigh Valley International Airport",
     "country": "US",
     "lat": 40.651773,
@@ -22854,8 +22855,8 @@
     "municipality": "Atlantic City",
     "airport": "Atlantic City International Airport",
     "country": "US",
-    "lat": 39.45759963989258,
-    "lon": -74.57720184326172,
+    "lat": 39.456201,
+    "lon": -74.577511,
     "source": "ourairports"
   },
   "adg": {
@@ -22917,8 +22918,8 @@
     "municipality": "Alexandria",
     "airport": "Alexandria International Airport",
     "country": "US",
-    "lat": 31.3274,
-    "lon": -92.549797,
+    "lat": 31.325828,
+    "lon": -92.546702,
     "source": "ourairports"
   },
   "kaf": {
@@ -23115,8 +23116,8 @@
     "municipality": "Albany",
     "airport": "Albany International Airport",
     "country": "US",
-    "lat": 42.74829864501953,
-    "lon": -73.80169677734375,
+    "lat": 42.748299,
+    "lon": -73.801697,
     "source": "ourairports"
   },
   "ali": {
@@ -23601,8 +23602,8 @@
     "municipality": "Asheville",
     "airport": "Asheville Regional Airport",
     "country": "US",
-    "lat": 35.436199,
-    "lon": -82.541801,
+    "lat": 35.435488,
+    "lon": -82.541853,
     "source": "ourairports"
   },
   "avo": {
@@ -23617,10 +23618,10 @@
   "avp": {
     "city": "Wilkes-Barre/Scranton",
     "municipality": "Wilkes-Barre/Scranton",
-    "airport": "Wilkes Barre Scranton International Airport",
+    "airport": "Wilkes-Barre/Scranton International Airport",
     "country": "US",
-    "lat": 41.338500976599995,
-    "lon": -75.72339630130001,
+    "lat": 41.337064,
+    "lon": -75.724232,
     "source": "ourairports"
   },
   "avw": {
@@ -23716,10 +23717,10 @@
   "azo": {
     "city": "Kalamazoo",
     "municipality": "Kalamazoo",
-    "airport": "Kalamazoo Battle Creek International Airport",
+    "airport": "Kalamazoo/Battle Creek International Airport",
     "country": "US",
-    "lat": 42.234901428222656,
-    "lon": -85.5521011352539,
+    "lat": 42.232105,
+    "lon": -85.549637,
     "source": "ourairports"
   },
   "bab": {
@@ -23871,8 +23872,8 @@
     "municipality": "Hartford",
     "airport": "Bradley International Airport",
     "country": "US",
-    "lat": 41.93851,
-    "lon": -72.688066,
+    "lat": 41.938555,
+    "lon": -72.688016,
     "source": "ourairports"
   },
   "bdr": {
@@ -23941,10 +23942,10 @@
   "bfi": {
     "city": "Seattle",
     "municipality": "Seattle",
-    "airport": "Boeing Field King County International Airport",
+    "airport": "King County International Airport - Boeing Field",
     "country": "US",
-    "lat": 47.529999,
-    "lon": -122.302002,
+    "lat": 47.527042,
+    "lon": -122.29995,
     "source": "ourairports"
   },
   "bfl": {
@@ -24006,8 +24007,8 @@
     "municipality": "Bangor",
     "airport": "Bangor International Airport",
     "country": "US",
-    "lat": 44.8074,
-    "lon": -68.828102,
+    "lat": 44.806364,
+    "lon": -68.826668,
     "source": "ourairports"
   },
   "kbh": {
@@ -24033,8 +24034,8 @@
     "municipality": "Birmingham",
     "airport": "Birmingham-Shuttlesworth International Airport",
     "country": "US",
-    "lat": 33.562901,
-    "lon": -86.753502,
+    "lat": 33.562877,
+    "lon": -86.750712,
     "source": "ourairports"
   },
   "bid": {
@@ -24355,7 +24356,7 @@
   "bos": {
     "city": "Boston",
     "municipality": "Boston",
-    "airport": "Logan International Airport",
+    "airport": "General Edward Lawrence Logan International Airport",
     "country": "US",
     "lat": 42.36197,
     "lon": -71.0079,
@@ -24438,8 +24439,8 @@
     "municipality": "Brownsville",
     "airport": "Brownsville South Padre Island International Airport",
     "country": "US",
-    "lat": 25.90679931640625,
-    "lon": -97.4259033203125,
+    "lat": 25.907238,
+    "lon": -97.425235,
     "source": "ourairports"
   },
   "bry": {
@@ -24744,8 +24745,8 @@
     "municipality": "Bozeman",
     "airport": "Bozeman Yellowstone International Airport",
     "country": "US",
-    "lat": 45.7775,
-    "lon": -111.153,
+    "lat": 45.778853,
+    "lon": -111.153711,
     "source": "ourairports"
   },
   "xes": {
@@ -24789,8 +24790,8 @@
     "municipality": "Columbia",
     "airport": "Columbia Metropolitan Airport",
     "country": "US",
-    "lat": 33.938801,
-    "lon": -81.119499,
+    "lat": 33.938172,
+    "lon": -81.117499,
     "source": "ourairports"
   },
   "cig": {
@@ -25149,8 +25150,8 @@
     "municipality": "Charleston",
     "airport": "Charleston International Airport",
     "country": "US",
-    "lat": 32.898602,
-    "lon": -80.040497,
+    "lat": 32.896159,
+    "lon": -80.038151,
     "source": "ourairports"
   },
   "cic": {
@@ -25642,10 +25643,10 @@
   "csg": {
     "city": "Columbus",
     "municipality": "Columbus",
-    "airport": "Columbus Metropolitan Airport",
+    "airport": "Columbus Airport",
     "country": "US",
-    "lat": 32.516300201416016,
-    "lon": -84.93890380859375,
+    "lat": 32.516415,
+    "lon": -84.939602,
     "source": "ourairports"
   },
   "csm": {
@@ -25833,8 +25834,8 @@
     "municipality": "Carson City",
     "airport": "Carson Airport",
     "country": "US",
-    "lat": 39.1922,
-    "lon": -119.734001,
+    "lat": 39.194331,
+    "lon": -119.734312,
     "source": "ourairports"
   },
   "har": {
@@ -25896,8 +25897,8 @@
     "municipality": "Daytona Beach",
     "airport": "Daytona Beach International Airport",
     "country": "US",
-    "lat": 29.179899,
-    "lon": -81.058098,
+    "lat": 29.18255,
+    "lon": -81.059464,
     "source": "ourairports"
   },
   "dag": {
@@ -25914,8 +25915,8 @@
     "municipality": "Dallas",
     "airport": "Dallas Love Field",
     "country": "US",
-    "lat": 32.847099,
-    "lon": -96.851799,
+    "lat": 32.844776,
+    "lon": -96.847653,
     "source": "ourairports"
   },
   "dan": {
@@ -25930,7 +25931,7 @@
   "day": {
     "city": "Dayton",
     "municipality": "Dayton",
-    "airport": "James M Cox Dayton International Airport",
+    "airport": "James M. Cox Dayton International Airport",
     "country": "US",
     "lat": 39.902401,
     "lon": -84.219398,
@@ -26200,7 +26201,7 @@
   "dov": {
     "city": "Dover",
     "municipality": "Dover",
-    "airport": "Dover Air Force Base",
+    "airport": "Dover Civil Air Terminal/Dover Air Force Base",
     "country": "US",
     "lat": 39.129501,
     "lon": -75.466003,
@@ -27143,10 +27144,10 @@
   "eug": {
     "city": "Eugene",
     "municipality": "Eugene",
-    "airport": "Mahlon Sweet Field",
+    "airport": "Eugene Airport",
     "country": "US",
-    "lat": 44.12459945678711,
-    "lon": -123.21199798583984,
+    "lat": 44.124599,
+    "lon": -123.211998,
     "source": "ourairports"
   },
   "evm": {
@@ -27262,8 +27263,8 @@
     "municipality": "Fargo",
     "airport": "Hector International Airport",
     "country": "US",
-    "lat": 46.92070007324219,
-    "lon": -96.81580352783203,
+    "lat": 46.9207,
+    "lon": -96.815804,
     "source": "ourairports"
   },
   "fat": {
@@ -27604,8 +27605,8 @@
     "municipality": "Flint",
     "airport": "Bishop International Airport",
     "country": "US",
-    "lat": 42.965401,
-    "lon": -83.743599,
+    "lat": 42.969294,
+    "lon": -83.743355,
     "source": "ourairports"
   },
   "fod": {
@@ -27654,12 +27655,12 @@
     "source": "ourairports"
   },
   "frg": {
-    "city": "Farmingdale",
-    "municipality": "Farmingdale",
+    "city": "East Farmingdale",
+    "municipality": "East Farmingdale",
     "airport": "Republic Airport",
     "country": "US",
-    "lat": 40.7288017273,
-    "lon": -73.4133987427,
+    "lat": 40.728576,
+    "lon": -73.414267,
     "source": "ourairports"
   },
   "frh": {
@@ -27701,7 +27702,7 @@
   "fsd": {
     "city": "Sioux Falls",
     "municipality": "Sioux Falls",
-    "airport": "Sioux Falls Regional Airport / Joe Foss Field",
+    "airport": "Sioux Falls Regional Airport",
     "country": "US",
     "lat": 43.585463,
     "lon": -96.741152,
@@ -28234,8 +28235,8 @@
     "municipality": "Kalispell",
     "airport": "Glacier Park International Airport",
     "country": "US",
-    "lat": 48.31050109863281,
-    "lon": -114.25599670410156,
+    "lat": 48.310501,
+    "lon": -114.255997,
     "source": "ourairports"
   },
   "gpt": {
@@ -28243,8 +28244,8 @@
     "municipality": "Gulfport",
     "airport": "Gulfport Biloxi International Airport",
     "country": "US",
-    "lat": 30.407301,
-    "lon": -89.070099,
+    "lat": 30.405582,
+    "lon": -89.069836,
     "source": "ourairports"
   },
   "gpz": {
@@ -28360,14 +28361,14 @@
     "municipality": "Greensboro",
     "airport": "Piedmont Triad International Airport",
     "country": "US",
-    "lat": 36.097801,
-    "lon": -79.937302,
+    "lat": 36.09937,
+    "lon": -79.937262,
     "source": "ourairports"
   },
   "gsp": {
-    "city": "Greer",
-    "municipality": "Greer",
-    "airport": "Greenville Spartanburg International Airport",
+    "city": "Greenville/Greer/Spartanburg",
+    "municipality": "Greenville/Greer/Spartanburg",
+    "airport": "Greenville-Spartanburg International Airport",
     "country": "US",
     "lat": 34.895699,
     "lon": -82.218903,
@@ -28889,10 +28890,10 @@
   "hou": {
     "city": "Houston",
     "municipality": "Houston",
-    "airport": "William P Hobby Airport",
+    "airport": "William P. Hobby Airport",
     "country": "US",
-    "lat": 29.645399,
-    "lon": -95.2789,
+    "lat": 29.645336,
+    "lon": -95.276812,
     "source": "ourairports"
   },
   "hpn": {
@@ -29008,17 +29009,17 @@
     "municipality": "Homestead",
     "airport": "Homestead ARB Airport",
     "country": "US",
-    "lat": 25.48859978,
-    "lon": -80.38359833,
+    "lat": 25.4886,
+    "lon": -80.383598,
     "source": "ourairports"
   },
   "hsv": {
     "city": "Huntsville",
     "municipality": "Huntsville",
-    "airport": "Huntsville International Carl T Jones Field",
+    "airport": "Huntsville International Airport",
     "country": "US",
-    "lat": 34.637199,
-    "lon": -86.775101,
+    "lat": 34.636244,
+    "lon": -86.774378,
     "source": "ourairports"
   },
   "hth": {
@@ -29125,8 +29126,8 @@
     "municipality": "New Haven",
     "airport": "Tweed New Haven Airport",
     "country": "US",
-    "lat": 41.26369858,
-    "lon": -72.88680267,
+    "lat": 41.262869,
+    "lon": -72.887694,
     "source": "ourairports"
   },
   "hvr": {
@@ -29258,10 +29259,10 @@
   "iah": {
     "city": "Houston",
     "municipality": "Houston",
-    "airport": "George Bush Intercontinental Houston Airport",
+    "airport": "George Bush Intercontinental Airport",
     "country": "US",
-    "lat": 29.984399795532227,
-    "lon": -95.34140014648438,
+    "lat": 29.9844,
+    "lon": -95.3414,
     "source": "ourairports"
   },
   "icl": {
@@ -29276,10 +29277,10 @@
   "ict": {
     "city": "Wichita",
     "municipality": "Wichita",
-    "airport": "Wichita Eisenhower National Airport",
+    "airport": "Wichita Dwight D. Eisenhower National Airport",
     "country": "US",
-    "lat": 37.649899,
-    "lon": -97.433098,
+    "lat": 37.650314,
+    "lon": -97.428583,
     "source": "ourairports"
   },
   "ida": {
@@ -29404,8 +29405,8 @@
     "municipality": "Wilmington",
     "airport": "Wilmington International Airport",
     "country": "US",
-    "lat": 34.270599365234375,
-    "lon": -77.90260314941406,
+    "lat": 34.271719,
+    "lon": -77.904644,
     "source": "ourairports"
   },
   "iln": {
@@ -29573,10 +29574,10 @@
   "isp": {
     "city": "Islip",
     "municipality": "Islip",
-    "airport": "Long Island Mac Arthur Airport",
+    "airport": "Long Island MacArthur Airport",
     "country": "US",
-    "lat": 40.79520035,
-    "lon": -73.10019684,
+    "lat": 40.796324,
+    "lon": -73.101703,
     "source": "ourairports"
   },
   "isq": {
@@ -29753,7 +29754,7 @@
   "jfk": {
     "city": "New York",
     "municipality": "New York",
-    "airport": "John F Kennedy International Airport",
+    "airport": "John F. Kennedy International Airport",
     "country": "US",
     "lat": 40.639447,
     "lon": -73.779317,
@@ -29969,10 +29970,10 @@
   "lal": {
     "city": "Lakeland",
     "municipality": "Lakeland",
-    "airport": "Lakeland Linder International/Regional Airport",
+    "airport": "Lakeland Linder International Airport",
     "country": "US",
-    "lat": 27.987656,
-    "lon": -82.018776,
+    "lat": 27.989113,
+    "lon": -82.018521,
     "source": "ourairports"
   },
   "lam": {
@@ -29987,10 +29988,10 @@
   "lan": {
     "city": "Lansing",
     "municipality": "Lansing",
-    "airport": "Capital City Airport",
+    "airport": "Capital Region International Airport",
     "country": "US",
-    "lat": 42.77870178222656,
-    "lon": -84.58740234375,
+    "lat": 42.777582,
+    "lon": -84.585721,
     "source": "ourairports"
   },
   "lar": {
@@ -30178,8 +30179,8 @@
     "municipality": "Lexington",
     "airport": "Blue Grass Airport",
     "country": "US",
-    "lat": 38.036499,
-    "lon": -84.605904,
+    "lat": 38.035066,
+    "lon": -84.606738,
     "source": "ourairports"
   },
   "lfi": {
@@ -30304,8 +30305,8 @@
     "municipality": "Little Rock",
     "airport": "Bill & Hillary Clinton National Airport/Adams Field",
     "country": "US",
-    "lat": 34.729582,
-    "lon": -92.223728,
+    "lat": 34.729222,
+    "lon": -92.223591,
     "source": "ourairports"
   },
   "lkp": {
@@ -30385,8 +30386,8 @@
     "municipality": "Lincoln",
     "airport": "Lincoln Airport",
     "country": "US",
-    "lat": 40.85100173950195,
-    "lon": -96.75920104980469,
+    "lat": 40.844882,
+    "lon": -96.76178,
     "source": "ourairports"
   },
   "lnn": {
@@ -30988,8 +30989,8 @@
     "municipality": "Harrisburg",
     "airport": "Harrisburg International Airport",
     "country": "US",
-    "lat": 40.193501,
-    "lon": -76.763397,
+    "lat": 40.192838,
+    "lon": -76.762333,
     "source": "ourairports"
   },
   "mdw": {
@@ -31033,8 +31034,8 @@
     "municipality": "Memphis",
     "airport": "Memphis International Airport",
     "country": "US",
-    "lat": 35.0424,
-    "lon": -89.9767,
+    "lat": 35.043845,
+    "lon": -89.97634,
     "source": "ourairports"
   },
   "mer": {
@@ -31094,10 +31095,10 @@
   "mfr": {
     "city": "Medford",
     "municipality": "Medford",
-    "airport": "Rogue Valley International Medford Airport",
+    "airport": "Rogue Valley International-Medford Airport",
     "country": "US",
-    "lat": 42.37419891357422,
-    "lon": -122.87300109863281,
+    "lat": 42.374199,
+    "lon": -122.873001,
     "source": "ourairports"
   },
   "mfv": {
@@ -31769,7 +31770,7 @@
   "mso": {
     "city": "Missoula",
     "municipality": "Missoula",
-    "airport": "Missoula International Airport",
+    "airport": "Missoula Montana Airport",
     "country": "US",
     "lat": 46.915816,
     "lon": -114.091107,
@@ -31823,10 +31824,10 @@
   "mth": {
     "city": "Marathon",
     "municipality": "Marathon",
-    "airport": "The Florida Keys Marathon Airport",
+    "airport": "Florida Keys Marathon International Airport",
     "country": "US",
-    "lat": 24.726101,
-    "lon": -81.051399,
+    "lat": 24.726006,
+    "lon": -81.05138,
     "source": "ourairports"
   },
   "mtj": {
@@ -32606,7 +32607,7 @@
   "okc": {
     "city": "Oklahoma City",
     "municipality": "Oklahoma City",
-    "airport": "Will Rogers World Airport",
+    "airport": "OKC Will Rogers World Airport",
     "country": "US",
     "lat": 35.393388,
     "lon": -97.598248,
@@ -33022,8 +33023,8 @@
     "municipality": "Ocean City",
     "airport": "Ocean City Municipal Airport",
     "country": "US",
-    "lat": 38.310398101807,
-    "lon": -75.124000549316,
+    "lat": 38.310398,
+    "lon": -75.124001,
     "source": "ourairports"
   },
   "oxc": {
@@ -33193,8 +33194,8 @@
     "municipality": "Plattsburgh",
     "airport": "Plattsburgh International Airport",
     "country": "US",
-    "lat": 44.650901794433594,
-    "lon": -73.46810150146484,
+    "lat": 44.650902,
+    "lon": -73.468102,
     "source": "ourairports"
   },
   "pbi": {
@@ -33589,8 +33590,8 @@
     "municipality": "Pensacola",
     "airport": "Pensacola International Airport",
     "country": "US",
-    "lat": 30.4734,
-    "lon": -87.1866,
+    "lat": 30.472718,
+    "lon": -87.186639,
     "source": "ourairports"
   },
   "pob": {
@@ -33776,10 +33777,10 @@
   "psm": {
     "city": "Portsmouth",
     "municipality": "Portsmouth",
-    "airport": "Portsmouth International at Pease Airport",
+    "airport": "Portsmouth International Airport at Pease",
     "country": "US",
-    "lat": 43.0778999329,
-    "lon": -70.8233032227,
+    "lat": 43.0779,
+    "lon": -70.823303,
     "source": "ourairports"
   },
   "psn": {
@@ -33918,9 +33919,9 @@
     "source": "ourairports"
   },
   "pvd": {
-    "city": "Warwick",
-    "municipality": "Warwick",
-    "airport": "Theodore Francis Green State Airport",
+    "city": "Providence/Warwick",
+    "municipality": "Providence/Warwick",
+    "airport": "Rhode Island T. F. Green International Airport",
     "country": "US",
     "lat": 41.725038,
     "lon": -71.425668,
@@ -34136,10 +34137,10 @@
   "rdu": {
     "city": "Raleigh/Durham",
     "municipality": "Raleigh/Durham",
-    "airport": "Raleigh Durham International Airport",
+    "airport": "Raleigh-Durham International Airport",
     "country": "US",
-    "lat": 35.877602,
-    "lon": -78.787498,
+    "lat": 35.878659,
+    "lon": -78.7873,
     "source": "ourairports"
   },
   "reo": {
@@ -34498,8 +34499,8 @@
     "municipality": "Fort Myers",
     "airport": "Southwest Florida International Airport",
     "country": "US",
-    "lat": 26.53619956970215,
-    "lon": -81.75520324707031,
+    "lat": 26.534685,
+    "lon": -81.752816,
     "source": "ourairports"
   },
   "rtn": {
@@ -34714,8 +34715,8 @@
     "municipality": "Savannah",
     "airport": "Savannah Hilton Head International Airport",
     "country": "US",
-    "lat": 32.127602,
-    "lon": -81.202103,
+    "lat": 32.126591,
+    "lon": -81.19998,
     "source": "ourairports"
   },
   "mqt": {
@@ -34757,10 +34758,10 @@
   "sbn": {
     "city": "South Bend",
     "municipality": "South Bend",
-    "airport": "South Bend Regional Airport",
+    "airport": "South Bend International Airport",
     "country": "US",
-    "lat": 41.708698,
-    "lon": -86.317299,
+    "lat": 41.708304,
+    "lon": -86.316922,
     "source": "ourairports"
   },
   "sbp": {
@@ -34831,8 +34832,8 @@
     "municipality": "Louisville",
     "airport": "Louisville Muhammad Ali International Airport",
     "country": "US",
-    "lat": 38.1744,
-    "lon": -85.736,
+    "lat": 38.1706,
+    "lon": -85.735076,
     "source": "ourairports"
   },
   "scf": {
@@ -34939,8 +34940,8 @@
     "municipality": "Orlando",
     "airport": "Orlando Sanford International Airport",
     "country": "US",
-    "lat": 28.777599334716797,
-    "lon": -81.23750305175781,
+    "lat": 28.774277,
+    "lon": -81.234626,
     "source": "ourairports"
   },
   "sff": {
@@ -34984,8 +34985,8 @@
     "municipality": "Springfield",
     "airport": "Springfield Branson National Airport",
     "country": "US",
-    "lat": 37.245701,
-    "lon": -93.388603,
+    "lat": 37.245047,
+    "lon": -93.388596,
     "source": "ourairports"
   },
   "sgh": {
@@ -35650,8 +35651,8 @@
     "municipality": "Newburgh",
     "airport": "New York Stewart International Airport",
     "country": "US",
-    "lat": 41.504101,
-    "lon": -74.104797,
+    "lat": 41.501731,
+    "lon": -74.100435,
     "source": "ourairports"
   },
   "swo": {
@@ -35927,10 +35928,10 @@
   "tlh": {
     "city": "Tallahassee",
     "municipality": "Tallahassee",
-    "airport": "Tallahassee Regional Airport",
+    "airport": "Tallahassee International Airport",
     "country": "US",
-    "lat": 30.3965,
-    "lon": -84.350304,
+    "lat": 30.400369,
+    "lon": -84.35433,
     "source": "ourairports"
   },
   "tlr": {
@@ -36199,8 +36200,8 @@
     "municipality": "Traverse City",
     "airport": "Cherry Capital Airport",
     "country": "US",
-    "lat": 44.74140167236328,
-    "lon": -85.58219909667969,
+    "lat": 44.741402,
+    "lon": -85.582199,
     "source": "ourairports"
   },
   "tvf": {
@@ -36267,8 +36268,8 @@
     "source": "ourairports"
   },
   "tys": {
-    "city": "Alcoa",
-    "municipality": "Alcoa",
+    "city": "Knoxville/Maryville",
+    "municipality": "Knoxville/Maryville",
     "airport": "McGhee Tyson Airport",
     "country": "US",
     "lat": 35.811001,
@@ -36694,8 +36695,8 @@
     "municipality": "Valparaiso",
     "airport": "Destin-Fort Walton Beach Airport",
     "country": "US",
-    "lat": 30.4832,
-    "lon": -86.525398,
+    "lat": 30.481315,
+    "lon": -86.515839,
     "source": "ourairports"
   },
   "vpz": {
@@ -37576,8 +37577,8 @@
     "municipality": "Reus",
     "airport": "Reus Airport",
     "country": "ES",
-    "lat": 41.1474,
-    "lon": 1.16717,
+    "lat": 41.147509,
+    "lon": 1.168354,
     "source": "ourairports"
   },
   "roz": {
@@ -38033,7 +38034,7 @@
   "bia": {
     "city": "Bastia",
     "municipality": "Bastia",
-    "airport": "Bastia Poretta airport",
+    "airport": "Bastia-Poretta International airport",
     "country": "FR",
     "lat": 42.5527,
     "lon": 9.48373,
@@ -38053,8 +38054,8 @@
     "municipality": "Figari",
     "airport": "Figari Sud-Corse Airport",
     "country": "FR",
-    "lat": 41.500599,
-    "lon": 9.09778,
+    "lat": 41.50185,
+    "lon": 9.097092,
     "source": "ourairports"
   },
   "aja": {
@@ -38357,7 +38358,7 @@
   "bva": {
     "city": "Beauvais",
     "municipality": "Beauvais",
-    "airport": "Beauvais Tillé airport",
+    "airport": "Beauvais-Tillé airport",
     "country": "FR",
     "lat": 49.454399,
     "lon": 2.11278,
@@ -38953,8 +38954,8 @@
     "municipality": "Kerkyra (Corfu)",
     "airport": "Corfu Ioannis Kapodistrias International Airport",
     "country": "GR",
-    "lat": 39.602024,
-    "lon": 19.912038,
+    "lat": 39.60145,
+    "lon": 19.912179,
     "source": "ourairports"
   },
   "ksj": {
@@ -39412,8 +39413,8 @@
     "municipality": "Olbia (SS)",
     "airport": "Olbia Costa Smeralda Airport",
     "country": "IT",
-    "lat": 40.898701,
-    "lon": 9.51763,
+    "lat": 40.898953,
+    "lon": 9.518457,
     "source": "ourairports"
   },
   "fnu": {
@@ -39437,10 +39438,10 @@
   "bgy": {
     "city": "Orio al Serio (BG)",
     "municipality": "Orio al Serio (BG)",
-    "airport": "Milan Bergamo Airport / Antonio Locatelli Air Base",
+    "airport": "Il Caravaggio International Airport",
     "country": "IT",
-    "lat": 45.670725,
-    "lon": 9.709223,
+    "lat": 45.669362,
+    "lon": 9.708851,
     "source": "ourairports"
   },
   "trn": {
@@ -39527,7 +39528,7 @@
   "tsf": {
     "city": "Treviso (TV)",
     "municipality": "Treviso (TV)",
-    "airport": "Treviso Antonio Canova Airport",
+    "airport": "Treviso Airport",
     "country": "IT",
     "lat": 45.648399,
     "lon": 12.1944,
@@ -39536,7 +39537,7 @@
   "frl": {
     "city": "Forlì (FC)",
     "municipality": "Forlì (FC)",
-    "airport": "Forlì Luigi Ridolfi Airport",
+    "airport": "Forlì-Luigi Ridolfi International Airport",
     "country": "IT",
     "lat": 44.194801,
     "lon": 12.0701,
@@ -40130,10 +40131,10 @@
   "fnc": {
     "city": "Funchal",
     "municipality": "Funchal",
-    "airport": "Madeira International Airport Cristiano Ronaldo",
+    "airport": "Cristiano Ronaldo International Airport",
     "country": "PT",
-    "lat": 32.697899,
-    "lon": -16.7745,
+    "lat": 32.697812,
+    "lon": -16.774613,
     "source": "ourairports"
   },
   "pdl": {
@@ -40310,10 +40311,10 @@
   "clj": {
     "city": "Cluj-Napoca",
     "municipality": "Cluj-Napoca",
-    "airport": "Cluj Avram Iancu International Airport",
+    "airport": "Avram Iancu Cluj International Airport",
     "country": "RO",
-    "lat": 46.787425,
-    "lon": 23.684292,
+    "lat": 46.786042,
+    "lon": 23.685733,
     "source": "ourairports"
   },
   "csb": {
@@ -40337,10 +40338,10 @@
   "ias": {
     "city": "Iaşi",
     "municipality": "Iaşi",
-    "airport": "Iaşi Airport",
+    "airport": "Iaşi International Airport",
     "country": "RO",
-    "lat": 47.180278,
-    "lon": 27.620833,
+    "lat": 47.179633,
+    "lon": 27.621431,
     "source": "ourairports"
   },
   "omr": {
@@ -40348,8 +40349,8 @@
     "municipality": "Oradea",
     "airport": "Oradea International Airport",
     "country": "RO",
-    "lat": 47.025299072265625,
-    "lon": 21.90250015258789,
+    "lat": 47.025299,
+    "lon": 21.9025,
     "source": "ourairports"
   },
   "otp": {
@@ -40382,10 +40383,10 @@
   "scv": {
     "city": "Suceava",
     "municipality": "Suceava",
-    "airport": "Suceava Stefan cel Mare Airport",
+    "airport": "Suceava Ștefan cel Mare International Airport",
     "country": "RO",
     "lat": 47.6875,
-    "lon": 26.35409927368164,
+    "lon": 26.354099,
     "source": "ourairports"
   },
   "tce": {
@@ -40562,7 +40563,7 @@
   "gzt": {
     "city": "Gaziantep",
     "municipality": "Gaziantep",
-    "airport": "Gaziantep International Airport",
+    "airport": "Gaziantep Oğuzeli International Airport",
     "country": "TR",
     "lat": 36.947201,
     "lon": 37.478699,
@@ -40625,10 +40626,10 @@
   "asr": {
     "city": "Kayseri",
     "municipality": "Kayseri",
-    "airport": "Kayseri Erkilet Airport",
+    "airport": "Kayseri Erkilet International Airport",
     "country": "TR",
-    "lat": 38.770401001,
-    "lon": 35.4953994751,
+    "lat": 38.770401,
+    "lon": 35.495399,
     "source": "ourairports"
   },
   "tjk": {
@@ -41122,8 +41123,8 @@
     "municipality": "Chişinău",
     "airport": "Chişinău International Airport",
     "country": "MD",
-    "lat": 46.9277,
-    "lon": 28.931,
+    "lat": 46.92774,
+    "lon": 28.931704,
     "source": "ourairports"
   },
   "lwa": {
@@ -41221,8 +41222,8 @@
     "municipality": "Niš",
     "airport": "Niš Constantine the Great Airport",
     "country": "RS",
-    "lat": 43.337009,
-    "lon": 21.85451,
+    "lat": 43.336538,
+    "lon": 21.856242,
     "source": "ourairports"
   },
   "tgd": {
@@ -41518,8 +41519,8 @@
     "municipality": "Santiago",
     "airport": "Cibao International Airport",
     "country": "DO",
-    "lat": 19.406099319458008,
-    "lon": -70.60469818115234,
+    "lat": 19.40406,
+    "lon": -70.604431,
     "source": "ourairports"
   },
   "mdv": {
@@ -41606,10 +41607,10 @@
   "gua": {
     "city": "Guatemala City",
     "municipality": "Guatemala City",
-    "airport": "La Aurora Airport",
+    "airport": "La Aurora International Airport",
     "country": "GT",
-    "lat": 14.5833,
-    "lon": -90.527496,
+    "lat": 14.582896,
+    "lon": -90.527515,
     "source": "ourairports"
   },
   "hug": {
@@ -41725,8 +41726,8 @@
     "municipality": "San Benito",
     "airport": "Mundo Maya International Airport",
     "country": "GT",
-    "lat": 16.913799,
-    "lon": -89.866402,
+    "lat": 16.912391,
+    "lon": -89.864792,
     "source": "ourairports"
   },
   "uje": {
@@ -41759,10 +41760,10 @@
   "bii": {
     "city": "Bikini Atoll",
     "municipality": "Bikini Atoll",
-    "airport": "Enyu Airfield",
+    "airport": "Bikini Atoll Airport",
     "country": "MH",
-    "lat": 11.5225,
-    "lon": 165.565002,
+    "lat": 11.522499,
+    "lon": 165.565127,
     "source": "ourairports"
   },
   "ebn": {
@@ -41993,7 +41994,7 @@
   "lce": {
     "city": "La Ceiba",
     "municipality": "La Ceiba",
-    "airport": "Goloson International Airport",
+    "airport": "Golosón International Airport",
     "country": "HN",
     "lat": 15.7425,
     "lon": -86.852997,
@@ -42382,8 +42383,8 @@
     "municipality": "Campeche",
     "airport": "Ingeniero Alberto Acuña Ongay International Airport",
     "country": "MX",
-    "lat": 19.816799163800003,
-    "lon": -90.5002975464,
+    "lat": 19.815969,
+    "lon": -90.500125,
     "source": "ourairports"
   },
   "cjs": {
@@ -42524,10 +42525,10 @@
   "hmo": {
     "city": "Hermosillo",
     "municipality": "Hermosillo",
-    "airport": "General Ignacio P. Garcia International Airport",
+    "airport": "General Ignacio L. Pesqueira International Airport",
     "country": "MX",
-    "lat": 29.093424,
-    "lon": -111.052322,
+    "lat": 29.092811,
+    "lon": -111.053015,
     "source": "ourairports"
   },
   "clq": {
@@ -42553,8 +42554,8 @@
     "municipality": "Saltillo",
     "airport": "Plan De Guadalupe International Airport",
     "country": "MX",
-    "lat": 25.544145,
-    "lon": -100.930195,
+    "lat": 25.53786,
+    "lon": -100.928346,
     "source": "ourairports"
   },
   "izt": {
@@ -42605,7 +42606,7 @@
   "bjx": {
     "city": "Silao",
     "municipality": "Silao",
-    "airport": "Del Bajío International Airport",
+    "airport": "Guanajuato International Airport",
     "country": "MX",
     "lat": 20.992695,
     "lon": -101.480284,
@@ -42715,8 +42716,8 @@
     "municipality": "Mazatlàn",
     "airport": "General Rafael Buelna International Airport",
     "country": "MX",
-    "lat": 23.161474,
-    "lon": -106.264572,
+    "lat": 23.162823,
+    "lon": -106.264517,
     "source": "ourairports"
   },
   "nog": {
@@ -42742,8 +42743,8 @@
     "municipality": "Oaxaca",
     "airport": "Xoxocotlán International Airport",
     "country": "MX",
-    "lat": 17.000814,
-    "lon": -96.72197,
+    "lat": 16.998773,
+    "lon": -96.726092,
     "source": "ourairports"
   },
   "paz": {
@@ -42832,8 +42833,8 @@
     "municipality": "Querétaro",
     "airport": "Querétaro Intercontinental Airport",
     "country": "MX",
-    "lat": 20.6173,
-    "lon": -100.185997,
+    "lat": 20.618779,
+    "lon": -100.186449,
     "source": "ourairports"
   },
   "rex": {
@@ -42877,8 +42878,8 @@
     "municipality": "San Luis Potosí",
     "airport": "Ponciano Arriaga International Airport",
     "country": "MX",
-    "lat": 22.254299163800003,
-    "lon": -100.930999756,
+    "lat": 22.260857,
+    "lon": -100.93494,
     "source": "ourairports"
   },
   "scx": {
@@ -42904,8 +42905,8 @@
     "municipality": "Tuxtla Gutiérrez",
     "airport": "Angel Albino Corzo International Airport",
     "country": "MX",
-    "lat": 16.5636005402,
-    "lon": -93.02249908450001,
+    "lat": 16.561611,
+    "lon": -93.025731,
     "source": "ourairports"
   },
   "tij": {
@@ -42920,7 +42921,7 @@
   "tqo": {
     "city": "Tulum",
     "municipality": "Tulum",
-    "airport": "Felipe Carrillo Puerto International Airport",
+    "airport": "Felipe Carrillo Puerto International Airport Tulum",
     "country": "MX",
     "lat": 20.172098,
     "lon": -87.660272,
@@ -42976,8 +42977,8 @@
     "municipality": "Cancún",
     "airport": "Cancún International Airport",
     "country": "MX",
-    "lat": 21.039444,
-    "lon": -86.874304,
+    "lat": 21.040817,
+    "lon": -86.87347,
     "source": "ourairports"
   },
   "mmv": {
@@ -42994,8 +42995,8 @@
     "municipality": "Villahermosa",
     "airport": "Carlos Rovirosa Pérez International Airport",
     "country": "MX",
-    "lat": 17.997,
-    "lon": -92.817398,
+    "lat": 17.994283,
+    "lon": -92.818199,
     "source": "ourairports"
   },
   "ver": {
@@ -43003,8 +43004,8 @@
     "municipality": "Veracruz",
     "airport": "General Heriberto Jara International Airport",
     "country": "MX",
-    "lat": 19.1459007263,
-    "lon": -96.1873016357,
+    "lat": 19.139589,
+    "lon": -96.188602,
     "source": "ourairports"
   },
   "zcl": {
@@ -43192,8 +43193,8 @@
     "municipality": "David",
     "airport": "Enrique Malek International Airport",
     "country": "PA",
-    "lat": 8.391,
-    "lon": -82.434998,
+    "lat": 8.388983,
+    "lon": -82.436425,
     "source": "ourairports"
   },
   "onx": {
@@ -43577,10 +43578,10 @@
   "sal": {
     "city": "San Salvador (San Luis Talpa)",
     "municipality": "San Salvador (San Luis Talpa)",
-    "airport": "Monseñor Óscar Arnulfo Romero International Airport",
+    "airport": "El Salvador International Airport Saint Óscar Arnulfo Romero y Galdámez",
     "country": "SV",
-    "lat": 13.4409,
-    "lon": -89.055702,
+    "lat": 13.44447,
+    "lon": -89.055784,
     "source": "ourairports"
   },
   "ils": {
@@ -43606,8 +43607,8 @@
     "municipality": "Cap Haitien",
     "airport": "Cap Haitien International Airport",
     "country": "HT",
-    "lat": 19.726734,
-    "lon": -72.199576,
+    "lat": 19.725547,
+    "lon": -72.20071,
     "source": "ourairports"
   },
   "mtx": {
@@ -43741,8 +43742,8 @@
     "municipality": "Camaguey",
     "airport": "Ignacio Agramonte International Airport",
     "country": "CU",
-    "lat": 21.420299530029297,
-    "lon": -77.84750366210938,
+    "lat": 21.419909,
+    "lon": -77.848039,
     "source": "ourairports"
   },
   "scu": {
@@ -43750,8 +43751,8 @@
     "municipality": "Santiago",
     "airport": "Antonio Maceo International Airport",
     "country": "CU",
-    "lat": 19.96980094909668,
-    "lon": -75.83540344238281,
+    "lat": 19.97474,
+    "lon": -75.835504,
     "source": "ourairports"
   },
   "nbw": {
@@ -43786,8 +43787,8 @@
     "municipality": "Holguin",
     "airport": "Frank Pais International Airport",
     "country": "CU",
-    "lat": 20.785600662231445,
-    "lon": -76.31510162353516,
+    "lat": 20.785148,
+    "lon": -76.315526,
     "source": "ourairports"
   },
   "vro": {
@@ -43856,10 +43857,10 @@
   "snu": {
     "city": "Santa Clara",
     "municipality": "Santa Clara",
-    "airport": "Abel Santamaria Airport",
+    "airport": "Abel Santamaria International Airport",
     "country": "CU",
-    "lat": 22.492201,
-    "lon": -79.943604,
+    "lat": 22.492215,
+    "lon": -79.943119,
     "source": "ourairports"
   },
   "snj": {
@@ -44748,8 +44749,8 @@
     "municipality": "Nuku'alofa",
     "airport": "Fua'amotu International Airport",
     "country": "TO",
-    "lat": -21.241199,
-    "lon": -175.149994,
+    "lat": -21.241438,
+    "lon": -175.149164,
     "source": "ourairports"
   },
   "hpa": {
@@ -44838,8 +44839,8 @@
     "municipality": "Funafuti",
     "airport": "Funafuti International Airport",
     "country": "TV",
-    "lat": -8.525,
-    "lon": 179.195999,
+    "lat": -8.523885,
+    "lon": 179.196976,
     "source": "ourairports"
   },
   "kuc": {
@@ -44897,8 +44898,8 @@
     "source": "ourairports"
   },
   "trw": {
-    "city": "Tarawa",
-    "municipality": "Tarawa",
+    "city": "South Tarawa",
+    "municipality": "South Tarawa",
     "airport": "Bonriki International Airport",
     "country": "KI",
     "lat": 1.38164,
@@ -44999,8 +45000,8 @@
     "municipality": "Alofi",
     "airport": "Niue International Airport",
     "country": "NU",
-    "lat": -19.079031,
-    "lon": -169.925598,
+    "lat": -19.080109,
+    "lon": -169.923493,
     "source": "ourairports"
   },
   "njj": {
@@ -45044,8 +45045,8 @@
     "municipality": "Wallis Island",
     "airport": "Hihifo Airport",
     "country": "WF",
-    "lat": -13.2383003235,
-    "lon": -176.199005127,
+    "lat": -13.239445,
+    "lon": -176.19865,
     "source": "ourairports"
   },
   "hbb": {
@@ -45177,10 +45178,10 @@
   "ppt": {
     "city": "Papeete",
     "municipality": "Papeete",
-    "airport": "Faa'a International Airport",
+    "airport": "Fa'a'ā International Airport",
     "country": "PF",
-    "lat": -17.553699,
-    "lon": -149.606995,
+    "lat": -17.553472,
+    "lon": -149.606936,
     "source": "ourairports"
   },
   "rmt": {
@@ -47973,8 +47974,8 @@
     "municipality": "Abu Dhabi",
     "airport": "Zayed International Airport",
     "country": "AE",
-    "lat": 24.443764,
-    "lon": 54.651718,
+    "lat": 24.440966,
+    "lon": 54.649237,
     "source": "ourairports"
   },
   "azi": {
@@ -47982,8 +47983,8 @@
     "municipality": "Abu Dhabi",
     "airport": "Al Bateen Executive Airport",
     "country": "AE",
-    "lat": 24.428301,
-    "lon": 54.458099,
+    "lat": 24.427062,
+    "lon": 54.459866,
     "source": "ourairports"
   },
   "aan": {
@@ -48899,8 +48900,8 @@
     "municipality": "Aden",
     "airport": "Aden International Airport",
     "country": "YE",
-    "lat": 12.8295,
-    "lon": 45.028801,
+    "lat": 12.829564,
+    "lon": 45.029976,
     "source": "ourairports"
   },
   "eab": {
@@ -48998,8 +48999,8 @@
     "municipality": "Riyan",
     "airport": "Riyan Mukalla International Airport",
     "country": "YE",
-    "lat": 14.6626,
-    "lon": 49.375,
+    "lat": 14.662241,
+    "lon": 49.375289,
     "source": "ourairports"
   },
   "sye": {
@@ -49808,8 +49809,8 @@
     "municipality": "Juneau",
     "airport": "Juneau International Airport",
     "country": "US",
-    "lat": 58.355,
-    "lon": -134.576004,
+    "lat": 58.354935,
+    "lon": -134.574416,
     "source": "ourairports"
   },
   "kgk": {
@@ -51181,19 +51182,19 @@
   "koa": {
     "city": "Kailua-Kona",
     "municipality": "Kailua-Kona",
-    "airport": "Ellison Onizuka Kona International Airport at Keahole",
+    "airport": "Ellison Onizuka Kona International Airport at Keāhole",
     "country": "US",
     "lat": 19.738783,
     "lon": -156.045603,
     "source": "ourairports"
   },
   "lih": {
-    "city": "Lihue",
-    "municipality": "Lihue",
+    "city": "Lihue, Kauai",
+    "municipality": "Lihue, Kauai",
     "airport": "Lihue Airport",
     "country": "US",
-    "lat": 21.976,
-    "lon": -159.339005,
+    "lat": 21.974393,
+    "lon": -159.337146,
     "source": "ourairports"
   },
   "lup": {
@@ -51235,10 +51236,10 @@
   "hnl": {
     "city": "Honolulu, Oahu",
     "municipality": "Honolulu, Oahu",
-    "airport": "Daniel K Inouye International Airport",
+    "airport": "Daniel K. Inouye International Airport",
     "country": "US",
-    "lat": 21.32062,
-    "lon": -157.924228,
+    "lat": 21.318387,
+    "lon": -157.92567,
     "source": "ourairports"
   },
   "lny": {
@@ -51453,14 +51454,14 @@
     "municipality": "Pohnpei Island",
     "airport": "Pohnpei International Airport",
     "country": "FM",
-    "lat": 6.985065,
-    "lon": 158.210354,
+    "lat": 6.985082,
+    "lon": 158.20992,
     "source": "ourairports"
   },
   "ror": {
     "city": "Babelthuap Island",
     "municipality": "Babelthuap Island",
-    "airport": "Palau International Airport",
+    "airport": "Roman Tmetuchl International Airport",
     "country": "PW",
     "lat": 7.366965,
     "lon": 134.544085,
@@ -51849,8 +51850,8 @@
     "municipality": "Sapporo",
     "airport": "New Chitose Airport",
     "country": "JP",
-    "lat": 42.7752,
-    "lon": 141.692001,
+    "lat": 42.774753,
+    "lon": 141.690414,
     "source": "ourairports"
   },
   "hkd": {
@@ -52191,8 +52192,8 @@
     "municipality": "Makinohara / Shimada",
     "airport": "Mount Fuji Shizuoka Airport",
     "country": "JP",
-    "lat": 34.796043,
-    "lon": 138.187752,
+    "lat": 34.795022,
+    "lon": 138.190976,
     "source": "ourairports"
   },
   "toy": {
@@ -52200,8 +52201,8 @@
     "municipality": "Toyama",
     "airport": "Toyama Kitokito Airport",
     "country": "JP",
-    "lat": 36.647664,
-    "lon": 137.187374,
+    "lat": 36.648416,
+    "lon": 137.187359,
     "source": "ourairports"
   },
   "ntq": {
@@ -52263,8 +52264,8 @@
     "municipality": "Nankoku",
     "airport": "Kochi Ryoma Airport",
     "country": "JP",
-    "lat": 33.546101,
-    "lon": 133.669006,
+    "lat": 33.545217,
+    "lon": 133.670166,
     "source": "ourairports"
   },
   "myj": {
@@ -52272,8 +52273,8 @@
     "municipality": "Matsuyama",
     "airport": "Matsuyama Airport",
     "country": "JP",
-    "lat": 33.82720184326172,
-    "lon": 132.6999969482422,
+    "lat": 33.826893,
+    "lon": 132.700114,
     "source": "ourairports"
   },
   "itm": {
@@ -52290,8 +52291,8 @@
     "municipality": "Tottori",
     "airport": "Tottori Sand Dunes Conan Airport",
     "country": "JP",
-    "lat": 35.530102,
-    "lon": 134.167007,
+    "lat": 35.530058,
+    "lon": 134.165023,
     "source": "ourairports"
   },
   "tks": {
@@ -52299,8 +52300,8 @@
     "municipality": "Tokushima",
     "airport": "Tokushima Awaodori Airport / JMSDF Tokushima Air Base",
     "country": "JP",
-    "lat": 34.132801,
-    "lon": 134.606995,
+    "lat": 34.132559,
+    "lon": 134.607816,
     "source": "ourairports"
   },
   "tak": {
@@ -52308,8 +52309,8 @@
     "municipality": "Takamatsu",
     "airport": "Takamatsu Airport",
     "country": "JP",
-    "lat": 34.214199066199996,
-    "lon": 134.01600647,
+    "lat": 34.214963,
+    "lon": 134.015454,
     "source": "ourairports"
   },
   "iwj": {
@@ -52758,8 +52759,8 @@
     "municipality": "Naha",
     "airport": "Naha International Airport",
     "country": "JP",
-    "lat": 26.195801,
-    "lon": 127.646004,
+    "lat": 26.192437,
+    "lon": 127.639804,
     "source": "ourairports"
   },
   "dna": {
@@ -52902,8 +52903,8 @@
     "municipality": "Olongapo",
     "airport": "Subic Bay International Airport / Naval Air Station Cubi Point",
     "country": "PH",
-    "lat": 14.7944,
-    "lon": 120.271004,
+    "lat": 14.794833,
+    "lon": 120.271883,
     "source": "ourairports"
   },
   "crk": {
@@ -52930,7 +52931,7 @@
     "airport": "Cagayan North International Airport",
     "country": "PH",
     "lat": 18.182388,
-    "lon": 121.745853,
+    "lon": 121.746223,
     "source": "ourairports"
   },
   "lao": {
@@ -52938,8 +52939,8 @@
     "municipality": "Laoag City",
     "airport": "Laoag International Airport",
     "country": "PH",
-    "lat": 18.176121,
-    "lon": 120.531034,
+    "lat": 18.175089,
+    "lon": 120.531006,
     "source": "ourairports"
   },
   "drp": {
@@ -53118,8 +53119,8 @@
     "municipality": "General Santos",
     "airport": "General Santos International Airport",
     "country": "PH",
-    "lat": 6.05800008774,
-    "lon": 125.096000671,
+    "lat": 6.057208,
+    "lon": 125.096243,
     "source": "ourairports"
   },
   "sug": {
@@ -53411,8 +53412,8 @@
     "source": "ourairports"
   },
   "ceb": {
-    "city": "Lapu-Lapu City",
-    "municipality": "Lapu-Lapu City",
+    "city": "Cebu City/Lapu-Lapu City",
+    "municipality": "Cebu City/Lapu-Lapu City",
     "airport": "Mactan Cebu International Airport",
     "country": "PH",
     "lat": 10.309261,
@@ -53433,8 +53434,8 @@
     "municipality": "Puerto Princesa",
     "airport": "Puerto Princesa International Airport / PAF Antonio Bautista Air Base",
     "country": "PH",
-    "lat": 9.74212,
-    "lon": 118.759003,
+    "lat": 9.742044,
+    "lon": 118.75911,
     "source": "ourairports"
   },
   "rxs": {
@@ -53656,10 +53657,10 @@
   "aep": {
     "city": "Buenos Aires",
     "municipality": "Buenos Aires",
-    "airport": "Jorge Newbery Airpark",
+    "airport": "Aeroparque Jorge Newbery",
     "country": "AR",
-    "lat": -34.5592,
-    "lon": -58.4156,
+    "lat": -34.559419,
+    "lon": -58.415536,
     "source": "ourairports"
   },
   "lcm": {
@@ -53674,10 +53675,10 @@
   "cor": {
     "city": "Cordoba",
     "municipality": "Cordoba",
-    "airport": "Ingeniero Ambrosio Taravella Airport",
+    "airport": "Ingeniero Aeronáutico Ambrosio L.V. Taravella International Airport",
     "country": "AR",
-    "lat": -31.323601,
-    "lon": -64.208,
+    "lat": -31.312346,
+    "lon": -64.208329,
     "source": "ourairports"
   },
   "lpg": {
@@ -53701,7 +53702,7 @@
   "eze": {
     "city": "Buenos Aires (Ezeiza)",
     "municipality": "Buenos Aires (Ezeiza)",
-    "airport": "Minister Pistarini International Airport",
+    "airport": "Ezeiza International Airport - Ministro Pistarini",
     "country": "AR",
     "lat": -34.8222,
     "lon": -58.5358,
@@ -54097,10 +54098,10 @@
   "crd": {
     "city": "Comodoro Rivadavia",
     "municipality": "Comodoro Rivadavia",
-    "airport": "General E. Mosconi Airport",
+    "airport": "General Enrique Mosconi International Airport",
     "country": "AR",
-    "lat": -45.7853,
-    "lon": -67.4655,
+    "lat": -45.786941,
+    "lon": -67.463355,
     "source": "ourairports"
   },
   "emx": {
@@ -54216,8 +54217,8 @@
     "municipality": "El Calafate",
     "airport": "El Calafate - Commander Armando Tola International Airport",
     "country": "AR",
-    "lat": -50.2803,
-    "lon": -72.053101,
+    "lat": -50.281997,
+    "lon": -72.053949,
     "source": "ourairports"
   },
   "pud": {
@@ -54232,7 +54233,7 @@
   "rga": {
     "city": "Rio Grande",
     "municipality": "Rio Grande",
-    "airport": "Gobernador Ramón Trejo Noel International Airport",
+    "airport": "Hermes Quijada International Airport",
     "country": "AR",
     "lat": -53.7777,
     "lon": -67.7494,
@@ -54241,10 +54242,10 @@
   "rgl": {
     "city": "Rio Gallegos",
     "municipality": "Rio Gallegos",
-    "airport": "Piloto Civil N. Fernández Airport",
+    "airport": "Piloto Civil Norberto Fernández International Airport",
     "country": "AR",
-    "lat": -51.6089,
-    "lon": -69.3126,
+    "lat": -51.608791,
+    "lon": -69.308948,
     "source": "ourairports"
   },
   "ush": {
@@ -54513,8 +54514,8 @@
     "municipality": "Aracaju",
     "airport": "Aracaju - Santa Maria International Airport",
     "country": "BR",
-    "lat": -10.984,
-    "lon": -37.070301,
+    "lat": -10.984129,
+    "lon": -37.071789,
     "source": "ourairports"
   },
   "afl": {
@@ -54754,7 +54755,7 @@
   "cwb": {
     "city": "Curitiba",
     "municipality": "Curitiba",
-    "airport": "Afonso Pena Airport",
+    "airport": "Curitiba-Afonso Pena International Airport",
     "country": "BR",
     "lat": -25.5285,
     "lon": -49.1758,
@@ -54864,8 +54865,8 @@
     "municipality": "Fernando de Noronha",
     "airport": "Fernando de Noronha Airport",
     "country": "BR",
-    "lat": -3.854471,
-    "lon": -32.423302,
+    "lat": -3.854534,
+    "lon": -32.423017,
     "source": "ourairports"
   },
   "for": {
@@ -54898,7 +54899,7 @@
   "gyn": {
     "city": "Goiânia",
     "municipality": "Goiânia",
-    "airport": "Santa Genoveva Airport",
+    "airport": "Santa Genoveva International Airport",
     "country": "BR",
     "lat": -16.632,
     "lon": -49.220699,
@@ -54907,10 +54908,10 @@
   "gru": {
     "city": "São Paulo",
     "municipality": "São Paulo",
-    "airport": "Guarulhos - Governador André Franco Montoro International Airport",
+    "airport": "São Paulo/Guarulhos–Governor André Franco Montoro International Airport",
     "country": "BR",
-    "lat": -23.431944,
-    "lon": -46.467778,
+    "lat": -23.431274,
+    "lon": -46.469954,
     "source": "ourairports"
   },
   "gpb": {
@@ -55231,10 +55232,10 @@
   "mcz": {
     "city": "Maceió",
     "municipality": "Maceió",
-    "airport": "Zumbi dos Palmares Airport",
+    "airport": "Zumbi dos Palmares International Airport",
     "country": "BR",
-    "lat": -9.51081,
-    "lon": -35.791698,
+    "lat": -9.512559,
+    "lon": -35.791839,
     "source": "ourairports"
   },
   "mcp": {
@@ -55303,10 +55304,10 @@
   "poa": {
     "city": "Porto Alegre",
     "municipality": "Porto Alegre",
-    "airport": "Salgado Filho International Airport",
+    "airport": "Porto Alegre-Salgado Filho International Airport",
     "country": "BR",
-    "lat": -29.994712,
-    "lon": -51.166592,
+    "lat": -29.993984,
+    "lon": -51.167482,
     "source": "ourairports"
   },
   "phb": {
@@ -55440,8 +55441,8 @@
     "municipality": "Recife",
     "airport": "Recife/Guararapes - Gilberto Freyre International Airport",
     "country": "BR",
-    "lat": -8.125984,
-    "lon": -34.923316,
+    "lat": -8.12747,
+    "lon": -34.922961,
     "source": "ourairports"
   },
   "sdu": {
@@ -55483,10 +55484,10 @@
   "nat": {
     "city": "Natal",
     "municipality": "Natal",
-    "airport": "São Gonçalo do Amarante - Governador Aluízio Alves International Airport",
+    "airport": "Rio Grande do Norte/São Gonçalo do Amarante–Governador Aluízio Alves International Airport",
     "country": "BR",
-    "lat": -5.769804,
-    "lon": -35.366578,
+    "lat": -5.768539,
+    "lon": -35.366419,
     "source": "ourairports"
   },
   "ops": {
@@ -55512,8 +55513,8 @@
     "municipality": "São Luís",
     "airport": "Marechal Cunha Machado International Airport",
     "country": "BR",
-    "lat": -2.58536,
-    "lon": -44.2341,
+    "lat": -2.586386,
+    "lon": -44.235008,
     "source": "ourairports"
   },
   "ria": {
@@ -55888,7 +55889,7 @@
   "puq": {
     "city": "Punta Arenas",
     "municipality": "Punta Arenas",
-    "airport": "President Carlos Ibañez del Campo International Airport",
+    "airport": "President Carlos Ibáñez International Airport",
     "country": "CL",
     "lat": -53.002602,
     "lon": -70.854599,
@@ -55953,8 +55954,8 @@
     "municipality": "Antofagasta",
     "airport": "Andrés Sabella Gálvez International Airport",
     "country": "CL",
-    "lat": -23.444501,
-    "lon": -70.445099,
+    "lat": -23.445274,
+    "lon": -70.445232,
     "source": "ourairports"
   },
   "wpr": {
@@ -56014,19 +56015,19 @@
   "ccp": {
     "city": "Concepcion",
     "municipality": "Concepcion",
-    "airport": "Carriel Sur Airport",
+    "airport": "Carriel Sur International Airport",
     "country": "CL",
-    "lat": -36.772701,
-    "lon": -73.063103,
+    "lat": -36.77235,
+    "lon": -73.062828,
     "source": "ourairports"
   },
   "ipc": {
     "city": "Isla De Pascua",
     "municipality": "Isla De Pascua",
-    "airport": "Mataveri Airport",
+    "airport": "Mataveri International Airport",
     "country": "CL",
-    "lat": -27.1648006439,
-    "lon": -109.42199707,
+    "lat": -27.165411,
+    "lon": -109.421027,
     "source": "ourairports"
   },
   "zos": {
@@ -56194,10 +56195,10 @@
   "pmc": {
     "city": "Puerto Montt",
     "municipality": "Puerto Montt",
-    "airport": "El Tepual Airport",
+    "airport": "El Tepual International Airport",
     "country": "CL",
-    "lat": -41.438899993896484,
-    "lon": -73.09400177001953,
+    "lat": -41.443093,
+    "lon": -73.094065,
     "source": "ourairports"
   },
   "tlx": {
@@ -56588,9 +56589,9 @@
     "source": "ourairports"
   },
   "snc": {
-    "city": "Salinas",
-    "municipality": "Salinas",
-    "airport": "General Ulpiano Paez Airport",
+    "city": "Salinas/La Libertad",
+    "municipality": "Salinas/La Libertad",
+    "airport": "General Ulpiano Paez International Airport",
     "country": "EC",
     "lat": -2.210057,
     "lon": -80.985067,
@@ -56691,8 +56692,8 @@
     "municipality": "Stanley",
     "airport": "Port Stanley Airport",
     "country": "FK",
-    "lat": -51.685699462891,
-    "lon": -57.777599334717,
+    "lat": -51.685699,
+    "lon": -57.777599,
     "source": "ourairports"
   },
   "asu": {
@@ -57546,8 +57547,8 @@
     "municipality": "Cali",
     "airport": "Alfonso Bonilla Aragon International Airport",
     "country": "CO",
-    "lat": 3.543196,
-    "lon": -76.381681,
+    "lat": 3.542717,
+    "lon": -76.381898,
     "source": "ourairports"
   },
   "cim": {
@@ -57696,7 +57697,7 @@
   "gpi": {
     "city": "Guapi",
     "municipality": "Guapi",
-    "airport": "Juan Casiano Airport",
+    "airport": "Guapi Airport",
     "country": "CO",
     "lat": 2.57013,
     "lon": -77.897969,
@@ -58022,8 +58023,8 @@
     "municipality": "Popayán",
     "airport": "Guillermo León Valencia Airport",
     "country": "CO",
-    "lat": 2.4544,
-    "lon": -76.6093,
+    "lat": 2.454359,
+    "lon": -76.609253,
     "source": "ourairports"
   },
   "pal": {
@@ -58353,7 +58354,7 @@
   "sre": {
     "city": "Sucre",
     "municipality": "Sucre",
-    "airport": "Alcantarí Airport",
+    "airport": "Alcantarí International Airport",
     "country": "BO",
     "lat": -19.246835,
     "lon": -65.149611,
@@ -58400,8 +58401,8 @@
     "municipality": "Cochabamba",
     "airport": "Jorge Wilsterman International Airport",
     "country": "BO",
-    "lat": -17.421100616455078,
-    "lon": -66.1771011352539,
+    "lat": -17.421105,
+    "lon": -66.177102,
     "source": "ourairports"
   },
   "cij": {
@@ -58409,8 +58410,8 @@
     "municipality": "Cobija",
     "airport": "Capitán Aníbal Arab Airport",
     "country": "BO",
-    "lat": -11.040399551400002,
-    "lon": -68.7829971313,
+    "lat": -11.039109,
+    "lon": -68.782774,
     "source": "ourairports"
   },
   "cep": {
@@ -58490,8 +58491,8 @@
     "municipality": "La Paz / El Alto",
     "airport": "El Alto International Airport",
     "country": "BO",
-    "lat": -16.5132999420166,
-    "lon": -68.19229888916016,
+    "lat": -16.510272,
+    "lon": -68.189416,
     "source": "ourairports"
   },
   "mgd": {
@@ -58508,8 +58509,8 @@
     "municipality": "Oruro",
     "airport": "Juan Mendoza Airport",
     "country": "BO",
-    "lat": -17.962601,
-    "lon": -67.076202,
+    "lat": -17.956151,
+    "lon": -67.075829,
     "source": "ourairports"
   },
   "poi": {
@@ -59615,8 +59616,8 @@
     "municipality": "Pucallpa",
     "airport": "Cap FAP David Abenzur Rengifo International Airport",
     "country": "PE",
-    "lat": -8.37794017791748,
-    "lon": -74.57430267333984,
+    "lat": -8.378064,
+    "lon": -74.574495,
     "source": "ourairports"
   },
   "tdp": {
@@ -59873,10 +59874,10 @@
   "tru": {
     "city": "Trujillo",
     "municipality": "Trujillo",
-    "airport": "Capitan FAP Carlos Martinez De Pinillos International Airport",
+    "airport": "Capitán FAP Carlos Martínez de Pinillos International Airport",
     "country": "PE",
-    "lat": -8.08141040802002,
-    "lon": -79.10880279541016,
+    "lat": -8.082382,
+    "lon": -79.108821,
     "source": "ourairports"
   },
   "pio": {
@@ -60726,8 +60727,8 @@
     "municipality": "Maracaibo",
     "airport": "La Chinita International Airport",
     "country": "VE",
-    "lat": 10.5582084656,
-    "lon": -71.7278594971,
+    "lat": 10.557542,
+    "lon": -71.729307,
     "source": "ourairports"
   },
   "mrd": {
@@ -60753,8 +60754,8 @@
     "municipality": "Maiquetía",
     "airport": "Maiquetía Simón Bolívar International Airport",
     "country": "VE",
-    "lat": 10.601194,
-    "lon": -66.991222,
+    "lat": 10.602214,
+    "lon": -66.991174,
     "source": "ourairports"
   },
   "mun": {
@@ -61649,7 +61650,7 @@
   "anu": {
     "city": "Osbourn",
     "municipality": "Osbourn",
-    "airport": "V C Bird International Airport",
+    "airport": "V. C. Bird International Airport",
     "country": "AG",
     "lat": 17.1367,
     "lon": -61.792702,
@@ -61669,8 +61670,8 @@
     "municipality": "Bridgetown",
     "airport": "Grantley Adams International Airport",
     "country": "BB",
-    "lat": 13.0746,
-    "lon": -59.4925,
+    "lat": 13.074667,
+    "lon": -59.491034,
     "source": "ourairports"
   },
   "tbv": {
@@ -61705,8 +61706,8 @@
     "municipality": "Marigot",
     "airport": "Douglas-Charles Airport",
     "country": "DM",
-    "lat": 15.547,
-    "lon": -61.299999,
+    "lat": 15.546362,
+    "lon": -61.300476,
     "source": "ourairports"
   },
   "dsd": {
@@ -61757,10 +61758,10 @@
   "sbh": {
     "city": "Gustavia",
     "municipality": "Gustavia",
-    "airport": "Saint Barthélemy - Gustaf III Airport",
+    "airport": "St. Jean Airport",
     "country": "BL",
-    "lat": 17.9044,
-    "lon": -62.843601,
+    "lat": 17.904398,
+    "lon": -62.843333,
     "source": "ourairports"
   },
   "gbj": {
@@ -61775,10 +61776,10 @@
   "ptp": {
     "city": "Pointe-à-Pitre",
     "municipality": "Pointe-à-Pitre",
-    "airport": "Guadeloupe - Maryse Condé International Airport",
+    "airport": "Maryse Condé International Airport",
     "country": "GP",
-    "lat": 16.265301,
-    "lon": -61.531799,
+    "lat": 16.265443,
+    "lon": -61.532754,
     "source": "ourairports"
   },
   "lss": {
@@ -61795,8 +61796,8 @@
     "municipality": "Saint George's",
     "airport": "Maurice Bishop International Airport",
     "country": "GD",
-    "lat": 12.0042,
-    "lon": -61.786201,
+    "lat": 12.003996,
+    "lon": -61.785302,
     "source": "ourairports"
   },
   "cru": {
@@ -61820,7 +61821,7 @@
   "stx": {
     "city": "Christiansted",
     "municipality": "Christiansted",
-    "airport": "Henry E Rohlsen Airport",
+    "airport": "Henry E. Rohlsen Airport",
     "country": "VI",
     "lat": 17.701413,
     "lon": -64.802608,
@@ -61894,8 +61895,8 @@
     "municipality": "Ceiba",
     "airport": "José Aponte de la Torre Airport",
     "country": "PR",
-    "lat": 18.2453,
-    "lon": -65.643402,
+    "lat": 18.247262,
+    "lon": -65.63979,
     "source": "ourairports"
   },
   "sju": {
@@ -61921,8 +61922,8 @@
     "municipality": "Basseterre",
     "airport": "Robert L. Bradshaw International Airport",
     "country": "KN",
-    "lat": 17.311199188232422,
-    "lon": -62.71870040893555,
+    "lat": 17.310845,
+    "lon": -62.719117,
     "source": "ourairports"
   },
   "nev": {
@@ -61930,8 +61931,8 @@
     "municipality": "Charlestown",
     "airport": "Vance W. Amory International Airport",
     "country": "KN",
-    "lat": 17.205699920654297,
-    "lon": -62.589900970458984,
+    "lat": 17.2057,
+    "lon": -62.589901,
     "source": "ourairports"
   },
   "slu": {
@@ -62011,8 +62012,8 @@
     "municipality": "Zion's Hill",
     "airport": "Juancho E. Yrausquin Airport",
     "country": "BQ",
-    "lat": 17.645351,
-    "lon": -63.220571,
+    "lat": 17.64533,
+    "lon": -63.220514,
     "source": "ourairports"
   },
   "tok": {
@@ -62036,7 +62037,7 @@
   "axa": {
     "city": "The Valley",
     "municipality": "The Valley",
-    "airport": "Clayton J Lloyd International Airport",
+    "airport": "Clayton J. Lloyd International Airport",
     "country": "AI",
     "lat": 18.204773,
     "lon": -63.05383,
@@ -62047,8 +62048,8 @@
     "municipality": "Gerald's Park",
     "airport": "John A. Osborne Airport",
     "country": "MS",
-    "lat": 16.791401,
-    "lon": -62.193298,
+    "lat": 16.791835,
+    "lon": -62.193204,
     "source": "ourairports"
   },
   "tsg": {
@@ -62074,8 +62075,8 @@
     "municipality": "Scarborough",
     "airport": "A.N.R. Robinson International Airport",
     "country": "TT",
-    "lat": 11.1497,
-    "lon": -60.832199,
+    "lat": 11.149571,
+    "lon": -60.831298,
     "source": "ourairports"
   },
   "pos": {
@@ -62083,8 +62084,8 @@
     "municipality": "Port of Spain",
     "airport": "Piarco International Airport",
     "country": "TT",
-    "lat": 10.5954,
-    "lon": -61.3372,
+    "lat": 10.597811,
+    "lon": -61.337463,
     "source": "ourairports"
   },
   "tuj": {
@@ -62128,8 +62129,8 @@
     "municipality": "Kingstown",
     "airport": "Argyle International Airport",
     "country": "VC",
-    "lat": 13.156695,
-    "lon": -61.149945,
+    "lat": 13.159725,
+    "lon": -61.148801,
     "source": "ourairports"
   },
   "bqu": {
@@ -62324,7 +62325,7 @@
   "dmb": {
     "city": "Taraz",
     "municipality": "Taraz",
-    "airport": "Taraz Airport",
+    "airport": "Taraz International Airport",
     "country": "KZ",
     "lat": 42.8536,
     "lon": 71.303596,
@@ -62414,7 +62415,7 @@
   "ura": {
     "city": "Uralsk",
     "municipality": "Uralsk",
-    "airport": "Uralsk International Airport",
+    "airport": "Manshuk Mametova International Airport",
     "country": "KZ",
     "lat": 51.151976,
     "lon": 51.543652,
@@ -62920,8 +62921,8 @@
     "municipality": "Kopitnari",
     "airport": "David the Builder Kutaisi International Airport",
     "country": "GE",
-    "lat": 42.176768,
-    "lon": 42.482393,
+    "lat": 42.177448,
+    "lon": 42.485353,
     "source": "ourairports"
   },
   "bus": {
@@ -63719,7 +63720,7 @@
   "pes": {
     "city": "Petrozavodsk",
     "municipality": "Petrozavodsk",
-    "airport": "Petrozavodsk International Airport",
+    "airport": "Petrozavodsk Airport",
     "country": "RU",
     "lat": 61.885201,
     "lon": 34.154701,
@@ -63755,10 +63756,10 @@
   "bqt": {
     "city": "Brest",
     "municipality": "Brest",
-    "airport": "Brest Airport",
+    "airport": "Brest International Airport",
     "country": "BY",
-    "lat": 52.108299,
-    "lon": 23.8981,
+    "lat": 52.108138,
+    "lon": 23.89676,
     "source": "ourairports"
   },
   "gme": {
@@ -64705,7 +64706,7 @@
   "ncu": {
     "city": "Nukus",
     "municipality": "Nukus",
-    "airport": "Nukus Airport",
+    "airport": "Nukus International Airport",
     "country": "UZ",
     "lat": 42.4884,
     "lon": 59.623299,
@@ -64723,10 +64724,10 @@
   "nvi": {
     "city": "Navoi",
     "municipality": "Navoi",
-    "airport": "Navoi Airport",
+    "airport": "Navoi International Airport",
     "country": "UZ",
-    "lat": 40.117199,
-    "lon": 65.170799,
+    "lat": 40.117599,
+    "lon": 65.172658,
     "source": "ourairports"
   },
   "bhk": {
@@ -65272,10 +65273,10 @@
   "bom": {
     "city": "Mumbai",
     "municipality": "Mumbai",
-    "airport": "Chhatrapati Shivaji International Airport",
+    "airport": "Chhatrapati Shivaji Maharaj International Airport",
     "country": "IN",
-    "lat": 19.0886993408,
-    "lon": 72.8678970337,
+    "lat": 19.088699,
+    "lon": 72.867897,
     "source": "ourairports"
   },
   "bhj": {
@@ -65345,8 +65346,8 @@
     "municipality": "Hubballi",
     "airport": "Hubballi Airport",
     "country": "IN",
-    "lat": 15.3617,
-    "lon": 75.0849,
+    "lat": 15.361084,
+    "lon": 75.082096,
     "source": "ourairports"
   },
   "hsr": {
@@ -65695,8 +65696,8 @@
     "municipality": "Phnom Penh (Pou Senchey)",
     "airport": "Phnom Penh International Airport",
     "country": "KH",
-    "lat": 11.5466,
-    "lon": 104.844002,
+    "lat": 11.547155,
+    "lon": 104.844699,
     "source": "ourairports"
   },
   "rbe": {
@@ -65720,10 +65721,10 @@
   "kos": {
     "city": "Preah Sihanouk",
     "municipality": "Preah Sihanouk",
-    "airport": "Sihanoukville International Airport",
+    "airport": "Sihanouk International Airport",
     "country": "KH",
-    "lat": 10.571969,
-    "lon": 103.632689,
+    "lat": 10.570557,
+    "lon": 103.632067,
     "source": "ourairports"
   },
   "kzd": {
@@ -66623,8 +66624,8 @@
     "municipality": "Luang Phabang",
     "airport": "Luang Phabang International Airport",
     "country": "LA",
-    "lat": 19.897300720214844,
-    "lon": 102.16100311279297,
+    "lat": 19.904273,
+    "lon": 102.167191,
     "source": "ourairports"
   },
   "lxg": {
@@ -66650,8 +66651,8 @@
     "municipality": "Pakse",
     "airport": "Pakse International Airport",
     "country": "LA",
-    "lat": 15.132100105285645,
-    "lon": 105.78099822998047,
+    "lat": 15.133973,
+    "lon": 105.779871,
     "source": "ourairports"
   },
   "zby": {
@@ -66702,8 +66703,8 @@
     "municipality": "Vientiane",
     "airport": "Wattay International Airport",
     "country": "LA",
-    "lat": 17.988300323500003,
-    "lon": 102.56300354,
+    "lat": 17.985052,
+    "lon": 102.566692,
     "source": "ourairports"
   },
   "xkh": {
@@ -67422,8 +67423,8 @@
     "municipality": "Thiruvananthapuram",
     "airport": "Thiruvananthapuram International Airport",
     "country": "IN",
-    "lat": 8.48212,
-    "lon": 76.920097,
+    "lat": 8.481889,
+    "lon": 76.920029,
     "source": "ourairports"
   },
   "wgc": {
@@ -67493,8 +67494,8 @@
     "municipality": "Noonu Atoll",
     "airport": "Maafaru International Airport",
     "country": "MV",
-    "lat": 5.818394,
-    "lon": 73.469181,
+    "lat": 5.817407,
+    "lon": 73.468404,
     "source": "ourairports"
   },
   "ifu": {
@@ -67529,17 +67530,17 @@
     "municipality": "Gan",
     "airport": "Gan International Airport",
     "country": "MV",
-    "lat": -0.692694,
-    "lon": 73.151557,
+    "lat": -0.692975,
+    "lon": 73.152627,
     "source": "ourairports"
   },
   "haq": {
     "city": "Haa Dhaalu Atoll",
     "municipality": "Haa Dhaalu Atoll",
-    "airport": "Hanimaadhoo Airport",
+    "airport": "Hanimaadhoo International Airport",
     "country": "MV",
-    "lat": 6.744229793548584,
-    "lon": 73.17050170898438,
+    "lat": 6.743235,
+    "lon": 73.167072,
     "source": "ourairports"
   },
   "kdo": {
@@ -67592,8 +67593,8 @@
     "municipality": "Maamigili",
     "airport": "Villa International Airport Maamigili",
     "country": "MV",
-    "lat": 3.470556,
-    "lon": 72.835833,
+    "lat": 3.471751,
+    "lon": 72.832633,
     "source": "ourairports"
   },
   "tmf": {
@@ -67747,10 +67748,11 @@
   },
   "tkh": {
     "city": "Takhli",
-    "airport": "Takhli Airport",
+    "municipality": "Takhli",
+    "airport": "Takhli Royal Thai Air Force Base",
     "country": "TH",
-    "lat": 15.277299881,
-    "lon": 100.29599762,
+    "lat": 15.2773,
+    "lon": 100.295998,
     "source": "ourairports"
   },
   "maq": {
@@ -68011,8 +68013,8 @@
     "municipality": "Haiphong (Hai An)",
     "airport": "Cat Bi International Airport",
     "country": "VN",
-    "lat": 20.81686,
-    "lon": 106.722994,
+    "lat": 20.817428,
+    "lon": 106.724315,
     "source": "ourairports"
   },
   "cah": {
@@ -68025,8 +68027,8 @@
     "source": "ourairports"
   },
   "cxr": {
-    "city": "Cam Ranh",
-    "municipality": "Cam Ranh",
+    "city": "Nha Trang/nha Trang aiurportCam Ranh",
+    "municipality": "Nha Trang/nha Trang aiurportCam Ranh",
     "airport": "Cam Ranh International Airport / Cam Ranh Air Base",
     "country": "VN",
     "lat": 11.9982,
@@ -68047,8 +68049,8 @@
     "municipality": "Can Tho",
     "airport": "Can Tho International Airport",
     "country": "VN",
-    "lat": 10.0851,
-    "lon": 105.711998,
+    "lat": 10.083397,
+    "lon": 105.709371,
     "source": "ourairports"
   },
   "din": {
@@ -68144,10 +68146,10 @@
   "pqc": {
     "city": "Phu Quoc Island",
     "municipality": "Phu Quoc Island",
-    "airport": "Phu Quoc International Airport",
+    "airport": "Phú Quốc International Airport",
     "country": "VN",
-    "lat": 10.1698,
-    "lon": 103.9931,
+    "lat": 10.167759,
+    "lon": 103.995451,
     "source": "ourairports"
   },
   "pha": {
@@ -70485,8 +70487,8 @@
     "municipality": "Jakarta",
     "airport": "Halim Perdanakusuma International Airport",
     "country": "ID",
-    "lat": -6.266610145568848,
-    "lon": 106.89099884033203,
+    "lat": -6.267221,
+    "lon": 106.891733,
     "source": "ourairports"
   },
   "pcb": {
@@ -70917,8 +70919,8 @@
     "municipality": "Ipoh",
     "airport": "Sultan Azlan Shah Airport",
     "country": "MY",
-    "lat": 4.567969799041748,
-    "lon": 101.09200286865234,
+    "lat": 4.56733,
+    "lon": 101.091643,
     "source": "ourairports"
   },
   "jhb": {
@@ -70971,8 +70973,8 @@
     "municipality": "Penang",
     "airport": "Penang International Airport",
     "country": "MY",
-    "lat": 5.297140121459961,
-    "lon": 100.2770004272461,
+    "lat": 5.296303,
+    "lon": 100.276185,
     "source": "ourairports"
   },
   "pkg": {
@@ -70998,8 +71000,8 @@
     "municipality": "Subang",
     "airport": "Sultan Abdul Aziz Shah International Airport",
     "country": "MY",
-    "lat": 3.130579948425293,
-    "lon": 101.54900360107422,
+    "lat": 3.13058,
+    "lon": 101.549004,
     "source": "ourairports"
   },
   "dtr": {
@@ -71050,7 +71052,7 @@
   "bch": {
     "city": "Baucau",
     "municipality": "Baucau",
-    "airport": "Cakung Airport",
+    "airport": "Baucau Airport",
     "country": "TL",
     "lat": -8.486479,
     "lon": 126.399981,
@@ -71070,8 +71072,8 @@
     "municipality": "Oecussi-Ambeno",
     "airport": "Rota Do Sândalo Oecusse Airport",
     "country": "TL",
-    "lat": -9.19806,
-    "lon": 124.343002,
+    "lat": -9.199704,
+    "lon": 124.340446,
     "source": "ourairports"
   },
   "viq": {
@@ -71791,8 +71793,8 @@
     "municipality": "Broome",
     "airport": "Broome International Airport",
     "country": "AU",
-    "lat": -17.948817,
-    "lon": 122.227482,
+    "lat": -17.949194,
+    "lon": 122.2283,
     "source": "ourairports"
   },
   "bzd": {
@@ -73190,8 +73192,8 @@
     "municipality": "Horn",
     "airport": "Horn Island Airport",
     "country": "AU",
-    "lat": -10.585628,
-    "lon": 142.292653,
+    "lat": -10.585636,
+    "lon": 142.29277,
     "source": "ourairports"
   },
   "hll": {
@@ -73894,8 +73896,8 @@
     "source": "ourairports"
   },
   "avv": {
-    "city": "Lara",
-    "municipality": "Lara",
+    "city": "Geelong/Melbourne",
+    "municipality": "Geelong/Melbourne",
     "airport": "Melbourne Avalon International Airport",
     "country": "AU",
     "lat": -38.040269,
@@ -74070,8 +74072,8 @@
     "municipality": "Hobart (Cambridge)",
     "airport": "Hobart International Airport",
     "country": "AU",
-    "lat": -42.8371,
-    "lon": 147.51295,
+    "lat": -42.837032,
+    "lon": 147.513022,
     "source": "ourairports"
   },
   "mho": {
@@ -74165,8 +74167,8 @@
     "municipality": "Melbourne",
     "airport": "Melbourne Moorabbin Airport",
     "country": "AU",
-    "lat": -37.975799560546875,
-    "lon": 145.1020050048828,
+    "lat": -37.977765,
+    "lon": 145.099799,
     "source": "ourairports"
   },
   "wui": {
@@ -74183,8 +74185,8 @@
     "municipality": "Melbourne",
     "airport": "Melbourne Airport",
     "country": "AU",
-    "lat": -37.661548,
-    "lon": 144.836432,
+    "lat": -37.670732,
+    "lon": 144.837898,
     "source": "ourairports"
   },
   "mmm": {
@@ -74809,8 +74811,8 @@
     "municipality": "West Island",
     "airport": "Cocos (Keeling) Islands Airport",
     "country": "CC",
-    "lat": -12.19134,
-    "lon": 96.833696,
+    "lat": -12.192218,
+    "lon": 96.834103,
     "source": "ourairports"
   },
   "pdn": {
@@ -74994,8 +74996,8 @@
     "municipality": "Port Hedland",
     "airport": "Port Hedland International Airport",
     "country": "AU",
-    "lat": -20.3777999878,
-    "lon": 118.625999451,
+    "lat": -20.382787,
+    "lon": 118.629789,
     "source": "ourairports"
   },
   "per": {
@@ -75036,10 +75038,10 @@
   "xch": {
     "city": "Flying Fish Cove",
     "municipality": "Flying Fish Cove",
-    "airport": "Christmas Island Airport",
+    "airport": "Christmas Island International Airport",
     "country": "CX",
-    "lat": -10.449382,
-    "lon": 105.690931,
+    "lat": -10.450387,
+    "lon": 105.6911,
     "source": "ourairports"
   },
   "uir": {
@@ -75380,8 +75382,8 @@
     "municipality": "Burnt Pine",
     "airport": "Norfolk Island International Airport",
     "country": "NF",
-    "lat": -29.041887,
-    "lon": 167.939616,
+    "lat": -29.041759,
+    "lon": 167.939474,
     "source": "ourairports"
   },
   "noa": {
@@ -75955,8 +75957,8 @@
     "municipality": "Williamtown",
     "airport": "Newcastle Airport",
     "country": "AU",
-    "lat": -32.79499816894531,
-    "lon": 151.83399963378906,
+    "lat": -32.796114,
+    "lon": 151.835025,
     "source": "ourairports"
   },
   "wun": {
@@ -78682,7 +78684,7 @@
   "cni": {
     "city": "Dalian (Changhai)",
     "municipality": "Dalian (Changhai)",
-    "airport": "Changhai Airport",
+    "airport": "Changhai Dachangshandao Airport",
     "country": "CN",
     "lat": 39.266441,
     "lon": 122.66696,
