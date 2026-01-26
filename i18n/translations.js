@@ -56,8 +56,8 @@ window.TRANSLATIONS = {
     redirectGuide:`<ol class="redirect-guide-list"><li>On the booking site page that opens, type your destination or hotel name (e.g., "Osaka Hilton").</li><li>Enter your travel dates.</li><li>Press search.</li><li>Copy the results page URL and paste it back into Tripdotdot.</li></ol>`,
 
     trustTitle:"Save more on travel costs",
-    trustDesc:"Tripdotdot users have unlocked over $170,000 in discounted bookings!",
-    trustMetricSavings:"$170,000+",
+    trustDesc:"Tripdotdot users have unlocked over $220,000 in discounted bookings!",
+    trustMetricSavings:"$220,000+",
     trustMetricUsage:"500+",
     trustMetricCountries:"21+",
     trustStatSavings:"Discounted booking value",
@@ -129,8 +129,8 @@ window.TRANSLATIONS = {
     redirectGuide:`<ol class="redirect-guide-list"><li><strong>연결된 트립닷컴</strong> 홈페이지에서 원하는 숙소/상품을 검색하세요. (예: "오사카 힐튼")</li><li>여행 일정/숙박 기간을 입력</li><li>검색</li><li>검색 결과 페이지 주소를 복사해서 트립닷닷에 붙여넣기</li></ol>`,
 
     trustTitle:"여행 비용을 더 아껴보세요",
-    trustDesc:"트립닷닷을 통해 할인받아 구매한 금액이 2.5억을 넘었어요 !",
-    trustMetricSavings:"2.5억+",
+    trustDesc:"트립닷닷을 통해 할인받아 구매한 금액이 3억+를 넘었어요 !",
+    trustMetricSavings:"3억+",
     trustMetricUsage:"500+",
     trustMetricCountries:"21+",
     trustStatSavings:"할인 받아 구매한 금액",
