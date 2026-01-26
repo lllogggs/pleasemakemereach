@@ -6,7 +6,6 @@
   const LANG_ROUTES = [
     { code: 'ko', label: '한국어',  path: '/',     flag: 'kr' },
     { code: 'en', label: 'English', path: '/en/',  flag: 'us' },
-    { code: 'ja', label: '日本語',   path: '/ja/',  flag: 'jp' },
     { code: 'th', label: 'ภาษาไทย', path: '/th/',  flag: 'th' }
   ];
   function pathForLang(code){
@@ -32,10 +31,6 @@
     ko: {
       desktop: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351',
       mobile: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686'
-    },
-    ja: {
-      desktop: 'Allianceid=6624731&SID=225753893&trip_sub1=jp_pc&trip_sub3=D8322736',
-      mobile: 'Allianceid=6624731&SID=225753893&trip_sub1=jp_mobile&trip_sub3=D8377749'
     }
   };
 
@@ -51,7 +46,6 @@
   function getAffiliateHomeUrl(lang = currentLang) {
     const base =
       (lang === 'ko') ? 'https://kr.trip.com/?curr=KRW' :
-      (lang === 'ja') ? 'https://www.trip.com/?curr=JPY' :
       (lang === 'th') ? 'https://www.trip.com/?curr=THB' :
                         'https://www.trip.com/?curr=USD';
     return appendAffiliate(base, lang);
@@ -61,17 +55,14 @@
     ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
          flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
     en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
-    ja:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
+        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
     th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
+        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
   };
 
   const langDetails = {
     ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
     en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
-    ja:{ flag:'jp', text:'日本語',   privacy:'/privacy_ja.html', code:'JP' },
     th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
   };
 
@@ -81,7 +72,6 @@
   function detectLangByPath(){
     const seg = (location.pathname.split('/')[1] || '').toLowerCase();
     if (seg === 'en') return 'en';
-    if (seg === 'ja') return 'ja';
     if (seg === 'th') return 'th';
     return 'ko';
   }
@@ -136,27 +126,6 @@
         redirectingToSearch: "Searching on Trip.com...",
         cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)",
    },
-    ja: {
-      shortlinkLabel: "Trip.com URL ガイド",
-      shortlinkTitle: "短縮リンクは使えません",
-      shortlinkLead: "Tripdotdotは短縮リンクを読み込めません。検索後に表示される<strong>フルURL</strong>を貼り付けてください。",
-      shortlinkSteps:
-        `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
-        "<li>希望のホテル/商品を検索</li>" +
-        "<li>アドレスバーのフルURLをコピー</li>" +
-        "<li>ここに貼り付けて各国リンクを受け取る</li></ol>" +
-        '<p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>',
-      shortlinkBody:
-        `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('ja')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com ウェブサイトを開く</a></li>` +
-        "<li>希望のホテル/商品を検索</li>" +
-        "<li>アドレスバーのフルURLをコピー</li>" +
-        "<li>ここに貼り付けて各国リンクを受け取る</li></ol>" +
-        '<p class=\"shortlink-card__example\">例: https://www.trip.com/hotels/... または https://www.trip.com/flights/...</p>',
-      shortlinkOpenFull: "Trip.comで検索し直す",
-        cityNameIdNotFound: "都市ID가見つかりません。（City IDマップ에 등록된 도시 이름으로 검색해 주세요。）",
-   },
     th: {
       shortlinkLabel: "เคล็ดลับ URL ของ Trip.com",
       shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
@@ -188,7 +157,7 @@
 
   // 페이지 언어 → 기본 통화 맵(확장)
   const languageToCurrencyMap = {
-    ko:'KRW', ja:'JPY', en:'USD', th:'THB',
+    ko:'KRW', en:'USD', th:'THB',
     es:'EUR', fr:'EUR', de:'EUR', nl:'EUR', pt:'EUR',
     it:'EUR', pl:'EUR', sv:'EUR', fi:'EUR', da:'EUR',
     vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR',

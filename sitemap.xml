@@ -10,7 +10,6 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tripdotdot.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tripdotdot.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tripdotdot.com/ja/"/>
     <xhtml:link rel="alternate" hreflang="th" href="https://tripdotdot.com/th/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tripdotdot.com/"/>
   </url>
@@ -23,20 +22,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tripdotdot.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tripdotdot.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tripdotdot.com/ja/"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://tripdotdot.com/th/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://tripdotdot.com/"/>
-  </url>
-
-  <!-- JA -->
-  <url>
-    <loc>https://tripdotdot.com/ja/</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://tripdotdot.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tripdotdot.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tripdotdot.com/ja/"/>
     <xhtml:link rel="alternate" hreflang="th" href="https://tripdotdot.com/th/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tripdotdot.com/"/>
   </url>
@@ -49,7 +34,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tripdotdot.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tripdotdot.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tripdotdot.com/ja/"/>
     <xhtml:link rel="alternate" hreflang="th" href="https://tripdotdot.com/th/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tripdotdot.com/"/>
   </url>
