@@ -18,7 +18,6 @@
   <link rel="canonical" href="https://tripdotdot.com/en/">
   <link rel="alternate" href="https://tripdotdot.com/" hreflang="ko">
   <link rel="alternate" href="https://tripdotdot.com/en/" hreflang="en">
-  <link rel="alternate" href="https://tripdotdot.com/ja/" hreflang="ja">
   <link rel="alternate" href="https://tripdotdot.com/th/" hreflang="th">
   <link rel="alternate" href="https://tripdotdot.com/" hreflang="x-default">
 
@@ -38,7 +37,6 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
-  <meta property="og:locale:alternate" content="ja_JP">
   <meta property="og:locale:alternate" content="th_TH">
 
   <!-- Icons / CSS -->
@@ -272,18 +270,6 @@
           "‘<strong>최저가 링크 찾기</strong>’ 클릭"
         ]
       },
-      ja: {
-        logo: "🌐 Tripdotdot",
-        title: "使い方",
-        cta: "원하는 상품 찾기",
-        closeLabel: "ポップアップを非表示にする",
-        steps: [
-          "トリップドットコムで<strong>宿泊/航空ページを開く</strong>",
-          "そのページのURLを<strong>コピーする</strong>",
-          "Tripdotdotの入力欄に<strong>貼り付ける</strong>",
-          "「<strong>最安値リンクを探す</strong>」をクリック"
-        ]
-      },
       th: {
         logo: "🌐 Tripdotdot",
         title: "วิธีใช้",
@@ -313,7 +299,6 @@
 
     function getCurrentLang() {
       const p = location.pathname;
-      if (p.startsWith("/ja/")) return "ja";
       if (p.startsWith("/th/")) return "th";
       if (p.startsWith("/en/")) return "en";
       return "ko";
@@ -324,10 +309,6 @@
       ko: {
         desktop: "Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351",
         mobile: "Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686"
-      },
-      ja: {
-        desktop: "Allianceid=6624731&SID=225753893&trip_sub1=jp_pc&trip_sub3=D8322736",
-        mobile: "Allianceid=6624731&SID=225753893&trip_sub1=jp_mobile&trip_sub3=D8377749"
       }
     };
     const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -357,7 +338,6 @@
     function getAffiliateHomeUrlForPopup(lang) {
       const base =
         (lang === "ko") ? "https://kr.trip.com/?curr=KRW" :
-        (lang === "ja") ? "https://www.trip.com/?curr=JPY" :
         (lang === "th") ? "https://www.trip.com/?curr=THB" :
                           "https://www.trip.com/?curr=USD";
       return appendAffiliate(base, lang);
