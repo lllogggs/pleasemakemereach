@@ -476,6 +476,15 @@
     "lon": 120.15099,
     "source": "ourairports"
   },
+  "bbq": {
+    "city": "Codrington",
+    "municipality": "Codrington",
+    "airport": "Burton-Nibbs International Airport",
+    "country": "AG",
+    "lat": 17.621194,
+    "lon": -61.798347,
+    "source": "ourairports"
+  },
   "aft": {
     "city": "Bila",
     "municipality": "Bila",
@@ -8294,7 +8303,7 @@
   "yxs": {
     "city": "Prince George",
     "municipality": "Prince George",
-    "airport": "Prince George (Intl) Airport",
+    "airport": "Prince George (International) Airport",
     "country": "CA",
     "lat": 53.884311,
     "lon": -122.666554,
@@ -8638,8 +8647,8 @@
     "municipality": "Delta",
     "airport": "Boundary Bay Airport",
     "country": "CA",
-    "lat": 49.0742,
-    "lon": -123.012001,
+    "lat": 49.074338,
+    "lon": -123.006877,
     "source": "ourairports"
   },
   "ilf": {
@@ -9050,7 +9059,7 @@
   "djg": {
     "city": "Djanet",
     "municipality": "Djanet",
-    "airport": "Djanet Inedbirene Airport",
+    "airport": "Tiska Djanet Airport",
     "country": "DZ",
     "lat": 24.285448,
     "lon": 9.463652,
@@ -9079,8 +9088,8 @@
     "municipality": "Tamanrasset",
     "airport": "Aguenar – Hadj Bey Akhamok Airport",
     "country": "DZ",
-    "lat": 22.811501,
-    "lon": 5.45108,
+    "lat": 22.810992,
+    "lon": 5.450832,
     "source": "ourairports"
   },
   "gjl": {
@@ -12412,8 +12421,8 @@
     "municipality": "Maastricht",
     "airport": "Maastricht Aachen Airport",
     "country": "NL",
-    "lat": 50.911701,
-    "lon": 5.77014,
+    "lat": 50.911087,
+    "lon": 5.769401,
     "source": "ourairports"
   },
   "ein": {
@@ -12430,8 +12439,8 @@
     "municipality": "Groningen",
     "airport": "Groningen Airport Eelde",
     "country": "NL",
-    "lat": 53.119701,
-    "lon": 6.57944,
+    "lat": 53.119107,
+    "lon": 6.577652,
     "source": "ourairports"
   },
   "glz": {
@@ -19551,7 +19560,7 @@
   "cky": {
     "city": "Conakry",
     "municipality": "Conakry",
-    "airport": "Conakry International Airport",
+    "airport": "Ahmed Sékou Touré International Airport",
     "country": "GN",
     "lat": 9.57689,
     "lon": -13.612,
@@ -19791,15 +19800,6 @@
     "lon": 38.7728,
     "source": "ourairports"
   },
-  "bco": {
-    "city": "Baco",
-    "municipality": "Baco",
-    "airport": "Baco Airport",
-    "country": "ET",
-    "lat": 5.783333,
-    "lon": 36.55,
-    "source": "ourairports"
-  },
   "bjr": {
     "city": "Bahir Dar",
     "municipality": "Bahir Dar",
@@ -19951,6 +19951,15 @@
     "country": "ET",
     "lat": 9.331907,
     "lon": 42.911811,
+    "source": "ourairports"
+  },
+  "bco": {
+    "city": "Jinka",
+    "municipality": "Jinka",
+    "airport": "Baco Airport",
+    "country": "ET",
+    "lat": 5.749655,
+    "lon": 36.560165,
     "source": "ourairports"
   },
   "jim": {
@@ -20235,7 +20244,7 @@
   "bsa": {
     "city": "Bosaso",
     "municipality": "Bosaso",
-    "airport": "Bosaso / Bender Qassim International Airport",
+    "airport": "Bender Qassim International Airport",
     "country": "SO",
     "lat": 11.275235,
     "lon": 49.139231,
@@ -20489,8 +20498,8 @@
     "municipality": "New Cairo",
     "airport": "Capital International Airport",
     "country": "EG",
-    "lat": 30.074293,
-    "lon": 31.84296,
+    "lat": 30.06465,
+    "lon": 31.839974,
     "source": "ourairports"
   },
   "dak": {
@@ -42057,7 +42066,7 @@
   "xpl": {
     "city": "Palmerola",
     "municipality": "Palmerola",
-    "airport": "Palmerola International Airport / José Enrique Soto Cano Air Base",
+    "airport": "Palmerola International Airport",
     "country": "HN",
     "lat": 14.3824,
     "lon": -87.621201,
@@ -42075,7 +42084,7 @@
   "tgu": {
     "city": "Tegucigalpa",
     "municipality": "Tegucigalpa",
-    "airport": "Toncontín International Airport",
+    "airport": "Toncontín Airport",
     "country": "HN",
     "lat": 14.0609,
     "lon": -87.217201,
@@ -42837,6 +42846,15 @@
     "lon": -114.808459,
     "source": "ourairports"
   },
+  "csw": {
+    "city": "Cabo San Lucas",
+    "municipality": "Cabo San Lucas",
+    "airport": "Cabo San Lucas International Airport",
+    "country": "MX",
+    "lat": 22.949072,
+    "lon": -109.939479,
+    "source": "ourairports"
+  },
   "nlu": {
     "city": "Mexico City",
     "municipality": "Mexico City",
@@ -43058,8 +43076,8 @@
     "municipality": "Managua",
     "airport": "Augusto C. Sandino (Managua) International Airport",
     "country": "NI",
-    "lat": 12.141500473022461,
-    "lon": -86.16819763183594,
+    "lat": 12.1415,
+    "lon": -86.168198,
     "source": "ourairports"
   },
   "mnp": {
@@ -43137,7 +43155,7 @@
   "boc": {
     "city": "Isla Colón",
     "municipality": "Isla Colón",
-    "airport": "Bocas del Toro International Airport",
+    "airport": "Bocas del Toro \"Isla Colón\" International Airport",
     "country": "PA",
     "lat": 9.34085,
     "lon": -82.250801,
@@ -43389,7 +43407,7 @@
   "lir": {
     "city": "Liberia",
     "municipality": "Liberia",
-    "airport": "Guanacaste Airport",
+    "airport": "Daniel Oduber Quirós International Airport",
     "country": "CR",
     "lat": 10.5933,
     "lon": -85.544403,
@@ -43405,9 +43423,9 @@
     "source": "ourairports"
   },
   "lio": {
-    "city": "Puerto Limon",
-    "municipality": "Puerto Limon",
-    "airport": "Limon International Airport",
+    "city": "Limón",
+    "municipality": "Limón",
+    "airport": "Limón International Airport",
     "country": "CR",
     "lat": 9.95796,
     "lon": -83.022003,
@@ -46075,8 +46093,8 @@
     "municipality": "Dunedin",
     "airport": "Dunedin International Airport",
     "country": "NZ",
-    "lat": -45.928101,
-    "lon": 170.197998,
+    "lat": -45.929017,
+    "lon": 170.197758,
     "source": "ourairports"
   },
   "who": {
@@ -46847,12 +46865,12 @@
     "source": "ourairports"
   },
   "ulh": {
-    "city": "Al Ula",
-    "municipality": "Al Ula",
-    "airport": "Majeed Bin Abdulaziz Airport",
+    "city": "Al-Ula",
+    "municipality": "Al-Ula",
+    "airport": "Al-Ula International Airport",
     "country": "SA",
-    "lat": 26.483333,
-    "lon": 38.116944,
+    "lat": 26.483634,
+    "lon": 38.117048,
     "source": "ourairports"
   },
   "abt": {
@@ -46910,9 +46928,9 @@
     "source": "ourairports"
   },
   "elq": {
-    "city": "Buraidah",
-    "municipality": "Buraidah",
-    "airport": "Gassim Airport",
+    "city": "Qassim",
+    "municipality": "Qassim",
+    "airport": "Prince Naif bin Abdulaziz International Airport",
     "country": "SA",
     "lat": 26.302799,
     "lon": 43.774399,
@@ -46986,8 +47004,8 @@
     "municipality": "Sharma",
     "airport": "Neom Bay Airport",
     "country": "SA",
-    "lat": 27.927598,
-    "lon": 35.28874,
+    "lat": 27.924261,
+    "lon": 35.29358,
     "source": "ourairports"
   },
   "aqi": {
@@ -47047,10 +47065,10 @@
   "ajf": {
     "city": "Al-Jawf",
     "municipality": "Al-Jawf",
-    "airport": "Al-Jawf Domestic Airport",
+    "airport": "Al-Jawf International Airport",
     "country": "SA",
-    "lat": 29.78510093688965,
-    "lon": 40.099998474121094,
+    "lat": 29.783301,
+    "lon": 40.100905,
     "source": "ourairports"
   },
   "slf": {
@@ -47065,19 +47083,19 @@
   "tuu": {
     "city": "Tabuk",
     "municipality": "Tabuk",
-    "airport": "Tabuk Airport",
+    "airport": "Prince Sultan bin Abdulaziz International Airport",
     "country": "SA",
-    "lat": 28.3654,
-    "lon": 36.6189,
+    "lat": 28.3711,
+    "lon": 36.624865,
     "source": "ourairports"
   },
   "tif": {
-    "city": "Ta’if",
-    "municipality": "Ta’if",
-    "airport": "Ta’if Regional Airport",
+    "city": "Taif",
+    "municipality": "Taif",
+    "airport": "Taif International Airport",
     "country": "SA",
-    "lat": 21.483001,
-    "lon": 40.543442,
+    "lat": 21.484739,
+    "lon": 40.544074,
     "source": "ourairports"
   },
   "tui": {
@@ -47110,7 +47128,7 @@
   "ynb": {
     "city": "Yanbu",
     "municipality": "Yanbu",
-    "airport": "Prince Abdul Mohsin bin Abdulaziz International Airport",
+    "airport": "Prince Abdulmohsen Bin Abdulaziz International Airport",
     "country": "SA",
     "lat": 24.144199,
     "lon": 38.0634,
@@ -53380,8 +53398,8 @@
     "municipality": "Kalibo",
     "airport": "Kalibo International Airport",
     "country": "PH",
-    "lat": 11.679400444,
-    "lon": 122.375999451,
+    "lat": 11.6794,
+    "lon": 122.375999,
     "source": "ourairports"
   },
   "ceb": {
@@ -54755,7 +54773,7 @@
   "cgb": {
     "city": "Cuiabá",
     "municipality": "Cuiabá",
-    "airport": "Marechal Rondon Airport",
+    "airport": "Várzea Grande–Marechal Rondon International Airport",
     "country": "BR",
     "lat": -15.6529,
     "lon": -56.116699,
@@ -55376,7 +55394,7 @@
   "bps": {
     "city": "Porto Seguro",
     "municipality": "Porto Seguro",
-    "airport": "Porto Seguro Airport",
+    "airport": "Porto Seguro International Airport",
     "country": "BR",
     "lat": -16.438426,
     "lon": -39.080584,
@@ -55423,8 +55441,8 @@
     "municipality": "Rio de Janeiro",
     "airport": "Santos Dumont Airport",
     "country": "BR",
-    "lat": -22.9105,
-    "lon": -43.163101,
+    "lat": -22.910397,
+    "lon": -43.16282,
     "source": "ourairports"
   },
   "rao": {
@@ -55637,7 +55655,7 @@
   "tbt": {
     "city": "Tabatinga",
     "municipality": "Tabatinga",
-    "airport": "Tabatinga Airport",
+    "airport": "Tabatinga International Airport",
     "country": "BR",
     "lat": -4.25567,
     "lon": -69.935799,
@@ -55727,7 +55745,7 @@
   "vix": {
     "city": "Vitória",
     "municipality": "Vitória",
-    "airport": "Eurico de Aguiar Salles Airport",
+    "airport": "Eurico de Aguiar Salles International Airport",
     "country": "BR",
     "lat": -20.258,
     "lon": -40.285,
@@ -57780,8 +57798,8 @@
     "municipality": "Leticia",
     "airport": "Alfredo Vásquez Cobo International Airport",
     "country": "CO",
-    "lat": -4.19355,
-    "lon": -69.9432,
+    "lat": -4.191147,
+    "lon": -69.942003,
     "source": "ourairports"
   },
   "tbd": {
@@ -58480,7 +58498,7 @@
   "oru": {
     "city": "Oruro",
     "municipality": "Oruro",
-    "airport": "Juan Mendoza Airport",
+    "airport": "Juan Mendoza International Airport",
     "country": "BO",
     "lat": -17.956151,
     "lon": -67.075829,
@@ -60495,7 +60513,7 @@
   "brm": {
     "city": "Barquisimeto",
     "municipality": "Barquisimeto",
-    "airport": "Barquisimeto International Airport",
+    "airport": "Jacinto Lara International Airport",
     "country": "VE",
     "lat": 10.042747,
     "lon": -69.35862,
@@ -60718,8 +60736,8 @@
     "municipality": "Isla Margarita",
     "airport": "Del Caribe Santiago Mariño International Airport",
     "country": "VE",
-    "lat": 10.912603378295898,
-    "lon": -63.96659851074219,
+    "lat": 10.912603,
+    "lon": -63.966599,
     "source": "ourairports"
   },
   "ccs": {
@@ -60795,8 +60813,8 @@
     "source": "ourairports"
   },
   "pzo": {
-    "city": "Puerto Ordaz-Ciudad Guayana",
-    "municipality": "Puerto Ordaz-Ciudad Guayana",
+    "city": "Guyana City",
+    "municipality": "Guyana City",
     "airport": "General Manuel Carlos Piar International Airport",
     "country": "VE",
     "lat": 8.28853,
@@ -60942,8 +60960,8 @@
     "municipality": "Valencia",
     "airport": "Arturo Michelena International Airport",
     "country": "VE",
-    "lat": 10.14973258972168,
-    "lon": -67.92839813232422,
+    "lat": 10.149733,
+    "lon": -67.928398,
     "source": "ourairports"
   },
   "vig": {
@@ -61627,15 +61645,6 @@
     "country": "AG",
     "lat": 17.1367,
     "lon": -61.792702,
-    "source": "ourairports"
-  },
-  "bbq": {
-    "city": "Codrington",
-    "municipality": "Codrington",
-    "airport": "Codrington Airport",
-    "country": "AG",
-    "lat": 17.635799,
-    "lon": -61.828602,
     "source": "ourairports"
   },
   "bgi": {
@@ -63227,8 +63236,8 @@
     "municipality": "Chara",
     "airport": "Chara Airport",
     "country": "RU",
-    "lat": 56.913334,
-    "lon": 118.269997,
+    "lat": 56.914423,
+    "lon": 118.270072,
     "source": "ourairports"
   },
   "btk": {
@@ -63245,8 +63254,8 @@
     "municipality": "Ust-Ilimsk",
     "airport": "Ust-Ilimsk Airport",
     "country": "RU",
-    "lat": 58.136101,
-    "lon": 102.565002,
+    "lat": 58.135409,
+    "lon": 102.556066,
     "source": "ourairports"
   },
   "ikt": {
@@ -67122,8 +67131,8 @@
     "source": "ourairports"
   },
   "blr": {
-    "city": "Bangaluru",
-    "municipality": "Bangaluru",
+    "city": "Bengaluru",
+    "municipality": "Bengaluru",
     "airport": "Kempegowda International Airport Bengaluru",
     "country": "IN",
     "lat": 13.1979,
@@ -67537,10 +67546,10 @@
   "mle": {
     "city": "Malé",
     "municipality": "Malé",
-    "airport": "Malé International Airport",
+    "airport": "Velana International Airport",
     "country": "MV",
-    "lat": 4.191830158233643,
-    "lon": 73.52909851074219,
+    "lat": 4.19183,
+    "lon": 73.529099,
     "source": "ourairports"
   },
   "gkk": {
@@ -67862,8 +67871,8 @@
     "municipality": "Hat Yai",
     "airport": "Hat Yai International Airport",
     "country": "TH",
-    "lat": 6.93320989609,
-    "lon": 100.392997742,
+    "lat": 6.93321,
+    "lon": 100.392998,
     "source": "ourairports"
   },
   "tst": {
@@ -68130,8 +68139,8 @@
     "municipality": "Phu Quoc Island",
     "airport": "Phú Quốc International Airport",
     "country": "VN",
-    "lat": 10.167759,
-    "lon": 103.995451,
+    "lat": 10.169783,
+    "lon": 103.99353,
     "source": "ourairports"
   },
   "pha": {
@@ -76806,7 +76815,7 @@
   "ehu": {
     "city": "Ezhou",
     "municipality": "Ezhou",
-    "airport": "Ezhou Huahu Airport",
+    "airport": "Ezhou Huahu International Airport",
     "country": "CN",
     "lat": 30.341178,
     "lon": 115.03926,
@@ -77892,10 +77901,10 @@
   "txn": {
     "city": "Huangshan",
     "municipality": "Huangshan",
-    "airport": "Tunxi International Airport",
+    "airport": "Huangshan Tunxi International Airport",
     "country": "CN",
-    "lat": 29.733299255371094,
-    "lon": 118.25599670410156,
+    "lat": 29.733299,
+    "lon": 118.255997,
     "source": "ourairports"
   },
   "wha": {
