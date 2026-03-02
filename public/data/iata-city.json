@@ -5299,10 +5299,10 @@
   "jnh": {
     "city": "Xiuzhou, Hangzhou",
     "municipality": "Xiuzhou, Hangzhou",
-    "airport": "Jiaxing Airport / Jiaxing Air Base",
+    "airport": "Jiaxing Nanhu Airport",
     "country": "CN",
-    "lat": 30.705535,
-    "lon": 120.679779,
+    "lat": 30.698056,
+    "lon": 120.663056,
     "source": "ourairports"
   },
   "dws": {
@@ -5330,15 +5330,6 @@
     "country": "CN",
     "lat": 30.25521,
     "lon": 114.062805,
-    "source": "ourairports"
-  },
-  "nay": {
-    "city": "Beijing",
-    "municipality": "Beijing",
-    "airport": "Beijing Nanjiao Military Airport",
-    "country": "CN",
-    "lat": 39.48595,
-    "lon": 116.37236,
     "source": "ourairports"
   },
   "pfa": {
@@ -5566,13 +5557,22 @@
     "lon": 107.98889,
     "source": "ourairports"
   },
+  "nay": {
+    "city": "Beijing",
+    "municipality": "Beijing",
+    "airport": "Beijing Nanyuan Airport",
+    "country": "CN",
+    "lat": 39.782158,
+    "lon": 116.386299,
+    "source": "ourairports"
+  },
   "bfy": {
     "city": "Bengbu",
     "municipality": "Bengbu",
-    "airport": "Bengbu Tenghu Airport (U.C.)",
+    "airport": "Bengbu Tenghu Airport",
     "country": "CN",
-    "lat": 33.165808,
-    "lon": 117.057295,
+    "lat": 33.166389,
+    "lon": 117.058333,
     "source": "ourairports"
   },
   "xbe": {
@@ -10702,8 +10702,8 @@
     "municipality": "Saarbrücken",
     "airport": "Saarbrücken Airport",
     "country": "DE",
-    "lat": 49.217562,
-    "lon": 7.111667,
+    "lat": 49.214545,
+    "lon": 7.109735,
     "source": "ourairports"
   },
   "str": {
@@ -21744,8 +21744,8 @@
     "source": "ourairports"
   },
   "ebb": {
-    "city": "Kampala",
-    "municipality": "Kampala",
+    "city": "Entebbe",
+    "municipality": "Entebbe",
     "airport": "Entebbe International Airport",
     "country": "UG",
     "lat": 0.042386,
@@ -28512,7 +28512,7 @@
   "gyy": {
     "city": "Gary",
     "municipality": "Gary",
-    "airport": "Gary Chicago International Airport",
+    "airport": "Gary/Chicago International Airport",
     "country": "US",
     "lat": 41.617087,
     "lon": -87.413206,
@@ -40491,7 +40491,7 @@
   "smv": {
     "city": "Samedan",
     "municipality": "Samedan",
-    "airport": "Samedan Airport",
+    "airport": "Engadin Airport",
     "country": "CH",
     "lat": 46.5341,
     "lon": 9.88411,
@@ -45940,8 +45940,8 @@
     "municipality": "Île des Pins",
     "airport": "Île des Pins Airport",
     "country": "NC",
-    "lat": -22.588899612426758,
-    "lon": 167.45599365234375,
+    "lat": -22.5889,
+    "lon": 167.455994,
     "source": "ourairports"
   },
   "koc": {
@@ -45967,8 +45967,8 @@
     "municipality": "Nouméa",
     "airport": "Nouméa Magenta Airport",
     "country": "NC",
-    "lat": -22.25812,
-    "lon": 166.472783,
+    "lat": -22.257706,
+    "lon": 166.472822,
     "source": "ourairports"
   },
   "puv": {
@@ -46425,15 +46425,6 @@
     "lon": 175.891998,
     "source": "ourairports"
   },
-  "thh": {
-    "city": "Taharoa",
-    "municipality": "Taharoa",
-    "airport": "Taharoa Aerodrome",
-    "country": "NZ",
-    "lat": -38.18109893798828,
-    "lon": 174.70799255371094,
-    "source": "ourairports"
-  },
   "tiu": {
     "city": "Timaru",
     "airport": "Timaru Airport",
@@ -46465,16 +46456,17 @@
     "municipality": "Wanaka",
     "airport": "Wanaka Airport",
     "country": "NZ",
-    "lat": -44.722954,
-    "lon": 169.248419,
+    "lat": -44.722091,
+    "lon": 169.246287,
     "source": "ourairports"
   },
   "whk": {
-    "city": "Whakatane",
-    "airport": "Whakatane Airport",
+    "city": "Whakatāne",
+    "municipality": "Whakatāne",
+    "airport": "Whakatāne Airport",
     "country": "NZ",
-    "lat": -37.92060089111328,
-    "lon": 176.91400146484375,
+    "lat": -37.922224,
+    "lon": 176.91696,
     "source": "ourairports"
   },
   "wlg": {
@@ -46482,8 +46474,8 @@
     "municipality": "Wellington",
     "airport": "Wellington International Airport",
     "country": "NZ",
-    "lat": -41.327202,
-    "lon": 174.804993,
+    "lat": -41.326839,
+    "lon": 174.806862,
     "source": "ourairports"
   },
   "wir": {
@@ -46491,8 +46483,8 @@
     "municipality": "Wairoa",
     "airport": "Wairoa Airport",
     "country": "NZ",
-    "lat": -39.012118,
-    "lon": 177.404395,
+    "lat": -39.011862,
+    "lon": 177.404401,
     "source": "ourairports"
   },
   "wre": {
@@ -55826,7 +55818,7 @@
   "ari": {
     "city": "Arica",
     "municipality": "Arica",
-    "airport": "Chacalluta Airport",
+    "airport": "Chacalluta International Airport",
     "country": "CL",
     "lat": -18.348499,
     "lon": -70.338699,
@@ -55934,10 +55926,10 @@
   "iqq": {
     "city": "Iquique",
     "municipality": "Iquique",
-    "airport": "Diego Aracena Airport",
+    "airport": "Diego Aracena International Airport",
     "country": "CL",
-    "lat": -20.5352,
-    "lon": -70.181297,
+    "lat": -20.536273,
+    "lon": -70.181373,
     "source": "ourairports"
   },
   "scl": {
@@ -58842,8 +58834,8 @@
     "municipality": "Paramaribo",
     "airport": "Zorg en Hoop Airport",
     "country": "SR",
-    "lat": 5.811131,
-    "lon": -55.1913,
+    "lat": 5.811211,
+    "lon": -55.192299,
     "source": "ourairports"
   },
   "jso": {
@@ -59553,8 +59545,8 @@
     "municipality": "Saint-Laurent-du-Maroni",
     "airport": "Saint-Laurent-du-Maroni Airport",
     "country": "GF",
-    "lat": 5.48306,
-    "lon": -54.034401,
+    "lat": 5.481891,
+    "lon": -54.034964,
     "source": "ourairports"
   },
   "rei": {
@@ -68301,8 +68293,8 @@
     "municipality": "Dawei",
     "airport": "Dawei Airport",
     "country": "MM",
-    "lat": 14.103899955749512,
-    "lon": 98.20359802246094,
+    "lat": 14.1039,
+    "lon": 98.203598,
     "source": "ourairports"
   },
   "sru": {
@@ -68333,8 +68325,8 @@
     "source": "ourairports"
   },
   "heh": {
-    "city": "Kalaw Township",
-    "municipality": "Kalaw Township",
+    "city": "Heho",
+    "municipality": "Heho",
     "airport": "Heho Airport",
     "country": "MM",
     "lat": 20.74714,
@@ -69238,15 +69230,6 @@
     "country": "ID",
     "lat": -0.374478,
     "lon": 117.250128,
-    "source": "ourairports"
-  },
-  "byq": {
-    "city": "Bunju Island",
-    "municipality": "Bunju Island",
-    "airport": "Bunyu Airport",
-    "country": "ID",
-    "lat": 3.45572,
-    "lon": 117.866997,
     "source": "ourairports"
   },
   "glx": {
@@ -70685,8 +70668,8 @@
     "municipality": "Pontianak",
     "airport": "Supadio International Airport",
     "country": "ID",
-    "lat": -0.153023,
-    "lon": 109.404708,
+    "lat": -0.152258,
+    "lon": 109.404493,
     "source": "ourairports"
   },
   "psu": {
@@ -76286,8 +76269,8 @@
     "municipality": "Beijing",
     "airport": "Beijing Capital International Airport",
     "country": "CN",
-    "lat": 40.080101013183594,
-    "lon": 116.58499908447266,
+    "lat": 40.077349,
+    "lon": 116.596702,
     "source": "ourairports"
   },
   "pkx": {
@@ -77892,10 +77875,10 @@
   "hia": {
     "city": "Huai'an",
     "municipality": "Huai'an",
-    "airport": "Huai'an Lianshui International Airport",
+    "airport": "Huai'an Lianshui Airport",
     "country": "CN",
-    "lat": 33.790833,
-    "lon": 119.125,
+    "lat": 33.792712,
+    "lon": 119.126657,
     "source": "ourairports"
   },
   "sqj": {
@@ -78063,10 +78046,10 @@
   "hsn": {
     "city": "Zhoushan",
     "municipality": "Zhoushan",
-    "airport": "Zhoushan Putuoshan Airport",
+    "airport": "Zhoushan Putuoshan International Airport",
     "country": "CN",
-    "lat": 29.9342,
-    "lon": 122.362,
+    "lat": 29.933874,
+    "lon": 122.362307,
     "source": "ourairports"
   },
   "ngq": {
