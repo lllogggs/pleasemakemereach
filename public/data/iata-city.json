@@ -2111,8 +2111,8 @@
     "municipality": "Kieta",
     "airport": "Aropa Airport",
     "country": "PG",
-    "lat": -6.305417,
-    "lon": 155.728139,
+    "lat": -6.305727,
+    "lon": 155.728249,
     "source": "ourairports"
   },
   "ial": {
@@ -4376,8 +4376,8 @@
     "municipality": "Juruena",
     "airport": "Juruena Airport",
     "country": "BR",
-    "lat": -10.305833,
-    "lon": -58.489445,
+    "lat": -10.314114,
+    "lon": -58.494877,
     "source": "ourairports"
   },
   "stz": {
@@ -20037,7 +20037,7 @@
   "mqx": {
     "city": "Mekele",
     "municipality": "Mekele",
-    "airport": "Alula Aba Nega Airport",
+    "airport": "Mekele Alula Aba Nega Airport",
     "country": "ET",
     "lat": 13.4674,
     "lon": 39.533501,
@@ -22351,8 +22351,8 @@
     "municipality": "Port Townsend",
     "airport": "Jefferson County International Airport",
     "country": "US",
-    "lat": 48.0537986755,
-    "lon": -122.810997009,
+    "lat": 48.053799,
+    "lon": -122.810997,
     "source": "ourairports"
   },
   "mvm": {
@@ -23827,8 +23827,8 @@
     "municipality": "Baudette",
     "airport": "Baudette International Airport",
     "country": "US",
-    "lat": 48.7284011841,
-    "lon": -94.612197876,
+    "lat": 48.728401,
+    "lon": -94.612198,
     "source": "ourairports"
   },
   "bdg": {
@@ -34166,8 +34166,8 @@
     "municipality": "San Jose",
     "airport": "Reid-Hillview Airport of Santa Clara County",
     "country": "US",
-    "lat": 37.332901001,
-    "lon": -121.819000244,
+    "lat": 37.332901,
+    "lon": -121.819,
     "source": "ourairports"
   },
   "ric": {
@@ -42318,7 +42318,7 @@
   "acn": {
     "city": "Ciudad Acuña",
     "municipality": "Ciudad Acuña",
-    "airport": "Ciudad Acuña New International Airport",
+    "airport": "Ciudad Acuña International Airport",
     "country": "MX",
     "lat": 29.333662,
     "lon": -101.100555,
@@ -47190,8 +47190,8 @@
     "source": "ourairports"
   },
   "akw": {
-    "city": "Aghajari",
-    "municipality": "Aghajari",
+    "city": "Omidiyeh",
+    "municipality": "Omidiyeh",
     "airport": "Aghajari Airport",
     "country": "IR",
     "lat": 30.7444,
@@ -51304,15 +51304,6 @@
     "country": "US",
     "lat": 20.265301,
     "lon": -155.860001,
-    "source": "ourairports"
-  },
-  "jiw": {
-    "city": "Jiwani",
-    "municipality": "Jiwani",
-    "airport": "Jiwani Airport (INACTIVE}",
-    "country": "PK",
-    "lat": 25.067801,
-    "lon": 61.805401,
     "source": "ourairports"
   },
   "bhc": {
@@ -61257,8 +61248,8 @@
     "municipality": "Boca do Acre",
     "airport": "Novo Campo Airport",
     "country": "BR",
-    "lat": -8.83456,
-    "lon": -67.312401,
+    "lat": -8.834573,
+    "lon": -67.312485,
     "source": "ourairports"
   },
   "nql": {
@@ -61428,8 +61419,8 @@
     "municipality": "Baramita",
     "airport": "Baramita Airport",
     "country": "GY",
-    "lat": 7.370120048522949,
-    "lon": -60.487998962402344,
+    "lat": 7.371096,
+    "lon": -60.48926,
     "source": "ourairports"
   },
   "gfo": {
@@ -61455,8 +61446,8 @@
     "municipality": "Ogle",
     "airport": "Eugene F. Correia International Airport",
     "country": "GY",
-    "lat": 6.80628,
-    "lon": -58.1059,
+    "lat": 6.805881,
+    "lon": -58.107657,
     "source": "ourairports"
   },
   "imb": {
@@ -61608,8 +61599,8 @@
     "municipality": "Port Kaituma",
     "airport": "Port Kaituma Airport",
     "country": "GY",
-    "lat": 7.7424,
-    "lon": -59.8819,
+    "lat": 7.74222,
+    "lon": -59.882612,
     "source": "ourairports"
   },
   "piq": {
@@ -61653,8 +61644,8 @@
     "municipality": "Skeldon",
     "airport": "Skeldon Airport",
     "country": "GY",
-    "lat": 5.8599,
-    "lon": -57.14894,
+    "lat": 5.859676,
+    "lon": -57.14901,
     "source": "ourairports"
   },
   "anu": {
@@ -61961,6 +61952,15 @@
     "country": "US",
     "lat": 61.086973,
     "lon": -160.922842,
+    "source": "ourairports"
+  },
+  "bkn": {
+    "city": "Balkanabat",
+    "municipality": "Balkanabat",
+    "airport": "Balkanabat International Airport",
+    "country": "TM",
+    "lat": 39.681052,
+    "lon": 54.206008,
     "source": "ourairports"
   },
   "aua": {
@@ -62517,8 +62517,8 @@
     "municipality": "Baku",
     "airport": "Heydar Aliyev International Airport",
     "country": "AZ",
-    "lat": 40.467498779296875,
-    "lon": 50.04669952392578,
+    "lat": 40.47278,
+    "lon": 50.050931,
     "source": "ourairports"
   },
   "fzl": {
@@ -64551,15 +64551,6 @@
     "lon": 65.415604,
     "source": "ourairports"
   },
-  "bkn": {
-    "city": "Balkanabat",
-    "municipality": "Balkanabat",
-    "airport": "Balkanabat Airport",
-    "country": "TM",
-    "lat": 39.480598,
-    "lon": 54.366001,
-    "source": "ourairports"
-  },
   "gmv": {
     "city": "Oljato-Monument Valley",
     "municipality": "Oljato-Monument Valley",
@@ -64588,12 +64579,12 @@
     "source": "ourairports"
   },
   "krw": {
-    "city": "Turkmenbashi",
-    "municipality": "Turkmenbashi",
-    "airport": "Turkmenbashi International Airport",
+    "city": "Turkmenbaşy",
+    "municipality": "Turkmenbaşy",
+    "airport": "Turkmenbaşy International Airport",
     "country": "TM",
-    "lat": 40.063301,
-    "lon": 53.007198,
+    "lat": 40.062833,
+    "lon": 53.005085,
     "source": "ourairports"
   },
   "myp": {
@@ -64608,7 +64599,7 @@
   "taz": {
     "city": "Daşoguz",
     "municipality": "Daşoguz",
-    "airport": "Daşoguz Airport",
+    "airport": "Dashoguz International Airport",
     "country": "TM",
     "lat": 41.759853,
     "lon": 59.836149,
