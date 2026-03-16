@@ -899,6 +899,15 @@
     "lon": 19.8172222222,
     "source": "ourairports"
   },
+  "vlo": {
+    "city": "Vlorë",
+    "municipality": "Vlorë",
+    "airport": "(Duplicate)Vlora International Airport",
+    "country": "AL",
+    "lat": 40.605556,
+    "lon": 19.426111,
+    "source": "ourairports"
+  },
   "yuk": {
     "city": "Kapan",
     "municipality": "Kapan",
@@ -20498,8 +20507,8 @@
     "municipality": "Abu Simbel",
     "airport": "Abu Simbel Airport",
     "country": "EG",
-    "lat": 22.374402,
-    "lon": 31.609881,
+    "lat": 22.375924,
+    "lon": 31.611734,
     "source": "ourairports"
   },
   "cai": {
@@ -40410,7 +40419,7 @@
   "gva": {
     "city": "Geneva",
     "municipality": "Geneva",
-    "airport": "Geneva Cointrin International Airport",
+    "airport": "Geneva International Airport",
     "country": "CH",
     "lat": 46.238098,
     "lon": 6.10895,
@@ -63777,8 +63786,8 @@
     "municipality": "Kaliningrad",
     "airport": "Khrabrovo Airport",
     "country": "RU",
-    "lat": 54.889882,
-    "lon": 20.598216,
+    "lat": 54.89161,
+    "lon": 20.598559,
     "source": "ourairports"
   },
   "gna": {
@@ -64212,15 +64221,6 @@
     "lon": -95.139198,
     "source": "ourairports"
   },
-  "kyl": {
-    "city": "Key Largo",
-    "municipality": "Key Largo",
-    "airport": "Port Largo Airport",
-    "country": "US",
-    "lat": 25.09334,
-    "lon": -80.42992,
-    "source": "ourairports"
-  },
   "fwl": {
     "city": "Farewell",
     "municipality": "Farewell",
@@ -64624,12 +64624,12 @@
     "source": "ourairports"
   },
   "tju": {
-    "city": "Kulyab",
-    "municipality": "Kulyab",
-    "airport": "Kulob Airport",
+    "city": "Kulob",
+    "municipality": "Kulob",
+    "airport": "Kulob International Airport",
     "country": "TJ",
-    "lat": 37.98809814453125,
-    "lon": 69.80500030517578,
+    "lat": 37.988098,
+    "lon": 69.805,
     "source": "ourairports"
   },
   "lbd": {
@@ -64642,12 +64642,12 @@
     "source": "ourairports"
   },
   "kqt": {
-    "city": "Kurgan-Tyube",
-    "municipality": "Kurgan-Tyube",
-    "airport": "Qurghonteppa International Airport",
+    "city": "Bokhtar",
+    "municipality": "Bokhtar",
+    "airport": "Bokhtar International Airport",
     "country": "TJ",
-    "lat": 37.86640167236328,
-    "lon": 68.86470031738281,
+    "lat": 37.866315,
+    "lon": 68.864475,
     "source": "ourairports"
   },
   "nma": {
@@ -64727,8 +64727,8 @@
     "municipality": "Bukhara",
     "airport": "Bukhara International Airport",
     "country": "UZ",
-    "lat": 39.775002,
-    "lon": 64.483299,
+    "lat": 39.775319,
+    "lon": 64.482279,
     "source": "ourairports"
   },
   "ksq": {
@@ -64835,8 +64835,8 @@
     "municipality": "Bryansk",
     "airport": "Bryansk International Airport",
     "country": "RU",
-    "lat": 53.214199,
-    "lon": 34.176399,
+    "lat": 53.214403,
+    "lon": 34.175965,
     "source": "ourairports"
   },
   "zia": {
@@ -77614,7 +77614,7 @@
   "bfu": {
     "city": "Bengbu",
     "municipality": "Bengbu",
-    "airport": "Bengbu Tenghu Airport",
+    "airport": "Bengbu Renheji Airport",
     "country": "CN",
     "lat": 32.847733,
     "lon": 117.320244,
