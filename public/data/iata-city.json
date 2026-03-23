@@ -21914,6 +21914,15 @@
     "lon": 102.189546,
     "source": "ourairports"
   },
+  "wdb": {
+    "city": "Weda",
+    "municipality": "Weda",
+    "airport": "Weda Bay Airport",
+    "country": "ID",
+    "lat": 0.467938,
+    "lon": 127.948242,
+    "source": "ourairports"
+  },
   "gyo": {
     "city": "Kabupaten Gayo Lues",
     "municipality": "Kabupaten Gayo Lues",
@@ -38477,8 +38486,8 @@
     "municipality": "Paris (Orly, Val-de-Marne)",
     "airport": "Paris-Orly Airport",
     "country": "FR",
-    "lat": 48.72333,
-    "lon": 2.37944,
+    "lat": 48.729499,
+    "lon": 2.358963,
     "source": "ourairports"
   },
   "pox": {
@@ -40799,8 +40808,8 @@
     "municipality": "Altıntaş",
     "airport": "Zafer Airport",
     "country": "TR",
-    "lat": 39.113079,
-    "lon": 30.128111,
+    "lat": 39.111107,
+    "lon": 30.130405,
     "source": "ourairports"
   },
   "ezs": {
@@ -40997,8 +41006,8 @@
     "municipality": "Antakya",
     "airport": "Hatay Airport",
     "country": "TR",
-    "lat": 36.362778,
-    "lon": 36.282223,
+    "lat": 36.36079,
+    "lon": 36.285589,
     "source": "ourairports"
   },
   "cov": {
@@ -41060,8 +41069,8 @@
     "municipality": "Gazipaşa",
     "airport": "Gazipaşa-Alanya Airport",
     "country": "TR",
-    "lat": 36.299217,
-    "lon": 32.300598,
+    "lat": 36.298832,
+    "lon": 32.297017,
     "source": "ourairports"
   },
   "szf": {
@@ -47417,8 +47426,8 @@
     "municipality": "Hamadan",
     "airport": "Hamadan Airport",
     "country": "IR",
-    "lat": 34.869202,
-    "lon": 48.552502,
+    "lat": 34.866416,
+    "lon": 48.56069,
     "source": "ourairports"
   },
   "ajk": {
@@ -51786,7 +51795,7 @@
   "ibr": {
     "city": "Omitama",
     "municipality": "Omitama",
-    "airport": "Ibaraki International Airport",
+    "airport": "Ibaraki Airport",
     "country": "JP",
     "lat": 36.181456,
     "lon": 140.414434,
@@ -64777,8 +64786,8 @@
     "source": "ourairports"
   },
   "omn": {
-    "city": "Zaamin",
-    "municipality": "Zaamin",
+    "city": "Zomin",
+    "municipality": "Zomin",
     "airport": "Zomin Airport",
     "country": "UZ",
     "lat": 40.01402,
@@ -69242,8 +69251,8 @@
     "source": "ourairports"
   },
   "gto": {
-    "city": "Gorontalo-Celebes Island",
-    "municipality": "Gorontalo-Celebes Island",
+    "city": "Gorontalo",
+    "municipality": "Gorontalo",
     "airport": "Jalaluddin Airport",
     "country": "ID",
     "lat": 0.637119,
@@ -69332,8 +69341,8 @@
     "source": "ourairports"
   },
   "uol": {
-    "city": "Buol-Celebes Island",
-    "municipality": "Buol-Celebes Island",
+    "city": "Buol",
+    "municipality": "Buol",
     "airport": "Buol - Pogogul Airport",
     "country": "ID",
     "lat": 1.102318,
@@ -69696,8 +69705,8 @@
     "municipality": "Waisai",
     "airport": "Marinda Airport",
     "country": "ID",
-    "lat": -0.423056,
-    "lon": 130.773333,
+    "lat": -0.424969,
+    "lon": 130.773535,
     "source": "ourairports"
   },
   "bxb": {
@@ -77014,10 +77023,10 @@
   "wos": {
     "city": "Wonsan",
     "municipality": "Wonsan",
-    "airport": "Wonsan Kalma International Airport",
+    "airport": "Wonsan Kalma Airport",
     "country": "KP",
-    "lat": 39.166801,
-    "lon": 127.486,
+    "lat": 39.165219,
+    "lon": 127.487931,
     "source": "ourairports"
   },
   "aka": {
@@ -77034,8 +77043,8 @@
     "municipality": "Dunhuang",
     "airport": "Dunhuang Mogao International Airport",
     "country": "CN",
-    "lat": 40.164041,
-    "lon": 94.811722,
+    "lat": 40.161953,
+    "lon": 94.812827,
     "source": "ourairports"
   },
   "hxd": {
@@ -78545,6 +78554,15 @@
     "country": "CN",
     "lat": 48.2223,
     "lon": 86.9959,
+    "source": "ourairports"
+  },
+  "dhh": {
+    "city": "Barkol",
+    "municipality": "Barkol",
+    "airport": "Barkol Dahe Airport",
+    "country": "CN",
+    "lat": 43.756544,
+    "lon": 93.137164,
     "source": "ourairports"
   },
   "nlt": {
