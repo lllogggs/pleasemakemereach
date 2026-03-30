@@ -5580,8 +5580,8 @@
     "municipality": "Bengbu",
     "airport": "Bengbu Tenghu Airport",
     "country": "CN",
-    "lat": 33.166389,
-    "lon": 117.058333,
+    "lat": 33.166292,
+    "lon": 117.058344,
     "source": "ourairports"
   },
   "xbe": {
@@ -47588,8 +47588,8 @@
     "municipality": "Shahrud",
     "airport": "Shahrud International Airport",
     "country": "IR",
-    "lat": 36.425301,
-    "lon": 55.104198,
+    "lat": 36.424889,
+    "lon": 55.104289,
     "source": "ourairports"
   },
   "mhd": {
@@ -64691,8 +64691,8 @@
     "municipality": "Kokand",
     "airport": "Kokand Airport",
     "country": "UZ",
-    "lat": 40.447183,
-    "lon": 70.989144,
+    "lat": 40.447781,
+    "lon": 70.991149,
     "source": "ourairports"
   },
   "mok": {
@@ -64763,8 +64763,8 @@
     "municipality": "Samarkand",
     "airport": "Samarkand International Airport",
     "country": "UZ",
-    "lat": 39.698187,
-    "lon": 66.98421,
+    "lat": 39.701842,
+    "lon": 66.981467,
     "source": "ourairports"
   },
   "tmj": {
@@ -66821,8 +66821,8 @@
     "municipality": "Siddharthanagar (Bhairahawa)",
     "airport": "Gautam Buddha International Airport",
     "country": "NP",
-    "lat": 27.504591,
-    "lon": 83.414618,
+    "lat": 27.504636,
+    "lon": 83.410381,
     "source": "ourairports"
   },
   "bdp": {
@@ -66945,7 +66945,7 @@
   "lua": {
     "city": "Lukla",
     "municipality": "Lukla",
-    "airport": "Lukla Airport",
+    "airport": "Tenzing-Hillary Airport",
     "country": "NP",
     "lat": 27.686768,
     "lon": 86.729479,
@@ -70956,8 +70956,8 @@
     "municipality": "Langkawi",
     "airport": "Langkawi International Airport",
     "country": "MY",
-    "lat": 6.329730033874512,
-    "lon": 99.72869873046875,
+    "lat": 6.32973,
+    "lon": 99.728699,
     "source": "ourairports"
   },
   "mkz": {
