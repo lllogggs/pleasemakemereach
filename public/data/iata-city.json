@@ -17901,15 +17901,6 @@
     "lon": 16.9272,
     "source": "ourairports"
   },
-  "ogv": {
-    "city": "Ombika",
-    "municipality": "Ombika",
-    "airport": "Ongava Lodge Airstrip",
-    "country": "NA",
-    "lat": -19.328533,
-    "lon": 15.915003,
-    "source": "ourairports"
-  },
   "ond": {
     "city": "Ondangwa",
     "municipality": "Ondangwa",
@@ -17933,8 +17924,8 @@
     "municipality": "Oranjemund",
     "airport": "Oranjemund Airport",
     "country": "NA",
-    "lat": -28.5847,
-    "lon": 16.446699,
+    "lat": -28.585318,
+    "lon": 16.44638,
     "source": "ourairports"
   },
   "okf": {
@@ -20532,7 +20523,7 @@
   "dak": {
     "city": "Dakhla Oases",
     "municipality": "Dakhla Oases",
-    "airport": "Ad Dakhla Airport",
+    "airport": "Dakhla Oasis Airport",
     "country": "EG",
     "lat": 25.41116,
     "lon": 29.003273,
@@ -46974,9 +46965,9 @@
     "source": "ourairports"
   },
   "has": {
-    "city": "Ha'il",
-    "municipality": "Ha'il",
-    "airport": "Ha'il Airport",
+    "city": "Hail",
+    "municipality": "Hail",
+    "airport": "Hail International Airport",
     "country": "SA",
     "lat": 27.437901,
     "lon": 41.686298,
@@ -47039,10 +47030,10 @@
   "aqi": {
     "city": "Qaisumah",
     "municipality": "Qaisumah",
-    "airport": "Al Qaisumah/Hafr Al Batin Airport",
+    "airport": "Qaisumah–Hafar Al-Batin International Airport",
     "country": "SA",
-    "lat": 28.335199,
-    "lon": 46.125099,
+    "lat": 28.335726,
+    "lon": 46.127108,
     "source": "ourairports"
   },
   "akh": {
@@ -57961,8 +57952,8 @@
     "municipality": "Orocue",
     "airport": "Orocue Airport",
     "country": "CO",
-    "lat": 4.79222,
-    "lon": -71.3564,
+    "lat": 4.790355,
+    "lon": -71.348187,
     "source": "ourairports"
   },
   "otu": {
@@ -58492,8 +58483,8 @@
     "municipality": "San Joaquín",
     "airport": "San Joaquín Airport",
     "country": "BO",
-    "lat": -13.0528,
-    "lon": -64.661697,
+    "lat": -13.067209,
+    "lon": -64.675205,
     "source": "ourairports"
   },
   "sjv": {
@@ -69203,6 +69194,15 @@
     "country": "ID",
     "lat": 0.807028,
     "lon": 114.529052,
+    "source": "ourairports"
+  },
+  "ivd": {
+    "city": "Nusantara",
+    "municipality": "Nusantara",
+    "airport": "Nusantara International Airport",
+    "country": "ID",
+    "lat": -1.158611,
+    "lon": 116.708054,
     "source": "ourairports"
   },
   "bpn": {
