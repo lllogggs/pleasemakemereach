@@ -4268,8 +4268,8 @@
     "municipality": "Bamburi",
     "airport": "Bamburi Airport",
     "country": "KE",
-    "lat": -3.983363,
-    "lon": 39.730982,
+    "lat": -3.98138,
+    "lon": 39.73112,
     "source": "ourairports"
   },
   "bnv": {
@@ -5305,6 +5305,15 @@
     "lon": 114.737,
     "source": "ourairports"
   },
+  "hng": {
+    "city": "Hainan (Gonghe)",
+    "municipality": "Hainan (Gonghe)",
+    "airport": "Hainanzhou Gonghe Airport",
+    "country": "CN",
+    "lat": 36.3367,
+    "lon": 100.480003,
+    "source": "ourairports"
+  },
   "jnh": {
     "city": "Xiuzhou, Hangzhou",
     "municipality": "Xiuzhou, Hangzhou",
@@ -5371,7 +5380,7 @@
   "ddr": {
     "city": "Xigazê (Dingri)",
     "municipality": "Xigazê (Dingri)",
-    "airport": "Rikaze Dingri Airport",
+    "airport": "Shigatse Tingri Airport",
     "country": "CN",
     "lat": 28.604567,
     "lon": 86.798,
@@ -14329,8 +14338,8 @@
     "municipality": "Kuruman",
     "airport": "Johan Pienaar Airport",
     "country": "ZA",
-    "lat": -27.45669937133789,
-    "lon": 23.411399841308594,
+    "lat": -27.456596,
+    "lon": 23.411946,
     "source": "ourairports"
   },
   "klz": {
@@ -14862,15 +14871,6 @@
     "country": "BW",
     "lat": -19.149477,
     "lon": 23.787937,
-    "source": "ourairports"
-  },
-  "loq": {
-    "city": "Lobatse",
-    "municipality": "Lobatse",
-    "airport": "Lobatse Airport",
-    "country": "BW",
-    "lat": -25.1981,
-    "lon": 25.7139,
     "source": "ourairports"
   },
   "mub": {
@@ -17526,10 +17526,10 @@
   },
   "ceh": {
     "city": "Chelinda",
-    "airport": "Chelinda Malawi Airport",
+    "airport": "Chelinda Airfield",
     "country": "MW",
-    "lat": -10.55,
-    "lon": 33.799999,
+    "lat": -10.557293,
+    "lon": 33.797109,
     "source": "ourairports"
   },
   "blz": {
@@ -19974,7 +19974,7 @@
   "bco": {
     "city": "Jinka",
     "municipality": "Jinka",
-    "airport": "Baco Airport",
+    "airport": "Jinka Airport",
     "country": "ET",
     "lat": 5.749655,
     "lon": 36.560165,
@@ -20737,12 +20737,12 @@
     "source": "ourairports"
   },
   "asv": {
-    "city": "Amboseli National Park",
-    "municipality": "Amboseli National Park",
+    "city": "Ol Tukai",
+    "municipality": "Ol Tukai",
     "airport": "Amboseli Airport",
     "country": "KE",
-    "lat": -2.645050048828125,
-    "lon": 37.25310134887695,
+    "lat": -2.644786,
+    "lon": 37.252922,
     "source": "ourairports"
   },
   "hkb": {
@@ -20768,8 +20768,8 @@
     "municipality": "Eliye Springs",
     "airport": "Eliye Springs Airport",
     "country": "KE",
-    "lat": 3.23635,
-    "lon": 35.97664,
+    "lat": 3.236405,
+    "lon": 35.974938,
     "source": "ourairports"
   },
   "klk": {
@@ -20795,8 +20795,8 @@
     "municipality": "Hola",
     "airport": "Hola Airport",
     "country": "KE",
-    "lat": -1.522,
-    "lon": 40.004002,
+    "lat": -1.521276,
+    "lon": 40.003621,
     "source": "ourairports"
   },
   "nbo": {
@@ -20822,8 +20822,8 @@
     "municipality": "Kakamega",
     "airport": "Kakamega Airport",
     "country": "KE",
-    "lat": 0.271342009306,
-    "lon": 34.7873001099,
+    "lat": 0.271353,
+    "lon": 34.78812,
     "source": "ourairports"
   },
   "kis": {
@@ -20840,8 +20840,8 @@
     "municipality": "Kilaguni",
     "airport": "Kilaguni Airport",
     "country": "KE",
-    "lat": -2.91061,
-    "lon": 38.065201,
+    "lat": -2.906848,
+    "lon": 38.071738,
     "source": "ourairports"
   },
   "key": {
@@ -20890,12 +20890,12 @@
     "source": "ourairports"
   },
   "loy": {
-    "city": "Loyengalani",
-    "municipality": "Loyengalani",
-    "airport": "Loyengalani Airport",
+    "city": "Loiyangalani",
+    "municipality": "Loiyangalani",
+    "airport": "Loiyangalani Airport",
     "country": "KE",
-    "lat": 2.75,
-    "lon": 36.716999,
+    "lat": 2.763605,
+    "lon": 36.718325,
     "source": "ourairports"
   },
   "nde": {
@@ -20903,8 +20903,8 @@
     "municipality": "Mandera",
     "airport": "Mandera Airport",
     "country": "KE",
-    "lat": 3.934045,
-    "lon": 41.844437,
+    "lat": 3.933816,
+    "lon": 41.844114,
     "source": "ourairports"
   },
   "rbt": {
@@ -20944,17 +20944,17 @@
     "source": "ourairports"
   },
   "mre": {
-    "city": "Masai Mara",
-    "municipality": "Masai Mara",
+    "city": "Serena",
+    "municipality": "Serena",
     "airport": "Mara Serena Lodge Airstrip",
     "country": "KE",
-    "lat": -1.406111,
-    "lon": 35.008057,
+    "lat": -1.404588,
+    "lon": 35.008349,
     "source": "ourairports"
   },
   "oyl": {
-    "city": "Moyale (Lower)",
-    "municipality": "Moyale (Lower)",
+    "city": "Moyale",
+    "municipality": "Moyale",
     "airport": "Moyale Airport",
     "country": "KE",
     "lat": 3.46972,
@@ -20973,19 +20973,19 @@
   "nuu": {
     "city": "Nakuru",
     "municipality": "Nakuru",
-    "airport": "Lanet Military Airstrip",
+    "airport": "Nakuru Lanet Airport",
     "country": "KE",
     "lat": -0.298419,
     "lon": 36.159193,
     "source": "ourairports"
   },
   "nyk": {
-    "city": "Nanyuki",
-    "municipality": "Nanyuki",
-    "airport": "Nanyuki Airport",
+    "city": "Gathiuru",
+    "municipality": "Gathiuru",
+    "airport": "Nanyuki Civil Airport",
     "country": "KE",
-    "lat": -0.062399,
-    "lon": 37.041008,
+    "lat": -0.062352,
+    "lon": 37.041296,
     "source": "ourairports"
   },
   "wil": {
@@ -20993,13 +20993,13 @@
     "municipality": "Nairobi",
     "airport": "Nairobi Wilson Airport",
     "country": "KE",
-    "lat": -1.321720004081726,
-    "lon": 36.81480026245117,
+    "lat": -1.32172,
+    "lon": 36.8148,
     "source": "ourairports"
   },
   "uas": {
-    "city": "Samburu",
-    "municipality": "Samburu",
+    "city": "Isiolo West",
+    "municipality": "Isiolo West",
     "airport": "Samburu Airport",
     "country": "KE",
     "lat": 0.534069,
@@ -21303,8 +21303,8 @@
     "source": "ourairports"
   },
   "heg": {
-    "city": "Heglig Oilfield",
-    "municipality": "Heglig Oilfield",
+    "city": "Heglig",
+    "municipality": "Heglig",
     "airport": "Heglig Airport",
     "country": "SD",
     "lat": 9.994933,
@@ -21487,8 +21487,8 @@
     "municipality": "Dodoma",
     "airport": "Dodoma Airport",
     "country": "TZ",
-    "lat": -6.17044,
-    "lon": 35.752602,
+    "lat": -6.170559,
+    "lon": 35.756036,
     "source": "ourairports"
   },
   "gtc": {
@@ -21928,8 +21928,8 @@
     "municipality": "Kediri",
     "airport": "Dhoho International Airport",
     "country": "ID",
-    "lat": -7.750278,
-    "lon": 111.947222,
+    "lat": -7.749527,
+    "lon": 111.946831,
     "source": "ourairports"
   },
   "skj": {
@@ -22261,8 +22261,8 @@
     "municipality": "Tiakur",
     "airport": "Jos Orno Imsula Airport",
     "country": "ID",
-    "lat": -8.140402,
-    "lon": 127.908758,
+    "lat": -8.140683,
+    "lon": 127.909669,
     "source": "ourairports"
   },
   "jla": {
@@ -24554,7 +24554,7 @@
   "bur": {
     "city": "Burbank",
     "municipality": "Burbank",
-    "airport": "Hollywood Burbank Airport",
+    "airport": "Hollywood Burbank/Bob Hope Airport",
     "country": "US",
     "lat": 34.202834,
     "lon": -118.35805,
@@ -26451,8 +26451,8 @@
     "source": "ourairports"
   },
   "lbn": {
-    "city": "Lake Baringo",
-    "municipality": "Lake Baringo",
+    "city": "Akorian",
+    "municipality": "Akorian",
     "airport": "Lake Baringo (Kampi Ya Samaki) Airport",
     "country": "KE",
     "lat": 0.603167,
@@ -26460,12 +26460,12 @@
     "source": "ourairports"
   },
   "vpg": {
-    "city": "Vipingo Estate",
-    "municipality": "Vipingo Estate",
+    "city": "Kikambala",
+    "municipality": "Kikambala",
     "airport": "Vipingo Estate Airport",
     "country": "KE",
-    "lat": -3.80666666667,
-    "lon": 39.7973888889,
+    "lat": -3.808441,
+    "lon": 39.797235,
     "source": "ourairports"
   },
   "ktj": {
@@ -26478,15 +26478,17 @@
     "source": "ourairports"
   },
   "osj": {
-    "city": "Ol",
-    "airport": "Ol Seki Airstrip",
+    "city": "Mara Simba",
+    "municipality": "Mara Simba",
+    "airport": "Ol Seki Naboisho Airstrip",
     "country": "KE",
-    "lat": -1.378382,
-    "lon": 35.378453,
+    "lat": -1.378468,
+    "lon": 35.38032,
     "source": "ourairports"
   },
   "olg": {
-    "city": "Olare",
+    "city": "Mara",
+    "municipality": "Mara",
     "airport": "Olare Orok Airfield",
     "country": "KE",
     "lat": -1.324213,
@@ -26494,8 +26496,8 @@
     "source": "ourairports"
   },
   "hkr": {
-    "city": "Mara",
-    "municipality": "Mara",
+    "city": "Mara Rianta",
+    "municipality": "Mara Rianta",
     "airport": "Mara North Conservancy Airstrip",
     "country": "KE",
     "lat": -1.14542,
@@ -26503,17 +26505,17 @@
     "source": "ourairports"
   },
   "ana": {
-    "city": "Maasai Mara",
-    "municipality": "Maasai Mara",
-    "airport": "Angama Airport",
+    "city": "Lolgorien",
+    "municipality": "Lolgorien",
+    "airport": "Angama Mara Airport",
     "country": "KE",
-    "lat": -1.27156,
-    "lon": 34.955513,
+    "lat": -1.271586,
+    "lon": 34.954666,
     "source": "ourairports"
   },
   "mdr": {
-    "city": "Musiara",
-    "municipality": "Musiara",
+    "city": "Mara Rianta",
+    "municipality": "Mara Rianta",
     "airport": "Musiara Airstrip",
     "country": "KE",
     "lat": -1.298636,
@@ -26521,9 +26523,9 @@
     "source": "ourairports"
   },
   "olx": {
-    "city": "Olkiombo",
-    "municipality": "Olkiombo",
-    "airport": "Olkiombo Airport",
+    "city": "Serena",
+    "municipality": "Serena",
+    "airport": "Mara-Olkiombo Airport",
     "country": "KE",
     "lat": -1.408586,
     "lon": 35.110689,
@@ -26534,8 +26536,8 @@
     "municipality": "Kimwarer",
     "airport": "Kerio Valley Airport",
     "country": "KE",
-    "lat": 0.319638,
-    "lon": 35.66256,
+    "lat": 0.317916,
+    "lon": 35.664712,
     "source": "ourairports"
   },
   "kiu": {
@@ -26543,8 +26545,8 @@
     "municipality": "Kiunga",
     "airport": "Kiunga Airport",
     "country": "KE",
-    "lat": -1.7438290119171143,
-    "lon": 41.484344482421875,
+    "lat": -1.741272,
+    "lon": 41.482707,
     "source": "ourairports"
   },
   "lbk": {
@@ -26554,15 +26556,6 @@
     "country": "KE",
     "lat": 0.348333,
     "lon": 40.881699,
-    "source": "ourairports"
-  },
-  "lku": {
-    "city": "Kalokol",
-    "municipality": "Kalokol",
-    "airport": "Lake Rudolf Airport",
-    "country": "KE",
-    "lat": 3.416256,
-    "lon": 35.885468,
     "source": "ourairports"
   },
   "mif": {
@@ -36947,8 +36940,8 @@
     "municipality": "Kiwayu",
     "airport": "Kiwayu Airport",
     "country": "KE",
-    "lat": -1.96056,
-    "lon": 41.297501,
+    "lat": -1.960644,
+    "lon": 41.297156,
     "source": "ourairports"
   },
   "wys": {
@@ -42561,7 +42554,7 @@
   "slw": {
     "city": "Saltillo",
     "municipality": "Saltillo",
-    "airport": "Plan De Guadalupe International Airport",
+    "airport": "Plan de Guadalupe International Airport",
     "country": "MX",
     "lat": 25.53786,
     "lon": -100.928346,
@@ -43303,15 +43296,6 @@
     "country": "PA",
     "lat": 9.07136,
     "lon": -79.383499,
-    "source": "ourairports"
-  },
-  "pve": {
-    "city": "El Porvenir",
-    "municipality": "El Porvenir",
-    "airport": "El Porvenir Airport",
-    "country": "PA",
-    "lat": 9.559212,
-    "lon": -78.946631,
     "source": "ourairports"
   },
   "nbl": {
@@ -46721,6 +46705,15 @@
     "lon": 67.210459,
     "source": "ourairports"
   },
+  "imz": {
+    "city": "Ziarat-e Amiran Saseb",
+    "municipality": "Ziarat-e Amiran Saseb",
+    "airport": "Nimroz Airport",
+    "country": "AF",
+    "lat": 30.963333,
+    "lon": 62.060833,
+    "source": "ourairports"
+  },
   "urn": {
     "city": "Urgun",
     "municipality": "Urgun",
@@ -46836,15 +46829,6 @@
     "country": "AF",
     "lat": 31.848735,
     "lon": 64.223175,
-    "source": "ourairports"
-  },
-  "zaj": {
-    "city": "Zaranj",
-    "municipality": "Zaranj",
-    "airport": "Zaranj Airport",
-    "country": "AF",
-    "lat": 30.972222,
-    "lon": 61.865833,
     "source": "ourairports"
   },
   "bah": {
@@ -58670,7 +58654,7 @@
   "uyu": {
     "city": "Quijarro",
     "municipality": "Quijarro",
-    "airport": "Uyuni Joya Andina Airport",
+    "airport": "Joya Andina International Airport",
     "country": "BO",
     "lat": -20.441304,
     "lon": -66.857553,
@@ -62362,7 +62346,7 @@
   "ikg": {
     "city": "Karakol",
     "municipality": "Karakol",
-    "airport": "Karakol Airport",
+    "airport": "Karakol International Airport",
     "country": "KG",
     "lat": 42.508099,
     "lon": 78.407799,
@@ -62382,8 +62366,8 @@
     "municipality": "Turkıstan",
     "airport": "Hazrat Sultan International Airport",
     "country": "KZ",
-    "lat": 43.311742,
-    "lon": 68.550185,
+    "lat": 43.311087,
+    "lon": 68.550352,
     "source": "ourairports"
   },
   "dzn": {
@@ -64745,8 +64729,8 @@
     "municipality": "Zarafshan",
     "airport": "Sugraly Airport",
     "country": "UZ",
-    "lat": 41.613899,
-    "lon": 64.2332,
+    "lat": 41.613795,
+    "lon": 64.232963,
     "source": "ourairports"
   },
   "skd": {
@@ -64765,6 +64749,15 @@
     "country": "UZ",
     "lat": 37.287261,
     "lon": 67.311869,
+    "source": "ourairports"
+  },
+  "tvt": {
+    "city": "Tashkent",
+    "municipality": "Tashkent",
+    "airport": "Tashkent-Khumo International Airport",
+    "country": "UZ",
+    "lat": 41.312889,
+    "lon": 69.395535,
     "source": "ourairports"
   },
   "tas": {
@@ -65204,8 +65197,8 @@
     "municipality": "Urzhar",
     "airport": "Urzhar Airport",
     "country": "KZ",
-    "lat": 47.09115,
-    "lon": 81.66521,
+    "lat": 47.091786,
+    "lon": 81.668216,
     "source": "ourairports"
   },
   "rew": {
@@ -68652,8 +68645,8 @@
     "municipality": "Waha-Tomea Island",
     "airport": "Maranggo Airport",
     "country": "ID",
-    "lat": -5.76457,
-    "lon": 123.917,
+    "lat": -5.766423,
+    "lon": 123.918668,
     "source": "ourairports"
   },
   "upg": {
@@ -68935,6 +68928,15 @@
     "lon": 120.659241,
     "source": "ourairports"
   },
+  "bqr": {
+    "city": "Kendek",
+    "municipality": "Kendek",
+    "airport": "Maulana Prins Mandapar Airstrip",
+    "country": "ID",
+    "lat": -1.548841,
+    "lon": 123.554133,
+    "source": "ourairports"
+  },
   "oju": {
     "city": "Tojo Una-Una",
     "municipality": "Tojo Una-Una",
@@ -69003,8 +69005,8 @@
     "municipality": "Purwokerto-Java Island",
     "airport": "Jenderal Besar Soedirman Airport",
     "country": "ID",
-    "lat": -7.461342,
-    "lon": 109.414612,
+    "lat": -7.461239,
+    "lon": 109.414124,
     "source": "ourairports"
   },
   "kwb": {
@@ -69194,15 +69196,6 @@
     "country": "ID",
     "lat": 0.807028,
     "lon": 114.529052,
-    "source": "ourairports"
-  },
-  "ivd": {
-    "city": "Nusantara",
-    "municipality": "Nusantara",
-    "airport": "Nusantara International Airport",
-    "country": "ID",
-    "lat": -1.158611,
-    "lon": 116.708054,
     "source": "ourairports"
   },
   "bpn": {
@@ -70497,8 +70490,8 @@
     "municipality": "Jakarta",
     "airport": "Halim Perdanakusuma International Airport",
     "country": "ID",
-    "lat": -6.267221,
-    "lon": 106.891733,
+    "lat": -6.266989,
+    "lon": 106.890318,
     "source": "ourairports"
   },
   "pcb": {
@@ -70551,8 +70544,8 @@
     "municipality": "Gunungsitoli",
     "airport": "Binaka Airport",
     "country": "ID",
-    "lat": 1.16628,
-    "lon": 97.704327,
+    "lat": 1.166275,
+    "lon": 97.705196,
     "source": "ourairports"
   },
   "aeg": {
@@ -71096,12 +71089,12 @@
     "source": "ourairports"
   },
   "sgq": {
-    "city": "Sanggata/Sangkimah",
-    "municipality": "Sanggata/Sangkimah",
-    "airport": "Sanggata/Sangkimah Airport",
+    "city": "Sanggata",
+    "municipality": "Sanggata",
+    "airport": "Sangkimah Airport",
     "country": "ID",
-    "lat": 0.3847,
-    "lon": 117.543,
+    "lat": 0.384421,
+    "lon": 117.542832,
     "source": "ourairports"
   },
   "lbw": {
@@ -75523,6 +75516,15 @@
     "lon": 142.74099731445312,
     "source": "ourairports"
   },
+  "wsi": {
+    "city": "Sydney",
+    "municipality": "Sydney",
+    "airport": "(Duplicate)Western Sydney International Airport",
+    "country": "AU",
+    "lat": -33.88806,
+    "lon": 150.71472,
+    "source": "ourairports"
+  },
   "xtr": {
     "city": "Tara",
     "airport": "Tara Airport",
@@ -77050,7 +77052,7 @@
   "hxd": {
     "city": "Delingha",
     "municipality": "Delingha",
-    "airport": "Delingha Airport",
+    "airport": "Haixi Delingha Airport",
     "country": "CN",
     "lat": 37.125286,
     "lon": 97.268658,
@@ -78649,7 +78651,7 @@
   "yin": {
     "city": "Ili (Yining / Ghulja)",
     "municipality": "Ili (Yining / Ghulja)",
-    "airport": "Yining Airport",
+    "airport": "Ili Yining International Airport",
     "country": "CN",
     "lat": 43.955799,
     "lon": 81.330299,
