@@ -4389,15 +4389,6 @@
     "lon": -58.494877,
     "source": "ourairports"
   },
-  "stz": {
-    "city": "Santa Terezinha",
-    "municipality": "Santa Terezinha",
-    "airport": "Santa Terezinha Airport",
-    "country": "BR",
-    "lat": -10.464722,
-    "lon": -50.518612,
-    "source": "ourairports"
-  },
   "mtg": {
     "city": "Vila Bela Da Santíssima Trindade",
     "municipality": "Vila Bela Da Santíssima Trindade",
@@ -9508,8 +9499,8 @@
     "municipality": "Kaya",
     "airport": "Kaya Airport",
     "country": "BF",
-    "lat": 13.067,
-    "lon": -1.1,
+    "lat": 13.077361,
+    "lon": -1.100278,
     "source": "ourairports"
   },
   "oug": {
@@ -18630,15 +18621,6 @@
     "lon": -11.253397,
     "source": "ourairports"
   },
-  "ktx": {
-    "city": "Koutiala",
-    "municipality": "Koutiala",
-    "airport": "Koutiala Airport",
-    "country": "ML",
-    "lat": 12.351048,
-    "lon": -5.429471,
-    "source": "ourairports"
-  },
   "kys": {
     "city": "Kayes",
     "municipality": "Kayes",
@@ -21199,8 +21181,8 @@
     "municipality": "Gisenyi",
     "airport": "Gisenyi Airport",
     "country": "RW",
-    "lat": -1.6771999597549438,
-    "lon": 29.258899688720703,
+    "lat": -1.6772,
+    "lon": 29.2589,
     "source": "ourairports"
   },
   "btq": {
@@ -44490,8 +44472,8 @@
     "municipality": "Manihiki Island",
     "airport": "Manihiki Island Airport",
     "country": "CK",
-    "lat": -10.3767,
-    "lon": -161.001999,
+    "lat": -10.38091,
+    "lon": -160.999424,
     "source": "ourairports"
   },
   "muk": {
@@ -54227,7 +54209,7 @@
   "rga": {
     "city": "Rio Grande",
     "municipality": "Rio Grande",
-    "airport": "Hermes Quijada International Airport",
+    "airport": "Gobernador Ramón Trejo Noel International Airport",
     "country": "AR",
     "lat": -53.7777,
     "lon": -67.7494,
@@ -62078,8 +62060,8 @@
     "municipality": "Port of Spain",
     "airport": "Piarco International Airport",
     "country": "TT",
-    "lat": 10.597811,
-    "lon": -61.337463,
+    "lat": 10.59535,
+    "lon": -61.337568,
     "source": "ourairports"
   },
   "tuj": {
@@ -62584,6 +62566,15 @@
     "country": "AZ",
     "lat": 40.631901,
     "lon": 47.141899,
+    "source": "ourairports"
+  },
+  "lhl": {
+    "city": "Lachin",
+    "municipality": "Lachin",
+    "airport": "Lachin International Airport",
+    "country": "AZ",
+    "lat": 39.886,
+    "lon": 46.354,
     "source": "ourairports"
   },
   "iku": {
@@ -69579,7 +69570,7 @@
   "soc": {
     "city": "Surakarta",
     "municipality": "Surakarta",
-    "airport": "Adisumarmo Airport",
+    "airport": "Adisoemarmo International Airport",
     "country": "ID",
     "lat": -7.516044,
     "lon": 110.757492,
