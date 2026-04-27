@@ -3831,15 +3831,6 @@
     "lon": -52.784698,
     "source": "ourairports"
   },
-  "uak": {
-    "city": "Narsarsuaq",
-    "municipality": "Narsarsuaq",
-    "airport": "Narsarsuaq Airport",
-    "country": "GL",
-    "lat": 61.1605,
-    "lon": -45.425999,
-    "source": "ourairports"
-  },
   "cnp": {
     "city": "Neerlerit Inaat",
     "municipality": "Neerlerit Inaat",
@@ -4959,8 +4950,8 @@
     "municipality": "Whatì",
     "airport": "Whatì Airport",
     "country": "CA",
-    "lat": 63.13169860839844,
-    "lon": -117.24600219726562,
+    "lat": 63.131699,
+    "lon": -117.246002,
     "source": "ourairports"
   },
   "ydc": {
@@ -7648,8 +7639,8 @@
     "municipality": "Yorkton",
     "airport": "Yorkton Municipal Airport",
     "country": "CA",
-    "lat": 51.26470184326172,
-    "lon": -102.46199798583984,
+    "lat": 51.264702,
+    "lon": -102.461998,
     "source": "ourairports"
   },
   "yqw": {
@@ -18916,6 +18907,15 @@
     "country": "PA",
     "lat": 8.0644,
     "lon": -78.3673,
+    "source": "ourairports"
+  },
+  "jju": {
+    "city": "Qaqortoq",
+    "municipality": "Qaqortoq",
+    "airport": "Qaqortoq Airport",
+    "country": "GL",
+    "lat": 60.76383,
+    "lon": -46.065001,
     "source": "ourairports"
   },
   "ucn": {
@@ -37440,9 +37440,9 @@
     "source": "ourairports"
   },
   "len": {
-    "city": "La Virgen Del Camino",
-    "municipality": "La Virgen Del Camino",
-    "airport": "León Int'l Airport",
+    "city": "La Virgen del Camino",
+    "municipality": "La Virgen del Camino",
+    "airport": "León Airport",
     "country": "ES",
     "lat": 42.590709,
     "lon": -5.653406,
@@ -39532,8 +39532,8 @@
     "municipality": "Ronchi dei Legionari/Trieste",
     "airport": "Trieste Airport",
     "country": "IT",
-    "lat": 45.827499,
-    "lon": 13.4722,
+    "lat": 45.827862,
+    "lon": 13.466672,
     "source": "ourairports"
   },
   "rmi": {
@@ -41100,15 +41100,6 @@
     "country": "MD",
     "lat": 46.92774,
     "lon": 28.931704,
-    "source": "ourairports"
-  },
-  "dgp": {
-    "city": "Daugavpils",
-    "municipality": "Daugavpils",
-    "airport": "Daugavpils International Airport",
-    "country": "LV",
-    "lat": 55.944721,
-    "lon": 26.665001,
     "source": "ourairports"
   },
   "lwa": {
@@ -48748,10 +48739,10 @@
   "isu": {
     "city": "Sulaymaniyah",
     "municipality": "Sulaymaniyah",
-    "airport": "Sulaymaniyah International Airport",
+    "airport": "Jalal Talabani International Airport",
     "country": "IQ",
-    "lat": 35.5617485046,
-    "lon": 45.316738128699996,
+    "lat": 35.560487,
+    "lon": 45.315137,
     "source": "ourairports"
   },
   "xnh": {
@@ -51095,10 +51086,10 @@
   "tiq": {
     "city": "Tinian Island",
     "municipality": "Tinian Island",
-    "airport": "Tinian International Airport",
+    "airport": "Francisco Manglona Borja / Tinian International Airport",
     "country": "MP",
-    "lat": 15.000453,
-    "lon": 145.618974,
+    "lat": 14.999207,
+    "lon": 145.619355,
     "source": "ourairports"
   },
   "tgb": {
@@ -55736,15 +55727,6 @@
     "lon": -40.285,
     "source": "ourairports"
   },
-  "qps": {
-    "city": "Pirassununga",
-    "municipality": "Pirassununga",
-    "airport": "Campo Fontenelle",
-    "country": "BR",
-    "lat": -21.984692,
-    "lon": -47.341207,
-    "source": "ourairports"
-  },
   "iza": {
     "city": "Juiz de Fora",
     "municipality": "Juiz de Fora",
@@ -55768,8 +55750,8 @@
     "municipality": "Los Andes",
     "airport": "San Rafael Airport",
     "country": "CL",
-    "lat": -32.814201,
-    "lon": -70.646698,
+    "lat": -32.813912,
+    "lon": -70.646642,
     "source": "ourairports"
   },
   "wap": {
@@ -55804,8 +55786,8 @@
     "municipality": "Copiapo",
     "airport": "Desierto de Atacama Airport",
     "country": "CL",
-    "lat": -27.2611999512,
-    "lon": -70.7791976929,
+    "lat": -27.2612,
+    "lon": -70.779198,
     "source": "ourairports"
   },
   "bba": {
@@ -60793,8 +60775,8 @@
     "municipality": "San Cristóbal",
     "airport": "Paramillo Airport",
     "country": "VE",
-    "lat": 7.80132,
-    "lon": -72.202904,
+    "lat": 7.801389,
+    "lon": -72.202778,
     "source": "ourairports"
   },
   "pzo": {
@@ -62573,8 +62555,8 @@
     "municipality": "Lachin",
     "airport": "Lachin International Airport",
     "country": "AZ",
-    "lat": 39.886,
-    "lon": 46.354,
+    "lat": 39.883787,
+    "lon": 46.363137,
     "source": "ourairports"
   },
   "iku": {
