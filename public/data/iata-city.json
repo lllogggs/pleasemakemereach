@@ -287,15 +287,6 @@
     "lon": -71.519031,
     "source": "ourairports"
   },
-  "bwl": {
-    "city": "Blackwell",
-    "municipality": "Blackwell",
-    "airport": "Earl Henry Airport",
-    "country": "US",
-    "lat": 36.7958984375,
-    "lon": -97.3170013428,
-    "source": "ourairports"
-  },
   "cws": {
     "city": "Center Island",
     "municipality": "Center Island",
@@ -899,15 +890,6 @@
     "lon": 19.8172222222,
     "source": "ourairports"
   },
-  "vlo": {
-    "city": "Vlorë",
-    "municipality": "Vlorë",
-    "airport": "(Duplicate)Vlora International Airport",
-    "country": "AL",
-    "lat": 40.605556,
-    "lon": 19.426111,
-    "source": "ourairports"
-  },
   "yuk": {
     "city": "Kapan",
     "municipality": "Kapan",
@@ -1113,7 +1095,7 @@
   "wfr": {
     "city": "Queen Maud Island",
     "municipality": "Queen Maud Island",
-    "airport": "(Duplicate)Wolf's Fang Runway",
+    "airport": "[Duplicate] Wolf's Fang Runway",
     "country": "AQ",
     "lat": -71.5264,
     "lon": 8.799459,
@@ -1223,8 +1205,8 @@
     "municipality": "Kimberley Downs",
     "airport": "Kimberley Downs Airport",
     "country": "AU",
-    "lat": -17.39780044555664,
-    "lon": 124.3550033569336,
+    "lat": -17.398577,
+    "lon": 124.355565,
     "source": "ourairports"
   },
   "kgr": {
@@ -2702,8 +2684,8 @@
     "municipality": "Nuku",
     "airport": "Nuku Airport",
     "country": "PG",
-    "lat": -3.676651,
-    "lon": 142.484334,
+    "lat": -3.676765,
+    "lon": 142.48492,
     "source": "ourairports"
   },
   "atn": {
@@ -4524,12 +4506,12 @@
     "source": "ourairports"
   },
   "mdb": {
-    "city": "Melinda",
-    "municipality": "Melinda",
+    "city": "Hope Creek",
+    "municipality": "Hope Creek",
     "airport": "Melinda Airport",
     "country": "BZ",
-    "lat": 17.004299,
-    "lon": -88.304199,
+    "lat": 16.998419,
+    "lon": -88.318191,
     "source": "ourairports"
   },
   "orz": {
@@ -10893,15 +10875,6 @@
     "country": "DE",
     "lat": 48.425278,
     "lon": 10.931667,
-    "source": "ourairports"
-  },
-  "qlg": {
-    "city": "Landshut",
-    "municipality": "Landshut",
-    "airport": "Landshut Airfield",
-    "country": "DE",
-    "lat": 48.512019,
-    "lon": 12.034865,
     "source": "ourairports"
   },
   "obf": {
@@ -22148,15 +22121,6 @@
     "lon": 93.638792,
     "source": "ourairports"
   },
-  "uke": {
-    "city": "Bhawanipatna",
-    "municipality": "Bhawanipatna",
-    "airport": "Utkela Airport",
-    "country": "IN",
-    "lat": 20.097778,
-    "lon": 83.183333,
-    "source": "ourairports"
-  },
   "dxn": {
     "city": "Gautam Buddha Nagar",
     "municipality": "Gautam Buddha Nagar",
@@ -24137,6 +24101,15 @@
     "lon": -81.68329620361328,
     "source": "ourairports"
   },
+  "bwl": {
+    "city": "Blackwell",
+    "municipality": "Blackwell",
+    "airport": "Blackwell Tonkawa Municipal Airport",
+    "country": "US",
+    "lat": 36.745212,
+    "lon": -97.349619,
+    "source": "ourairports"
+  },
   "bkt": {
     "city": "Blackstone",
     "municipality": "Blackstone",
@@ -25537,8 +25510,8 @@
     "municipality": "Colorado Creek",
     "airport": "Colorado Creek Airport",
     "country": "US",
-    "lat": 63.5676994324,
-    "lon": -155.988998413,
+    "lat": 63.571196,
+    "lon": -156.006653,
     "source": "ourairports"
   },
   "cre": {
@@ -39185,15 +39158,6 @@
     "lon": 18.242044,
     "source": "ourairports"
   },
-  "qgy": {
-    "city": "Győr",
-    "municipality": "Győr",
-    "airport": "Győr-Pér Airport",
-    "country": "HU",
-    "lat": 47.628436,
-    "lon": 17.804718,
-    "source": "ourairports"
-  },
   "sob": {
     "city": "Sármellék",
     "municipality": "Sármellék",
@@ -45991,15 +45955,6 @@
     "lon": 166.212997,
     "source": "ourairports"
   },
-  "fgl": {
-    "city": "Fox Glacier",
-    "municipality": "Fox Glacier",
-    "airport": "Fox Glacier Aerodrome",
-    "country": "NZ",
-    "lat": -43.46111,
-    "lon": 170.01702,
-    "source": "ourairports"
-  },
   "akl": {
     "city": "Auckland",
     "municipality": "Auckland",
@@ -49200,8 +49155,8 @@
     "municipality": "Delta Junction Ft Greely",
     "airport": "Allen Army Airfield",
     "country": "US",
-    "lat": 63.9944992065,
-    "lon": -145.722000122,
+    "lat": 63.994499,
+    "lon": -145.722,
     "source": "ourairports"
   },
   "bkc": {
@@ -51556,8 +51511,8 @@
     "municipality": "Taitung City",
     "airport": "Taitung Airport",
     "country": "TW",
-    "lat": 22.7549991607666,
-    "lon": 121.10199737548828,
+    "lat": 22.754856,
+    "lon": 121.101794,
     "source": "ourairports"
   },
   "gni": {
@@ -51628,8 +51583,8 @@
     "municipality": "Matsu (Beigan)",
     "airport": "Matsu Beigan Airport",
     "country": "TW",
-    "lat": 26.224199,
-    "lon": 120.002998,
+    "lat": 26.22414,
+    "lon": 120.002679,
     "source": "ourairports"
   },
   "tnn": {
@@ -51657,15 +51612,6 @@
     "country": "TW",
     "lat": 23.568701,
     "lon": 119.627998,
-    "source": "ourairports"
-  },
-  "pif": {
-    "city": "Pingtung",
-    "municipality": "Pingtung",
-    "airport": "Pingtung Air Force Base North",
-    "country": "TW",
-    "lat": 22.700199,
-    "lon": 120.482002,
     "source": "ourairports"
   },
   "tsa": {
@@ -63599,8 +63545,8 @@
     "municipality": "Leshukonskoye",
     "airport": "Leshukonskoye Airport",
     "country": "RU",
-    "lat": 64.8960037231,
-    "lon": 45.7229995728,
+    "lat": 64.896004,
+    "lon": 45.723,
     "source": "ourairports"
   },
   "nnm": {
@@ -64891,8 +64837,8 @@
     "municipality": "Voronezh",
     "airport": "Voronezh International Airport",
     "country": "RU",
-    "lat": 51.813683,
-    "lon": 39.231711,
+    "lat": 51.814324,
+    "lon": 39.230948,
     "source": "ourairports"
   },
   "tbw": {
@@ -65044,8 +64990,8 @@
     "municipality": "Ulyanovsk",
     "airport": "Ulyanovsk Baratayevka Airport",
     "country": "RU",
-    "lat": 54.268299,
-    "lon": 48.2267,
+    "lat": 54.27016,
+    "lon": 48.225569,
     "source": "ourairports"
   },
   "uly": {
@@ -65080,8 +65026,8 @@
     "municipality": "Penza",
     "airport": "Penza Airport",
     "country": "RU",
-    "lat": 53.110599517822266,
-    "lon": 45.02109909057617,
+    "lat": 53.1106,
+    "lon": 45.021099,
     "source": "ourairports"
   },
   "skx": {
@@ -66102,6 +66048,15 @@
     "country": "IN",
     "lat": 26.7091007232666,
     "lon": 92.78469848632812,
+    "source": "ourairports"
+  },
+  "uke": {
+    "city": "Bhawanipatna",
+    "municipality": "Bhawanipatna",
+    "airport": "Utkela Airport",
+    "country": "IN",
+    "lat": 20.097778,
+    "lon": 83.183333,
     "source": "ourairports"
   },
   "vtz": {
@@ -74468,7 +74423,8 @@
     "source": "ourairports"
   },
   "rpm": {
-    "city": "Ngukurr",
+    "city": "Roper River",
+    "municipality": "Roper River",
     "airport": "Ngukurr Airport",
     "country": "AU",
     "lat": -14.7228,
@@ -75492,7 +75448,7 @@
   "wsi": {
     "city": "Sydney",
     "municipality": "Sydney",
-    "airport": "(Duplicate)Western Sydney International Airport",
+    "airport": "[Duplicate] Western Sydney International Airport",
     "country": "AU",
     "lat": -33.88806,
     "lon": 150.71472,
@@ -77176,12 +77132,12 @@
     "source": "ourairports"
   },
   "xiy": {
-    "city": "Xianyang (Weicheng)",
-    "municipality": "Xianyang (Weicheng)",
+    "city": "Xi'an",
+    "municipality": "Xi'an",
     "airport": "Xi'an Xianyang International Airport",
     "country": "CN",
-    "lat": 34.447102,
-    "lon": 108.751999,
+    "lat": 34.442207,
+    "lon": 108.762385,
     "source": "ourairports"
   },
   "eny": {
