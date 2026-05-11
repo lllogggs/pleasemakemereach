@@ -10765,8 +10765,8 @@
     "municipality": "Hamburg",
     "airport": "Hamburg-Finkenwerder Airport",
     "country": "DE",
-    "lat": 53.5352783203125,
-    "lon": 9.835556030273438,
+    "lat": 53.535278,
+    "lon": 9.835556,
     "source": "ourairports"
   },
   "kel": {
@@ -16115,7 +16115,7 @@
   "nos": {
     "city": "Nosy Be",
     "municipality": "Nosy Be",
-    "airport": "Nosy Be-Fascene International Airport",
+    "airport": "Nosy Be International Airport",
     "country": "MG",
     "lat": -13.3121,
     "lon": 48.3148,
@@ -18685,8 +18685,8 @@
     "source": "ourairports"
   },
   "bjl": {
-    "city": "Yundum",
-    "municipality": "Yundum",
+    "city": "Banjul (Yundum)",
+    "municipality": "Banjul (Yundum)",
     "airport": "Banjul International Airport",
     "country": "GM",
     "lat": 13.338,
@@ -60989,8 +60989,8 @@
     "municipality": "Canarana",
     "airport": "Canarana Airport",
     "country": "BR",
-    "lat": -13.574444,
-    "lon": -52.270557,
+    "lat": -13.576545,
+    "lon": -52.268296,
     "source": "ourairports"
   },
   "sxo": {
@@ -74725,8 +74725,8 @@
     "city": "Palm",
     "airport": "Palm Island Airport",
     "country": "AU",
-    "lat": -18.755300521850586,
-    "lon": 146.58099365234375,
+    "lat": -18.755301,
+    "lon": 146.580994,
     "source": "ourairports"
   },
   "pbo": {
