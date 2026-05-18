@@ -3077,8 +3077,8 @@
     "municipality": "Safia",
     "airport": "Safia Airport",
     "country": "PG",
-    "lat": -9.59305555556,
-    "lon": 148.636111111,
+    "lat": -9.594471,
+    "lon": 148.639305,
     "source": "ourairports"
   },
   "sil": {
@@ -29407,8 +29407,8 @@
     "municipality": "Wink",
     "airport": "Winkler County Airport",
     "country": "US",
-    "lat": 31.779600143399996,
-    "lon": -103.200996399,
+    "lat": 31.7796,
+    "lon": -103.200996,
     "source": "ourairports"
   },
   "inl": {
@@ -50920,6 +50920,15 @@
     "country": "PG",
     "lat": -5.577463,
     "lon": 146.33401,
+    "source": "ourairports"
+  },
+  "ksg": {
+    "city": "Kisenden",
+    "municipality": "Kisenden",
+    "airport": "Kisengam Airport [CLOSED]",
+    "country": "PG",
+    "lat": -6.362,
+    "lon": 146.709999,
     "source": "ourairports"
   },
   "paw": {
