@@ -10439,7 +10439,7 @@
   "kjk": {
     "city": "Wevelgem",
     "municipality": "Wevelgem",
-    "airport": "Flanders International Airport Kortrijk-Wevelgem",
+    "airport": "Kortrijk-Wevelgem International Airport",
     "country": "BE",
     "lat": 50.818878,
     "lon": 3.209551,
@@ -53457,6 +53457,15 @@
     "country": "RU",
     "lat": 50.877144,
     "lon": 142.17561,
+    "source": "ourairports"
+  },
+  "vlu": {
+    "city": "Velikiye Luki",
+    "municipality": "Velikiye Luki",
+    "airport": "Velikiye Luki Airport",
+    "country": "RU",
+    "lat": 56.381066,
+    "lon": 30.607846,
     "source": "ourairports"
   },
   "kvk": {
