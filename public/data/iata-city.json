@@ -9982,8 +9982,8 @@
     "municipality": "Dalnerechensk",
     "airport": "Dalnerechensk Airport",
     "country": "RU",
-    "lat": 45.877949,
-    "lon": 133.735822,
+    "lat": 45.879857,
+    "lon": 133.737629,
     "source": "ourairports"
   },
   "dka": {
@@ -14721,12 +14721,12 @@
     "source": "ourairports"
   },
   "vru": {
-    "city": "Vyrburg",
-    "municipality": "Vyrburg",
+    "city": "Vryburg",
+    "municipality": "Vryburg",
     "airport": "Vryburg Airport",
     "country": "ZA",
-    "lat": -26.9824008942,
-    "lon": 24.7287998199,
+    "lat": -26.982401,
+    "lon": 24.7288,
     "source": "ourairports"
   },
   "vir": {
@@ -18604,8 +18604,8 @@
     "source": "ourairports"
   },
   "nrm": {
-    "city": "Nara",
-    "municipality": "Nara",
+    "city": "Keibane",
+    "municipality": "Keibane",
     "airport": "Nara Airport",
     "country": "ML",
     "lat": 15.22913,
@@ -18619,15 +18619,6 @@
     "country": "ML",
     "lat": 15.2381,
     "lon": -9.57611,
-    "source": "ourairports"
-  },
-  "kss": {
-    "city": "Sikasso",
-    "municipality": "Sikasso",
-    "airport": "Sikasso Airport",
-    "country": "ML",
-    "lat": 11.328611,
-    "lon": -5.684722,
     "source": "ourairports"
   },
   "tom": {
@@ -18671,8 +18662,8 @@
     "municipality": "Foula",
     "airport": "Foula Airfield",
     "country": "GB",
-    "lat": 60.121725,
-    "lon": -2.053202,
+    "lat": 60.121916,
+    "lon": -2.053439,
     "source": "ourairports"
   },
   "gbm": {
@@ -20577,7 +20568,7 @@
   "hmb": {
     "city": "Suhaj",
     "municipality": "Suhaj",
-    "airport": "Sohag International Airport",
+    "airport": "Suhaj International Airport",
     "country": "EG",
     "lat": 26.342515,
     "lon": 31.743017,
@@ -63581,8 +63572,8 @@
     "municipality": "Solovetsky Islands",
     "airport": "Solovki Airport",
     "country": "RU",
-    "lat": 65.029999,
-    "lon": 35.733334,
+    "lat": 65.029996,
+    "lon": 35.730558,
     "source": "ourairports"
   },
   "amv": {
@@ -66199,8 +66190,8 @@
     "municipality": "Sylhet",
     "airport": "Osmany International Airport",
     "country": "BD",
-    "lat": 24.963071,
-    "lon": 91.866903,
+    "lat": 24.963993,
+    "lon": 91.864749,
     "source": "ourairports"
   },
   "hkg": {
