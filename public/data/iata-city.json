@@ -1076,6 +1076,14 @@
     "lon": -62.9803,
     "source": "ourairports"
   },
+  "jni": {
+    "city": "(Duplicate)SAAJ",
+    "airport": "(Duplicate)SAAJ",
+    "country": "AR",
+    "lat": -34.548139,
+    "lon": -60.930519,
+    "source": "ourairports"
+  },
   "arp": {
     "city": "Aragip",
     "airport": "Aragip Airport",
@@ -3935,8 +3943,8 @@
     "municipality": "Brighton Downs",
     "airport": "Brighton Downs Airport",
     "country": "AU",
-    "lat": -23.363333,
-    "lon": 141.562778,
+    "lat": -23.365763,
+    "lon": 141.562947,
     "source": "ourairports"
   },
   "aey": {
@@ -11532,15 +11540,6 @@
     "country": "GB",
     "lat": 52.453899,
     "lon": -1.74803,
-    "source": "ourairports"
-  },
-  "cvt": {
-    "city": "Coventry, West Midlands",
-    "municipality": "Coventry, West Midlands",
-    "airport": "Coventry Airport",
-    "country": "GB",
-    "lat": 52.369701,
-    "lon": -1.47972,
     "source": "ourairports"
   },
   "glo": {
@@ -50913,6 +50912,15 @@
     "lon": 146.33401,
     "source": "ourairports"
   },
+  "biz": {
+    "city": "Bimin",
+    "municipality": "Bimin",
+    "airport": "Bimin Airport",
+    "country": "PG",
+    "lat": -5.289378,
+    "lon": 142.014039,
+    "source": "ourairports"
+  },
   "ksg": {
     "city": "Kisenden",
     "municipality": "Kisenden",
@@ -59879,8 +59887,8 @@
     "municipality": "Kwatta",
     "airport": "Eduard Alexander Gummels Airport",
     "country": "SR",
-    "lat": 5.8604,
-    "lon": -55.192,
+    "lat": 5.863807,
+    "lon": -55.189504,
     "source": "ourairports"
   },
   "srl": {
@@ -63412,15 +63420,6 @@
     "country": "UA",
     "lat": 48.542801,
     "lon": 32.285,
-    "source": "ourairports"
-  },
-  "iev": {
-    "city": "Kyiv",
-    "municipality": "Kyiv",
-    "airport": "Ihor Sikorsky Kyiv International Airport (Zhuliany)",
-    "country": "UA",
-    "lat": 50.40194,
-    "lon": 30.45194,
     "source": "ourairports"
   },
   "ztr": {
