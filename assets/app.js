@@ -4,9 +4,9 @@
 
   // ===== 라우트(언어 드롭다운 동적 생성) =====
   const LANG_ROUTES = [
-    { code: 'ko', label: '한국어',  path: '/',     flag: 'kr' },
-    { code: 'en', label: 'English', path: '/en/',  flag: 'us' },
-    { code: 'th', label: 'ภาษาไทย', path: '/th/',  flag: 'th' }
+    { code: 'ko', label: '한국어',  path: '/',     flagEmoji: 'KR' },
+    { code: 'en', label: 'English', path: '/en/',  flagEmoji: 'EN' },
+    { code: 'th', label: 'ภาษาไทย', path: '/th/',  flagEmoji: 'TH' }
   ];
   function pathForLang(code){
     const r = LANG_ROUTES.find(x => x.code === code);
@@ -17,7 +17,7 @@
     if (!dropdown) return;
     dropdown.innerHTML = LANG_ROUTES.map(l => `
       <a href="${l.path}" class="lang-option" data-lang-code="${l.code}">
-        <img src="https://flagcdn.com/w40/${l.flag}.png" alt="${l.code.toUpperCase()} Flag" width="24" height="16"> ${l.label}
+        <span class="lang-option__flag" aria-hidden="true">${l.flagEmoji}</span> ${l.label}
       </a>
     `).join('');
   }
@@ -61,9 +61,9 @@
   };
 
   const langDetails = {
-    ko:{ flag:'kr', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
-    en:{ flag:'us', text:'English', privacy:'/privacy_en.html', code:'EN' },
-    th:{ flag:'th', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
+    ko:{ flagEmoji:'KR', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
+    en:{ flagEmoji:'EN', text:'English', privacy:'/privacy_en.html', code:'EN' },
+    th:{ flagEmoji:'TH', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
   };
 
   // ===== 언어 판별 & 적용 =====
@@ -573,9 +573,8 @@
 
     const langFlag = $('#lang-flag');
     if (langFlag) {
-      langFlag.src = `https://flagcdn.com/w40/${langDetails[lang].flag}.png`;
-      langFlag.alt = `${langDetails[lang].text} Flag`;
-      langFlag.width = 24; langFlag.height = 24;
+      langFlag.textContent = langDetails[lang].flagEmoji || '';
+      langFlag.setAttribute('aria-label', `${langDetails[lang].text} flag`);
     }
   }
 

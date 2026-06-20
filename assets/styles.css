@@ -136,7 +136,7 @@ html:lang(ja) .hero-subtitle{
 html:lang(ja) .main-button{ font-size:15px; padding:15px; }
 html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
 
-/* ===== Language Switcher ===== (수정됨) */
+/* ===== Language Switcher ===== */
 .language-selector{ position:absolute; top:24px; right:24px; z-index:10; }
 .language-button{
   display:flex; align-items:center; gap:8px;
@@ -145,13 +145,20 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   transition:transform .2s;
 }
 .language-button:hover{ transform:translateY(-1px); }
-/* 메인 버튼 깃발: 직사각형 형태로 통일하여 드롭다운 항목과 시각적 일관성 확보 */
 #lang-flag{ 
-    width:24px; 
-    height:16px; /* 24px -> 16px로 변경 */
-    border-radius:3px; /* 50% -> 3px로 변경 */
-    object-fit:cover; 
-    flex-shrink:0; 
+  min-width:24px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  border-radius:5px;
+  background:rgba(255,255,255,.12);
+  color:#dbeafe;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.2px;
+  line-height:1;
 }
 #lang-text{ color:#fff; font-size:15px; font-weight:700; }
 .dropdown-arrow{ color:#fff; font-size:12px; margin-left:4px; }
@@ -159,34 +166,42 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
 .language-dropdown{
   display:none; position:absolute; top:100%; right:0; margin-top:8px;
   background:#fff; border-radius:8px; 
-  box-shadow:0 6px 18px rgba(0,0,0,.12); /* 그림자 강화 */
-  padding:0; /* 내부 패딩 제거 */
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  padding:0;
   min-width:150px;
-  max-width:max-content; /* 내용물 너비에 맞게 조정 */
+  max-width:max-content;
 }
 .language-dropdown.show{ display:block; }
 .lang-option{
   display:flex; align-items:center;
-  justify-content:flex-start; /* 좌측 정렬 명시 */
+  justify-content:flex-start;
   gap:8px;
-  padding:6px 12px; /* 패딩 축소로 항목 간 간격 감소 */
+  padding:8px 12px;
   text-decoration:none;
   color:var(--text-primary);
-  border-radius:0; /* 개별 항목 radius 제거 */
+  border-radius:0;
   font-size:15px;
-  line-height:1.2; /* 텍스트 줄간격도 약간 압축 */
+  line-height:1.2;
 }
 /* 드롭다운의 둥근 모서리를 항목의 첫 번째와 마지막에만 적용 */
 .lang-option:first-child{ border-top-left-radius:8px; border-top-right-radius:8px; }
 .lang-option:last-child{ border-bottom-left-radius:8px; border-bottom-right-radius:8px; }
 
 .lang-option:hover{ background:var(--light-blue); }
-.lang-option img{ width:24px; height:16px; object-fit:cover; border-radius:3px; }
+.lang-option__flag{
+  width:28px;
+  display:inline-flex;
+  justify-content:center;
+  flex-shrink:0;
+  color:var(--primary-blue);
+  font-size:12px;
+  font-weight:800;
+}
 
 @media (max-width:600px){
   .lang-option{
-    padding:3px 10px; /* 모바일에서는 패딩도 절반으로 축소 */
-    line-height:0.6;  /* 요청에 따라 모바일 줄간격을 추가로 절반 축소 */
+    padding:7px 10px;
+    line-height:1.2;
   }
 }
 
@@ -297,19 +312,8 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   border-radius:18px;
   box-shadow:0 15px 40px rgba(15,23,42,.08);
   border:1px solid rgba(255,255,255,.55);
-}
-.adsense-card{
-  padding:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.adsense-card .adsense-wrapper{
-  width:100%;
-}
-.adsense-card .adsbygoogle{
-  width:100%;
-  height:100%;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 .card-header{
   display:flex; justify-content:space-between; align-items:center;
@@ -317,11 +321,12 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
 }
 .info-card h2{
   font-size:20px; font-weight:700; margin:0 0 16px;
+  line-height:1.35;
   padding-bottom:12px; border-bottom:1px solid var(--border-color);
 }
 .card-header h2{ margin:0; padding-bottom:0; border-bottom:none; }
 
-.info-card p{ font-size:16px; line-height:1.7; margin:0; }
+.info-card p{ font-size:16px; line-height:1.7; margin:0; word-break:keep-all; overflow-wrap:break-word; }
 .info-card p strong,
 .info-card ul li strong{ color:var(--primary-blue); }
 
@@ -344,6 +349,9 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   background:rgba(255,255,255,.94);
   border:1px solid rgba(255,255,255,.55);
   box-shadow:0 15px 40px rgba(15,23,42,.08);
+}
+.tips-card{
+  grid-column:1 / -1;
 }
 
 /* 작은 예시 텍스트 */
@@ -430,14 +438,14 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
 .info-grid{
   display:grid;
   gap:24px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-}
-.desktop-only{ display:block; }
-
-@media (max-width:768px){
-  .desktop-only{ display:none !important; }
+  grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));
 }
 
+@media (max-width:760px){
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+}
 /* ===== Trust Panel ===== */
 .trust-panel{
   background:linear-gradient(135deg,rgba(50,100,255,.12),rgba(255,140,219,.12));
@@ -515,11 +523,14 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   list-style:none !important;
   margin:0 !important;
   padding-left:0 !important;
-  font-size:16px; line-height:1.7;
+  font-size:16px;
+  line-height:1.7;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 .info-card ul li{
   list-style:none !important;
-  margin:4px 0;
+  margin:6px 0;
   padding-left:0 !important;
 }
 .info-card ul li::marker{ content:''; }
@@ -720,7 +731,13 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   font-weight:700;
 }
 
-.highlight{ background:rgba(255,247,0,.6); font-weight:700; padding:2px 0 2px 4px; border-radius:3px; }
+.highlight{
+  background:rgba(50,100,255,.10);
+  color:var(--primary-blue);
+  font-weight:800;
+  padding:2px 5px;
+  border-radius:6px;
+}
 
 /* ===== Shortlink notice ===== */
 .shortlink-card{
@@ -1232,7 +1249,7 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   }
   .header{ margin-top:24px; }
   .language-button{ padding:4px 8px; gap:5px; }
-  #lang-flag{ width:20px; height:20px; }
+  #lang-flag{ min-width:22px; height:18px; font-size:10px; }
   #lang-text{ font-size:14px; }
   .modal-content{ width:95%; max-height:85vh; padding:15px; overflow-y:auto; }
   .tab-button{ padding:12px; font-size:15px; }
