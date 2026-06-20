@@ -26,11 +26,11 @@
   const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
   const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
 
-  const DEFAULT_AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+  const DEFAULT_AFF_AFFIX = 'Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361';
   const AFFILIATE_AFFIX_MAP = {
     ko: {
-      desktop: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351',
-      mobile: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686'
+      desktop: 'Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361',
+      mobile: 'Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361'
     }
   };
 
@@ -52,12 +52,12 @@
   }
 
   const widgetSrcModal = {
-    ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
-    en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
-    th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
+    ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
+         flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" },
+    en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
+        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" },
+    th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
+        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" }
   };
 
   const langDetails = {
@@ -1190,7 +1190,7 @@
           essentialParams.set('lowpricesource','searchform');
           essentialParams.set('nonstoponly','off');
         } else {
-          const blacklist = ['gclid','msclkid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','Allianceid','SID','trip_sub1','trip_sub3'];
+          const blacklist = ['gclid','msclkid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','Allianceid','SID','promo_referer','trip_sub1','trip_sub3'];
           essentialParams = new URLSearchParams(originalParams);
           blacklist.forEach(p => essentialParams.delete(p));
         }
