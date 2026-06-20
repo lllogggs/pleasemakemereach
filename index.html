@@ -69,14 +69,7 @@
   </script>
 </head>
 
-<body class="maintenance-active">
-  <div class="maintenance-overlay" role="alert" aria-live="assertive">
-    <div class="maintenance-card">
-      <span class="maintenance-badge">🚧 사이트 임시 중단</span>
-      <h1>현재 점검 중입니다</h1>
-      <p>모든 서비스가 일시적으로 중단되었습니다. 빠르게 정상화하겠습니다.</p>
-    </div>
-  </div>
+<body>
   <div class="container">
     <header class="header">
       <div class="hero-surface">
@@ -94,10 +87,10 @@
           <h1 class="logo-title">
             <a class="logo-button" href="/" data-lang="mainTitle">🌐 트립닷닷</a>
           </h1>
-          <p class="hero-subtitle" data-lang="subtitle">트립닷컴 최저가 링크 찾기</p>
+          <p class="hero-subtitle" data-lang="subtitle">예약 최저가 링크 찾기</p>
         </div>
         <div class="hero-input input-section">
-          <input id="inputUrl" data-lang-placeholder placeholder="https://kr.trip.com/hotels/detail/~~" type="text"
+          <input id="inputUrl" data-lang-placeholder placeholder="https://booking.example/hotels/detail/~~" type="text"
             inputmode="url">
           <div class="input-actions">
             <button class="main-button" onclick="generateLinks()" data-lang="findButton">최저가 링크 찾기</button>
@@ -141,7 +134,7 @@
           </div>
         </div>
         <ul data-lang="card2List">
-          <li>1️⃣ 트립닷컴에서 상품 검색 후, <strong>링크를 복사</strong></li>
+          <li>1️⃣ 제휴 예약 사이트에서 상품 검색 후, <strong>링크를 복사</strong></li>
           <li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong></li>
           <li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>
         </ul>
@@ -151,7 +144,7 @@
         <div class="card-header">
           <h2 data-lang="card1Title">🌍 최저가 국가를 찾아보세요</h2>
         </div>
-        <p data-lang="card1Desc">트립닷컴은 <strong>국가별로 가격이 다를 수 있어요</strong><br><strong>트립닷닷</strong>으로 <span
+        <p data-lang="card1Desc">예약 사이트는 <strong>국가별로 가격이 다를 수 있어요</strong><br><strong>트립닷닷</strong>으로 <span
             class="highlight">가장 저렴하게 예약</span>하세요!</p>
       </section>
 
@@ -221,9 +214,9 @@
   </div>
 
   <!-- 가운데 토스트 -->
-  <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="트립닷컴 연결 안내">
+  <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="예약 사이트 연결 안내">
     <div class="redirect-box">
-      <div class="redirect-title" data-lang="redirecting">트립닷컴으로 이동합니다...</div>
+      <div class="redirect-title" data-lang="redirecting">제휴 예약 사이트로 이동합니다...</div>
       <div class="redirect-guide" data-lang="redirectGuide"></div>
     </div>
   </div>
@@ -279,10 +272,10 @@
         logo: "🌐 트립닷닷",
         title: "사용법",
         cta: "원하는 상품 찾기",
-        secondaryCta: "트립닷컴 링크가 있어요",
+        secondaryCta: "예약 링크가 있어요",
         closeLabel: "팝업 숨기기",
         steps: [
-          "Trip.com에서 <strong>원하는 호텔/항공 상품 선택</strong>",
+          "제휴 예약 사이트에서 <strong>원하는 호텔/항공 상품 선택</strong>",
           "해당 상품 주소창 <strong>링크 복사</strong>",
           "트립닷닷 입력창에 <strong>링크 붙여넣기</strong>",
           "‘<strong>최저가 링크 찾기</strong>’ 클릭"
@@ -292,10 +285,10 @@
         logo: "🌐 Tripdotdot",
         title: "วิธีใช้",
         cta: "원하는 상품 찾기",
-        secondaryCta: "트립닷컴 링크가 있어요",
+        secondaryCta: "예약 링크가 있어요",
         closeLabel: "ซ่อนป๊อปอัพ",
         steps: [
-          "ใน Trip.com <strong>เปิดหน้าโรงแรม/ตั๋วเครื่องบิน</strong>",
+          "ใน booking site <strong>เปิดหน้าโรงแรม/ตั๋วเครื่องบิน</strong>",
           "<strong>คัดลอกลิงก์ (URL)</strong> ของหน้านั้น",
           "ที่ Tripdotdot <strong>วางลิงก์</strong>",
           "กด “<strong>ค้นหาลิงก์ราคาต่ำสุด</strong>”"
@@ -305,10 +298,10 @@
         logo: "🌐 Tripdotdot",
         title: "How to use",
         cta: "원하는 상품 찾기",
-        secondaryCta: "트립닷컴 링크가 있어요",
+        secondaryCta: "예약 링크가 있어요",
         closeLabel: "Hide popup",
         steps: [
-          "On Trip.com, <strong>choose your hotel/flight</strong>",
+          "On booking site, <strong>choose your hotel/flight</strong>",
           "<strong>Copy the link</strong> from the address bar",
           "In Tripdotdot, <strong>paste the link</strong>",
           "Click “<strong>Find lowest price</strong>”"
@@ -323,11 +316,11 @@
       return "ko";
     }
 
-    const DEFAULT_AFF_AFFIX = "Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351";
+    const DEFAULT_AFF_AFFIX = "Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361";
     const AFFILIATE_AFFIX_MAP = {
       ko: {
-        desktop: "Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351",
-        mobile: "Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686"
+        desktop: "Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361",
+        mobile: "Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361"
       }
     };
     const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

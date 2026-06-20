@@ -60,14 +60,7 @@
   }
   </script>
 </head>
-<body class="maintenance-active">
-  <div class="maintenance-overlay" role="alert" aria-live="assertive">
-    <div class="maintenance-card">
-      <span class="maintenance-badge">🚧 Temporary Maintenance</span>
-      <h1>We&rsquo;re temporarily offline</h1>
-      <p>All services are paused while we perform maintenance. We&rsquo;ll be back soon.</p>
-    </div>
-  </div>
+<body>
   <div id="ad-guide-popup" style="display:none;">
     <div class="ad-guide-overlay"></div>
     <div class="ad-guide-box">
@@ -271,7 +264,7 @@
         cta: "원하는 상품 찾기",
         closeLabel: "팝업 숨기기",
         steps: [
-          "트립닷컴에서 <strong>원하는 호텔/항공 상품 선택</strong>",
+          "제휴 예약 사이트에서 <strong>원하는 호텔/항공 상품 선택</strong>",
           "해당 상품 주소창 <strong>링크 복사</strong>",
           "트립닷닷 입력창에 <strong>링크 붙여넣기</strong>",
           "‘<strong>최저가 링크 찾기</strong>’ 클릭"
@@ -283,7 +276,7 @@
         cta: "원하는 상품 찾기",
         closeLabel: "ซ่อนป๊อปอัพ",
         steps: [
-          "ใน ทริปดอทคอม <strong>เปิดหน้าโรงแรม/ตั๋วเครื่องบิน</strong>",
+          "ใน เว็บไซต์จองพันธมิตร <strong>เปิดหน้าโรงแรม/ตั๋วเครื่องบิน</strong>",
           "<strong>คัดลอกลิงก์ (URL)</strong> ของหน้านั้น",
           "ที่ Tripdotdot <strong>วางลิงก์</strong>",
           "กด “<strong>ค้นหาลิงก์ราคาต่ำสุด</strong>”"
@@ -293,7 +286,7 @@
         logo: "🌐 Tripdotdot",
         title: "How to use",
         cta: "원하는 상품 찾기",
-        secondaryCta: "트립닷컴 링크가 있어요",
+        secondaryCta: "예약 링크가 있어요",
         closeLabel: "Hide popup",
         steps: [
           "On a booking site, <strong>choose your hotel/flight</strong>",
@@ -311,11 +304,11 @@
       return "ko";
     }
 
-    const DEFAULT_AFF_AFFIX = "Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351";
+    const DEFAULT_AFF_AFFIX = "Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361";
     const AFFILIATE_AFFIX_MAP = {
       ko: {
-        desktop: "Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351",
-        mobile: "Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686"
+        desktop: "Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361",
+        mobile: "Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361"
       }
     };
     const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

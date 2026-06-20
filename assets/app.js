@@ -26,11 +26,11 @@
   const EXPAND_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
   const LOG_ENDPOINT    = 'https://script.google.com/macros/s/AKfycbybPrPuhvyYv58Efa9fWLZYIK9cjrQyAM-e2xh4cRC_X0vYlYhb5bgP4LMkDKbjwZHx/exec';
 
-  const DEFAULT_AFF_AFFIX = 'Allianceid=6624731&SID=225753893&trip_sub1=&trip_sub3=D4136351';
+  const DEFAULT_AFF_AFFIX = 'Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361';
   const AFFILIATE_AFFIX_MAP = {
     ko: {
-      desktop: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_pc&trip_sub3=D4136351',
-      mobile: 'Allianceid=6624731&SID=225753893&trip_sub1=kr_mobile&trip_sub3=D8377686'
+      desktop: 'Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361',
+      mobile: 'Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361'
     }
   };
 
@@ -52,12 +52,12 @@
   }
 
   const widgetSrcModal = {
-    ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-         flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
-    en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" },
-    th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=6624731&SID=225753893&trip_sub1=hotelsearch_b",
-        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=6624731&SID=225753893&trip_sub1=flightsearch_b" }
+    ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
+         flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" },
+    en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
+        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" },
+    th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
+        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" }
   };
 
   const langDetails = {
@@ -83,69 +83,69 @@
   ]);
   const FALLBACK_TEXT = {
     ko: {
-      shortlinkLabel: "Trip.com URL 안내",
+      shortlinkLabel: "예약 URL 안내",
       shortlinkTitle: "단축링크는 안 돼요",
       shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요.<br>검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">예약 사이트 열기</a></li>` +
         "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
         "<li>위 입력창에 붙여넣기</li></ol>" +
-        '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
+        '<p class=\"shortlink-card__example\">예: https://booking.example/hotels/... 또는 https://booking.example/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li>` +
+        `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">예약 사이트 열기</a></li>` +
         "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
         "<li>위 입력창에 붙여넣기</li></ol>" +
-        '<p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>',
-      shortlinkOpenFull: "Trip.com에서 다시 검색하기",
-        redirectingToSearch: "트립닷컴에서 검색합니다...",
+        '<p class=\"shortlink-card__example\">예: https://booking.example/hotels/... 또는 https://booking.example/flights/...</p>',
+      shortlinkOpenFull: "제휴 예약 사이트에서 다시 검색하기",
+        redirectingToSearch: "제휴 예약 사이트에서 검색합니다...",
         cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요",
    },
     en: {
-      shortlinkLabel: "Trip.com URL tips",
+      shortlinkLabel: "Booking URL tips",
       shortlinkTitle: "Short links aren’t supported",
-      shortlinkLead: "Tripdotdot can’t read shortened URLs. Please paste the <strong>full address-bar URL</strong> from your Trip.com search.",
+      shortlinkLead: "Tripdotdot can’t read shortened URLs. Please paste the <strong>full address-bar URL</strong> from your booking site search.",
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
+        `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open booking site</a></li>` +
         "<li>Search for the hotel/product you want</li>" +
         "<li>Copy the entire URL from the address bar</li>" +
         "<li>Paste it here to get country links</li></ol>" +
-        '<p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>',
+        '<p class=\"shortlink-card__example\">e.g., https://booking.example/hotels/... or https://booking.example/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open Trip.com website</a></li>` +
+        `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open booking site</a></li>` +
         "<li>Search for the hotel/product you want</li>" +
         "<li>Copy the entire URL from the address bar</li>" +
         "<li>Paste it here to get country links</li></ol>" +
-        '<p class=\"shortlink-card__example\">e.g., https://www.trip.com/hotels/... or https://www.trip.com/flights/...</p>',
-      shortlinkOpenFull: "Go to Trip.com and search again",
-        redirectingToSearch: "Searching on Trip.com...",
+        '<p class=\"shortlink-card__example\">e.g., https://booking.example/hotels/... or https://booking.example/flights/...</p>',
+      shortlinkOpenFull: "Go to the booking site and search again",
+        redirectingToSearch: "Searching on the booking site...",
         cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)",
    },
     th: {
-      shortlinkLabel: "เคล็ดลับ URL ของ Trip.com",
+      shortlinkLabel: "เคล็ดลับ URL การจอง",
       shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
-      shortlinkLead: "Tripdotdot อ่านลิงก์แบบย่อไม่ได้ กรุณาวาง<strong>URL แบบเต็มจากแถบที่อยู่</strong>หลังจากค้นหาบน Trip.com",
+      shortlinkLead: "Tripdotdot อ่านลิงก์แบบย่อไม่ได้ กรุณาวาง<strong>URL แบบเต็มจากแถบที่อยู่</strong>หลังจากค้นหาบนเว็บไซต์จอง",
       shortlinkSteps:
         `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li>` +
+        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์จอง</a></li>` +
         "<li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li>" +
         "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
         "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
-        '<p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>',
+        '<p class=\"shortlink-card__example\">เช่น https://booking.example/hotels/... หรือ https://booking.example/flights/...</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
-        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด Trip.com</a></li>` +
+        `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์จอง</a></li>` +
         "<li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li>" +
         "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
         "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
-        '<p class=\"shortlink-card__example\">เช่น https://www.trip.com/hotels/... หรือ https://www.trip.com/flights/...</p>',
+        '<p class=\"shortlink-card__example\">เช่น https://booking.example/hotels/... หรือ https://booking.example/flights/...</p>',
       shortlinkOpenFull: "เปิดลิงก์ย่อในเบราว์เซอร์",
-        redirectingToSearch: "กำลังค้นหาบน Trip.com...",
+        redirectingToSearch: "กำลังค้นหาบนเว็บไซต์จอง...",
         cityNameIdNotFound: "ไม่พบรหัสเมืองสำหรับคำค้นหา (โปรดค้นหาด้วยชื่อเมืองที่มีใน City ID Map)",
    }
   };
@@ -164,7 +164,7 @@
     ru:'RUB', ar:'SAR'
   };
 
-  // Trip.com 국가 도메인 리스트 (태국 flag 포함)
+  // booking site 국가 도메인 리스트 (태국 flag 포함)
   const domains = [
     { ko:'한국',     en:'Korea',        ja:'韓国',      th:'เกาหลี',        code:'kr', flag:'kr' },
     { ko:'미국',     en:'USA',          ja:'アメリカ',  th:'สหรัฐฯ',        code:'us', flag:'us' },
@@ -573,8 +573,8 @@
     const head = document.head;
     const origins = [
       'https://flagcdn.com',
-      'https://www.trip.com',
-      'https://kr.trip.com',
+      'https://booking.example',
+      'https://booking.example',
       'https://www.googletagmanager.com',
       'https://www.clarity.ms'
     ];
@@ -779,7 +779,7 @@
 
     const eyebrow = document.createElement('div');
     eyebrow.className = 'shortlink-card__eyebrow';
-    eyebrow.textContent = TL('shortlinkLabel') || 'Trip.com URL tips';
+    eyebrow.textContent = TL('shortlinkLabel') || 'Booking URL tips';
     card.appendChild(eyebrow);
 
     const header = document.createElement('div');
@@ -840,9 +840,9 @@
     const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
     renderRedirectGuideCard(container, getAffiliateHomeUrl(), {
       icon: '🚫',
-      titleText: T.unsupportedDomainTitle || 'Trip.com links only',
+      titleText: T.unsupportedDomainTitle || 'Supported booking links only',
       guideHtml: T.unsupportedDomainBody || '',
-      ctaLabel: T.unsupportedDomainCta || TL('searchModeCta') || 'Open Trip.com',
+      ctaLabel: T.unsupportedDomainCta || TL('searchModeCta') || 'Open booking site',
       className: 'redirect-guide-card--unsupported',
       showCta: false,
     });
@@ -856,7 +856,7 @@
 
       const logic = document.createElement('p');
       logic.className = 'redirect-guide-card__note unsupported-domain__logic';
-      logic.innerHTML = T.unsupportedDomainLogic || 'We only convert trip.com and subdomains (e.g., kr.trip.com, www.trip.com).';
+      logic.innerHTML = T.unsupportedDomainLogic || 'We only convert supported booking domains (e.g., booking.example, booking.example).';
       noteWrap.appendChild(logic);
 
       if (rawUrl) {
@@ -891,7 +891,7 @@
       tripBtn.href = getAffiliateHomeUrl();
       tripBtn.target = '_blank';
       tripBtn.rel = 'noopener noreferrer';
-      tripBtn.textContent = T.unsupportedDomainCta || TL('searchModeCta') || 'Open Trip.com';
+      tripBtn.textContent = T.unsupportedDomainCta || TL('searchModeCta') || 'Open booking site';
       actions.appendChild(tripBtn);
 
       card.appendChild(actions);
@@ -1143,7 +1143,7 @@
           const cityName = (entry && entry.city) ? entry.city : ac; // 실패시 IATA 그대로
           const checkin  = ymdToSlash(ddate);
           const checkout = ymdToSlash(rdate);
-          const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
+          const host = (currentLang === 'ko') ? 'booking.example' : 'booking.example';
           // 항공편에서 호텔 검색 CTA를 위한 URL 생성 (여기서는 cityId가 없으므로 null 처리)
           const hotelUrl = buildHotelSearchUrl(host, null, cityName, checkin, checkout, baseCurr); // null 처리
           // ... (나머지 CTA 로직)
@@ -1190,7 +1190,7 @@
           essentialParams.set('lowpricesource','searchform');
           essentialParams.set('nonstoponly','off');
         } else {
-          const blacklist = ['gclid','msclkid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','Allianceid','SID','trip_sub1','trip_sub3'];
+          const blacklist = ['gclid','msclkid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','Allianceid','SID','promo_referer','trip_sub1','trip_sub3'];
           essentialParams = new URLSearchParams(originalParams);
           blacklist.forEach(p => essentialParams.delete(p));
         }
@@ -1329,10 +1329,10 @@
   // ===== 검색 전용 ‘상단 한 줄 소개’(시각 비노출) =====
   function injectMetaIntro(){
     const INTRO = {
-      ko: '트립닷컴 국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능',
-      en: 'Trip.com country-specific discount links | Save more and travel now | Compare the lowest prices across up to 21 country sites',
-      ja: 'Trip.com 国別割引コード適用リンク｜お得に旅へ｜最大21か国サイトで最安値を比較',
-      th: 'ลิงก์ส่วนลด Trip.com แยกตามประเทศ | ประหยัดทันที | เปรียบเทียบราคาถูกสุดได้สูงสุด 21 ประเทศ'
+      ko: '국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능',
+      en: 'booking site country-specific discount links | Save more and travel now | Compare the lowest prices across up to 21 country sites',
+      ja: 'booking site 国別割引コード適用リンク｜お得に旅へ｜最大21か国サイトで最安値を比較',
+      th: 'ลิงก์ส่วนลด booking site แยกตามประเทศ | ประหยัดทันที | เปรียบเทียบราคาถูกสุดได้สูงสุด 21 ประเทศ'
     };
     const txt = INTRO[currentLang];
     if (!txt) return;
