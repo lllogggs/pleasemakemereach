@@ -156,13 +156,36 @@
   };
 
   // 페이지 언어 → 기본 통화 맵(확장)
-  const languageToCurrencyMap = {
+  const languageToCurrencyMap = {
     ko:'KRW', en:'USD', th:'THB',
     es:'EUR', fr:'EUR', de:'EUR', nl:'EUR', pt:'EUR',
     it:'EUR', pl:'EUR', sv:'EUR', fi:'EUR', da:'EUR',
     vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR',
     ru:'RUB', ar:'SAR'
   };
+
+  const AGODA_AFFILIATE_CID = '1941957';
+  const AGODA_AFFILIATE_PCS = '1';
+  const agodaMarkets = [
+    { ko:'한국', en:'Korea', th:'เกาหลี', locale:'ko-kr', country:'KR', currency:'KRW', flag:'kr' },
+    { ko:'미국', en:'USA', th:'สหรัฐฯ', locale:'en-us', country:'US', currency:'USD', flag:'us' },
+    { ko:'일본', en:'Japan', th:'ญี่ปุ่น', locale:'ja-jp', country:'JP', currency:'JPY', flag:'jp' },
+    { ko:'태국', en:'Thailand', th:'ไทย', locale:'th-th', country:'TH', currency:'THB', flag:'th' },
+    { ko:'싱가포르', en:'Singapore', th:'สิงคโปร์', locale:'en-sg', country:'SG', currency:'SGD', flag:'sg' },
+    { ko:'말레이시아', en:'Malaysia', th:'มาเลเซีย', locale:'ms-my', country:'MY', currency:'MYR', flag:'my' },
+    { ko:'인도네시아', en:'Indonesia', th:'อินโดนีเซีย', locale:'id-id', country:'ID', currency:'IDR', flag:'id' },
+    { ko:'대만', en:'Taiwan', th:'ไต้หวัน', locale:'zh-tw', country:'TW', currency:'TWD', flag:'tw' },
+    { ko:'홍콩', en:'Hong Kong', th:'ฮ่องกง', locale:'zh-hk', country:'HK', currency:'HKD', flag:'hk' },
+    { ko:'호주', en:'Australia', th:'ออสเตรเลีย', locale:'en-au', country:'AU', currency:'AUD', flag:'au' },
+    { ko:'영국', en:'U.K.', th:'สหราชอาณาจักร', locale:'en-gb', country:'GB', currency:'GBP', flag:'gb' },
+    { ko:'베트남', en:'Vietnam', th:'เวียดนาม', locale:'vi-vn', country:'VN', currency:'VND', flag:'vn' },
+    { ko:'필리핀', en:'Philippines', th:'ฟิลิปปินส์', locale:'en-ph', country:'PH', currency:'PHP', flag:'ph' },
+    { ko:'인도', en:'India', th:'อินเดีย', locale:'en-in', country:'IN', currency:'INR', flag:'in' },
+    { ko:'캐나다', en:'Canada', th:'แคนาดา', locale:'en-ca', country:'CA', currency:'CAD', flag:'ca' },
+    { ko:'프랑스', en:'France', th:'ฝรั่งเศส', locale:'fr-fr', country:'FR', currency:'EUR', flag:'fr' },
+    { ko:'독일', en:'Germany', th:'เยอรมนี', locale:'de-de', country:'DE', currency:'EUR', flag:'de' },
+    { ko:'스페인', en:'Spain', th:'สเปน', locale:'es-es', country:'ES', currency:'EUR', flag:'es' }
+  ];
 
   // booking site 국가 도메인 리스트 (태국 flag 포함)
   const domains = [
@@ -655,6 +678,100 @@
     }
   }
 
+  function isAgodaDomain(raw){
+    if (!raw) return false;
+    try {
+      const url = new URL(raw.startsWith('http') ? raw : `https://${raw}`);
+      const host = url.hostname.replace(/^www\./,'');
+      return host === 'agoda.com' || host.endsWith('.agoda.com');
+    } catch (_){
+      return false;
+    }
+  }
+
+  function withAgodaLocalePath(pathname, locale){
+    const cleanPath = (pathname || '/').replace(/^\/[a-z]{2}(?:-[a-z]{2})?(?=\/|$)/i, '') || '/';
+    if (/^\/(?:partners|affiliate)(?:\/|$)/i.test(cleanPath)) return cleanPath;
+    if (cleanPath === '/') return `/${locale}/`;
+    return `/${locale}${cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`}`;
+  }
+
+  function buildAgodaMarketUrl(raw, market){
+    const u = new URL(raw.startsWith('http') ? raw : `https://${raw}`);
+    u.protocol = 'https:';
+    u.hostname = 'www.agoda.com';
+    u.pathname = withAgodaLocalePath(u.pathname, market.locale);
+
+    const p = u.searchParams;
+    [
+      'currencyId',
+      'languageId',
+      'realLanguageId',
+      'storefrontId',
+      'trafficGroupId',
+      'trafficSubGroupId'
+    ].forEach(k => p.delete(k));
+
+    p.set('currency', market.currency);
+    p.set('currencyCode', market.currency);
+    p.set('priceCur', market.currency);
+    p.set('locale', market.locale);
+    p.set('hl', market.locale);
+    p.set('htmlLanguage', market.locale);
+    p.set('cultureInfoName', market.locale);
+    p.set('origin', market.country);
+
+    if (AGODA_AFFILIATE_CID) {
+      p.set('cid', AGODA_AFFILIATE_CID);
+      p.set('pcs', AGODA_AFFILIATE_PCS);
+    }
+
+    return u.toString();
+  }
+
+  function sortAgodaMarketsForCurrentLang(){
+    const preferred = currentLang === 'ko' ? 'KR' : currentLang === 'th' ? 'TH' : 'US';
+    const market = agodaMarkets.find(m => m.country === preferred);
+    return market ? [market, ...agodaMarkets.filter(m => m.country !== preferred)] : [...agodaMarkets];
+  }
+
+  function renderAgodaCountryCurrencyLinks(rawUrl, container){
+    const T = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) || {};
+    container.innerHTML = '';
+
+    const title = document.createElement('p');
+    title.className = 'results-title';
+    title.innerHTML = T.agodaResultsTitle || 'Agoda country and currency links';
+    container.appendChild(title);
+
+    const note = document.createElement('p');
+    note.className = 'agoda-results-note';
+    note.textContent = T.agodaResultsLead || 'Open the same Agoda stay with different country and currency settings, then compare the final checkout price.';
+    container.appendChild(note);
+
+    const grid = document.createElement('div');
+    grid.className = 'link-list-grid agoda-link-grid';
+
+    sortAgodaMarketsForCurrentLang().forEach(market => {
+      const label = market[currentLang] || market.en;
+      const a = document.createElement('a');
+      a.href = buildAgodaMarketUrl(rawUrl, market);
+      a.target = '_blank';
+      a.rel = 'noopener nofollow sponsored';
+      a.addEventListener('click', () => {
+        countryClickCount++;
+        a.classList.toggle('clicked');
+      });
+
+      const imgHtml = `<img class="flag" src="https://flagcdn.com/h40/${market.flag}.png"
+        alt="${label} flag" width="24" height="16" loading="lazy" decoding="async">`;
+      a.innerHTML = `${imgHtml}<span class="agoda-market-label"><strong>${label}</strong><small>${market.currency}</small></span>`;
+      grid.appendChild(a);
+    });
+
+    container.appendChild(grid);
+  }
+
   // ===== /w/ 포함 "풀링크" 정규화: /w/ 제거 또는 target/url/redirect 추출 =====
   function normalizeTripShortUrl(raw){
     try{
@@ -1047,7 +1164,8 @@
     let category = 'Other';
      const isUrl = isLikelyUrl(input);
      if (isUrl) {
-       if (input.includes('/hotels/')) category = 'Hotel';
+      if (lowerInput.includes('agoda.com')) category = 'Agoda';
+       else if (input.includes('/hotels/')) category = 'Hotel';
       else if (input.includes('/flights/')) category = 'Flight';
       else if (input.includes('/packages/')) category = 'Package';
       else if (input.includes('/things-to-do/')) category = 'Activity';
@@ -1091,6 +1209,17 @@
     }
 
     const isTrip = isTripDomain(input);
+    const isAgoda = isAgodaDomain(input);
+
+    if (isUrl && isAgoda) {
+      try {
+        await addHistoryFromUrl(input, new URL(input.startsWith('http') ? input : `https://${input}`), 'Agoda');
+      } catch (_) {}
+      renderAgodaCountryCurrencyLinks(input, resultsDiv);
+      if (currentLang === 'ko') resultsDiv.appendChild(createKakaoButton());
+      hardenExternalLinks();
+      return;
+    }
 
     if (isUrl && !isTrip) {
       renderUnsupportedDomainCard(input, resultsDiv);
@@ -1356,10 +1485,15 @@
         if (!isExternal) return;
         const relSet = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
         relSet.add('noopener'); relSet.add('noreferrer');
-        if (u.hostname === 'trip.com' || /\.trip\.com$/.test(u.hostname)) {
-          relSet.add('sponsored');
-          relSet.add('nofollow');
-          relSet.delete('noreferrer'); // 제휴 추적 유지
+        if (
+          u.hostname === 'trip.com' ||
+          /\.trip\.com$/.test(u.hostname) ||
+          u.hostname === 'agoda.com' ||
+          /\.agoda\.com$/.test(u.hostname)
+        ) {
+          relSet.add('sponsored');
+          relSet.add('nofollow');
+          relSet.delete('noreferrer'); // 제휴 추적 유지
         }
         a.setAttribute('rel', Array.from(relSet).join(' '));
       }catch(_){}

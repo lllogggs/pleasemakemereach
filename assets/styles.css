@@ -672,6 +672,53 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
 .link-list-grid a.clicked{ background:var(--light-blue); border-color:var(--primary-blue); font-weight:700; }
 .flag{ width:24px; height:16px; object-fit:cover; border-radius:3px; flex-shrink:0; }
 .link-list-grid a .flag{ box-shadow:0 0 0 1px rgba(0,0,0,.06); }
+.external-link-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:11px 16px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--primary-blue),#4f8df7);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 14px 24px rgba(50,100,255,.2);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.external-link-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 18px 32px rgba(50,100,255,.24);
+}
+.agoda-results-note{
+  max-width:680px;
+  margin:-4px auto 16px;
+  color:var(--text-secondary);
+  font-size:14px;
+  line-height:1.65;
+  text-align:center;
+}
+.agoda-link-grid a{
+  min-height:58px;
+  align-items:center;
+}
+.agoda-market-label{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  line-height:1.2;
+}
+.agoda-market-label strong{
+  color:var(--text-primary);
+  font-size:14px;
+}
+.agoda-market-label small{
+  color:var(--text-secondary);
+  font-size:12px;
+  font-weight:700;
+}
 
 .highlight{ background:rgba(255,247,0,.6); font-weight:700; padding:2px 0 2px 4px; border-radius:3px; }
 
