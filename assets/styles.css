@@ -18,12 +18,6 @@
   --clear-x-nudge:-2px;          /* 음수=위로, 양수=아래로 */
   --clear-x-color:#aeb6c4;       /* 기본 색(연한 회색) */
   --clear-x-color-hover:#9aa3b2; /* 호버 색 */
-
-  /* 외부 링크 컴팩트 버튼 사이즈 */
-  --ext-compact-fs:13px;
-  --ext-compact-pad-y:8px;
-  --ext-compact-pad-x:10px;
-  --ext-compact-icon:14px;
 }
 
 /* 시스템/이모지 폴백 */
@@ -361,17 +355,6 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   letter-spacing:.1px;
 }
 
-/* ===== External links ===== */
-.external-links{ display:flex; gap:8px; }
-
-/* 기본: 파란 버튼 */
-.external-link-btn{
-  display:inline-flex; align-items:center; gap:5px; padding:10px 14px; border-radius:8px;
-  text-decoration:none; font-size:14px; font-weight:600; color:#fff; transition:.2s;
-  background:var(--primary-blue); border:1px solid transparent;
-}
-.external-link-btn:hover{ opacity:.95; background:var(--primary-blue-hover); }
-
 /* ===== Hero Surface ===== */
 .hero-surface{
   position:relative;
@@ -527,54 +510,6 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   .language-button{ padding:5px 10px; }
   .language-button #lang-text{ font-size:14px; }
 }
-.external-link-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--light-blue); }
-
-/* 플랫폼 전용 색상 유지 */
-.external-link-btn svg{ width:16px; height:16px; fill:#fff; display:block; flex-shrink:0; }
-.external-link-btn.youtube{ background:#FF0000; }
-.external-link-btn.naver{ background:#03C75A; }
-
-/* (권장) 모디파이어로 컴팩트 사이즈 */
-.external-link-btn--compact{
-  font-size:var(--ext-compact-fs);
-  padding:var(--ext-compact-pad-y) var(--ext-compact-pad-x);
-  border-radius:7px;
-  gap:6px;
-  line-height:1;
-}
-.external-link-btn--compact svg{
-  width:var(--ext-compact-icon);
-  height:var(--ext-compact-icon);
-}
-
-/* (대안) HTML 수정이 어려우면 플랫폼 클래스로 직접 축소 */
-.external-link-btn.youtube,
-.external-link-btn.naver{
-  font-size:var(--ext-compact-fs);
-  padding:var(--ext-compact-pad-y) var(--ext-compact-pad-x);
-  border-radius:7px;
-  gap:6px;
-  line-height:1;
-}
-.external-link-btn.youtube svg,
-.external-link-btn.naver svg{
-  width:var(--ext-compact-icon);
-  height:var(--ext-compact-icon);
-}
-
-/* [추가] 아이콘 크기 조정: 유튜브(삼각형)는 줄이고, 네이버(네모)는 키워서 시각적 균형 확보 */
-/* 1. 유튜브 아이콘(▶) 크기 조정: 인라인 스타일(16px)을 14px로 강제 조정 (줄임) */
-.external-link-btn.youtube span[aria-hidden="true"] {
-  font-size: 14px !important; 
-  line-height: 1 !important;
-}
-
-/* 2. 네이버 아이콘(■) 크기 조정: SVG 크기를 16px로 강제 조정 (키움) */
-.external-link-btn.naver svg {
-  width: 16px !important; 
-  height: 16px !important; 
-}
-
 /* ===== LIST: 점 제거 + 들여쓰기 제거 ===== */
 .info-card ul{
   list-style:none !important;
@@ -1262,13 +1197,5 @@ html:lang(ja) .secondary-button{ font-size:14px; padding:13px 14px; }
   .clear-btn svg{
     width:20px; height:20px;
     transform:translateY(calc(var(--clear-x-nudge) / 2));
-  }
-
-  /* 모바일에서 외부 버튼 더 살짝 축소(선택) */
-  :root{
-    --ext-compact-fs:12.5px;
-    --ext-compact-pad-y:7px;
-    --ext-compact-pad-x:9px;
-    --ext-compact-icon:13px;
   }
 }
