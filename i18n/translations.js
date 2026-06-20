@@ -141,9 +141,9 @@ window.TRANSLATIONS = {
     shortlinkLabel: "예약 URL 안내",
     shortlinkTitle: "단축링크는 안 돼요",
     shortlinkLead: "트립닷닷은 <strong>단축 링크</strong>를 인식할 수 없어요.<br>검색 후 생성된 <strong>전체 주소(URL)</strong>를 그대로 붙여주세요.",
-    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">예약 사이트 열기</a></li><li>원하는 숙소/상품을 검색</li><li>주소창의 전체 URL을 복사</li><li>위 입력창에 붙여넣기</li></ol><p class=\"shortlink-card__example\">예: https://booking.example/hotels/... 또는 https://booking.example/flights/...</p>`,
-    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">예약 사이트 열기</a></li><li>원하는 숙소/상품을 검색</li><li>주소창의 전체 URL을 복사</li><li>위 입력창에 붙여넣기</li></ol><p class=\"shortlink-card__example\">예: https://booking.example/hotels/... 또는 https://booking.example/flights/...</p>`,
-    shortlinkOpenFull: "제휴 예약 사이트에서 다시 검색하기"
+    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li><li>원하는 숙소/상품을 검색</li><li>주소창의 전체 URL을 복사</li><li>위 입력창에 붙여넣기</li></ol><p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>`,
+    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://kr.trip.com/?curr=KRW&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">Trip.com 웹사이트 열기</a></li><li>원하는 숙소/상품을 검색</li><li>주소창의 전체 URL을 복사</li><li>위 입력창에 붙여넣기</li></ol><p class=\"shortlink-card__example\">예: https://kr.trip.com/hotels/... 또는 https://kr.trip.com/flights/...</p>`,
+    shortlinkOpenFull: "Trip.com에서 다시 검색하기"
   },
 
   th: {
@@ -213,9 +213,9 @@ window.TRANSLATIONS = {
     /* Shortlink (/w/) guidance */
     shortlinkLabel: "เคล็ดลับ URL ของ เว็บไซต์จองพันธมิตร",
     shortlinkTitle: "ไม่รองรับลิงก์แบบย่อ",
-    shortlinkLead: "Tripdotdot อ่านลิงก์แบบย่อไม่ได้ กรุณาวาง<strong>URL แบบเต็มจากแถบที่อยู่</strong>หลังจากค้นหาบน เว็บไซต์จองพันธมิตร",
-    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด เว็บไซต์จองพันธมิตร</a></li><li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li><li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol><p class=\"shortlink-card__example\">เช่น https://booking.example/hotels/... หรือ https://booking.example/flights/...</p>`,
-    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด เว็บไซต์จองพันธมิตร</a></li><li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li><li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol><p class=\"shortlink-card__example\">เช่น https://booking.example/hotels/... หรือ https://booking.example/flights/...</p>`,
+    shortlinkLead: "Tripdotdot อ่านลิงก์แบบย่อไม่ได้ กรุณาวาง<strong>URL แบบเต็มจากแถบที่อยู่</strong>หลังจากค้นหาบน ทริปดอทคอม",
+    shortlinkSteps: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด ทริปดอทคอม</a></li><li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li><li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol><p class=\"shortlink-card__example\">เช่น https://ทริปดอทคอม/hotels/... หรือ https://ทริปดอทคอม/flights/...</p>`,
+    shortlinkBody: `<ol class=\"shortlink-steps\"><li><a href=\"https://www.trip.com/?curr=THB&Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=&trip_sub3=D18139361\" target=\"_blank\" rel=\"noopener noreferrer\">เปิด ทริปดอทคอม</a></li><li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li><li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li><li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol><p class=\"shortlink-card__example\">เช่น https://ทริปดอทคอม/hotels/... หรือ https://ทริปดอทคอม/flights/...</p>`,
     shortlinkOpenFull: "เปิดลิงก์ย่อเพื่อดู URL เต็ม"
   }
 };
