@@ -1076,14 +1076,6 @@
     "lon": -62.9803,
     "source": "ourairports"
   },
-  "jni": {
-    "city": "(Duplicate)SAAJ",
-    "airport": "(Duplicate)SAAJ",
-    "country": "AR",
-    "lat": -34.548139,
-    "lon": -60.930519,
-    "source": "ourairports"
-  },
   "arp": {
     "city": "Aragip",
     "airport": "Aragip Airport",
@@ -28576,10 +28568,10 @@
   "mnz": {
     "city": "Manassas",
     "municipality": "Manassas",
-    "airport": "Manassas Regional Airport/Harry P. Davis Field",
+    "airport": "Washington Manassas Harry P. Davis Field",
     "country": "US",
-    "lat": 38.721401,
-    "lon": -77.515404,
+    "lat": 38.723021,
+    "lon": -77.515422,
     "source": "ourairports"
   },
   "hez": {
@@ -30180,8 +30172,8 @@
     "municipality": "Yuma Proving Ground(Yuma)",
     "airport": "Laguna Army Airfield",
     "country": "US",
-    "lat": 32.86000061,
-    "lon": -114.3970032,
+    "lat": 32.860794,
+    "lon": -114.39615,
     "source": "ourairports"
   },
   "lgu": {
@@ -32374,7 +32366,7 @@
   "oak": {
     "city": "Oakland",
     "municipality": "Oakland",
-    "airport": "San Francisco Bay Oakland International Airport",
+    "airport": "Oakland San Francisco Bay Airport",
     "country": "US",
     "lat": 37.720085,
     "lon": -122.221184,
@@ -34995,8 +34987,8 @@
     "municipality": "Shreveport",
     "airport": "Shreveport Regional Airport",
     "country": "US",
-    "lat": 32.446602,
-    "lon": -93.8256,
+    "lat": 32.444747,
+    "lon": -93.826741,
     "source": "ourairports"
   },
   "sik": {
