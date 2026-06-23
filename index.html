@@ -24,8 +24,6 @@
   <!-- canonical / hreflang -->
   <link rel="canonical" href="https://tripdotdot.com/">
   <link rel="alternate" href="https://tripdotdot.com/" hreflang="ko">
-  <link rel="alternate" href="https://tripdotdot.com/en/" hreflang="en">
-  <link rel="alternate" href="https://tripdotdot.com/th/" hreflang="th">
   <link rel="alternate" href="https://tripdotdot.com/" hreflang="x-default">
 
   <!-- SEO -->
@@ -44,8 +42,6 @@
   <meta property="og:url" content="https://tripdotdot.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:locale:alternate" content="th_TH">
 
   <!-- Icons / CSS -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -73,16 +69,6 @@
   <div class="container">
     <header class="header">
       <div class="hero-surface">
-        <div class="language-selector">
-          <button id="language-button" class="language-button" aria-haspopup="true" aria-expanded="false">
-            <span id="lang-flag" class="lang-flag-emoji" aria-hidden="true"></span>
-            <span id="lang-text"></span>
-            <span class="dropdown-arrow">▼</span>
-          </button>
-          <div id="language-dropdown" class="language-dropdown" role="menu">
-          </div>
-        </div>
-
         <div class="hero-copy">
           <h1 class="logo-title">
             <a class="logo-button" href="/" data-lang="mainTitle">🌐 트립닷닷</a>
@@ -291,9 +277,6 @@
     };
 
     function getCurrentLang() {
-      const p = location.pathname;
-      if (p.startsWith("/th/")) return "th";
-      if (p.startsWith("/en/")) return "en";
       return "ko";
     }
 

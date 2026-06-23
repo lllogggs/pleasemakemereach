@@ -4,9 +4,7 @@
 
   // ===== 라우트(언어 드롭다운 동적 생성) =====
   const LANG_ROUTES = [
-    { code: 'ko', label: '한국어',  path: '/',     flagEmoji: 'KR' },
-    { code: 'en', label: 'English', path: '/en/',  flagEmoji: 'EN' },
-    { code: 'th', label: 'ภาษาไทย', path: '/th/',  flagEmoji: 'TH' }
+    { code: 'ko', label: '한국어',  path: '/',     flagEmoji: 'KR' }
   ];
   function pathForLang(code){
     const r = LANG_ROUTES.find(x => x.code === code);
@@ -44,35 +42,23 @@
 
 
   function getAffiliateHomeUrl(lang = currentLang) {
-    const base =
-      (lang === 'ko') ? 'https://kr.trip.com/?curr=KRW' :
-      (lang === 'th') ? 'https://www.trip.com/?curr=THB' :
-                        'https://www.trip.com/?curr=USD';
+    const base = 'https://kr.trip.com/?curr=KRW';
     return appendAffiliate(base, lang);
   }
 
   const widgetSrcModal = {
     ko:{ hotel:"https://kr.trip.com/partners/ad/S4477545?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
-         flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" },
-    en:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
-        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" },
-    th:{ hotel:"https://www.trip.com/partners/ad/S4479596?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=hotelsearch_b",
-        flight:"https://www.trip.com/partners/ad/S4479617?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" }
+         flight:"https://kr.trip.com/partners/ad/S4477048?Allianceid=8792540&SID=320640825&promo_referer=4084_9836_1&trip_sub1=flightsearch_b" }
   };
 
   const langDetails = {
-    ko:{ flagEmoji:'KR', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' },
-    en:{ flagEmoji:'EN', text:'English', privacy:'/privacy_en.html', code:'EN' },
-    th:{ flagEmoji:'TH', text:'ภาษาไทย', privacy:'/privacy_en.html', code:'TH' } // 임시 EN 정책
+    ko:{ flagEmoji:'KR', text:'한국어',  privacy:'/privacy_ko.html', code:'KR' }
   };
 
   // ===== 언어 판별 & 적용 =====
   let currentLang = window.PAGE_LANG || detectLangByPath();
 
   function detectLangByPath(){
-    const seg = (location.pathname.split('/')[1] || '').toLowerCase();
-    if (seg === 'en') return 'en';
-    if (seg === 'th') return 'th';
     return 'ko';
   }
 
@@ -157,11 +143,7 @@
 
   // 페이지 언어 → 기본 통화 맵(확장)
   const languageToCurrencyMap = {
-    ko:'KRW', en:'USD', th:'THB',
-    es:'EUR', fr:'EUR', de:'EUR', nl:'EUR', pt:'EUR',
-    it:'EUR', pl:'EUR', sv:'EUR', fi:'EUR', da:'EUR',
-    vi:'VND', id:'IDR', ms:'MYR', zh:'TWD', hi:'INR',
-    ru:'RUB', ar:'SAR'
+    ko:'KRW'
   };
 
   const AGODA_AFFILIATE_CID = '1941957';
