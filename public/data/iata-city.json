@@ -33122,7 +33122,7 @@
   "pbi": {
     "city": "West Palm Beach",
     "municipality": "West Palm Beach",
-    "airport": "Palm Beach International Airport",
+    "airport": "President Donald J. Trump International Airport",
     "country": "US",
     "lat": 26.683201,
     "lon": -80.095596,
@@ -35835,6 +35835,15 @@
     "country": "US",
     "lat": 28.514799118042,
     "lon": -80.799201965332,
+    "source": "ourairports"
+  },
+  "dtx": {
+    "city": "Dallas",
+    "municipality": "Dallas",
+    "airport": "McKinney National Airport",
+    "country": "US",
+    "lat": 33.177898,
+    "lon": -96.5905,
     "source": "ourairports"
   },
   "knt": {
@@ -54139,8 +54148,8 @@
     "municipality": "El Calafate",
     "airport": "El Calafate - Commander Armando Tola International Airport",
     "country": "AR",
-    "lat": -50.281997,
-    "lon": -72.053949,
+    "lat": -50.280267,
+    "lon": -72.053401,
     "source": "ourairports"
   },
   "pud": {
@@ -74590,6 +74599,15 @@
     "country": "AU",
     "lat": -31.550645,
     "lon": 147.202973,
+    "source": "ourairports"
+  },
+  "oba": {
+    "city": "Oban",
+    "municipality": "Oban",
+    "airport": "Oban Airport",
+    "country": "AU",
+    "lat": -21.234797,
+    "lon": 139.033231,
     "source": "ourairports"
   },
   "opi": {
