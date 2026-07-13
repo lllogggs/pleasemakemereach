@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>트립닷닷 | 항공, 숙박 최저가 예약</title>
+  <title>해외 예약 사이트 국가별 가격 비교 링크 | 트립닷닷</title>
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NKHHET1CP"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17711709260"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments) }; gtag('js', new Date()); gtag('config', 'G-7NKHHET1CP'); gtag('config', 'AW-17711709260');</script>
 
   <!-- Event snippet for 외부 클릭 conversion page -->
@@ -23,70 +22,258 @@
 
   <!-- canonical / hreflang -->
   <link rel="canonical" href="https://tripdotdot.com/">
-  <link rel="alternate" href="https://tripdotdot.com/" hreflang="ko">
+  <link rel="alternate" href="https://tripdotdot.com/" hreflang="ko-KR">
   <link rel="alternate" href="https://tripdotdot.com/" hreflang="x-default">
 
   <!-- SEO -->
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta name="author" content="tripdotdot">
-  <meta name="keywords"
-    content="트립닷닷, 트립닷컴 할인, 트립닷컴 최저가, Trip.com, 호텔, 항공권, 가격비교, 트립닷컴 할인코드, 트립닷컴 싸게 예약, 트립닷컴 링크생성기, 트립닷컴 할인코드, 트립닷컴 할인코드 9월, 트립닷컴 9월 할인코드, 트립닷컴 할인코드 10월, 트립닷컴 10월 할인코드">
-  <meta name="description" content="트립닷컴 국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="author" content="트립닷닷">
+  <meta name="description" content="지원되는 해외 예약 사이트의 호텔·항공권 URL을 국가·통화별 비교 링크로 변환하세요. 세금·수수료가 포함된 결제 직전 총액을 직접 비교할 수 있는 무료 도구입니다.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="트립닷닷 | 항공, 숙박 최저가 예약">
+  <meta property="og:title" content="해외 예약 사이트 국가별 가격 비교 링크 | 트립닷닷">
   <meta property="og:site_name" content="트립닷닷">
-  <meta property="og:description" content="트립닷컴 국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능">
+  <meta property="og:description" content="호텔·항공권 예약 URL을 국가·통화별 비교 링크로 바꾸고 결제 직전 최종 금액을 직접 비교하세요.">
   <meta property="og:image" content="https://tripdotdot.com/thumbnail.jpg">
+  <meta property="og:image:secure_url" content="https://tripdotdot.com/thumbnail.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="트립닷닷 국가별 가격 비교 링크 도구 화면">
   <meta property="og:url" content="https://tripdotdot.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
 
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="해외 예약 사이트 국가별 가격 비교 링크 | 트립닷닷">
+  <meta name="twitter:description" content="예약 URL을 국가·통화별 비교 링크로 바꾸고 결제 직전 총액을 직접 비교하세요.">
+  <meta name="twitter:image" content="https://tripdotdot.com/thumbnail.jpg">
+  <meta name="twitter:image:alt" content="트립닷닷 국가별 가격 비교 링크 도구 화면">
+
   <!-- Icons / CSS -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/styles.css">
 
-  <!-- JSON-LD (WebSite + SearchAction) -->
+  <!-- JSON-LD: visible page content and service facts only -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "트립닷닷(Tripdotdot)",
-    "url": "https://tripdotdot.com/",
-    "inLanguage": "ko-KR",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://tripdotdot.com/?url={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://tripdotdot.com/#organization",
+        "name": "트립닷닷",
+        "alternateName": "Tripdotdot",
+        "url": "https://tripdotdot.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tripdotdot.com/favicon-512x512.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tripdotdot.com/#website",
+        "url": "https://tripdotdot.com/",
+        "name": "트립닷닷",
+        "alternateName": "Tripdotdot",
+        "description": "지원되는 해외 예약 사이트의 URL을 국가·통화별 비교 링크로 변환하는 무료 도구",
+        "inLanguage": "ko-KR",
+        "publisher": { "@id": "https://tripdotdot.com/#organization" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://tripdotdot.com/#application",
+        "name": "트립닷닷 국가별 가격 비교 링크 도구",
+        "url": "https://tripdotdot.com/",
+        "description": "지원되는 해외 예약 사이트의 호텔·항공권·숙소 URL을 국가·통화별 비교 링크로 변환합니다. 가격을 직접 수집하거나 최저가를 보장하지 않습니다.",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "browserRequirements": "JavaScript를 사용할 수 있는 최신 웹 브라우저",
+        "featureList": [
+          "해외 예약 사이트 국가별 링크 생성",
+          "숙소 예약 사이트 국가·언어·통화별 링크 생성",
+          "호텔·항공권 예약 URL 지원",
+          "회원가입 없는 무료 이용"
+        ],
+        "publisher": { "@id": "https://tripdotdot.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tripdotdot.com/#webpage",
+        "url": "https://tripdotdot.com/",
+        "name": "해외 예약 사이트 국가별 가격 비교 링크 | 트립닷닷",
+        "description": "호텔·항공권 예약 URL을 국가·통화별 비교 링크로 바꾸고 결제 직전 최종 금액을 직접 비교하는 방법을 안내합니다.",
+        "dateModified": "2026-07-13",
+        "inLanguage": "ko-KR",
+        "isPartOf": { "@id": "https://tripdotdot.com/#website" },
+        "about": { "@id": "https://tripdotdot.com/#application" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://tripdotdot.com/thumbnail.jpg",
+          "width": 1731,
+          "height": 909
+        },
+        "hasPart": [
+          { "@id": "https://tripdotdot.com/#howto" },
+          { "@id": "https://tripdotdot.com/#faq-schema" }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://tripdotdot.com/#howto",
+        "name": "국가·통화별 예약 가격 비교 링크 만드는 방법",
+        "description": "예약 URL을 복사해 트립닷닷에 붙여넣고, 생성된 링크에서 최종 결제 금액을 비교합니다.",
+        "inLanguage": "ko-KR",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "예약 URL 복사",
+            "text": "지원되는 예약 사이트에서 날짜, 인원, 상품을 선택한 뒤 주소창의 전체 URL을 복사합니다."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "URL 붙여넣기",
+            "text": "복사한 URL을 트립닷닷 입력창에 붙여넣고 가격 비교 링크 만들기 버튼을 누릅니다."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "최종 금액 직접 비교",
+            "text": "생성된 국가·통화별 링크를 열어 같은 조건인지 확인하고 세금과 수수료가 포함된 결제 직전 총액을 비교합니다."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tripdotdot.com/#faq-schema",
+        "url": "https://tripdotdot.com/#faq",
+        "inLanguage": "ko-KR",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "트립닷닷은 무엇인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "트립닷닷은 지원되는 해외 예약 사이트의 URL을 여러 국가·통화 설정의 비교 링크로 변환하는 무료 도구입니다. 가격을 직접 판매하거나 예약을 처리하지 않습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "어떤 예약 사이트 링크를 지원하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "현재 일부 해외 호텔·항공 및 숙소 예약 사이트의 전체 URL을 지원합니다. 사이트 유형에 따라 국가별 링크 또는 국가·언어·통화 조합 링크를 생성합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "최저가를 자동으로 찾아주나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "아니요. 트립닷닷은 실시간 가격을 수집하거나 최저가를 보장하지 않습니다. 생성된 링크를 열어 세금·수수료가 포함된 결제 직전 총액을 직접 비교해야 합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "어떤 URL을 붙여넣어야 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "호텔이나 항공권 검색에서 날짜와 인원을 선택한 뒤 주소창의 전체 URL을 붙여넣으세요. 단축 링크보다 검색 또는 상품 페이지의 전체 URL이 적합합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "예약과 결제는 어디서 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "생성된 링크를 누르면 지원되는 외부 예약 사이트로 이동합니다. 예약·결제·변경·취소는 해당 예약 사이트에서 처리됩니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "트립닷닷은 예약 사이트가 직접 운영하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "아니요. 트립닷닷은 특정 예약 플랫폼이 운영하거나 보증하는 공식 서비스가 아닙니다. 일부 링크를 통한 예약에 대해 수수료를 받을 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "회원가입이 필요한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "아니요. 회원가입 없이 무료로 이용할 수 있습니다."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 
 <body>
   <div class="container">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
     <header class="header">
       <div class="hero-surface">
         <div class="hero-copy">
-          <h1 class="logo-title">
-            <a class="logo-button" href="/" data-lang="mainTitle">🌐 트립닷닷</a>
-          </h1>
-          <p class="hero-subtitle" data-lang="subtitle">예약 최저가 링크 찾기</p>
+          <p class="hero-brand"><a class="logo-button" href="/">🌐 트립닷닷</a></p>
+          <h1 class="hero-title">해외 예약 사이트<br> 국가별 가격 비교 링크 만들기</h1>
+          <p class="hero-subtitle">예약 URL을 붙여넣고 국가·통화별 최종 금액을 직접 비교하세요.</p>
         </div>
         <div class="hero-input input-section">
-          <input id="inputUrl" data-lang-placeholder placeholder="https://booking.example/hotels/detail/~~" type="text"
-            inputmode="url">
+          <label class="sr-only" for="inputUrl">호텔 또는 항공권 예약 URL</label>
+          <input id="inputUrl" name="booking-url" data-lang-placeholder placeholder="https://booking.example/hotels/..." type="url"
+            inputmode="url" autocomplete="url" spellcheck="false">
           <div class="input-actions">
-            <button class="main-button" onclick="generateLinks()" data-lang="findButton">최저가 링크 찾기</button>
+            <button class="main-button" type="button" onclick="generateLinks()" data-lang="findButton">가격 비교 링크 만들기</button>
             <button id="show-widget-button" class="secondary-button" data-lang="searchPrompt">링크가 없다면? 여기서 검색하기</button>
           </div>
         </div>
       </div>
     </header>
 
+    <main id="main-content" class="site-main">
+    <nav class="section-nav" aria-label="페이지 주요 안내">
+      <a href="#service-summary">서비스 소개</a>
+      <a href="#how-it-works">사용 방법</a>
+      <a href="#comparison-guide">비교 기준</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </nav>
+
     <div class="link-list" id="results"></div>
+
+    <section class="answer-panel" id="service-summary" aria-labelledby="service-summary-title">
+      <p class="section-kicker">한눈에 보기</p>
+      <h2 id="service-summary-title">국가·통화별 예약 링크를 한 번에 만들어요</h2>
+      <p class="answer-lead"><strong>트립닷닷은 지원되는 해외 예약 사이트의 상품 URL을 국가·통화별 비교 링크로 바꿔 주는 무료 도구입니다.</strong> 가격을 직접 수집하거나 예약을 판매하지 않으며, 생성된 링크를 열어 결제 직전 최종 금액을 비교합니다.</p>
+      <dl class="service-facts">
+        <div>
+          <dt>지원 URL</dt>
+          <dd>일부 해외 예약 사이트의 호텔·항공권·숙소</dd>
+        </div>
+        <div>
+          <dt>제공 기능</dt>
+          <dd>국가·언어·통화별 비교 링크 생성</dd>
+        </div>
+        <div>
+          <dt>이용 조건</dt>
+          <dd>회원가입 없이 무료</dd>
+        </div>
+      </dl>
+    </section>
 
     <section class="history-section" id="history-section">
       <div class="history-header">
@@ -99,24 +286,23 @@
       </div>
     </section>
 
-    <div class="info-grid">
+    <div class="info-grid" id="how-it-works">
       <section class="info-card usage-card">
         <div class="card-header">
           <h2 data-lang="card2Title">✅ 사용 방법</h2>
         </div>
         <ul data-lang="card2List">
-          <li>1️⃣ 예약 사이트에서 <strong>링크 복사</strong></li>
-          <li>2️⃣ 복사한 링크를 붙여넣고 <strong>'찾기'</strong></li>
-          <li>3️⃣ 생성된 국가별 링크를 눌러 <strong>최저가 확인!</strong></li>
+          <li>1️⃣ 날짜·인원·상품을 선택하고 <strong>전체 URL 복사</strong></li>
+          <li>2️⃣ URL을 붙여넣고 <strong>비교 링크 만들기</strong></li>
+          <li>3️⃣ 생성된 링크에서 <strong>결제 직전 총액 비교</strong></li>
         </ul>
       </section>
 
       <section class="info-card highlight-card">
         <div class="card-header">
-          <h2 data-lang="card1Title">🌍 최저가 국가를 찾아보세요</h2>
+          <h2 data-lang="card1Title">🌍 비교 링크 생성 도구예요</h2>
         </div>
-        <p data-lang="card1Desc">예약 사이트는 <strong>국가별로 가격이 다를 수 있어요</strong><br><strong>트립닷닷</strong>으로 <span
-            class="highlight">가장 저렴하게 예약</span>하세요!</p>
+        <p data-lang="card1Desc">예약 사이트는 <strong>국가·통화 설정에 따라 표시 조건이 달라질 수 있어요.</strong><br>트립닷닷은 실시간 가격을 조회하지 않으며 <span class="highlight">최저가를 보장하지 않습니다.</span></p>
       </section>
 
       <section class="info-card tips-card">
@@ -131,49 +317,113 @@
     </div>
 
     <section class="feature-section">
-      <h2 data-lang="featureTitle">🚀 이런 점이 좋아요</h2>
+      <h2 data-lang="featureTitle">🚀 비교에 필요한 기능만 담았어요</h2>
       <div class="feature-grid">
         <article class="feature-card">
           <span class="feature-icon" aria-hidden="true">⏱️</span>
-          <h3 data-lang="featureSpeedTitle">3초면 준비 끝</h3>
-          <p data-lang="featureSpeedDesc">링크를 붙여넣는 순간 21개국 가격 비교 링크가 자동 생성돼요.</p>
+          <h3 data-lang="featureSpeedTitle">빠르게 링크 생성</h3>
+          <p data-lang="featureSpeedDesc">예약 URL 하나로 여러 국가·통화 설정의 비교 링크를 만들어요.</p>
         </article>
         <article class="feature-card">
           <span class="feature-icon" aria-hidden="true">🎯</span>
-          <h3 data-lang="featureAutomationTitle">할인코드 자동 적용</h3>
-          <p data-lang="featureAutomationDesc">국가별로 다른 할인 코드와 제휴 파라미터를 알아서 붙여줘요.</p>
+          <h3 data-lang="featureAutomationTitle">국가·통화 설정 반영</h3>
+          <p data-lang="featureAutomationDesc">예약 사이트 유형에 맞는 국가·언어·통화 설정을 링크에 반영해요.</p>
         </article>
         <article class="feature-card">
           <span class="feature-icon" aria-hidden="true">🌏</span>
-          <h3 data-lang="featureLanguageTitle">다국어 완전 지원</h3>
-          <p data-lang="featureLanguageDesc">한국어, 영어, 일본어, 태국어 UI로 누구나 쉽게 공유할 수 있어요.</p>
+          <h3 data-lang="featureLanguageTitle">호텔·항공권 URL 지원</h3>
+          <p data-lang="featureLanguageDesc">지원되는 호텔·항공권·숙소 예약 사이트의 전체 URL을 사용할 수 있어요.</p>
         </article>
       </div>
     </section>
 
     <section class="trust-panel">
       <div class="trust-copy">
-        <h2 data-lang="trustTitle">여행 비용을 더 아껴보세요</h2>
-        <p data-lang="trustDesc">트립닷닷을 통해 할인받아 구매한 금액이 2.5억을 넘었어요 !</p>
+        <h2 data-lang="trustTitle">지원 범위가 분명한 비교 도구</h2>
+        <p data-lang="trustDesc">여러 국가·통화 링크를 열고 동일한 일정·상품 조건인지 다시 확인한 뒤 최종 금액을 비교할 수 있어요.</p>
       </div>
         <div class="trust-metrics" role="list">
           <div class="trust-metric" role="listitem">
-            <span class="metric-number" data-lang="trustMetricSavings">2.5억+</span>
-            <span class="metric-label" data-lang="trustStatSavings">할인 받아 구매한 금액</span>
+            <span class="metric-number" data-lang="trustMetricSavings">해외 예약 사이트</span>
+            <span class="metric-label" data-lang="trustStatSavings">지원 예약 사이트</span>
           </div>
           <div class="trust-metric" role="listitem">
-            <span class="metric-number" data-lang="trustMetricUsage">500+</span>
-            <span class="metric-label" data-lang="trustStatUsage">이용 건수</span>
+            <span class="metric-number" data-lang="trustMetricUsage">국가·통화별</span>
+            <span class="metric-label" data-lang="trustStatUsage">비교 링크 생성</span>
           </div>
         <div class="trust-metric" role="listitem">
-          <span class="metric-number" data-lang="trustMetricCountries">21+</span>
-          <span class="metric-label" data-lang="trustStatCountries">지원 국가</span>
+          <span class="metric-number" data-lang="trustMetricCountries">무료</span>
+          <span class="metric-label" data-lang="trustStatCountries">회원가입 없이 이용</span>
         </div>
       </div>
     </section>
 
+    <section class="content-section comparison-section" id="comparison-guide" aria-labelledby="comparison-title">
+      <p class="section-kicker">정확한 비교 방법</p>
+      <h2 id="comparison-title">결제 직전 총액을 같은 조건으로 비교하세요</h2>
+      <p>국가나 통화 설정이 달라도 가격이 같을 수 있고, 환율·프로모션·세금 표시 방식에 따라 달라질 수도 있습니다. 다음 조건을 맞춘 뒤 최종 결제 단계의 총액을 확인하세요.</p>
+      <ol class="comparison-checklist">
+        <li><strong>일정과 인원:</strong> 체크인·체크아웃 또는 출발·도착 날짜와 인원을 동일하게 선택합니다.</li>
+        <li><strong>상품 조건:</strong> 같은 객실, 조식, 수하물, 취소·환불 조건인지 확인합니다.</li>
+        <li><strong>최종 금액:</strong> 세금, 수수료, 카드 해외 결제 비용까지 포함해 비교합니다.</li>
+        <li><strong>표시 통화:</strong> 환율과 카드사 환전 비용을 고려해 실제 결제 통화를 확인합니다.</li>
+      </ol>
+      <p class="accuracy-note"><strong>중요:</strong> 트립닷닷은 가격을 크롤링하거나 자동 판정하지 않습니다. 예약 가능 여부와 최종 금액은 링크를 연 시점의 해당 예약 사이트 화면이 기준입니다.</p>
+    </section>
+
+    <section class="content-section faq-section" id="faq" aria-labelledby="faq-title">
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details>
+          <summary>트립닷닷은 무엇인가요?</summary>
+          <p>트립닷닷은 지원되는 해외 예약 사이트의 URL을 여러 국가·통화 설정의 비교 링크로 변환하는 무료 도구입니다. 가격을 직접 판매하거나 예약을 처리하지 않습니다.</p>
+        </details>
+        <details>
+          <summary>어떤 예약 사이트 링크를 지원하나요?</summary>
+          <p>현재 일부 해외 호텔·항공 및 숙소 예약 사이트의 전체 URL을 지원합니다. 사이트 유형에 따라 국가별 링크 또는 국가·언어·통화 조합 링크를 생성합니다.</p>
+        </details>
+        <details>
+          <summary>최저가를 자동으로 찾아주나요?</summary>
+          <p>아니요. 트립닷닷은 실시간 가격을 수집하거나 최저가를 보장하지 않습니다. 생성된 링크를 열어 세금·수수료가 포함된 결제 직전 총액을 직접 비교해야 합니다.</p>
+        </details>
+        <details>
+          <summary>어떤 URL을 붙여넣어야 하나요?</summary>
+          <p>호텔이나 항공권 검색에서 날짜와 인원을 선택한 뒤 주소창의 전체 URL을 붙여넣으세요. 단축 링크보다 검색 또는 상품 페이지의 전체 URL이 적합합니다.</p>
+        </details>
+        <details>
+          <summary>예약과 결제는 어디서 하나요?</summary>
+          <p>생성된 링크를 누르면 지원되는 외부 예약 사이트로 이동합니다. 예약·결제·변경·취소는 해당 예약 사이트에서 처리됩니다.</p>
+        </details>
+        <details>
+          <summary>트립닷닷은 예약 사이트가 직접 운영하나요?</summary>
+          <p>아니요. 트립닷닷은 특정 예약 플랫폼이 운영하거나 보증하는 공식 서비스가 아닙니다. 일부 링크를 통한 예약에 대해 수수료를 받을 수 있습니다.</p>
+        </details>
+        <details>
+          <summary>회원가입이 필요한가요?</summary>
+          <p>아니요. 회원가입 없이 무료로 이용할 수 있습니다.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="transparency-panel" aria-labelledby="transparency-title">
+      <div>
+        <p class="section-kicker">운영 및 수수료 안내</p>
+        <h2 id="transparency-title">트립닷닷은 독립적으로 운영됩니다</h2>
+      </div>
+      <p>트립닷닷은 특정 예약 플랫폼이 운영하거나 보증하는 공식 서비스가 아닙니다. 예약·결제·변경·취소·환불은 이동한 외부 사이트의 정책을 따릅니다. 일부 링크를 통한 예약에 대해 수수료를 받을 수 있지만, 사용자가 결제하는 가격에 별도 이용료를 더하지 않습니다.</p>
+      <p class="content-updated">내용 업데이트: <time datetime="2026-07-13">2026년 7월 13일</time> · <a href="https://open.kakao.com/o/sKGmxMDh" target="_blank" rel="noopener noreferrer">문의·오류 제보</a></p>
+    </section>
+    </main>
+
     <footer class="site-footer">
-      <p><a id="privacy-link" href="/privacy_ko.html" target="_blank" data-lang="privacy">개인정보처리방침</a></p>
+      <nav class="footer-nav" aria-label="하단 안내">
+        <a href="#service-summary">서비스 소개</a>
+        <a href="#comparison-guide">비교 기준</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://open.kakao.com/o/sKGmxMDh" target="_blank" rel="noopener noreferrer">문의</a>
+      </nav>
+      <p><a id="privacy-link" href="/privacy_ko.html" data-lang="privacy">개인정보처리방침</a></p>
       <p data-lang="disclosureAffiliate"></p>
       <p data-lang="disclosureCollection"></p>
       <p id="copyright" data-lang="copyright"></p>
@@ -183,7 +433,7 @@
   <!-- 가운데 토스트 -->
   <div id="redirect-modal" role="dialog" aria-live="polite" aria-label="예약 사이트 연결 안내">
     <div class="redirect-box">
-      <div class="redirect-title" data-lang="redirecting">제휴 예약 사이트로 이동합니다...</div>
+      <div class="redirect-title" data-lang="redirecting">외부 예약 사이트로 이동합니다...</div>
       <div class="redirect-guide" data-lang="redirectGuide"></div>
     </div>
   </div>
@@ -198,10 +448,10 @@
       </div>
       <div class="tab-content-container">
         <div id="hotel-tab-content" class="tab-content active">
-          <iframe id="hotel-widget-modal" src="" frameborder="0" scrolling="no"></iframe>
+          <iframe id="hotel-widget-modal" title="호텔 예약 검색" loading="lazy"></iframe>
         </div>
         <div id="flight-tab-content" class="tab-content">
-          <iframe id="flight-widget-modal" src="" frameborder="0" scrolling="no"></iframe>
+          <iframe id="flight-widget-modal" title="항공권 예약 검색" loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -225,7 +475,7 @@
         </div>
       </div>
       <ul id="ad-guide-list" class="ad-guide-list"></ul>
-      <a id="ad-guide-cta" class="ad-guide-btn" target="_blank" rel="noopener">
+      <a id="ad-guide-cta" class="ad-guide-btn" href="https://kr.trip.com/?curr=KRW&amp;Allianceid=8792540&amp;SID=320640825&amp;promo_referer=4084_9836_1&amp;trip_sub1=&amp;trip_sub3=D18139361" target="_blank" rel="sponsored nofollow noopener">
         <span class="ad-guide-btn__icon" aria-hidden="true">↗</span>
         <span class="ad-guide-btn__text"></span>
       </a>
@@ -242,10 +492,10 @@
         secondaryCta: "예약 링크가 있어요",
         closeLabel: "팝업 숨기기",
         steps: [
-          "제휴 예약 사이트에서 <strong>원하는 호텔/항공 상품 선택</strong>",
+          "외부 예약 사이트에서 <strong>원하는 호텔/항공 상품 선택</strong>",
           "해당 상품 주소창 <strong>링크 복사</strong>",
           "트립닷닷 입력창에 <strong>링크 붙여넣기</strong>",
-          "‘<strong>최저가 링크 찾기</strong>’ 클릭"
+          "‘<strong>가격 비교 링크 만들기</strong>’ 클릭"
         ]
       },
       th: {

@@ -14,10 +14,11 @@ cd "$ROOT_DIR"
 zip -r "$OUTPUT_PATH" \
   index.html \
   en/index.html \
-  ja/index.html \
   th/index.html \
   assets \
   i18n \
+  public/data/iata-city.json \
+  public/data/city-id-map.json \
   privacy_ko.html \
   privacy_en.html \
   privacy_ja.html \
@@ -37,6 +38,7 @@ zip -r "$OUTPUT_PATH" \
   favicon.svg \
   apple-icon.png \
   CNAME \
+  ads.txt \
   robots.txt \
   sitemap.xml \
   thumbnail.jpg >/dev/null

@@ -78,16 +78,16 @@
         "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
         "<li>위 입력창에 붙여넣기</li></ol>" +
-        '<p class=\"shortlink-card__example\">예: https://booking.example/hotels/... 또는 https://booking.example/flights/...</p>',
+        '<p class=\"shortlink-card__example\">예: 검색 결과 또는 상품 페이지의 전체 URL</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('ko')}\" target=\"_blank\" rel=\"noopener noreferrer\">예약 사이트 열기</a></li>` +
         "<li>원하는 숙소/상품을 검색</li>" +
         "<li>주소창의 전체 URL을 복사</li>" +
         "<li>위 입력창에 붙여넣기</li></ol>" +
-        '<p class=\"shortlink-card__example\">예: https://booking.example/hotels/... 또는 https://booking.example/flights/...</p>',
-      shortlinkOpenFull: "제휴 예약 사이트에서 다시 검색하기",
-        redirectingToSearch: "제휴 예약 사이트에서 검색합니다...",
+        '<p class=\"shortlink-card__example\">예: 검색 결과 또는 상품 페이지의 전체 URL</p>',
+      shortlinkOpenFull: "외부 예약 사이트에서 다시 검색하기",
+        redirectingToSearch: "외부 예약 사이트에서 검색합니다...",
         cityNameIdNotFound: "여행하고자 하는 도시를 입력해주세요",
    },
     en: {
@@ -100,14 +100,14 @@
         "<li>Search for the hotel/product you want</li>" +
         "<li>Copy the entire URL from the address bar</li>" +
         "<li>Paste it here to get country links</li></ol>" +
-        '<p class=\"shortlink-card__example\">e.g., https://booking.example/hotels/... or https://booking.example/flights/...</p>',
+        '<p class=\"shortlink-card__example\">Example: the full results-page or product-page URL</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('en')}\" target=\"_blank\" rel=\"noopener noreferrer\">Open booking site</a></li>` +
         "<li>Search for the hotel/product you want</li>" +
         "<li>Copy the entire URL from the address bar</li>" +
         "<li>Paste it here to get country links</li></ol>" +
-        '<p class=\"shortlink-card__example\">e.g., https://booking.example/hotels/... or https://booking.example/flights/...</p>',
+        '<p class=\"shortlink-card__example\">Example: the full results-page or product-page URL</p>',
       shortlinkOpenFull: "Go to the booking site and search again",
         redirectingToSearch: "Searching on the booking site...",
         cityNameIdNotFound: "City ID for the search term not found. (Please search using a city name registered in the City ID Map.)",
@@ -122,14 +122,14 @@
         "<li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li>" +
         "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
         "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
-        '<p class=\"shortlink-card__example\">เช่น https://booking.example/hotels/... หรือ https://booking.example/flights/...</p>',
+        '<p class=\"shortlink-card__example\">ตัวอย่าง: URL แบบเต็มของหน้าผลลัพธ์หรือหน้าสินค้า</p>',
       shortlinkBody:
         `<ol class=\"shortlink-steps\">` +
         `<li><a href=\"${getAffiliateHomeUrl('th')}\" target=\"_blank\" rel=\"noopener noreferrer\">เปิดเว็บไซต์จอง</a></li>` +
         "<li>ค้นหาโรงแรม/สินค้าที่ต้องการ</li>" +
         "<li>คัดลอก URL แบบเต็มจากแถบที่อยู่</li>" +
         "<li>นำมาวางที่นี่เพื่อรับลิงก์ประเทศต่างๆ</li></ol>" +
-        '<p class=\"shortlink-card__example\">เช่น https://booking.example/hotels/... หรือ https://booking.example/flights/...</p>',
+        '<p class=\"shortlink-card__example\">ตัวอย่าง: URL แบบเต็มของหน้าผลลัพธ์หรือหน้าสินค้า</p>',
       shortlinkOpenFull: "เปิดลิงก์ย่อในเบราว์เซอร์",
         redirectingToSearch: "กำลังค้นหาบนเว็บไซต์จอง...",
         cityNameIdNotFound: "ไม่พบรหัสเมืองสำหรับคำค้นหา (โปรดค้นหาด้วยชื่อเมืองที่มีใน City ID Map)",
@@ -200,7 +200,7 @@
   async function loadIataMapOnce(){
     if (_iataCityMap) return _iataCityMap;
     try{
-      const res = await fetch('/data/iata-city.json', { cache: 'no-cache' });
+      const res = await fetch('/public/data/iata-city.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('iata-city.json fetch failed: ' + res.status);
       _iataCityMap = await res.json();
     }catch(e){
@@ -577,8 +577,8 @@
     const head = document.head;
     const origins = [
       'https://flagcdn.com',
-      'https://booking.example',
-      'https://booking.example',
+      'https://kr.trip.com',
+      'https://www.agoda.com',
       'https://www.googletagmanager.com',
       'https://www.clarity.ms'
     ];
@@ -599,14 +599,32 @@
     });
   }
 
-  // ===== URL 로깅 =====
+  function sanitizedSubmittedUrl(rawUrl){
+    try {
+      if (!isTripDomain(rawUrl) && !isAgodaDomain(rawUrl)) return '';
+      const url = new URL(rawUrl);
+      if (url.protocol !== 'http:' && url.protocol !== 'https:') return '';
+      return `${url.origin}${url.pathname}`;
+    } catch (_) {
+      return '';
+    }
+  }
+
+  function referrerOrigin(){
+    try {
+      return document.referrer ? new URL(document.referrer).origin : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
+  // ===== 개인정보를 최소화한 URL 로깅 =====
   function logSubmittedUrl(rawUrl, category){
     const payload = {
-      url: rawUrl,
+      url: sanitizedSubmittedUrl(rawUrl),
       pageLang: currentLang,
       category,
-      referrer: document.referrer || '',
-      userAgent: navigator.userAgent || ''
+      referrer: referrerOrigin()
     };
 
     try {
@@ -629,7 +647,6 @@
         pageLang: payload.pageLang,
         category: payload.category,
         referrer: payload.referrer,
-        userAgent: payload.userAgent,
         t: String(Date.now())
       }).toString();
       const img = new Image(1, 1);
@@ -722,12 +739,12 @@
 
     const title = document.createElement('p');
     title.className = 'results-title';
-    title.innerHTML = T.agodaResultsTitle || 'Agoda country and currency links';
+    title.innerHTML = T.agodaResultsTitle || 'Stay country and currency links';
     container.appendChild(title);
 
     const note = document.createElement('p');
     note.className = 'agoda-results-note';
-    note.textContent = T.agodaResultsLead || 'Open the same Agoda stay with different country and currency settings, then compare the final checkout price.';
+    note.textContent = T.agodaResultsLead || 'Open the same stay with different country and currency settings, then compare the final checkout price.';
     container.appendChild(note);
 
     const grid = document.createElement('div');
@@ -954,7 +971,7 @@
 
       const logic = document.createElement('p');
       logic.className = 'redirect-guide-card__note unsupported-domain__logic';
-      logic.innerHTML = T.unsupportedDomainLogic || 'We only convert supported booking domains (e.g., booking.example, booking.example).';
+      logic.innerHTML = T.unsupportedDomainLogic || 'We only convert links from supported booking sites.';
       noteWrap.appendChild(logic);
 
       if (rawUrl) {
@@ -1156,7 +1173,7 @@
     }
 
     if (input && typeof gtag === 'function') {
-      gtag('event','submit_url',{ submitted_link: input, link_category: category });
+      gtag('event','submit_url',{ submitted_link: sanitizedSubmittedUrl(input), link_category: category });
     }
      if (input) logSubmittedUrl(input, category);
 
@@ -1253,7 +1270,7 @@
           const cityName = (entry && entry.city) ? entry.city : ac; // 실패시 IATA 그대로
           const checkin  = ymdToSlash(ddate);
           const checkout = ymdToSlash(rdate);
-          const host = (currentLang === 'ko') ? 'booking.example' : 'booking.example';
+          const host = (currentLang === 'ko') ? 'kr.trip.com' : 'www.trip.com';
           // 항공편에서 호텔 검색 CTA를 위한 URL 생성 (여기서는 cityId가 없으므로 null 처리)
           const hotelUrl = buildHotelSearchUrl(host, null, cityName, checkin, checkout, baseCurr); // null 처리
           // ... (나머지 CTA 로직)
@@ -1415,48 +1432,6 @@
     }
   };
 
-  // ===== 스니펫 억제 =====
-  function applyNoSnippet(){
-    const selectors = [
-      '.header',
-      '.input-section',
-      '#results',
-      '.info-card',
-      'footer',
-      '#redirect-modal',
-      '#search-modal',
-      '#mobile-notice-modal'
-    ];
-    selectors.forEach(sel => {
-      $$(sel).forEach(el => {
-        if (el && !el.hasAttribute('data-nosnippet')) {
-          el.setAttribute('data-nosnippet', '');
-        }
-      });
-    });
-  }
-
-  // ===== 검색 전용 ‘상단 한 줄 소개’(시각 비노출) =====
-  function injectMetaIntro(){
-    const INTRO = {
-      ko: '국가별 할인코드 적용링크 | N만원 절약하고 여행가자 | 최대 21개국 사이트에서 최저가 검색 가능',
-      en: 'booking site country-specific discount links | Save more and travel now | Compare the lowest prices across up to 21 country sites',
-      ja: 'booking site 国別割引コード適用リンク｜お得に旅へ｜最大21か国サイトで最安値を比較',
-      th: 'ลิงก์ส่วนลด booking site แยกตามประเทศ | ประหยัดทันที | เปรียบเทียบราคาถูกสุดได้สูงสุด 21 ประเทศ'
-    };
-    const txt = INTRO[currentLang];
-    if (!txt) return;
-
-    const container = $('.container') || document.body;
-    const header = $('.header');
-    const p = document.createElement('p');
-    p.className = 'meta-intro';
-    p.textContent = txt;
-    p.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;';
-    if (header && header.parentNode) header.parentNode.insertBefore(p, header);
-    else container.insertBefore(p, container.firstChild);
-  }
-
   // ===== 외부 링크 보안 =====
   function hardenExternalLinks(){
     $$('a[target="_blank"]').forEach(a => {
@@ -1489,8 +1464,6 @@
     document.documentElement.lang = currentLang;
 
     injectStyleFixes();          // 🔧 태국 국기 픽스
-    injectMetaIntro();
-    applyNoSnippet();
     hardenExternalLinks();
     renderHistory();
 
