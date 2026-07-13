@@ -9553,8 +9553,8 @@
     "municipality": "Fada N'gourma",
     "airport": "Fada N'gourma Airport",
     "country": "BF",
-    "lat": 12.033,
-    "lon": 0.35,
+    "lat": 12.038931,
+    "lon": 0.362798,
     "source": "ourairports"
   },
   "xgg": {
@@ -52562,7 +52562,7 @@
   "gmp": {
     "city": "Seoul",
     "municipality": "Seoul",
-    "airport": "Gimpo International Airport",
+    "airport": "Seoul Gimpo International Airport",
     "country": "KR",
     "lat": 37.5583,
     "lon": 126.791,
@@ -52575,15 +52575,6 @@
     "country": "KR",
     "lat": 37.239399,
     "lon": 127.007004,
-    "source": "ourairports"
-  },
-  "qdy": {
-    "city": "Taean",
-    "municipality": "Taean",
-    "airport": "Taean Airport",
-    "country": "KR",
-    "lat": 36.593781,
-    "lon": 126.29662,
     "source": "ourairports"
   },
   "kpo": {
@@ -58899,8 +58890,8 @@
     "municipality": "Canavieiras",
     "airport": "Sócrates Rezende Airport",
     "country": "BR",
-    "lat": -15.666999816895,
-    "lon": -38.954700469971,
+    "lat": -15.667,
+    "lon": -38.9547,
     "source": "ourairports"
   },
   "vcc": {
@@ -75466,7 +75457,7 @@
   "wsi": {
     "city": "Sydney",
     "municipality": "Sydney",
-    "airport": "[Duplicate] Western Sydney International Airport",
+    "airport": "Nancy Bird Walton, Western Sydney International Airport",
     "country": "AU",
     "lat": -33.88806,
     "lon": 150.71472,
