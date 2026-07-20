@@ -1119,6 +1119,15 @@
     "lon": 123.81506,
     "source": "ourairports"
   },
+  "wsi": {
+    "city": "Sydney",
+    "municipality": "Sydney",
+    "airport": "Western Sydney International (Nancy-Bird Walton) Airport",
+    "country": "AU",
+    "lat": -33.883461,
+    "lon": 150.712981,
+    "source": "ourairports"
+  },
   "agw": {
     "city": "Agnew",
     "municipality": "Agnew",
@@ -5366,6 +5375,15 @@
     "country": "CN",
     "lat": 29.122619,
     "lon": 120.24289,
+    "source": "ourairports"
+  },
+  "lsg": {
+    "city": "Leshan (Wutongqiao)",
+    "municipality": "Leshan (Wutongqiao)",
+    "airport": "Leshan Airport",
+    "country": "CN",
+    "lat": 29.438627,
+    "lon": 103.749218,
     "source": "ourairports"
   },
   "jde": {
@@ -16453,15 +16471,6 @@
     "lon": 19.156099,
     "source": "ourairports"
   },
-  "cxm": {
-    "city": "Camaxilo",
-    "municipality": "Camaxilo",
-    "airport": "Camaxilo Airport",
-    "country": "AO",
-    "lat": -8.37361,
-    "lon": 18.923599,
-    "source": "ourairports"
-  },
   "cav": {
     "city": "Cazombo",
     "municipality": "Cazombo",
@@ -18610,6 +18619,15 @@
     "country": "ML",
     "lat": 15.2381,
     "lon": -9.57611,
+    "source": "ourairports"
+  },
+  "kss": {
+    "city": "Sikasso",
+    "municipality": "Sikasso",
+    "airport": "Sikasso (Dignangan) Airport",
+    "country": "ML",
+    "lat": 11.598382,
+    "lon": -5.798896,
     "source": "ourairports"
   },
   "tom": {
@@ -22009,8 +22027,8 @@
     "municipality": "Sipura Island",
     "airport": "Mentawai Airport",
     "country": "ID",
-    "lat": -2.094167,
-    "lon": 99.699167,
+    "lat": -2.1001,
+    "lon": 99.7044,
     "source": "ourairports"
   },
   "tmy": {
@@ -43262,15 +43280,6 @@
     "lon": -83.585602,
     "source": "ourairports"
   },
-  "ttq": {
-    "city": "Tortuguero",
-    "municipality": "Tortuguero",
-    "airport": "Barra del Tortuguero",
-    "country": "CR",
-    "lat": 10.569,
-    "lon": -83.5149,
-    "source": "ourairports"
-  },
   "otr": {
     "city": "Corredores",
     "municipality": "Corredores",
@@ -50981,8 +50990,8 @@
     "municipality": "Lake Murray",
     "airport": "Lake Murray Airport",
     "country": "PG",
-    "lat": -7.00992012024,
-    "lon": 141.494003296,
+    "lat": -7.00992,
+    "lon": 141.494003,
     "source": "ourairports"
   },
   "ule": {
@@ -51243,15 +51252,6 @@
     "country": "PK",
     "lat": 33.96099853515625,
     "lon": 73.4520034790039,
-    "source": "ourairports"
-  },
-  "cwp": {
-    "city": "Campbellpore",
-    "municipality": "Campbellpore",
-    "airport": "Campbellpore Airport",
-    "country": "PK",
-    "lat": 33.766700744628906,
-    "lon": 72.36689758300781,
     "source": "ourairports"
   },
   "grt": {
@@ -58746,8 +58746,8 @@
     "municipality": "Sobral",
     "airport": "Dr. Luciano de Arruda Coelho Regional Airport",
     "country": "BR",
-    "lat": -3.614488,
-    "lon": -40.231426,
+    "lat": -3.614769,
+    "lon": -40.232208,
     "source": "ourairports"
   },
   "jaw": {
@@ -69113,8 +69113,8 @@
     "municipality": "Tanjung Selor-Borneo Island",
     "airport": "Tanjung Harapan Airport",
     "country": "ID",
-    "lat": 2.835833,
-    "lon": 117.373611,
+    "lat": 2.838139,
+    "lon": 117.374584,
     "source": "ourairports"
   },
   "dtd": {
@@ -75452,15 +75452,6 @@
     "country": "AU",
     "lat": -37.07170104980469,
     "lon": 142.74099731445312,
-    "source": "ourairports"
-  },
-  "wsi": {
-    "city": "Sydney",
-    "municipality": "Sydney",
-    "airport": "Nancy Bird Walton, Western Sydney International Airport",
-    "country": "AU",
-    "lat": -33.88806,
-    "lon": 150.71472,
     "source": "ourairports"
   },
   "xtr": {
