@@ -13766,15 +13766,6 @@
     "lon": 15.8233,
     "source": "ourairports"
   },
-  "gvx": {
-    "city": "Gävle / Sandviken",
-    "municipality": "Gävle / Sandviken",
-    "airport": "Gävle Sandviken Airport",
-    "country": "SE",
-    "lat": 60.5933,
-    "lon": 16.951401,
-    "source": "ourairports"
-  },
   "lpi": {
     "city": "Linköping",
     "municipality": "Linköping",
@@ -44352,7 +44343,8 @@
     "source": "ourairports"
   },
   "mze": {
-    "city": "Manatee",
+    "city": "Spanish Lookout",
+    "municipality": "Spanish Lookout",
     "airport": "Manatee Airport",
     "country": "BZ",
     "lat": 17.27846,
@@ -62582,8 +62574,8 @@
     "municipality": "Aldan",
     "airport": "Aldan Airport",
     "country": "RU",
-    "lat": 58.60279846191406,
-    "lon": 125.40899658203125,
+    "lat": 58.602798,
+    "lon": 125.408997,
     "source": "ourairports"
   },
   "yks": {
@@ -62654,8 +62646,8 @@
     "municipality": "Ust-Maya",
     "airport": "Ust-Maya Airport",
     "country": "RU",
-    "lat": 60.356998443604,
-    "lon": 134.43499755859,
+    "lat": 60.357437,
+    "lon": 134.43731,
     "source": "ourairports"
   },
   "vhv": {
@@ -62699,8 +62691,8 @@
     "municipality": "Lensk",
     "airport": "Lensk Airport",
     "country": "RU",
-    "lat": 60.7206001282,
-    "lon": 114.825996399,
+    "lat": 60.723594,
+    "lon": 114.825319,
     "source": "ourairports"
   },
   "onk": {
@@ -62771,8 +62763,8 @@
     "municipality": "Cherskiy",
     "airport": "Cherskiy Airport",
     "country": "RU",
-    "lat": 68.7406005859375,
-    "lon": 161.33799743652344,
+    "lat": 68.740601,
+    "lon": 161.337997,
     "source": "ourairports"
   },
   "iks": {
@@ -62879,8 +62871,8 @@
     "municipality": "Blagoveschensk",
     "airport": "Ignatyevo Airport",
     "country": "RU",
-    "lat": 50.42539978027344,
-    "lon": 127.41200256347656,
+    "lat": 50.426723,
+    "lon": 127.415502,
     "source": "ourairports"
   },
   "eya": {
@@ -62915,8 +62907,8 @@
     "municipality": "Komsomolsk-on-Amur",
     "airport": "Komsomolsk-on-Amur Airport",
     "country": "RU",
-    "lat": 50.409000396728516,
-    "lon": 136.9340057373047,
+    "lat": 50.409,
+    "lon": 136.934006,
     "source": "ourairports"
   },
   "gvn": {
@@ -62942,8 +62934,8 @@
     "municipality": "Chukotka",
     "airport": "Provideniya Bay Airport",
     "country": "RU",
-    "lat": 64.37809753417969,
-    "lon": -173.2429962158203,
+    "lat": 64.378098,
+    "lon": -173.242996,
     "source": "ourairports"
   },
   "kpw": {
