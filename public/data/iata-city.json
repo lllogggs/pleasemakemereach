@@ -1092,15 +1092,6 @@
     "lon": 150.368611111,
     "source": "ourairports"
   },
-  "wfr": {
-    "city": "Queen Maud Island",
-    "municipality": "Queen Maud Island",
-    "airport": "[Duplicate] Wolf's Fang Runway",
-    "country": "AQ",
-    "lat": -71.5264,
-    "lon": 8.799459,
-    "source": "ourairports"
-  },
   "lyt": {
     "city": "Lady Elliot Island",
     "municipality": "Lady Elliot Island",
@@ -12129,8 +12120,8 @@
     "source": "ourairports"
   },
   "edi": {
-    "city": "Edinburgh",
-    "municipality": "Edinburgh",
+    "city": "Ingliston, Edinburgh",
+    "municipality": "Ingliston, Edinburgh",
     "airport": "Edinburgh Airport",
     "country": "GB",
     "lat": 55.950145,
@@ -46213,8 +46204,8 @@
     "municipality": "Nelson",
     "airport": "Nelson Airport",
     "country": "NZ",
-    "lat": -41.298302,
-    "lon": 173.220993,
+    "lat": -41.296709,
+    "lon": 173.224323,
     "source": "ourairports"
   },
   "ivc": {
@@ -73753,8 +73744,8 @@
     "municipality": "Longreach",
     "airport": "Longreach Airport",
     "country": "AU",
-    "lat": -23.4342,
-    "lon": 144.279999,
+    "lat": -23.43202,
+    "lon": 144.277492,
     "source": "ourairports"
   },
   "lut": {
@@ -75890,8 +75881,8 @@
     "city": "Wiluna",
     "airport": "Wiluna Airport",
     "country": "AU",
-    "lat": -26.629199981689453,
-    "lon": 120.22100067138672,
+    "lat": -26.632691,
+    "lon": 120.221906,
     "source": "ourairports"
   },
   "wpk": {
