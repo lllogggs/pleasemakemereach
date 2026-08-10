@@ -9097,8 +9097,8 @@
     "municipality": "Mecheria",
     "airport": "Mecheria Airport",
     "country": "DZ",
-    "lat": 33.535900116,
-    "lon": -0.242353007197,
+    "lat": 33.5359,
+    "lon": -0.242353,
     "source": "ourairports"
   },
   "aae": {
@@ -10333,8 +10333,8 @@
     "municipality": "Gafsa",
     "airport": "Gafsa Ksar International Airport",
     "country": "TN",
-    "lat": 34.422000885009766,
-    "lon": 8.822500228881836,
+    "lat": 34.422001,
+    "lon": 8.8225,
     "source": "ourairports"
   },
   "gae": {
@@ -20975,8 +20975,8 @@
     "municipality": "Ghat",
     "airport": "Ghat Airport",
     "country": "LY",
-    "lat": 25.1455993652,
-    "lon": 10.142600059500001,
+    "lat": 25.145599,
+    "lon": 10.1426,
     "source": "ourairports"
   },
   "akf": {
@@ -61377,8 +61377,8 @@
     "municipality": "Karanambo",
     "airport": "Karanambo Airport",
     "country": "GY",
-    "lat": 3.752572,
-    "lon": -59.30902,
+    "lat": 3.769883,
+    "lon": -59.344409,
     "source": "ourairports"
   },
   "krg": {
@@ -65063,8 +65063,8 @@
     "municipality": "Ufa",
     "airport": "Ufa International Airport",
     "country": "RU",
-    "lat": 54.557498931885,
-    "lon": 55.874401092529,
+    "lat": 54.557499,
+    "lon": 55.874401,
     "source": "ourairports"
   },
   "kuf": {
@@ -70307,12 +70307,12 @@
     "source": "ourairports"
   },
   "tsy": {
-    "city": "Tasikmalaya-Java Island",
-    "municipality": "Tasikmalaya-Java Island",
-    "airport": "Cibeureum Airport",
+    "city": "Cibeureum, Tasikmalaya-Java Island",
+    "municipality": "Cibeureum, Tasikmalaya-Java Island",
+    "airport": "Wiriadinata Airport",
     "country": "ID",
-    "lat": -7.3466,
-    "lon": 108.246002,
+    "lat": -7.347967,
+    "lon": 108.246998,
     "source": "ourairports"
   },
   "cjn": {
