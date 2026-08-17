@@ -5515,7 +5515,7 @@
   "zat": {
     "city": "Zhaotong",
     "municipality": "Zhaotong",
-    "airport": "Zhaotong Zhaoyang Airport （Not fully opened)",
+    "airport": "Zhaotong Zhaoyang Airport",
     "country": "CN",
     "lat": 27.205843,
     "lon": 103.691511,
@@ -19620,15 +19620,6 @@
     "lon": -22.9494,
     "source": "ourairports"
   },
-  "nto": {
-    "city": "Ponta do Sol",
-    "municipality": "Ponta do Sol",
-    "airport": "Agostinho Neto Airport",
-    "country": "CV",
-    "lat": 17.202800750732422,
-    "lon": -25.090599060058594,
-    "source": "ourairports"
-  },
   "bvc": {
     "city": "Rabil",
     "municipality": "Rabil",
@@ -22065,6 +22056,15 @@
     "country": "IN",
     "lat": 26.747736,
     "lon": 82.163664,
+    "source": "ourairports"
+  },
+  "avr": {
+    "city": "Amravati",
+    "municipality": "Amravati",
+    "airport": "Amravati  Airport",
+    "country": "IN",
+    "lat": 20.814608,
+    "lon": 77.717765,
     "source": "ourairports"
   },
   "sdw": {
@@ -30953,7 +30953,7 @@
   "mem": {
     "city": "Memphis",
     "municipality": "Memphis",
-    "airport": "Memphis International Airport",
+    "airport": "Frederick W. Smith International Airport",
     "country": "US",
     "lat": 35.043845,
     "lon": -89.97634,
@@ -35021,7 +35021,7 @@
   "sjc": {
     "city": "San Jose",
     "municipality": "San Jose",
-    "airport": "Norman Y. Mineta San Jose International Airport",
+    "airport": "Mineta San Jose International Airport",
     "country": "US",
     "lat": 37.362452,
     "lon": -121.929188,
@@ -35932,8 +35932,8 @@
     "municipality": "Tonopah",
     "airport": "Tonopah Test Range Airport",
     "country": "US",
-    "lat": 37.7988014221,
-    "lon": -116.78099823,
+    "lat": 37.798801,
+    "lon": -116.780998,
     "source": "ourairports"
   },
   "toa": {
@@ -37118,7 +37118,7 @@
   "gec": {
     "city": "Lefkoniko (Geçitkale)",
     "municipality": "Lefkoniko (Geçitkale)",
-    "airport": "Lefkoniko Airport / Geçitkale Air Base",
+    "airport": "Geçitkale Airbase",
     "country": "CY",
     "lat": 35.23591,
     "lon": 33.720088,
@@ -66042,15 +66042,6 @@
     "lon": 83.183333,
     "source": "ourairports"
   },
-  "vtz": {
-    "city": "Visakhapatnam",
-    "municipality": "Visakhapatnam",
-    "airport": "Visakhapatnam International Airport",
-    "country": "IN",
-    "lat": 17.723506,
-    "lon": 83.227729,
-    "source": "ourairports"
-  },
   "zer": {
     "city": "Ziro",
     "municipality": "Ziro",
@@ -66465,7 +66456,7 @@
   "sxr": {
     "city": "Srinagar",
     "municipality": "Srinagar",
-    "airport": "Sheikh ul Alam International Airport",
+    "airport": "Srinagar International Airport",
     "country": "IN",
     "lat": 33.987099,
     "lon": 74.7742,
@@ -67339,6 +67330,15 @@
     "country": "IN",
     "lat": 8.481889,
     "lon": 76.920029,
+    "source": "ourairports"
+  },
+  "vtz": {
+    "city": "Visakhapatnam",
+    "municipality": "Visakhapatnam",
+    "airport": "Alluri Sitarama Raju International Airport (Vizag)",
+    "country": "IN",
+    "lat": 17.971512,
+    "lon": 83.503617,
     "source": "ourairports"
   },
   "wgc": {
@@ -68781,8 +68781,8 @@
     "municipality": "Toraja",
     "airport": "Toraja Airport",
     "country": "ID",
-    "lat": -3.185833,
-    "lon": 119.91775,
+    "lat": -3.184359,
+    "lon": 119.919104,
     "source": "ourairports"
   },
   "llo": {
@@ -77203,15 +77203,6 @@
     "country": "MN",
     "lat": 48.85499954223633,
     "lon": 103.47599792480469,
-    "source": "ourairports"
-  },
-  "ugt": {
-    "city": "Khankhongor",
-    "municipality": "Khankhongor",
-    "airport": "Bulagtai Resort Airport",
-    "country": "MN",
-    "lat": 43.749304,
-    "lon": 104.114985,
     "source": "ourairports"
   },
   "hbu": {
