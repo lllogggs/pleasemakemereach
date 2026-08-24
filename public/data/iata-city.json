@@ -33119,7 +33119,7 @@
     "lon": -73.468102,
     "source": "ourairports"
   },
-  "pbi": {
+  "djt": {
     "city": "West Palm Beach",
     "municipality": "West Palm Beach",
     "airport": "President Donald J. Trump International Airport",
@@ -61764,8 +61764,8 @@
     "municipality": "Mayaguez",
     "airport": "Eugenio Maria De Hostos Airport",
     "country": "PR",
-    "lat": 18.255699157714844,
-    "lon": -67.14849853515625,
+    "lat": 18.255699,
+    "lon": -67.148499,
     "source": "ourairports"
   },
   "pse": {
@@ -63276,8 +63276,8 @@
     "municipality": "Mariupol",
     "airport": "Mariupol International Airport",
     "country": "UA",
-    "lat": 47.07609939575195,
-    "lon": 37.44960021972656,
+    "lat": 47.076099,
+    "lon": 37.4496,
     "source": "ourairports"
   },
   "erd": {
@@ -63312,8 +63312,8 @@
     "municipality": "Kryvyi Rih",
     "airport": "Kryvyi Rih International Airport",
     "country": "UA",
-    "lat": 48.04330062866211,
-    "lon": 33.209999084472656,
+    "lat": 48.043301,
+    "lon": 33.209999,
     "source": "ourairports"
   },
   "uks": {
@@ -63397,6 +63397,15 @@
     "lon": 32.285,
     "source": "ourairports"
   },
+  "iev": {
+    "city": "Kyiv",
+    "municipality": "Kyiv",
+    "airport": "Igor Sikorsky Kyiv International Airport (Zhuliany)",
+    "country": "UA",
+    "lat": 50.40194,
+    "lon": 30.45194,
+    "source": "ourairports"
+  },
   "ztr": {
     "city": "Zhytomyr",
     "municipality": "Zhytomyr",
@@ -63429,8 +63438,8 @@
     "municipality": "Ivano-Frankivsk",
     "airport": "Ivano-Frankivsk International Airport",
     "country": "UA",
-    "lat": 48.88420104980469,
-    "lon": 24.686100006103516,
+    "lat": 48.884201,
+    "lon": 24.6861,
     "source": "ourairports"
   },
   "lwo": {
@@ -63447,8 +63456,8 @@
     "municipality": "Chernivtsi",
     "airport": "Chernivtsi International Airport",
     "country": "UA",
-    "lat": 48.259300231933594,
-    "lon": 25.98080062866211,
+    "lat": 48.2593,
+    "lon": 25.980801,
     "source": "ourairports"
   },
   "rwn": {
@@ -63456,8 +63465,8 @@
     "municipality": "Rivne",
     "airport": "Rivne International Airport",
     "country": "UA",
-    "lat": 50.60710144042969,
-    "lon": 26.141599655151367,
+    "lat": 50.607101,
+    "lon": 26.1416,
     "source": "ourairports"
   },
   "tnl": {
@@ -63485,6 +63494,15 @@
     "country": "UA",
     "lat": 46.6758,
     "lon": 32.506401,
+    "source": "ourairports"
+  },
+  "nlv": {
+    "city": "Mykolaiv",
+    "municipality": "Mykolaiv",
+    "airport": "Mykolaiv International Airport [CLOSED]",
+    "country": "UA",
+    "lat": 47.057899,
+    "lon": 31.9198,
     "source": "ourairports"
   },
   "ods": {
@@ -64058,8 +64076,8 @@
     "municipality": "Taganrog",
     "airport": "Taganrog Yuzhny Airport",
     "country": "RU",
-    "lat": 47.1983333,
-    "lon": 38.8491667,
+    "lat": 47.198333,
+    "lon": 38.849167,
     "source": "ourairports"
   },
   "aer": {
@@ -64793,8 +64811,8 @@
     "municipality": "Belgorod",
     "airport": "Belgorod International Airport",
     "country": "RU",
-    "lat": 50.643798828125,
-    "lon": 36.5900993347168,
+    "lat": 50.643799,
+    "lon": 36.590099,
     "source": "ourairports"
   },
   "urs": {
@@ -64802,8 +64820,8 @@
     "municipality": "Kursk",
     "airport": "Kursk East Airport",
     "country": "RU",
-    "lat": 51.7505989074707,
-    "lon": 36.29560089111328,
+    "lat": 51.750599,
+    "lon": 36.295601,
     "source": "ourairports"
   },
   "lpk": {
@@ -64811,8 +64829,8 @@
     "municipality": "Lipetsk",
     "airport": "Lipetsk Airport",
     "country": "RU",
-    "lat": 52.70280075073242,
-    "lon": 39.53779983520508,
+    "lat": 52.702801,
+    "lon": 39.5378,
     "source": "ourairports"
   },
   "voz": {
