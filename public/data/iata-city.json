@@ -9782,15 +9782,6 @@
     "lon": 135.490005,
     "source": "ourairports"
   },
-  "dhl": {
-    "city": "Ad-Dali",
-    "municipality": "Ad-Dali",
-    "airport": "Ad-Dali Airport",
-    "country": "YE",
-    "lat": 13.73846,
-    "lon": 44.72719,
-    "source": "ourairports"
-  },
   "abo": {
     "city": "Aboisso",
     "municipality": "Aboisso",
@@ -15768,8 +15759,8 @@
     "municipality": "Flat",
     "airport": "Flat Airport",
     "country": "US",
-    "lat": 62.452598571799996,
-    "lon": -157.988998413,
+    "lat": 62.452599,
+    "lon": -157.988998,
     "source": "ourairports"
   },
   "bbz": {
@@ -28215,12 +28206,12 @@
     "source": "ourairports"
   },
   "grf": {
-    "city": "Fort Lewis/Tacoma",
-    "municipality": "Fort Lewis/Tacoma",
+    "city": "Joint Base Lewis McChord",
+    "municipality": "Joint Base Lewis McChord",
     "airport": "Gray Army Air Field",
     "country": "US",
-    "lat": 47.07920074,
-    "lon": -122.5810013,
+    "lat": 47.079201,
+    "lon": -122.581001,
     "source": "ourairports"
   },
   "gri": {
@@ -34643,7 +34634,7 @@
   "mqt": {
     "city": "Gwinn",
     "municipality": "Gwinn",
-    "airport": "Marquette/Sawyer International Airport",
+    "airport": "Marquette Sawyer Regional Airport",
     "country": "US",
     "lat": 46.351498,
     "lon": -87.395884,
@@ -42983,6 +42974,15 @@
     "lon": -104.558998,
     "source": "ourairports"
   },
+  "ugt": {
+    "city": "Khankhongor",
+    "municipality": "Khankhongor",
+    "airport": "Bulagtai Resort Airport",
+    "country": "MN",
+    "lat": 43.749167,
+    "lon": 104.114722,
+    "source": "ourairports"
+  },
   "bef": {
     "city": "Bluefields",
     "municipality": "Bluefields",
@@ -43260,6 +43260,15 @@
     "country": "CR",
     "lat": 10.7687,
     "lon": -83.585602,
+    "source": "ourairports"
+  },
+  "ttq": {
+    "city": "Tortuguero",
+    "municipality": "Tortuguero",
+    "airport": "Tortuguero Airport",
+    "country": "CR",
+    "lat": 10.569,
+    "lon": -83.5149,
     "source": "ourairports"
   },
   "otr": {
@@ -54786,7 +54795,7 @@
   "gig": {
     "city": "Rio De Janeiro",
     "municipality": "Rio De Janeiro",
-    "airport": "Rio Galeão – Tom Jobim International Airport",
+    "airport": "Rio de Janeiro Galeão – Tom Jobim International Airport",
     "country": "BR",
     "lat": -22.809999,
     "lon": -43.250557,
@@ -56329,6 +56338,15 @@
     "country": "SE",
     "lat": 61.768087,
     "lon": 17.080715,
+    "source": "ourairports"
+  },
+  "gvx": {
+    "city": "Sandviken",
+    "municipality": "Sandviken",
+    "airport": "Gävle–Sandviken Airport",
+    "country": "SE",
+    "lat": 60.594444,
+    "lon": 16.951111,
     "source": "ourairports"
   },
   "atf": {
@@ -63573,8 +63591,8 @@
     "municipality": "Amderma",
     "airport": "Amderma Airport",
     "country": "RU",
-    "lat": 69.76329803466797,
-    "lon": 61.556400299072266,
+    "lat": 69.763712,
+    "lon": 61.556711,
     "source": "ourairports"
   },
   "vri": {
@@ -69881,6 +69899,15 @@
     "country": "ID",
     "lat": -4.08161,
     "lon": 122.417999,
+    "source": "ourairports"
+  },
+  "kub": {
+    "city": "Seria",
+    "municipality": "Seria",
+    "airport": "Anduki Airport",
+    "country": "BN",
+    "lat": 4.635158,
+    "lon": 114.378748,
     "source": "ourairports"
   },
   "wbb": {
