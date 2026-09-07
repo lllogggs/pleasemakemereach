@@ -6658,8 +6658,8 @@
     "municipality": "Hamilton",
     "airport": "John C. Munro Hamilton International Airport",
     "country": "CA",
-    "lat": 43.17348,
-    "lon": -79.931185,
+    "lat": 43.171308,
+    "lon": -79.929416,
     "source": "ourairports"
   },
   "yhn": {
@@ -14131,8 +14131,8 @@
     "municipality": "Phinda",
     "airport": "Zulu Inyala Airport",
     "country": "ZA",
-    "lat": -27.84939956665039,
-    "lon": 32.30970001220703,
+    "lat": -27.8494,
+    "lon": 32.3097,
     "source": "ourairports"
   },
   "els": {
@@ -27812,10 +27812,10 @@
   "gbg": {
     "city": "Galesburg",
     "municipality": "Galesburg",
-    "airport": "Galesburg Municipal Airport",
+    "airport": "Galesburg Regional HW Timmons  Airport",
     "country": "US",
-    "lat": 40.937999725299996,
-    "lon": -90.431098938,
+    "lat": 40.938,
+    "lon": -90.431099,
     "source": "ourairports"
   },
   "gbr": {
@@ -28388,10 +28388,10 @@
   "gws": {
     "city": "Glenwood Springs",
     "municipality": "Glenwood Springs",
-    "airport": "Glenwood Springs Municipal Airport",
+    "airport": "Sumers Airpark",
     "country": "US",
-    "lat": 39.5083007812,
-    "lon": -107.310997009,
+    "lat": 39.506083,
+    "lon": -107.309232,
     "source": "ourairports"
   },
   "kgx": {
@@ -48132,15 +48132,6 @@
     "country": "PK",
     "lat": 32.056098938,
     "lon": 72.94840240479999,
-    "source": "ourairports"
-  },
-  "bnp": {
-    "city": "Bannu",
-    "municipality": "Bannu",
-    "airport": "Bannu Airport",
-    "country": "PK",
-    "lat": 32.9729,
-    "lon": 70.527901,
     "source": "ourairports"
   },
   "wgb": {
