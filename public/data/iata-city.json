@@ -6815,15 +6815,6 @@
     "lon": -73.28109741210938,
     "source": "ourairports"
   },
-  "yjt": {
-    "city": "Stephenville",
-    "municipality": "Stephenville",
-    "airport": "Stephenville Dymond International Airport",
-    "country": "CA",
-    "lat": 48.54339,
-    "lon": -58.552892,
-    "source": "ourairports"
-  },
   "yka": {
     "city": "Kamloops",
     "municipality": "Kamloops",
@@ -32688,8 +32679,8 @@
     "source": "ourairports"
   },
   "ono": {
-    "city": "Oregon",
-    "municipality": "Oregon",
+    "city": "Ontario",
+    "municipality": "Ontario",
     "airport": "Ontario Municipal Airport",
     "country": "US",
     "lat": 44.0198,
@@ -42169,8 +42160,8 @@
     "municipality": "Hinthada",
     "airport": "Hinthada Airport",
     "country": "MM",
-    "lat": 17.633329391500002,
-    "lon": 95.4666976929,
+    "lat": 17.633329,
+    "lon": 95.466698,
     "source": "ourairports"
   },
   "tzm": {
@@ -68062,8 +68053,8 @@
     "municipality": "Huế",
     "airport": "Phu Bai International Airport",
     "country": "VN",
-    "lat": 16.400628,
-    "lon": 107.703094,
+    "lat": 16.400581,
+    "lon": 107.704094,
     "source": "ourairports"
   },
   "uih": {
