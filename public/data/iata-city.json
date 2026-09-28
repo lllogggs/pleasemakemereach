@@ -2106,15 +2106,6 @@
     "lon": 155.728249,
     "source": "ourairports"
   },
-  "ial": {
-    "city": "Ialibu",
-    "municipality": "Ialibu",
-    "airport": "Ialibu Airport",
-    "country": "PG",
-    "lat": -6.2782,
-    "lon": 143.9944,
-    "source": "ourairports"
-  },
   "wsa": {
     "city": "Wasua",
     "municipality": "Wasua",
@@ -54621,15 +54612,6 @@
     "lon": -48.606324,
     "source": "ourairports"
   },
-  "qns": {
-    "city": "Porto Alegre",
-    "municipality": "Porto Alegre",
-    "airport": "Canoas Air Force Base",
-    "country": "BR",
-    "lat": -29.945928,
-    "lon": -51.144413,
-    "source": "ourairports"
-  },
   "caw": {
     "city": "Campos dos Goytacazes",
     "municipality": "Campos dos Goytacazes",
@@ -59208,6 +59190,15 @@
     "country": "BR",
     "lat": -0.696111,
     "lon": -47.336111,
+    "source": "ourairports"
+  },
+  "ial": {
+    "city": "Salinas",
+    "municipality": "Salinas",
+    "airport": "Salinas Municipal Airport",
+    "country": "BR",
+    "lat": -16.2083,
+    "lon": -42.321999,
     "source": "ourairports"
   },
   "sfk": {
