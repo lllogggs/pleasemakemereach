@@ -11994,8 +11994,8 @@
     "source": "ourairports"
   },
   "iom": {
-    "city": "Castletown",
-    "municipality": "Castletown",
+    "city": "Castletown, Rushen",
+    "municipality": "Castletown, Rushen",
     "airport": "Isle of Man Airport",
     "country": "IM",
     "lat": 54.083081,
@@ -12075,8 +12075,8 @@
     "source": "ourairports"
   },
   "inv": {
-    "city": "Inverness",
-    "municipality": "Inverness",
+    "city": "Inverness, Highland",
+    "municipality": "Inverness, Highland",
     "airport": "Inverness Airport",
     "country": "GB",
     "lat": 57.5425,
@@ -22112,15 +22112,6 @@
     "lon": 74.315201,
     "source": "ourairports"
   },
-  "ine": {
-    "city": "Chinde",
-    "municipality": "Chinde",
-    "airport": "Chinde Airport",
-    "country": "MZ",
-    "lat": -18.59,
-    "lon": 36.4489,
-    "source": "ourairports"
-  },
   "iok": {
     "city": "Iokea",
     "municipality": "Iokea",
@@ -29317,8 +29308,8 @@
     "municipality": "Imperial",
     "airport": "Imperial Municipal Airport",
     "country": "US",
-    "lat": 40.50930023,
-    "lon": -101.6210022,
+    "lat": 40.5093,
+    "lon": -101.621002,
     "source": "ourairports"
   },
   "imm": {
@@ -29333,10 +29324,10 @@
   "mdn": {
     "city": "Madison",
     "municipality": "Madison",
-    "airport": "Madison Municipal Airport",
+    "airport": "Madison Regional Airport",
     "country": "US",
-    "lat": 38.75889969,
-    "lon": -85.46549988,
+    "lat": 38.7589,
+    "lon": -85.4655,
     "source": "ourairports"
   },
   "imt": {
@@ -44351,15 +44342,6 @@
     "lon": -88.361511,
     "source": "ourairports"
   },
-  "imi": {
-    "city": "Arno Atoll",
-    "municipality": "Arno Atoll",
-    "airport": "Ine Airport",
-    "country": "MH",
-    "lat": 7.005553,
-    "lon": 171.656959,
-    "source": "ourairports"
-  },
   "bqi": {
     "city": "Bagani",
     "municipality": "Bagani",
@@ -46605,15 +46587,6 @@
     "country": "AF",
     "lat": 36.70412,
     "lon": 67.210459,
-    "source": "ourairports"
-  },
-  "imz": {
-    "city": "Ziarat-e Amiran Saseb",
-    "municipality": "Ziarat-e Amiran Saseb",
-    "airport": "Nimroz Airport",
-    "country": "AF",
-    "lat": 30.963333,
-    "lon": 62.060833,
     "source": "ourairports"
   },
   "urn": {
@@ -48870,15 +48843,6 @@
     "country": "YE",
     "lat": 13.9368,
     "lon": 45.657,
-    "source": "ourairports"
-  },
-  "ihn": {
-    "city": "Qishn",
-    "municipality": "Qishn",
-    "airport": "Qishn Airport",
-    "country": "YE",
-    "lat": 15.417,
-    "lon": 51.682999,
     "source": "ourairports"
   },
   "riy": {
@@ -62754,8 +62718,8 @@
     "municipality": "Tiksi",
     "airport": "Tiksi Airport",
     "country": "RU",
-    "lat": 71.697700500488,
-    "lon": 128.90299987793,
+    "lat": 71.697701,
+    "lon": 128.903,
     "source": "ourairports"
   },
   "zkp": {
@@ -64775,8 +64739,8 @@
     "municipality": "Moscow",
     "airport": "Sheremetyevo International Airport",
     "country": "RU",
-    "lat": 55.976858,
-    "lon": 37.41121,
+    "lat": 55.977486,
+    "lon": 37.386677,
     "source": "ourairports"
   },
   "kld": {
@@ -64874,8 +64838,8 @@
     "municipality": "Inta",
     "airport": "Inta Airport",
     "country": "RU",
-    "lat": 66.053372,
-    "lon": 60.105786,
+    "lat": 66.055568,
+    "lon": 60.11088,
     "source": "ourairports"
   },
   "pex": {
@@ -68585,6 +68549,15 @@
     "country": "ID",
     "lat": -1.19002,
     "lon": 136.108002,
+    "source": "ourairports"
+  },
+  "imu": {
+    "city": "Akimuga, Mimika",
+    "municipality": "Akimuga, Mimika",
+    "airport": "Akimuga Airstrip",
+    "country": "ID",
+    "lat": -4.6043,
+    "lon": 137.6576,
     "source": "ourairports"
   },
   "oni": {
