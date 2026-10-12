@@ -15354,8 +15354,8 @@
     "municipality": "Port Mathurin",
     "airport": "Sir Charles Gaetan Duval Airport",
     "country": "MU",
-    "lat": -19.756696,
-    "lon": 63.359326,
+    "lat": -19.757668,
+    "lon": 63.36103,
     "source": "ourairports"
   },
   "nkw": {
@@ -37399,8 +37399,8 @@
     "municipality": "Málaga",
     "airport": "Málaga-Costa del Sol Airport",
     "country": "ES",
-    "lat": 36.6749,
-    "lon": -4.49911,
+    "lat": 36.678234,
+    "lon": -4.500208,
     "source": "ourairports"
   },
   "mah": {
@@ -56550,10 +56550,10 @@
   "ayo": {
     "city": "Ayolas",
     "municipality": "Ayolas",
-    "airport": "Aeropuerto Nacional Juan de Ayolas",
+    "airport": "Juan de Ayolas National Airport",
     "country": "PY",
-    "lat": -27.378379,
-    "lon": -56.856791,
+    "lat": -27.37052,
+    "lon": -56.854052,
     "source": "ourairports"
   },
   "bfa": {
@@ -56595,10 +56595,10 @@
   "flm": {
     "city": "Filadelfia",
     "municipality": "Filadelfia",
-    "airport": "Aeródromo de Filadelfia",
+    "airport": "Fernheim Airport",
     "country": "PY",
-    "lat": -22.354611,
-    "lon": -60.053211,
+    "lat": -22.36016,
+    "lon": -60.054447,
     "source": "ourairports"
   },
   "esg": {
@@ -56613,7 +56613,7 @@
   "olk": {
     "city": "Fuerte Olimpo",
     "municipality": "Fuerte Olimpo",
-    "airport": "Aeródromo de Fuerte",
+    "airport": "Fuerte Olimpo Airport",
     "country": "PY",
     "lat": -21.045724,
     "lon": -57.882935,
@@ -56622,16 +56622,16 @@
   "pil": {
     "city": "Pilar",
     "municipality": "Pilar",
-    "airport": "Aeródromo Don Carlos Miguel Gimenez",
+    "airport": "Don Carlos Miguel Gimenez Airport",
     "country": "PY",
-    "lat": -26.881981,
-    "lon": -58.319067,
+    "lat": -26.882079,
+    "lon": -58.318181,
     "source": "ourairports"
   },
   "pjc": {
     "city": "Pedro Juan Caballero",
     "municipality": "Pedro Juan Caballero",
-    "airport": "Aeropuerto Nacional Dr. Augusto Roberto Fuster",
+    "airport": "Dr. Augusto Roberto Fuster International Airport",
     "country": "PY",
     "lat": -22.641427,
     "lon": -55.829993,
@@ -66597,7 +66597,7 @@
   "vmi": {
     "city": "Puerto Vallemi",
     "municipality": "Puerto Vallemi",
-    "airport": "Aeropuerto Nacional Doctor Juan Plate",
+    "airport": "Doctor Juan Plate National Airport",
     "country": "PY",
     "lat": -22.159371,
     "lon": -57.942395,
