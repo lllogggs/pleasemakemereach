@@ -38801,10 +38801,10 @@
   "efl": {
     "city": "Kefallinia Island",
     "municipality": "Kefallinia Island",
-    "airport": "Kefallinia Airport",
+    "airport": "Kefalonia International Airport \"Anna Pollatou\"",
     "country": "GR",
-    "lat": 38.12009811401367,
-    "lon": 20.500499725341797,
+    "lat": 38.120098,
+    "lon": 20.5005,
     "source": "ourairports"
   },
   "kzs": {
@@ -39080,7 +39080,7 @@
   "zth": {
     "city": "Zakynthos",
     "municipality": "Zakynthos",
-    "airport": "Zakynthos International Airport Dionysios Solomos",
+    "airport": "Zakynthos International Airport \"Dionysios Solomos\"",
     "country": "GR",
     "lat": 37.7509,
     "lon": 20.8843,
@@ -44356,8 +44356,8 @@
     "municipality": "Aitutaki",
     "airport": "Aitutaki Airport",
     "country": "CK",
-    "lat": -18.8309,
-    "lon": -159.764008,
+    "lat": -18.837091,
+    "lon": -159.761008,
     "source": "ourairports"
   },
   "aiu": {
@@ -51366,7 +51366,7 @@
   "pbt": {
     "city": "Puerto Leda",
     "municipality": "Puerto Leda",
-    "airport": "Aeródromo de Puerto Leda",
+    "airport": "Puerto Leda Airport",
     "country": "PY",
     "lat": -20.908982,
     "lon": -57.926881,
@@ -56588,8 +56588,8 @@
     "municipality": "Ciudad del Este",
     "airport": "Guaraní International Airport",
     "country": "PY",
-    "lat": -25.457186,
-    "lon": -54.839544,
+    "lat": -25.4555,
+    "lon": -54.843601,
     "source": "ourairports"
   },
   "flm": {
