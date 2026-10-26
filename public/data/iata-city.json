@@ -14140,8 +14140,8 @@
     "municipality": "Ellisras",
     "airport": "Ellisras Matimba Airport",
     "country": "ZA",
-    "lat": -23.726699829101562,
-    "lon": 27.68829917907715,
+    "lat": -23.7267,
+    "lon": 27.688299,
     "source": "ourairports"
   },
   "fcb": {
@@ -14599,8 +14599,8 @@
     "municipality": "Belfast",
     "airport": "Sabi Sabi Airport",
     "country": "ZA",
-    "lat": -24.947375434199998,
-    "lon": 31.4488477707,
+    "lat": -24.947375,
+    "lon": 31.448848,
     "source": "ourairports"
   },
   "sis": {
@@ -61125,8 +61125,8 @@
     "municipality": "Fonte Boa",
     "airport": "Fonte Boa Airport",
     "country": "BR",
-    "lat": -2.5326099395800004,
-    "lon": -66.0831985474,
+    "lat": -2.53261,
+    "lon": -66.083199,
     "source": "ourairports"
   },
   "pin": {
@@ -69089,6 +69089,15 @@
     "country": "ID",
     "lat": 0.807028,
     "lon": 114.529052,
+    "source": "ourairports"
+  },
+  "ivd": {
+    "city": "Nusantara",
+    "municipality": "Nusantara",
+    "airport": "Nusantara International Airport",
+    "country": "ID",
+    "lat": -1.16053,
+    "lon": 116.71193,
     "source": "ourairports"
   },
   "bpn": {
