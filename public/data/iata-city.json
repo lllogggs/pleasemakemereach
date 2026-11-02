@@ -3827,8 +3827,8 @@
     "municipality": "Ilulissat",
     "airport": "Ilulissat Airport",
     "country": "GL",
-    "lat": 69.243202,
-    "lon": -51.057098,
+    "lat": 69.245641,
+    "lon": -51.052243,
     "source": "ourairports"
   },
   "kus": {
@@ -14104,8 +14104,8 @@
     "municipality": "Mubatuba",
     "airport": "Mubatuba Airport",
     "country": "ZA",
-    "lat": -28.36840057373047,
-    "lon": 32.24810028076172,
+    "lat": -28.366957,
+    "lon": 32.246701,
     "source": "ourairports"
   },
   "pzl": {
@@ -14131,8 +14131,8 @@
     "municipality": "Empangeni",
     "airport": "Empangeni Airport",
     "country": "ZA",
-    "lat": -28.719999313354492,
-    "lon": 31.889999389648438,
+    "lat": -28.719517,
+    "lon": 31.892727,
     "source": "ourairports"
   },
   "ell": {
@@ -14203,8 +14203,8 @@
     "municipality": "Harrismith",
     "airport": "Harrismith Airport",
     "country": "ZA",
-    "lat": -28.2351,
-    "lon": 29.106199,
+    "lat": -28.234936,
+    "lon": 29.106361,
     "source": "ourairports"
   },
   "hds": {
@@ -14248,8 +14248,8 @@
     "municipality": "Komatipoort",
     "airport": "Komatipoort Airport",
     "country": "ZA",
-    "lat": -25.44029998779297,
-    "lon": 31.93000030517578,
+    "lat": -25.4403,
+    "lon": 31.93,
     "source": "ourairports"
   },
   "kmh": {
@@ -14302,8 +14302,8 @@
     "municipality": "Durban",
     "airport": "King Shaka International Airport",
     "country": "ZA",
-    "lat": -29.6144444444,
-    "lon": 31.1197222222,
+    "lat": -29.613381,
+    "lon": 31.117942,
     "source": "ourairports"
   },
   "lcd": {
@@ -14318,10 +14318,10 @@
   "sdb": {
     "city": "Langebaanweg",
     "municipality": "Langebaanweg",
-    "airport": "Langebaanweg Airport",
+    "airport": "Langebaanweg Air Force Base",
     "country": "ZA",
-    "lat": -32.968898773199996,
-    "lon": 18.1602993011,
+    "lat": -32.968899,
+    "lon": 18.160299,
     "source": "ourairports"
   },
   "lay": {
@@ -14363,10 +14363,10 @@
   "mbd": {
     "city": "Mafeking",
     "municipality": "Mafeking",
-    "airport": "Mmabatho International Airport",
+    "airport": "George Dick Montshioa Airport",
     "country": "ZA",
-    "lat": -25.798400878900004,
-    "lon": 25.548000335699996,
+    "lat": -25.798401,
+    "lon": 25.548,
     "source": "ourairports"
   },
   "lle": {
@@ -14437,8 +14437,8 @@
     "municipality": "Oudtshoorn",
     "airport": "Oudtshoorn Airport",
     "country": "ZA",
-    "lat": -33.6069984436,
-    "lon": 22.188999176,
+    "lat": -33.606998,
+    "lon": 22.188999,
     "source": "ourairports"
   },
   "jnb": {
@@ -14644,8 +14644,8 @@
     "municipality": "Tzaneen",
     "airport": "Tzaneen Airport",
     "country": "ZA",
-    "lat": -23.8244,
-    "lon": 30.3293,
+    "lat": -23.822341,
+    "lon": 30.327244,
     "source": "ourairports"
   },
   "uld": {
@@ -22092,6 +22092,15 @@
     "country": "IN",
     "lat": 22.98753,
     "lon": 83.19612,
+    "source": "ourairports"
+  },
+  "dpp": {
+    "city": "Datia",
+    "municipality": "Datia",
+    "airport": "Datia Airport",
+    "country": "IN",
+    "lat": 25.649972,
+    "lon": 78.503167,
     "source": "ourairports"
   },
   "jgb": {
@@ -76098,15 +76107,6 @@
     "lon": -145.299398,
     "source": "ourairports"
   },
-  "tdt": {
-    "city": "Timbavati",
-    "municipality": "Timbavati",
-    "airport": "Tanda Tula Airport",
-    "country": "ZA",
-    "lat": -24.525533,
-    "lon": 31.289748,
-    "source": "ourairports"
-  },
   "hzv": {
     "city": "Hazyview",
     "municipality": "Hazyview",
@@ -76148,8 +76148,8 @@
     "municipality": "Tshipise",
     "airport": "Tshipise Airport",
     "country": "ZA",
-    "lat": -22.619300842285156,
-    "lon": 30.175600051879883,
+    "lat": -22.618808,
+    "lon": 30.177817,
     "source": "ourairports"
   },
   "ssx": {
